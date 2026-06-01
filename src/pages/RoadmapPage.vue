@@ -1,10 +1,11 @@
 <template>
-  <router-view />
+  <RoadmapSection />
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
 import { useSiteStore } from '@/stores/useSiteStore'
+import RoadmapSection from '@/components/RoadmapSection.vue'
 
 const siteStore = useSiteStore()
 

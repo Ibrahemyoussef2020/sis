@@ -58,6 +58,36 @@
           </div>
         </aside>
       </div>
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        <div class="rounded-[2rem] border border-sis-border bg-sis-panel p-6 shadow-sis">
+          <h3 class="text-lg font-semibold text-sis-primary">Applications</h3>
+          <p class="mt-4 text-sm leading-6 text-sis-muted">Tools for monitoring, reporting, and predictive analytics that connect operational outcomes to business decisions.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <template v-if="loaded">
+              <span v-for="app in architecture.applications" :key="app" class="rounded-full bg-sis-primary/10 px-4 py-2 text-sm text-sis-primary">{{ app }}</span>
+            </template>
+            <template v-else>
+              <div class="h-10 w-24 rounded-full skeleton"></div>
+              <div class="h-10 w-24 rounded-full skeleton"></div>
+              <div class="h-10 w-24 rounded-full skeleton"></div>
+            </template>
+          </div>
+        </div>
+        <div class="rounded-[2rem] border border-sis-border bg-sis-panel p-6 shadow-sis">
+          <h3 class="text-lg font-semibold text-sis-primary">Cybersecurity</h3>
+          <p class="mt-4 text-sm leading-6 text-sis-muted">Built-in protections for secure OT/IT integration, including access control, encryption, and continuous monitoring.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <template v-if="loaded">
+              <span v-for="item in architecture.cybersecurity" :key="item" class="rounded-full bg-sis-accent/10 px-4 py-2 text-sm text-sis-text">{{ item }}</span>
+            </template>
+            <template v-else>
+              <div class="h-10 w-24 rounded-full skeleton"></div>
+              <div class="h-10 w-24 rounded-full skeleton"></div>
+              <div class="h-10 w-24 rounded-full skeleton"></div>
+            </template>
+          </div>
+        </div>
+      </div>
     </div>
   </SectionWrapper>
 </template>

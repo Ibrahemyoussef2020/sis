@@ -1,5 +1,5 @@
 <template>
-  <SectionWrapper wrapperClass="bg-sis-panel text-sis-text" id="about">
+  <SectionWrapper wrapperClass="bg-sis-panel text-sis-text">
     <div class="mx-auto max-w-7xl">
       <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>

@@ -1,6 +1,6 @@
 <template>
   <SectionWrapper wrapperClass="bg-sis-panel text-sis-text">
-    <div class="mx-auto max-w-7xl" id="timeline">
+    <div class="mx-auto max-w-7xl">
       <div class="mb-10">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Timeline</p>
         <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>{{ timeline?.title }}</h2>

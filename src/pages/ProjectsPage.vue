@@ -1,10 +1,11 @@
 <template>
-  <router-view />
+  <ProjectsSection />
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
 import { useSiteStore } from '@/stores/useSiteStore'
+import ProjectsSection from '@/components/ProjectsSection.vue'
 
 const siteStore = useSiteStore()
 

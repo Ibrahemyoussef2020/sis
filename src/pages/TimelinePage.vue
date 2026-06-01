@@ -1,10 +1,11 @@
 <template>
-  <router-view />
+  <TimelineSection />
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
 import { useSiteStore } from '@/stores/useSiteStore'
+import TimelineSection from '@/components/TimelineSection.vue'
 
 const siteStore = useSiteStore()
 
