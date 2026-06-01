@@ -1,0 +1,60 @@
+:root {
+  --sis-primary: #1B3A6B;
+  --sis-accent: #2F7EC7;
+  --sis-light: #4A9FD4;
+  --sis-panel: #F4F7FA;
+  --sis-white: #FFFFFF;
+  --sis-text: #1A2332;
+  --sis-muted: #6B7C93;
+  --sis-border: #D1DCE8;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--sis-panel);
+    color: var(--sis-text);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer utilities {
+  .text-sis-primary { color: var(--sis-primary); }
+  .bg-sis-primary { background-color: var(--sis-primary); }
+  .bg-sis-accent { background-color: var(--sis-accent); }
+  .bg-sis-light { background-color: var(--sis-light); }
+  .border-sis-border { border-color: var(--sis-border); }
+  .text-sis-muted { color: var(--sis-muted); }
+  .shadow-sis { box-shadow: 0 25px 60px rgba(27, 58, 107, 0.12); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(241,244,248,1) 0%, rgba(229,234,241,1) 50%, rgba(241,244,248,1) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite ease;
+}
+
+.content-fade-enter-active,
+.content-fade-leave-active {
+  transition: opacity 0.45s ease;
+}
+.content-fade-enter-from,
+.content-fade-leave-to {
+  opacity: 0;
+}
