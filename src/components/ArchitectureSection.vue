@@ -1,7 +1,21 @@
 <template>
   <section id="architecture" class="arc-root">
 
-    <!-- Background subtle dot mesh -->
+    <!-- Layer 1: Video background -->
+    <video
+      class="arc-video-bg"
+      src="/src/videos/increased-numbers.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+    ></video>
+
+    <!-- Layer 2: Isolation overlay (semi-transparent) -->
+    <div class="arc-overlay" aria-hidden="true"></div>
+
+    <!-- Layer 0.5: Dot mesh (sits above video, below content) -->
     <div class="arc-mesh" aria-hidden="true"></div>
 
     <div class="arc-inner">
@@ -91,7 +105,7 @@
           <div v-else class="glass-card layer-card skeleton-card" data-reveal></div>
 
           <!-- Applications + Cybersecurity row -->
-          <div class="bottom-row">
+          <div class="bottom-row" style="display: none !important;">
 
             <!-- Applications -->
             <div v-if="loaded" class="glass-card bottom-card" data-reveal>
@@ -202,7 +216,7 @@
               <span class="detail-eyebrow">Detail View</span>
               <h4 class="detail-title">
                 {{ activeChip }}
-                <svg class="detail-verified" viewBox="0 0 24 24" fill="#004ac6" aria-hidden="true">
+                <svg class="detail-verified" viewBox="0 0 24 24" fill="#005fff" aria-hidden="true">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </h4>
@@ -246,27 +260,48 @@ const activeChipDetail = computed(() => {
 /* ── Root ──────────────────────────────────────────────────────────── */
 .arc-root {
   position: relative;
-  background: #f7f9fb;
+  background: transparent;
   overflow: hidden;
   padding: 5rem 2rem;
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  color: #191c1e;
+  color: #e8edf8;
+}
+
+/* Layer 1 – video background */
+.arc-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Layer 2 – isolation overlay */
+.arc-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 18, 40, 0.72);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* dot mesh */
 .arc-mesh {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(0,0,0,0.04) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.06) 1px, transparent 0);
   background-size: 28px 28px;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 
 /* ── Inner container ───────────────────────────────────────────────── */
 .arc-inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -280,13 +315,13 @@ const activeChipDetail = computed(() => {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  color: #191c1e;
+  color: #e8edf8;
   margin: 0 0 0.4rem 0;
 }
 .arc-subtitle {
   font-size: 1rem;
   font-weight: 400;
-  color: #434655;
+  color: #a0adc4;
   margin: 0;
 }
 
@@ -312,12 +347,13 @@ const activeChipDetail = computed(() => {
 
 /* ── Glass card base ───────────────────────────────────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255,255,255,0.8) inset;
+  background: rgba(12, 25, 55, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255,255,255,0.08) inset;
   border-radius: 0.875rem;
+  color: #999;
 }
 
 /* ── Layer cards ───────────────────────────────────────────────────── */
@@ -338,14 +374,14 @@ const activeChipDetail = computed(() => {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #004ac6;
+  color: #005fff;
   margin-bottom: 0.35rem;
 }
 
 .layer-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #191c1e;
+  color: #e8edf8;
   margin: 0;
   letter-spacing: -0.01em;
 }
@@ -361,9 +397,9 @@ const activeChipDetail = computed(() => {
   flex-shrink: 0;
 }
 .layer-icon-wrap svg { width: 1.25rem; height: 1.25rem; }
-.layer-icon-wrap--cloud { background: rgba(0,74,198,0.08); color: #004ac6; }
-.layer-icon-wrap--edge  { background: rgba(0,74,198,0.06); color: #004ac6; }
-.layer-icon-wrap--field { background: rgba(0,74,198,0.04); color: #004ac6; }
+.layer-icon-wrap--cloud { background: rgba(0,74,198,0.08); color: #005fff; }
+.layer-icon-wrap--edge  { background: rgba(0,74,198,0.06); color: #005fff; }
+.layer-icon-wrap--field { background: rgba(0,74,198,0.04); color: #005fff; }
 
 /* ── Chips ─────────────────────────────────────────────────────────── */
 .chip-row {
@@ -391,15 +427,15 @@ const activeChipDetail = computed(() => {
 .chip--blue:hover { background: #c0d6fd; }
 
 .chip--neutral {
-  background: #eceef0;
-  color: #434655;
-  border: 1px solid rgba(67,70,85,0.15);
+  background: rgba(255,255,255,0.08);
+  color: #c8d4ec;
+  border: 1px solid rgba(255,255,255,0.15);
 }
-.chip--neutral:hover { border-color: #004ac6; }
+.chip--neutral:hover { border-color: #5b8aff; }
 
 .chip--primary {
   background: rgba(0,74,198,0.07);
-  color: #004ac6;
+  color: #fff;
   border: 1px solid rgba(0,74,198,0.18);
 }
 .chip--primary:hover { background: rgba(0,74,198,0.13); }
@@ -411,9 +447,9 @@ const activeChipDetail = computed(() => {
   gap: 0.625rem;
 }
 .field-chip {
-  background: #f2f4f6;
-  color: #434655;
-  border: 1px solid rgba(67,70,85,0.12);
+  background: rgba(255,255,255,0.07);
+  color: #c8d4ec;
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 0.5rem;
   padding: 0.6rem 0.75rem;
   display: flex;
@@ -426,7 +462,7 @@ const activeChipDetail = computed(() => {
   transition: border-color 0.2s ease, background 0.2s ease;
   cursor: default;
 }
-.field-chip:hover { border-color: #004ac6; background: #fff; }
+.field-chip:hover { border-color: #5b8aff; background: rgba(255,255,255,0.12); }
 
 /* ── Bottom row ────────────────────────────────────────────────────── */
 .bottom-row {
@@ -464,20 +500,20 @@ const activeChipDetail = computed(() => {
 .bc-icon--red  { background: rgba(186,26,26,0.08); color: #ba1a1a; }
 
 .bc-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: #191c1e;
-  margin: 0;
-}
+  color: #eee;
+  margin: 0; 
+} 
 .bc-subtitle {
-  font-size: 0.72rem;
-  color: #737686;
+  font-size: 0.88rem;
+  color: #ccc;
   margin: 0.15rem 0 0 0;
 }
 .bc-body {
   font-size: 0.8rem;
   line-height: 1.6;
-  color: #434655;
+  color: #999;
   margin: 0;
 }
 .bc-footer {
@@ -493,7 +529,7 @@ const activeChipDetail = computed(() => {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #737686;
+  color: #999;
 }
 .bc-link {
   background: none;
@@ -502,7 +538,7 @@ const activeChipDetail = computed(() => {
   cursor: pointer;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #004ac6;
+  color: #005fff;
   font-family: inherit;
   transition: opacity 0.2s;
 }
@@ -533,12 +569,12 @@ const activeChipDetail = computed(() => {
 .banner-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #191c1e;
+  color: #eee;
   margin: 0 0 0.4rem 0;
 }
 .banner-body {
   font-size: 0.85rem;
-  color: #434655;
+  color: #999;
   max-width: 36rem;
   margin: 0;
   line-height: 1.55;
@@ -577,7 +613,7 @@ const activeChipDetail = computed(() => {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #434655;
+  color: #999;
   margin: 0 0 1rem 0;
 }
 .sidebar-icon {
@@ -607,9 +643,9 @@ const activeChipDetail = computed(() => {
 }
 .proto-chip:hover { background: #d3e4fe; border-color: rgba(0,74,198,0.3); }
 .proto-chip--active {
-  background: #004ac6;
+  background: #005fff;
   color: #fff;
-  border-color: #004ac6;
+  border-color: #005fff;
   box-shadow: 0 2px 8px rgba(0,74,198,0.35);
 }
 .proto-chip:active { transform: scale(0.95); }
@@ -638,8 +674,8 @@ const activeChipDetail = computed(() => {
 .detail-panel {
   position: relative;
   overflow: hidden;
-  background: rgba(0,74,198,0.04);
-  border: 1px solid rgba(0,74,198,0.18);
+  background: rgba(0,74,198,0.06);
+  border: 1px solid rgba(8,100,255,0.18); 
   border-radius: 0.875rem;
   padding: 1.5rem;
 }
@@ -664,7 +700,7 @@ const activeChipDetail = computed(() => {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #004ac6;
+  color: #005fff;
   margin-bottom: 0.5rem;
 }
 .detail-title {
@@ -673,7 +709,7 @@ const activeChipDetail = computed(() => {
   gap: 0.4rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #191c1e;
+  color: #ccc;
   margin: 0 0 0.75rem 0;
 }
 .detail-verified {
@@ -684,7 +720,7 @@ const activeChipDetail = computed(() => {
 .detail-desc {
   font-size: 0.8rem;
   line-height: 1.6;
-  color: #54647a;
+  color: #ccc;
   margin: 0;
 }
 .detail-hr {
@@ -703,6 +739,6 @@ const activeChipDetail = computed(() => {
   align-items: center;
   font-size: 0.75rem;
 }
-.detail-label { color: #737686; }
-.detail-value { font-weight: 700; color: #004ac6; }
+.detail-label { color: #ddd; }
+.detail-value { font-weight: 700; color: #025eff; }
 </style>
