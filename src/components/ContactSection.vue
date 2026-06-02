@@ -4,7 +4,7 @@
       <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div class="rounded-[2rem] border border-sis-border bg-white p-10 shadow-sis">
           <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Contact</p>
-          <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>{{ contact?.headline }}</h2>
+          <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>{{ contact?.headline }}</h2>
           <div class="mt-8 space-y-6">
             <div class="flex items-center gap-4" data-reveal>
               <span class="flex h-12 w-12 items-center justify-center rounded-3xl bg-sis-primary text-white">🌐</span>
@@ -32,7 +32,7 @@
         </div>
         <form class="rounded-[2rem] border border-sis-border bg-sis-primary p-10 text-white shadow-sis" @submit.prevent>
           <p class="text-sm uppercase tracking-[0.3em] text-sis-light" data-reveal>Request a Call</p>
-          <h3 class="mt-3 text-3xl font-semibold" data-reveal>Start your digital transformation</h3>
+          <h3 class="mt-3 text-2xl font-semibold" data-reveal>Start your digital transformation</h3>
           <div class="mt-8 space-y-5">
             <label class="block" data-reveal>
               <span class="text-sm text-sis-panel/80">Name</span>

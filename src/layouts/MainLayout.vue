@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen overflow-x-hidden bg-sis-panel text-sis-text">
     <NavBar />
-    <main class="pt-24">
+    <main >
       <router-view />
     </main>
     <FooterSection />

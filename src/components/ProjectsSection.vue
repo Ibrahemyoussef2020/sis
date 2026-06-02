@@ -4,7 +4,7 @@
       <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Projects</p>
-          <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>Sector Success Stories</h2>
+          <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>Sector Success Stories</h2>
         </div>
         <div class="flex flex-wrap gap-2" data-reveal>
           <button v-for="sector in sectors" :key="sector.id" @click="activeSector = sector.id" class="rounded-full px-4 py-2 text-sm transition" :class="activeSector === sector.id ? 'bg-sis-accent text-white' : 'bg-sis-panel text-sis-text border border-sis-border'">{{ sector.label }}</button>

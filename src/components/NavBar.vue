@@ -1,26 +1,42 @@
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-sis-border bg-sis-panel text-sis-text transition-all duration-500">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-      <router-link to="/" class="flex items-center gap-3 text-sis-text">
-        <span class="grid h-12 w-12 place-items-center rounded-full bg-sis-primary/10 text-xl font-bold text-sis-primary">SiS</span>
-        <span class="hidden sm:inline-block text-sm uppercase tracking-[0.28em] text-sis-text">Superior Integrated Solutions</span>
+  <header ref="headerEl" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#05131f]/95 text-white backdrop-blur-xl shadow-glow">
+    <div class="flex w-full items-center justify-between px-4 py-4 sm:px-6 lg:px-8 gap-6">
+      <router-link to="/" class="flex items-center gap-3 text-white flex-shrink-0">
+        <span class="grid h-12 w-12 place-items-center rounded-full bg-sis-accent/15 text-xl font-bold text-sis-accent">SiS</span>
+        <span class="hidden md:inline-block text-sm uppercase tracking-[0.28em] text-white/80">
+        Superior <br/> Integrated Solutions
+        </span>
       </router-link>
-      <nav class="hidden items-center gap-8 text-sm font-medium text-sis-text md:flex">
-        <router-link v-for="item in navItems" :key="item.label" :to="item.path ? item.path : { name: item.name }" class="relative flex items-center gap-2 transition hover:text-sis-accent" :class="(item.name && $route.name === item.name) || ($route.path === '/' && item.path && $route.hash === item.path.replace('/#','') ) ? 'text-sis-accent font-semibold' : ''">
-          <span class="text-lg" aria-hidden="true">{{ getIcon(item) }}</span>
-          <span>{{ item.label }}</span>
-          <span class="absolute inset-x-0 -bottom-1 h-0.5 bg-sis-accent opacity-0 transition-opacity duration-300" :class="(item.name && $route.name === item.name) || ($route.path === '/' && item.path && $route.hash === item.path.replace('/#','') ) ? 'opacity-100' : ''"></span>
-        </router-link>
-      </nav>
-      <button class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-sis-border text-sis-text md:hidden transition hover:bg-sis-panel/80" @click="toggleMenu" aria-label="Menu">
+
+      <!-- Wrapper for nav, search, and language selector -->
+      <div class="hidden md:flex items-center flex-1 gap-8">
+        <nav class="items-center gap-8 text-sm font-medium text-white/90 flex justify-center flex-1">
+          <router-link v-for="item in navItems" :key="item.label" :to="item.path ? item.path : { name: item.name }" class="relative flex items-center gap-2 rounded-full px-3 py-2 transition hover:text-sis-accent hover:bg-white/5" :class="(item.name && $route.name === item.name) || ($route.path === '/' && item.path && $route.hash === item.path.replace('/#','')) ? 'text-sis-accent bg-white/5 font-semibold' : ''">
+            <span class="text-base" aria-hidden="true">{{ item.icon }}</span>
+            <span>{{ item.label }}</span>
+          </router-link>
+        </nav>
+
+        <div class="items-center gap-3 flex flex-shrink-0">
+          <button class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10">
+            🔍
+          </button>
+          <button class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.24em] text-white transition hover:bg-white/10">
+            EN
+            <span class="text-[0.55rem]">▾</span>
+          </button>
+        </div>
+      </div>
+      <button class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-white md:hidden transition hover:bg-white/10 flex-shrink-0" @click="toggleMenu" aria-label="Menu">
         <span class="text-2xl">☰</span>
       </button>
     </div>
+
     <transition name="content-fade">
-      <div v-if="menuOpen" class="border-t border-sis-border bg-sis-panel px-4 py-6 text-sis-text md:hidden">
-        <div class="flex flex-col gap-4">
-          <router-link v-for="item in navItems" :key="item.label" :to="item.path ? item.path : { name: item.name }" @click="toggleMenu" class="rounded-xl px-4 py-3 transition hover:bg-sis-panel/80 flex items-center gap-3">
-            <span class="text-lg" aria-hidden="true">{{ getIcon(item) }}</span>
+      <div v-if="menuOpen" class="border-t border-white/10 bg-[#061826]/95 px-4 py-6 text-white md:hidden">
+        <div class="flex flex-col gap-3">
+          <router-link v-for="item in navItems" :key="item.label" :to="item.path ? item.path : { name: item.name }" @click="toggleMenu" class="rounded-3xl px-4 py-3 transition hover:bg-white/10 flex items-center gap-3">
+            <span class="text-lg" aria-hidden="true">{{ item.icon }}</span>
             <span>{{ item.label }}</span>
           </router-link>
         </div>
@@ -34,45 +50,31 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const headerEl = ref(null)
 const navItems = [
-  { name: 'home', label: 'Home' },
-  { name: 'about', label: 'About' },
-  { path: '/#services', label: 'Services' },
-  { path: '/#architecture', label: 'Architecture' },
-  { path: '/#methodology', label: 'Methodology' },
-  { name: 'projects', label: 'Projects' },
-  { name: 'contact', label: 'Contact' }
+  { name: 'home', label: 'Home', icon: '🏠' },
+  { path: '/#services', label: 'Solutions ▾', icon: '🛠️' },
+  { name: 'about', label: 'About Us', icon: '📘' },
+  { name: 'projects', label: 'Our Work', icon: '🗂️' },
+  { name: 'contact', label: 'Contact', icon: '✉️' }
 ]
 
 const menuOpen = ref(false)
-const scrolled = ref(false)
-
-function getIcon(item) {
-  // Sections (anchor paths) get a down-arrow prefix
-  if (item.path) return '⬇️'
-  const map = {
-    home: '🏠',
-    about: '📘',
-    projects: '🗂️',
-    contact: '✉️'
-  }
-  return map[item.name] || '📄'
-}
-
-const updateScroll = () => {
-  scrolled.value = window.scrollY > 24
-}
 
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value
 }
 
 onMounted(() => {
-  updateScroll()
-  window.addEventListener('scroll', updateScroll)
+  // Header stays fixed at top - scroll behavior handled by page layout
+  // Ensure no scroll offset issues by maintaining fixed positioning
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateScroll)
+  // cleanup
 })
+
+function onScroll() {
+  // no-op scroll listener preserved for future style updates
+}
 </script>

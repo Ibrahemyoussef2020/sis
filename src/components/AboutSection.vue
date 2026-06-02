@@ -4,7 +4,7 @@
       <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>About</p>
-          <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>{{ about?.title }}</h2>
+          <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>{{ about?.title }}</h2>
         </div>
       </div>
       <div class="grid gap-8 lg:grid-cols-[1.35fr_0.85fr]">

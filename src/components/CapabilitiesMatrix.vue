@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-7xl">
       <div class="mb-10">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Capabilities</p>
-        <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>{{ capabilities?.title }}</h2>
+        <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>{{ capabilities?.title }}</h2>
       </div>
       <div class="overflow-x-auto rounded-[2rem] border border-sis-border bg-sis-panel shadow-sis">
         <table class="min-w-full border-collapse text-left">

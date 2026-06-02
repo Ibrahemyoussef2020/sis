@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-7xl" id="sectors">
       <div class="mb-10">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Sectors</p>
-        <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>Regional Industry Expertise</h2>
+        <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>Regional Industry Expertise</h2>
       </div>
       <div class="grid gap-4 lg:grid-cols-2">
         <template v-if="loaded">

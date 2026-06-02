@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-7xl">
       <div class="mb-10">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Methodology</p>
-        <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>{{ methodology?.title }}</h2>
+        <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>{{ methodology?.title }}</h2>
       </div>
       <div class="grid gap-4 lg:grid-cols-3">
         <template v-if="loaded">

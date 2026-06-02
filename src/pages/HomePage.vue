@@ -3,6 +3,7 @@
   <IntegrationSection />
   <ServicesSection />
   <ArchitectureSection />
+  <Workflow/>
   <MethodologySection />
 </template>
 
@@ -14,6 +15,7 @@ import IntegrationSection from '@/components/IntegrationSection.vue'
 import ServicesSection from '@/components/ServicesSection.vue'
 import ArchitectureSection from '@/components/ArchitectureSection.vue'
 import MethodologySection from '@/components/MethodologySection.vue'
+import Workflow from '../components/Workflow.vue'
 
 const siteStore = useSiteStore()
 

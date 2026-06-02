@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-7xl">
       <div class="mb-10">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Timeline</p>
-        <h2 class="mt-3 text-3xl font-semibold sm:text-4xl" data-reveal>{{ timeline?.title }}</h2>
+        <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>{{ timeline?.title }}</h2>
         <p class="mt-3 max-w-2xl text-sis-muted" data-reveal>{{ timeline?.subtitle }}</p>
       </div>
       <div class="relative overflow-hidden rounded-[2rem] border border-sis-border bg-white p-6 shadow-sis">
