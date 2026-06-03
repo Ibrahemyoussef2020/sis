@@ -42,16 +42,15 @@
       </div>
 
       <!-- Project cards grid -->
-      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        <template v-if="loaded">
-          <transition-group name="fade-up" appear>
+      <template v-if="loaded">
+        <transition name="fade-tab" mode="out-in">
+          <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3" :key="activeSector">
             <article
               v-for="(project, i) in filteredProjects"
               :key="project.client"
               class="group bg-white rounded-2xl border border-[#e6e8ea] p-7 flex flex-col gap-4
                      hover:border-[#3e7fca]/50 hover:shadow-xl hover:shadow-[#3e7fca]/8
                      hover:-translate-y-1 transition-all duration-300"
-              :style="{ transitionDelay: `${i * 60}ms` }"
             >
               <!-- Top row: sector badge + location -->
               <div class="flex items-center justify-between gap-2 flex-wrap">
@@ -86,16 +85,16 @@
                 >{{ tag }}</span>
               </div>
             </article>
-          </transition-group>
-        </template>
-
-        <!-- Skeleton loaders -->
-        <template v-else>
-          <div v-for="n in 6" :key="n"
-               class="h-52 rounded-2xl animate-pulse bg-gradient-to-r from-[#e6e8ea] via-[#f2f4f6] to-[#e6e8ea]"
-               :style="{ animationDelay: `${n * 100}ms` }">
           </div>
-        </template>
+        </transition>
+      </template>
+
+      <!-- Skeleton loaders -->
+      <div v-else class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div v-for="n in 6" :key="n"
+             class="h-52 rounded-2xl animate-pulse bg-gradient-to-r from-[#e6e8ea] via-[#f2f4f6] to-[#e6e8ea]"
+             :style="{ animationDelay: `${n * 100}ms` }">
+        </div>
       </div>
 
       <!-- Empty state -->
@@ -143,12 +142,18 @@ const stats = [
 </script>
 
 <style scoped>
-
-.fade-up-enter-active {
-  transition: all 0.4s ease;
+.fade-tab-enter-active,
+.fade-tab-leave-active {
+  transition: all 0.35s ease;
 }
-.fade-up-enter-from {
+
+.fade-tab-enter-from {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(10px);
+}
+
+.fade-tab-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 </style>
