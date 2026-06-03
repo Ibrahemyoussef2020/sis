@@ -13,6 +13,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -27,25 +33,66 @@
   a {
     color: inherit;
   }
+
+  section:not(#hero) {
+    min-height: 100vh !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
 }
 
 @layer utilities {
-  .text-sis-primary { color: var(--sis-primary); }
-  .bg-sis-primary { background-color: var(--sis-primary); }
-  .bg-sis-accent { background-color: var(--sis-accent); }
-  .bg-sis-light { background-color: var(--sis-light); }
-  .border-sis-border { border-color: var(--sis-border); }
-  .text-sis-muted { color: var(--sis-muted); }
-  .shadow-sis { box-shadow: 0 25px 60px rgba(27, 58, 107, 0.12); }
+  .text-sis-primary {
+    color: var(--sis-primary);
+  }
+
+  .bg-sis-primary {
+    background-color: var(--sis-primary);
+  }
+
+  .bg-sis-accent {
+    background-color: var(--sis-accent);
+  }
+
+  .bg-sis-light {
+    background-color: var(--sis-light);
+  }
+
+  .border-sis-border {
+    border-color: var(--sis-border);
+  }
+
+  .text-sis-muted {
+    color: var(--sis-muted);
+  }
+
+  .shadow-sis {
+    box-shadow: 0 25px 60px rgba(27, 58, 107, 0.12);
+  }
+
+  /* Custom gradient utility */
+  .bg-black-lean-gradient {
+    --tw-gradient-stops: #0b1326, rgb(0 74 198 / 87%) var(--tw-gradient-via-position), #000000 var(--tw-gradient-to-position);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .skeleton {
-  background: linear-gradient(90deg, rgba(241,244,248,1) 0%, rgba(229,234,241,1) 50%, rgba(241,244,248,1) 100%);
+  background: linear-gradient(90deg, rgba(241, 244, 248, 1) 0%, rgba(229, 234, 241, 1) 50%, rgba(241, 244, 248, 1) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.4s infinite ease;
 }
@@ -54,6 +101,7 @@
 .content-fade-leave-active {
   transition: opacity 0.45s ease;
 }
+
 .content-fade-enter-from,
 .content-fade-leave-to {
   opacity: 0;

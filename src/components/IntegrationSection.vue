@@ -1,7 +1,7 @@
 <template>
   <SectionWrapper wrapperClass="bg-sis-panel text-sis-text">
     <div class="mx-auto max-w-7xl">
-      <div class="mb-10">
+      <div class="mb-6">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Digital Integration</p>
         <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>What Drives Our OT–IT Journey</h2>
         <p class="mt-4 max-w-3xl text-sis-muted" data-reveal>
@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <div class="mt-12 text-center">
+      <div class="mt-8 text-center">
         <a href="#/projects" class="inline-block rounded-full bg-sis-accent px-6 py-3 text-white">Explore Case Studies</a>
       </div>
     </div>

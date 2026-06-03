@@ -197,12 +197,17 @@ function onTiltReset(e) {
 /* ── Root ─────────────────────────────────────────────────────────── */
 .services-root {
   position: relative;
-  overflow: hidden;
+  overflow: hidden !important;
   background: #0b1326;
   background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.018) 1px, transparent 0);
   background-size: 40px 40px;
-  padding: 7rem 1.5rem;
+  padding: 0 !important;
   color: #dae2fd;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
 /* ── Circuit lines bg ─────────────────────────────────────────────── */
@@ -268,14 +273,23 @@ function onTiltReset(e) {
   z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+@media (min-width: 1024px) {
+  .services-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
 }
 
 /* ── Section header ───────────────────────────────────────────────── */
 .section-header {
-  margin-bottom: 5rem;
-}
-@media (min-width: 768px) {
-  .section-header { margin-bottom: 7rem; }
+  flex: 0 0 35%;
+  margin-bottom: 0;
 }
 
 .label-row {
@@ -317,16 +331,22 @@ function onTiltReset(e) {
 
 /* ── Stagger grid ─────────────────────────────────────────────────── */
 .stagger-grid {
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .stagger-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ── Glass card shared ────────────────────────────────────────────── */
 .glass-card {
   position: relative;
   overflow: hidden;
-  padding: 2.5rem;
+  padding: 1.25rem;
   border-radius: 1.25rem;
   background: linear-gradient(165deg, rgba(11,19,38,0.82) 0%, rgba(23,31,51,0.42) 100%);
   backdrop-filter: blur(20px);
@@ -357,32 +377,14 @@ function onTiltReset(e) {
   user-select: none;
 }
 
-/* ── Card column spans & stagger offsets ──────────────────────────── */
-.card-1 { grid-column: span 12; }
-.card-2 { grid-column: span 12; }
-.card-3 { grid-column: span 12; }
-.card-4 { grid-column: span 12; }
-
-@media (min-width: 768px) {
-  .card-1 { grid-column: span 6; }
-  .card-2 { grid-column: span 6; }
-  .card-3 { grid-column: span 7; }
-  .card-4 { grid-column: span 5; }
-}
-
-@media (min-width: 1024px) {
-  .card-1 { grid-column: span 5; margin-top: 0; }
-  .card-2 { grid-column: 7 / span 6; margin-top: -3rem; }
-  .card-3 { grid-column: span 6; margin-top: 3rem; }
-  .card-4 { grid-column: 8 / span 5; margin-top: 8rem; }
-}
+/* ── Card column spans & stagger offsets removed for side-by-side layout ──────────────────────────── */
 
 /* ── Icon wrapper ─────────────────────────────────────────────────── */
 .icon-wrap {
   position: relative;
-  width: 4rem;
-  height: 4rem;
-  margin-bottom: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1rem;
 }
 .icon-glow {
   position: absolute;
@@ -400,8 +402,8 @@ function onTiltReset(e) {
 /* ── Icon box ─────────────────────────────────────────────────────── */
 .icon-box {
   position: relative;
-  width: 4rem;
-  height: 4rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 0.75rem;
   border: 1px solid rgba(137,206,255,0.22);
   display: flex;
@@ -435,9 +437,9 @@ function onTiltReset(e) {
 /* ── Card typography ──────────────────────────────────────────────── */
 .card-title {
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: 1.35rem;
-  line-height: 1.3;
-  margin: 0 0 1rem 0;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
   display: flex;
   align-items: baseline;
   gap: 0.4rem;
@@ -453,8 +455,8 @@ function onTiltReset(e) {
 
 .card-body {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9375rem;
-  line-height: 1.65;
+  font-size: 0.8rem;
+  line-height: 1.5;
   color: #8d909c;
   max-width: 22rem;
   margin: 0;
@@ -465,7 +467,7 @@ function onTiltReset(e) {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;

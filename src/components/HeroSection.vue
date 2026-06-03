@@ -1,10 +1,10 @@
 <template>
-  <section id="hero" class="relative w-full h-screen text-white" style="margin-top: 0; padding-top: 0;">
+  <section id="hero" class="relative w-full h-[calc(100vh-5px)] text-white" style="margin-top: 0; padding-top: 0;">
     <!-- Layer 1: Background image -->
     <div class="absolute inset-0" :style="{ backgroundImage: `url(${homeIntroImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }"></div>
 
-    <!-- Overlay layers -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0a1820]/50 via-[#0d1f2d]/40 to-[#0a1820]/50"></div>
+    <!-- Overlay layers --> 
+    <div class="absolute inset-0 bg-black-lean-gradient bg-gradient-to-r"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1f2d]/20 to-[#0a1f2e]/40"></div>
 
     <!-- Glowing accents -->

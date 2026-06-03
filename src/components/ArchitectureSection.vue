@@ -20,17 +20,19 @@
 
     <div class="arc-inner">
 
-      <!-- ── Header ─────────────────────────────────────────────── -->
-      <header class="arc-header" data-reveal>
-        <h2 class="arc-title">{{ architecture?.title ?? 'Vendor-Agnostic Industrial Digital Architecture' }}</h2>
-        <p class="arc-subtitle">{{ architecture?.subtitle ?? 'Intelligent OT-IT Integration Strategy' }}</p>
-      </header>
+      
+      
 
       <!-- ── Main grid: canvas 8 cols + sidebar 4 cols ──────────── -->
       <div class="arc-grid">
 
         <!-- LEFT CANVAS -->
         <div class="arc-canvas">
+
+          <header class="arc-header" data-reveal>
+        <h2 class="arc-title">{{ architecture?.title ?? 'Vendor-Agnostic Industrial Digital Architecture' }}</h2>
+        <p class="arc-subtitle">{{ architecture?.subtitle ?? 'Intelligent OT-IT Integration Strategy' }}</p>
+      </header>
 
           <!-- Cloud Layer -->
           <div v-if="loaded" class="glass-card layer-card" data-reveal>
@@ -105,7 +107,7 @@
           <div v-else class="glass-card layer-card skeleton-card" data-reveal></div>
 
           <!-- Applications + Cybersecurity row -->
-          <div class="bottom-row" style="display: none !important;">
+          <div class="bottom-row" >
 
             <!-- Applications -->
             <div v-if="loaded" class="glass-card bottom-card" data-reveal>
@@ -160,7 +162,7 @@
           </div>
 
           <!-- Integrated Intelligence banner -->
-          <div class="glass-card banner-card" data-reveal aria-hidden="true">
+          <div class="glass-card banner-card" data-reveal aria-hidden="true" >
             <div class="banner-grid-bg"></div>
             <div class="banner-content">
               <h3 class="banner-title">Integrated Intelligence</h3>
@@ -172,6 +174,23 @@
 
         <!-- RIGHT SIDEBAR -->
         <aside class="arc-sidebar">
+
+              <!-- Partners card -->
+          <div class="glass-card sidebar-card" data-reveal>
+            <h4 class="sidebar-eyebrow">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 11l4.9-2.45a2 2 0 000-3.1L14 3a2 2 0 00-1.84 0L9 5M15 11l-6 3M15 11v9l-6-3V8l6 3zM9 5L4.1 7.45a2 2 0 000 3.1L9 13M9 5v3"/>
+              </svg>
+              Architecture Partners
+            </h4>
+            <div class="partners-grid">
+              <div
+                v-for="partner in architecture?.partners"
+                :key="partner"
+                class="partner-tile"
+              >{{ partner }}</div>
+            </div>
+          </div>
 
           <!-- Protocols card -->
           <div class="glass-card sidebar-card" data-reveal>
@@ -189,23 +208,6 @@
                 :class="{ 'proto-chip--active': activeChip === p }"
                 @click="activeChip = p"
               >{{ p }}</button>
-            </div>
-          </div>
-
-          <!-- Partners card -->
-          <div class="glass-card sidebar-card" data-reveal>
-            <h4 class="sidebar-eyebrow">
-              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M15 11l4.9-2.45a2 2 0 000-3.1L14 3a2 2 0 00-1.84 0L9 5M15 11l-6 3M15 11v9l-6-3V8l6 3zM9 5L4.1 7.45a2 2 0 000 3.1L9 13M9 5v3"/>
-              </svg>
-              Architecture Partners
-            </h4>
-            <div class="partners-grid">
-              <div
-                v-for="partner in architecture?.partners"
-                :key="partner"
-                class="partner-tile"
-              >{{ partner }}</div>
             </div>
           </div>
 
@@ -262,7 +264,7 @@ const activeChipDetail = computed(() => {
   position: relative;
   background: transparent;
   overflow: hidden;
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   color: #e8edf8;
 }
@@ -308,7 +310,7 @@ const activeChipDetail = computed(() => {
 
 /* ── Header ────────────────────────────────────────────────────────── */
 .arc-header {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .arc-title {
   font-size: clamp(1.6rem, 3.5vw, 2rem);
@@ -667,6 +669,9 @@ const activeChipDetail = computed(() => {
   color: #191c1e;
   cursor: default;
   transition: background 0.2s ease, border-color 0.2s ease;
+  min-width: fit-content !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .partner-tile:hover { background: #fff; border-color: rgba(0,74,198,0.3); }
 

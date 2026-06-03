@@ -179,7 +179,7 @@ onMounted(() => {
   position: relative;
   background: #f7f9fb;
   overflow: hidden;
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
   font-family: 'Plus Jakarta Sans', 'Manrope', 'Inter', sans-serif;
   color: #191c1e;
 }
