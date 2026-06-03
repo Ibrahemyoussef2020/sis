@@ -8,7 +8,7 @@
 
       <!-- Header -->
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-        <div class="max-w-xl">
+        <div class="max-w-xl reveal reveal-fade-up">
           <span class="inline-block text-xs font-bold tracking-[0.2em] uppercase text-[#3e7fca] mb-3">Our Portfolio</span>
           <h2 class="text-4xl md:text-5xl font-black text-[#191c1e] leading-tight mb-4">
             Sector Success <span class="text-[#3e7fca]">Stories</span>
@@ -19,7 +19,7 @@
         </div>
 
         <!-- Sector filter tabs -->
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 reveal reveal-fade-up" style="transition-delay: 0.1s;">
           <button
             v-for="sector in sectors"
             :key="sector.id"
@@ -33,9 +33,10 @@
       </div>
 
       <!-- Stats bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
-        <div v-for="stat in stats" :key="stat.label"
-             class="bg-white rounded-2xl border border-[#e6e8ea] px-6 py-5 flex flex-col gap-1">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14 stagger-container">
+        <div v-for="(stat, index) in stats" :key="stat.label"
+             class="bg-white rounded-2xl border border-[#e6e8ea] px-6 py-5 flex flex-col gap-1 reveal reveal-fade-up"
+             :style="{ transitionDelay: `${0.1 + (index * 0.1)}s` }">
           <span class="text-3xl font-black text-[#3e7fca]">{{ stat.value }}</span>
           <span class="text-xs font-semibold text-[#6b7280] uppercase tracking-wider">{{ stat.label }}</span>
         </div>
@@ -48,9 +49,10 @@
             <article
               v-for="(project, i) in filteredProjects"
               :key="project.client"
-              class="group bg-white rounded-2xl border border-[#e6e8ea] p-7 flex flex-col gap-4
+              class="group bg-white rounded-2xl border border-[#e6e8ea] p-7 flex flex-col gap-4 reveal reveal-fade-up
                      hover:border-[#3e7fca]/50 hover:shadow-xl hover:shadow-[#3e7fca]/8
                      hover:-translate-y-1 transition-all duration-300"
+              :style="{ transitionDelay: `${i * 0.1}s` }"
             >
               <!-- Top row: sector badge + location -->
               <div class="flex items-center justify-between gap-2 flex-wrap">
