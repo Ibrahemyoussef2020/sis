@@ -77,7 +77,7 @@
             <p class="text-white/80 text-sm mb-6 leading-relaxed">
               Our engineering team is available 24/7 for critical infrastructure assistance.
             </p>
-            <a href="#" class="inline-flex items-center gap-2 text-white font-bold text-sm hover:gap-3 transition-all duration-300">
+            <a href="#" class="inline-flex items-center gap-2 text-white font-bold text-sm hover:gap-3 hover:text-white/90 transition-all duration-300 active:scale-[0.97]">
               OPEN SUPPORT TICKET
               <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
             </a>

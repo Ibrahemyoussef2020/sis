@@ -1,5 +1,9 @@
 <template>
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <transition name="page-fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <script setup>
@@ -31,7 +35,6 @@ onMounted(() => {
   }, observerOptions)
 
   const observeElements = () => {
-    // Select all elements with .reveal class or data-reveal attribute that aren't already active
     const elements = document.querySelectorAll('.reveal:not(.active), [data-reveal]:not(.active)')
     elements.forEach((el) => revealObserver.observe(el))
   }
@@ -56,3 +59,14 @@ onMounted(() => {
   })
 })
 </script>
+
+<style>
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+}
+</style>

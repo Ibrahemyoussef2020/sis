@@ -7,12 +7,25 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10">
 
       <!-- Section Header -->
-      <div class="text-center mb-16 reveal reveal-fade-up">
+      <div class="text-center mb-12 reveal reveal-fade-up">
         <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary/70 mb-3">Who We Are</span>
         <h2 class="text-4xl font-bold text-[#3e7fca] mb-4">Our Mission &amp; Vision</h2>
         <p class="text-[#444655] text-lg max-w-2xl mx-auto">
           Driving industrial excellence through intelligent IT-OT convergence across the MENA region.
         </p>
+      </div>
+
+      <!-- Supporting Image -->
+      <div class="mb-12 reveal reveal-fade-up">
+        <div class="relative rounded-2xl overflow-hidden border border-[#e6e8ea] shadow-lg">
+          <img
+            src="@/images/about-image.png"
+            alt="Industrial automation and control systems"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+        </div>
       </div>
 
       <!-- Cards Grid -->

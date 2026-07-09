@@ -37,6 +37,7 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
+          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/g1-final.jpg')"></div>
           <span class="card-index" aria-hidden="true">01</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
@@ -68,6 +69,7 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
+          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/G3-FINAL.jpg')"></div>
           <span class="card-index" aria-hidden="true">02</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
@@ -100,6 +102,7 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
+          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/g2-final.jpg')"></div>
           <span class="card-index" aria-hidden="true">03</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
@@ -133,6 +136,7 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
+          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/slider-1-1.jpg')"></div>
           <span class="card-index" aria-hidden="true">04</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
@@ -197,14 +201,13 @@ function onTiltReset(e) {
 /* ── Root ─────────────────────────────────────────────────────────── */
 .services-root {
   position: relative;
-  overflow: hidden !important;
+  overflow: visible !important;
   background: #0b1326;
   background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.018) 1px, transparent 0);
   background-size: 40px 40px;
-  padding: 0 !important;
+  padding: 4rem 0 !important;
   color: #dae2fd;
-  height: 100vh !important;
-  max-height: 100vh !important;
+  min-height: 100vh !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
@@ -348,19 +351,63 @@ function onTiltReset(e) {
   overflow: hidden;
   padding: 1.25rem;
   border-radius: 1.25rem;
-  background: linear-gradient(165deg, rgba(11,19,38,0.82) 0%, rgba(23,31,51,0.42) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(11,19,38,0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(137,206,255,0.1);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: default;
 }
 .glass-card:hover {
   border-color: rgba(137,206,255,0.5);
-  background: linear-gradient(165deg, rgba(19,27,46,0.92) 0%, rgba(34,42,61,0.52) 100%);
+  background: rgba(19,27,46,0.55);
   box-shadow:
     0 0 32px rgba(0,162,230,0.18),
     inset 0 0 16px rgba(137,206,255,0.05);
+}
+
+/* ── Card background image ────────────────────────────────────────── */
+.card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+.card-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, rgba(11,19,38,0.75) 0%, rgba(11,19,38,0.10) 70%, transparent 100%);
+  pointer-events: none;
+}
+.glass-card:hover .card-bg {
+  opacity: 0.8;
+  transform: scale(1.08);
+}
+.glass-card:hover .card-bg::after {
+  background: linear-gradient(165deg, rgba(11,19,38,0.60) 0%, rgba(11,19,38,0.05) 70%, transparent 100%);
+}
+
+/* ── Text readability over images ──────────────────────────────────── */
+.glass-card .card-title {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+.glass-card .card-body {
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+/* ── Ensure content sits above background ──────────────────────────── */
+.glass-card > .icon-wrap,
+.glass-card > .card-title,
+.glass-card > .card-body,
+.glass-card > .card-cta,
+.glass-card > .card-index {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Ghost number ─────────────────────────────────────────────────── */
