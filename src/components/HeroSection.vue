@@ -1,8 +1,8 @@
 <template>
   <section
     id="hero"
-    class="relative w-full h-[calc(100vh-5px)] text-white overflow-hidden"
-    style="margin-top: 0; padding-top: 0"
+    class="relative w-full min-h-full text-white overflow-hidden"
+    style="margin-top: 0; padding-top: some courses"
   >
     <!-- Background images with crossfade -->
     <div
@@ -29,7 +29,7 @@
     ></div>
 
     <div
-      class="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8"
+      class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
     >
       <div
         class="flex flex-col items-center justify-center text-center space-y-8 max-w-4xl"

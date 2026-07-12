@@ -1,7 +1,7 @@
 <template>
   <!-- Hero Section -->
   <section
-    class="relative h-[800px] flex items-center justify-center overflow-hidden"
+    class="relative h-full flex items-center justify-center overflow-hidden"
   >
     <img
       alt="Industrial Automation Control Center"
@@ -9,7 +9,7 @@
       src="@/images/about-hero.png"
     />
     <div
-      class="absolute inset-0 bg-gradient-to-b from-black to-blue-900/70"
+      class="absolute inset-0 bg-gradient-to-b from-[#0b1326]/60 via-[#0b1326]/30 to-[#0a1f2e]/50"
     ></div>
     <!-- Hexagon Pattern Overlay -->
     <div
@@ -18,7 +18,7 @@
     }"
     ></div>
     <div
-      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"
+      class="absolute inset-0 bg-gradient-to-t from-[#0b1326]/40 to-transparent pointer-events-none"
     ></div>
     <div
       class="relative z-20 max-w-7xl mx-auto px-container-padding w-full text-center"
@@ -35,7 +35,7 @@
           >
         </div>
         <h1
-          class="font-headline-lg text-6xl md:text-8xl text-white mb-8 leading-[1.1] tracking-tight"
+          class="font-headline-lg text-4xl md:text-6xl text-white mb-8 leading-[1.1] tracking-tight"
         >
           Architects of the <br /><span
             class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white"
@@ -43,7 +43,7 @@
           >
         </h1>
         <p
-          class="text-white/80 max-w-3xl mx-auto font-body-lg text-xl md:text-2xl leading-relaxed mb-12"
+          class="text-white/80 max-w-3xl mx-auto font-body-lg text-m md:text-xl leading-relaxed mb-12"
         >
           Superior Integrated Solutions (SiS) bridges the critical divide
           between Operational Technology and Information Technology, engineering
@@ -67,7 +67,7 @@
     <!-- Scroll Indicator -->
     <router-link
       to="#why-it-ot"
-      class="absolute bottom-10 flex flex-col items-center animate-bounce opacity-70"
+      class="absolute bottom-5 flex flex-col items-center animate-bounce opacity-70"
     >
       <span class="text-white text-sm mb-2 font-label-caps tracking-widest"
         >Why ITOT</span

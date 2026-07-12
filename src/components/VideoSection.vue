@@ -15,20 +15,23 @@
         </h2>
         <p class="video-desc">
           Watch how SiS bridges the gap between operational technology and
-          information technology — delivering real results across the MENA region.
+          information technology — delivering real results across the MENA
+          region.
         </p>
       </div>
 
       <div class="video-container" data-reveal>
         <div class="video-wrapper">
-          <iframe
-            :src="youtubeSrc"
+          <video
+            src="@/images/sis-showcase.mp4"
             title="SiS Industrial Automation in Action"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
+            autoplay
+            loop
+            muted
+            controls
+            playsinline
             class="video-iframe"
-          ></iframe>
+          ></video>
         </div>
 
         <div class="video-actions">
@@ -38,8 +41,15 @@
             rel="noopener noreferrer"
             class="video-cta"
           >
-            <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            <svg
+              class="cta-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
             </svg>
             Watch on YouTube
           </a>
@@ -50,15 +60,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed } from "vue";
 
-const videoId = 'jhwNcujM9g0'
-const youtubeSrc = computed(() =>
-  `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&mute=1&controls=1&modestbranding=1&rel=0`
-)
-const youtubeLink = computed(() =>
-  `https://www.youtube.com/watch?v=${videoId}`
-)
+const videoId = "jhwNcujM9g0";
+const youtubeLink = computed(
+  () => `https://www.youtube.com/watch?v=${videoId}`,
+);
 </script>
 
 <style scoped>
@@ -67,15 +74,15 @@ const youtubeLink = computed(() =>
   overflow: hidden;
   background: #0b1326;
   padding: 6rem 1.5rem;
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
 }
 
 .circuit-bg {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(90deg, rgba(137,206,255,0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(137,206,255,0.025) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(137, 206, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(137, 206, 255, 0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 0;
@@ -92,7 +99,7 @@ const youtubeLink = computed(() =>
   height: 600px;
   top: -15rem;
   left: -10rem;
-  background: rgba(175,198,255,0.04);
+  background: rgba(175, 198, 255, 0.04);
   filter: blur(120px);
   animation: pulse-slow 6s ease-in-out infinite;
 }
@@ -101,13 +108,18 @@ const youtubeLink = computed(() =>
   height: 500px;
   bottom: -12rem;
   right: -8rem;
-  background: rgba(137,206,255,0.06);
+  background: rgba(137, 206, 255, 0.06);
   filter: blur(130px);
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .video-inner {
@@ -138,7 +150,7 @@ const youtubeLink = computed(() =>
   background: #afc6ff;
 }
 .label-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.28em;
@@ -147,7 +159,7 @@ const youtubeLink = computed(() =>
 }
 
 .video-title {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
   font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 700;
   line-height: 1.1;
@@ -159,11 +171,11 @@ const youtubeLink = computed(() =>
   font-style: italic;
   font-weight: 700;
   color: #afc6ff;
-  text-shadow: 0 0 30px rgba(175,198,255,0.3);
+  text-shadow: 0 0 30px rgba(175, 198, 255, 0.3);
 }
 
 .video-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: #8d909c;
@@ -182,10 +194,10 @@ const youtubeLink = computed(() =>
   width: 100%;
   border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 0 40px rgba(137,206,255,0.06),
-    0 20px 60px rgba(0,0,0,0.3);
+    0 0 40px rgba(137, 206, 255, 0.06),
+    0 20px 60px rgba(0, 0, 0, 0.3);
   aspect-ratio: 16 / 9;
 }
 
@@ -206,10 +218,10 @@ const youtubeLink = computed(() =>
   gap: 0.5rem;
   padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #c3c6d3;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
@@ -217,8 +229,8 @@ const youtubeLink = computed(() =>
 }
 
 .video-cta:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
   color: #dae2fd;
 }
 
