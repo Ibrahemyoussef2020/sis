@@ -11,7 +11,7 @@
         class="flex items-center gap-3 text-white flex-shrink-0"
       >
         <img
-          src="https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SIS-Logo-white.png"
+          src="../images/SIS-Logo-white.png"
           alt="SiS Logo"
           class="h-10 w-auto"
         />

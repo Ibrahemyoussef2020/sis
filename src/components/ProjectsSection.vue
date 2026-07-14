@@ -230,24 +230,24 @@ const galleryCategories = [
 
 const galleryImages = [
   // SCADA group
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-1-150x150.jpg', category: 'scada', label: 'SCADA Dashboard', alt: 'SCADA control screen' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-2-150x150.jpg', category: 'scada', label: 'SCADA Monitoring', alt: 'SCADA monitoring display' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-3-150x150.jpg', category: 'scada', label: 'SCADA Interface', alt: 'SCADA interface view' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-4-150x150.jpg', category: 'scada', label: 'SCADA Control Room', alt: 'SCADA control room' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-5-150x150.jpg', category: 'scada', label: 'Process Overview', alt: 'SCADA process overview' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-6-150x150.jpg', category: 'scada', label: 'System Dashboard', alt: 'SCADA system dashboard' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-7-150x150.jpg', category: 'scada', label: 'Data Visualization', alt: 'SCADA data visualization' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SCADA-8-150x150.jpg', category: 'scada', label: 'SCADA Operations', alt: 'SCADA operations screen' },
+  { src: '../images/SCADA/SCADA-1-150x150.jpg', category: 'scada', label: 'SCADA Dashboard', alt: 'SCADA control screen' },
+  { src: '../images/SCADA/SCADA-2-150x150.jpg', category: 'scada', label: 'SCADA Monitoring', alt: 'SCADA monitoring display' },
+  { src: '../images/SCADA/SCADA-3-150x150.jpg', category: 'scada', label: 'SCADA Interface', alt: 'SCADA interface view' },
+  { src: '../images/SCADA/SCADA-4-150x150.jpg', category: 'scada', label: 'SCADA Control Room', alt: 'SCADA control room' },
+  { src: '../images/SCADA/SCADA-5-150x150.jpg', category: 'scada', label: 'Process Overview', alt: 'SCADA process overview' },
+  { src: '../images/SCADA/SCADA-6-150x150.jpg', category: 'scada', label: 'System Dashboard', alt: 'SCADA system dashboard' },
+  { src: '../images/SCADA/SCADA-7-150x150.jpg', category: 'scada', label: 'Data Visualization', alt: 'SCADA data visualization' },
+  { src: '../images/SCADA/SCADA-8-150x150.jpg', category: 'scada', label: 'SCADA Operations', alt: 'SCADA operations screen' },
   // Field & AR group
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/7-150x150.jpeg', category: 'field', label: 'Field Installation', alt: 'Field installation work' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/6-150x150.jpeg', category: 'field', label: 'On-Site Commissioning', alt: 'On-site commissioning' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/AR-2-150x150.jpg', category: 'field', label: 'AR-Assisted Validation', alt: 'Augmented reality validation' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/18-150x150.jpeg', category: 'field', label: 'Field Equipment', alt: 'Field equipment setup' },
+  { src: '../images/AR/7-150x150.jpg', category: 'field', label: 'Field Installation', alt: 'Field installation work' },
+  { src: '../images/AR/6-150x150.jpg', category: 'field', label: 'On-Site Commissioning', alt: 'On-site commissioning' },
+  { src: '../images/AR/AR-2-150x150.jpg', category: 'field', label: 'AR-Assisted Validation', alt: 'Augmented reality validation' },
+  { src: '../images/AR/18-150x150.jpg', category: 'field', label: 'Field Equipment', alt: 'Field equipment setup' },
   // Panel Solutions group
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/Panel-Soultions-4-1-150x150.jpg', category: 'panels', label: 'Control Panel Assembly', alt: 'Electrical control panel' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/Panel-Soultions-5-1-150x150.jpg', category: 'panels', label: 'Panel Wiring', alt: 'Panel wiring and assembly' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/Panel-Soultions-2-1-150x150.jpg', category: 'panels', label: 'Electrical Panel', alt: 'Power control panel' },
-  { src: 'https://sis-eg.org/wordpress/wp-content/uploads/2023/07/Panel-Soultions-1-1-150x150.jpg', category: 'panels', label: 'Panel Integration', alt: 'Panel integration work' },
+  { src: '../images/Panel/Panel-Soultions-4-1-150x150.jpg', category: 'panels', label: 'Control Panel Assembly', alt: 'Electrical control panel' },
+  { src: '../images/Panel/Panel-Soultions-5-1-150x150.jpg', category: 'panels', label: 'Panel Wiring', alt: 'Panel wiring and assembly' },
+  { src: '../images/Panel/Panel-Soultions-2-1-150x150.jpg', category: 'panels', label: 'Electrical Panel', alt: 'Power control panel' },
+  { src: '../images/Panel/Panel-Soultions-1-1-150x150.jpg', category: 'panels', label: 'Panel Integration', alt: 'Panel integration work' },
 ]
 
 const activeGallery = ref('all')

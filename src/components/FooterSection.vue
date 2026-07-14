@@ -7,7 +7,11 @@
       >
         <!-- Brand -->
         <div>
-          <img src="https://sis-eg.org/wordpress/wp-content/uploads/2023/07/SIS-Logo-solid.png" alt="SiS Logo" class="h-10 w-auto mb-3" />
+          <img
+            src="../images/SIS-Logo-solid.png"
+            alt="SiS Logo"
+            class="h-10 w-auto mb-3"
+          />
           <p class="mt-2 max-w-sm text-sm text-[#6b7280] leading-relaxed">
             Bridging OT and IT across the MENA region with industrial automation
             and IIoT excellence.

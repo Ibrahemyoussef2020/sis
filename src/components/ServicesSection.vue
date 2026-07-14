@@ -1,6 +1,5 @@
 <template>
   <section id="services" class="services-root">
-
     <!-- ── Background layers ───────────────────────────────────────── -->
     <div class="circuit-lines" aria-hidden="true"></div>
     <div class="glow-trace trace-1" aria-hidden="true"></div>
@@ -13,7 +12,6 @@
 
     <!-- ── Section inner ──────────────────────────────────────────── -->
     <div class="services-inner">
-
       <!-- Section header -->
       <div class="section-header" data-reveal>
         <div class="label-row">
@@ -29,7 +27,6 @@
 
       <!-- Cards grid -->
       <div v-if="loaded" class="stagger-grid">
-
         <!-- Card 1 — Industrial Automation -->
         <article
           class="glass-card card-1"
@@ -37,13 +34,27 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
-          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/g1-final.jpg')"></div>
+          <div
+            class="card-bg"
+            :style="{ backgroundImage: `url(${g1Final})` }"
+          ></div>
           <span class="card-index" aria-hidden="true">01</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
             <div class="icon-box icon-box--blue">
-              <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+              <svg
+                class="svc-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
               </svg>
             </div>
           </div>
@@ -52,12 +63,21 @@
             <span class="card-subtitle-word">Automation</span>
           </h3>
           <p class="card-body">
-            Pioneering next-generation robotic integration and autonomous systems for modern factory implementations.
+            Pioneering next-generation robotic integration and autonomous
+            systems for modern factory implementations.
           </p>
           <div class="card-cta" aria-hidden="true">
             SYSTEM SPECS
-            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            <svg
+              class="cta-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
           </div>
         </article>
@@ -69,14 +89,27 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
-          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/G3-FINAL.jpg')"></div>
+          <div
+            class="card-bg"
+            :style="{ backgroundImage: `url(${g2})` }"
+          ></div>
           <span class="card-index" aria-hidden="true">02</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
             <div class="icon-box icon-box--cyan">
-              <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-                <path d="M6 8h.01M9 8h6M6 11h.01M9 11h3"/>
+              <svg
+                class="svc-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+                <path d="M6 8h.01M9 8h6M6 11h.01M9 11h3" />
               </svg>
             </div>
           </div>
@@ -85,12 +118,21 @@
             <span class="card-subtitle-word">&amp; Control</span>
           </h3>
           <p class="card-body">
-            High-fidelity real-time monitoring and mission-critical control interfaces built for zero-latency industrial operations.
+            High-fidelity real-time monitoring and mission-critical control
+            interfaces built for zero-latency industrial operations.
           </p>
           <div class="card-cta" aria-hidden="true">
             DASHBOARD PREVIEW
-            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            <svg
+              class="cta-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
           </div>
         </article>
@@ -102,15 +144,32 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
-          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/g2-final.jpg')"></div>
+          <div
+            class="card-bg"
+            :style="{ backgroundImage: `url(${g3})` }"
+          ></div>
           <span class="card-index" aria-hidden="true">03</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
             <div class="icon-box icon-box--green">
-              <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/>
-                <circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/>
-                <path d="M6 6.5L9.5 9.5M14.5 9.5L18 6.5M6 17.5L9.5 14.5M14.5 14.5L18 17.5"/>
+              <svg
+                class="svc-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <circle cx="4" cy="6" r="2" />
+                <circle cx="20" cy="6" r="2" />
+                <circle cx="4" cy="18" r="2" />
+                <circle cx="20" cy="18" r="2" />
+                <path
+                  d="M6 6.5L9.5 9.5M14.5 9.5L18 6.5M6 17.5L9.5 14.5M14.5 14.5L18 17.5"
+                />
               </svg>
             </div>
           </div>
@@ -119,12 +178,21 @@
             <span class="card-subtitle-word">&amp; Intelligence</span>
           </h3>
           <p class="card-body">
-            Transforming edge data into actionable business intelligence through machine learning and advanced sensor networking.
+            Transforming edge data into actionable business intelligence through
+            machine learning and advanced sensor networking.
           </p>
           <div class="card-cta" aria-hidden="true">
             ANALYTICS ENGINE
-            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            <svg
+              class="cta-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
           </div>
         </article>
@@ -136,14 +204,28 @@
           @mousemove="onTilt($event)"
           @mouseleave="onTiltReset($event)"
         >
-          <div class="card-bg" style="background-image: url('https://sis-eg.org/wordpress/wp-content/uploads/2023/07/slider-1-1.jpg')"></div>
+          <div
+            class="card-bg"
+            :style="{ backgroundImage: `url(${cardSlider1})` }"
+          ></div>
           <span class="card-index" aria-hidden="true">04</span>
           <div class="icon-wrap">
             <div class="icon-glow" aria-hidden="true"></div>
             <div class="icon-box icon-box--purple">
-              <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v4l3 3"/>
-                <path d="M15.5 8.5a5 5 0 00-7 7"/><circle cx="12" cy="12" r="1"/>
+              <svg
+                class="svc-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+                <path d="M12 8v4l3 3" />
+                <path d="M15.5 8.5a5 5 0 00-7 7" />
+                <circle cx="12" cy="12" r="1" />
               </svg>
             </div>
           </div>
@@ -152,48 +234,60 @@
             <span class="card-subtitle-word">Engineering</span>
           </h3>
           <p class="card-body">
-            Tailored tech ecosystems and strategic R&amp;D outsourcing that accelerate time-to-market.
+            Tailored tech ecosystems and strategic R&amp;D outsourcing that
+            accelerate time-to-market.
           </p>
           <div class="card-cta" aria-hidden="true">
             CONSULTING
-            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            <svg
+              class="cta-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
           </div>
         </article>
-
       </div>
 
       <!-- Skeleton state -->
       <div v-else class="stagger-grid skeleton-grid">
         <div v-for="n in 4" :key="n" class="skeleton-card"></div>
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia'
-import { useSiteStore } from '@/stores/useSiteStore'
+import { storeToRefs } from "pinia";
+import { useSiteStore } from "@/stores/useSiteStore";
+import g1Final from "@/images/cards/g1-final.jpg";
+import g2 from "@/images/cards/g2.jpg";
+import g3 from "@/images/cards/g3.jpg";
+import cardSlider1 from "@/images/cards/slider-1-1.jpg";
 
-const siteStore = useSiteStore()
-const { services, loaded } = storeToRefs(siteStore)
+const siteStore = useSiteStore();
+const { services, loaded } = storeToRefs(siteStore);
 
 // 3-D tilt on mousemove
 function onTilt(e) {
-  const card = e.currentTarget
-  const rect = card.getBoundingClientRect()
-  const x = e.clientX - rect.left
-  const y = e.clientY - rect.top
-  const cx = rect.width / 2
-  const cy = rect.height / 2
-  const rotX = (cy - y) / 22
-  const rotY = (x - cx) / 22
-  card.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.025,1.025,1.025)`
+  const card = e.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const cx = rect.width / 2;
+  const cy = rect.height / 2;
+  const rotX = (cy - y) / 22;
+  const rotY = (x - cx) / 22;
+  card.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.025,1.025,1.025)`;
 }
 function onTiltReset(e) {
-  e.currentTarget.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale3d(1,1,1)'
+  e.currentTarget.style.transform =
+    "perspective(1200px) rotateX(0) rotateY(0) scale3d(1,1,1)";
 }
 </script>
 
@@ -203,7 +297,11 @@ function onTiltReset(e) {
   position: relative;
   overflow: visible !important;
   background: #0b1326;
-  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.018) 1px, transparent 0);
+  background-image: radial-gradient(
+    circle at 2px 2px,
+    rgba(255, 255, 255, 0.018) 1px,
+    transparent 0
+  );
   background-size: 40px 40px;
   padding: 4rem 0 !important;
   color: #dae2fd;
@@ -220,8 +318,8 @@ function onTiltReset(e) {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(90deg, rgba(137,206,255,0.03) 1px, transparent 1px),
-    linear-gradient(0deg,  rgba(137,206,255,0.03) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(137, 206, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(137, 206, 255, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -236,9 +334,21 @@ function onTiltReset(e) {
   pointer-events: none;
   z-index: 0;
 }
-.trace-1 { top: 25%; left: 20%; transform: rotate(45deg); }
-.trace-2 { top: 66%; right: 22%; transform: rotate(-12deg); }
-.trace-3 { bottom: 22%; left: 33%; transform: rotate(120deg); }
+.trace-1 {
+  top: 25%;
+  left: 20%;
+  transform: rotate(45deg);
+}
+.trace-2 {
+  top: 66%;
+  right: 22%;
+  transform: rotate(-12deg);
+}
+.trace-3 {
+  bottom: 22%;
+  left: 33%;
+  transform: rotate(120deg);
+}
 
 /* ── Atmospheric orbs ─────────────────────────────────────────────── */
 .orb {
@@ -252,7 +362,7 @@ function onTiltReset(e) {
   height: 600px;
   top: -10rem;
   left: -10rem;
-  background: rgba(175,198,255,0.05);
+  background: rgba(175, 198, 255, 0.05);
   filter: blur(120px);
   animation: pulse-slow 6s ease-in-out infinite;
 }
@@ -261,13 +371,18 @@ function onTiltReset(e) {
   height: 600px;
   bottom: -10rem;
   right: -10rem;
-  background: rgba(137,206,255,0.09);
+  background: rgba(137, 206, 255, 0.09);
   filter: blur(150px);
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.55; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
 }
 
 /* ── Inner container ──────────────────────────────────────────────── */
@@ -308,7 +423,7 @@ function onTiltReset(e) {
   background: #afc6ff;
 }
 .label-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.28em;
@@ -317,9 +432,9 @@ function onTiltReset(e) {
 }
 
 .section-title {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
   font-size: clamp(2rem, 5.2vw, 4.25rem);
-  font-weight: 700; 
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: #dae2fd;
@@ -351,19 +466,19 @@ function onTiltReset(e) {
   overflow: hidden;
   padding: 1.25rem;
   border-radius: 1.25rem;
-  background: rgba(11,19,38,0.45);
+  background: rgba(11, 19, 38, 0.45);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(137,206,255,0.1);
+  border: 1px solid rgba(137, 206, 255, 0.1);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: default;
 }
 .glass-card:hover {
-  border-color: rgba(137,206,255,0.5);
-  background: rgba(19,27,46,0.55);
+  border-color: rgba(137, 206, 255, 0.5);
+  background: rgba(19, 27, 46, 0.55);
   box-shadow:
-    0 0 32px rgba(0,162,230,0.18),
-    inset 0 0 16px rgba(137,206,255,0.05);
+    0 0 32px rgba(0, 162, 230, 0.18),
+    inset 0 0 16px rgba(137, 206, 255, 0.05);
 }
 
 /* ── Card background image ────────────────────────────────────────── */
@@ -373,15 +488,22 @@ function onTiltReset(e) {
   background-size: cover;
   background-position: center;
   opacity: 0.55;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
   z-index: 0;
   pointer-events: none;
 }
 .card-bg::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(165deg, rgba(11,19,38,0.75) 0%, rgba(11,19,38,0.10) 70%, transparent 100%);
+  background: linear-gradient(
+    165deg,
+    rgba(11, 19, 38, 0.75) 0%,
+    rgba(11, 19, 38, 0.1) 70%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 .glass-card:hover .card-bg {
@@ -389,15 +511,20 @@ function onTiltReset(e) {
   transform: scale(1.08);
 }
 .glass-card:hover .card-bg::after {
-  background: linear-gradient(165deg, rgba(11,19,38,0.60) 0%, rgba(11,19,38,0.05) 70%, transparent 100%);
+  background: linear-gradient(
+    165deg,
+    rgba(11, 19, 38, 0.6) 0%,
+    rgba(11, 19, 38, 0.05) 70%,
+    transparent 100%
+  );
 }
 
 /* ── Text readability over images ──────────────────────────────────── */
 .glass-card .card-title {
-  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 .glass-card .card-body {
-  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* ── Ensure content sits above background ──────────────────────────── */
@@ -418,8 +545,8 @@ function onTiltReset(e) {
   font-size: 10rem;
   font-weight: 800;
   line-height: 1;
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  color: rgba(137,206,255,0.035);
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  color: rgba(137, 206, 255, 0.035);
   pointer-events: none;
   user-select: none;
 }
@@ -436,7 +563,11 @@ function onTiltReset(e) {
 .icon-glow {
   position: absolute;
   inset: -4px;
-  background: radial-gradient(circle, rgba(137,206,255,0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(137, 206, 255, 0.3) 0%,
+    transparent 70%
+  );
   filter: blur(8px);
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -452,7 +583,7 @@ function onTiltReset(e) {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(137,206,255,0.22);
+  border: 1px solid rgba(137, 206, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -460,17 +591,41 @@ function onTiltReset(e) {
   background: #222a3d;
 }
 .icon-box::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
 }
 
 /* per-card accent gradient overlays */
-.icon-box--blue::before  { background: linear-gradient(135deg, rgba(175,198,255,0.22) 0%, transparent 70%); }
-.icon-box--cyan::before  { background: linear-gradient(135deg, rgba(137,206,255,0.22) 0%, transparent 70%); }
-.icon-box--green::before { background: linear-gradient(135deg, rgba(74,225,118,0.18) 0%, transparent 70%); }
-.icon-box--purple::before{ background: linear-gradient(135deg, rgba(175,130,255,0.18) 0%, transparent 70%); }
+.icon-box--blue::before {
+  background: linear-gradient(
+    135deg,
+    rgba(175, 198, 255, 0.22) 0%,
+    transparent 70%
+  );
+}
+.icon-box--cyan::before {
+  background: linear-gradient(
+    135deg,
+    rgba(137, 206, 255, 0.22) 0%,
+    transparent 70%
+  );
+}
+.icon-box--green::before {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 225, 118, 0.18) 0%,
+    transparent 70%
+  );
+}
+.icon-box--purple::before {
+  background: linear-gradient(
+    135deg,
+    rgba(175, 130, 255, 0.18) 0%,
+    transparent 70%
+  );
+}
 
 .svc-icon {
   position: relative;
@@ -483,7 +638,7 @@ function onTiltReset(e) {
 
 /* ── Card typography ──────────────────────────────────────────────── */
 .card-title {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
   font-size: 1.15rem;
   line-height: 1.2;
   margin: 0 0 0.5rem 0;
@@ -501,7 +656,7 @@ function onTiltReset(e) {
 }
 
 .card-body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   line-height: 1.5;
   color: #8d909c;
@@ -515,7 +670,7 @@ function onTiltReset(e) {
   align-items: center;
   gap: 0.4rem;
   margin-top: 1.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -523,7 +678,9 @@ function onTiltReset(e) {
   color: #afc6ff;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 .glass-card:hover .card-cta {
   opacity: 1;
@@ -549,7 +706,11 @@ function onTiltReset(e) {
   animation: shimmer 1.4s infinite ease;
 }
 @keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 </style>

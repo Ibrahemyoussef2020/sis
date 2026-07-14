@@ -91,16 +91,15 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useSiteStore } from "@/stores/useSiteStore";
+import slider1 from "@/images/slider-1-1.jpg";
+import factory from "@/images/factory.jpg";
+import controlling from "@/images/controlling.png";
+import controlling2 from "@/images/controlling-2.jpg";
 
 const siteStore = useSiteStore();
 const { hero } = storeToRefs(siteStore);
 
-const heroImages = [
-  "https://sis-eg.org/wordpress/wp-content/uploads/2023/07/slider-1-1.jpg",
-  "https://sis-eg.org/wordpress/wp-content/uploads/2023/07/G3-FINAL.jpg",
-  "https://sis-eg.org/wordpress/wp-content/uploads/2023/07/g1-final.jpg",
-  "https://sis-eg.org/wordpress/wp-content/uploads/2023/07/g2-final.jpg",
-];
+const heroImages = [slider1, factory, controlling, controlling2];
 
 const activeIndex = ref(0);
 let intervalId = null;
