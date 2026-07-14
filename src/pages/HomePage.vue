@@ -7,6 +7,7 @@
   <Workflow />
   <MethodologySection />
   <PartnersSection />
+  <ClientsSection />
 </template>
 
 <script setup>
@@ -20,6 +21,7 @@ import MethodologySection from "@/components/MethodologySection.vue";
 import Workflow from "../components/Workflow.vue";
 import PartnersSection from "@/components/PartnersSection.vue";
 import VideoSection from "@/components/VideoSection.vue";
+import ClientsSection from "@/components/ClientsSection.vue";
 
 const siteStore = useSiteStore();
 
