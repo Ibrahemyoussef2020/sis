@@ -6,7 +6,7 @@
     <img
       alt="Industrial Automation Control Center"
       class="absolute inset-0 w-full h-full object-cover scale-105"
-      src="@/images/about-hero.png"
+      src="@/images/about-hero.webp"
     />
     <div
       class="absolute inset-0 bg-gradient-to-b from-[#0b1326]/60 via-[#0b1326]/30 to-[#0a1f2e]/50"

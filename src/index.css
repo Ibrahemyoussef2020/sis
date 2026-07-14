@@ -1,12 +1,12 @@
 :root {
-  --sis-primary: #1B3A6B;
-  --sis-accent: #2F7EC7;
-  --sis-light: #4A9FD4;
-  --sis-panel: #F4F7FA;
-  --sis-white: #FFFFFF;
-  --sis-text: #1A2332;
-  --sis-muted: #6B7C93;
-  --sis-border: #D1DCE8;
+  --sis-primary: #1b3a6b;
+  --sis-accent: #2f7ec7;
+  --sis-light: #4a9fd4;
+  --sis-panel: #f4f7fa;
+  --sis-white: #ffffff;
+  --sis-text: #1a2332;
+  --sis-muted: #6b7c93;
+  --sis-border: #d1dce8;
 }
 
 @tailwind base;
@@ -25,7 +25,7 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     background-color: var(--sis-panel);
     color: var(--sis-text);
   }
@@ -77,7 +77,9 @@
 
   /* Custom gradient utility */
   .bg-black-lean-gradient {
-    --tw-gradient-stops: #0b1326, rgb(0 74 198 / 87%) var(--tw-gradient-via-position), #000000 var(--tw-gradient-to-position);
+    --tw-gradient-stops:
+      #0b1326, rgb(0 74 198 / 87%) var(--tw-gradient-via-position),
+      #000000 var(--tw-gradient-to-position);
   }
 }
 
@@ -92,14 +94,21 @@
 }
 
 .skeleton {
-  background: linear-gradient(90deg, rgba(241, 244, 248, 1) 0%, rgba(229, 234, 241, 1) 50%, rgba(241, 244, 248, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(241, 244, 248, 1) 0%,
+    rgba(229, 234, 241, 1) 50%,
+    rgba(241, 244, 248, 1) 100%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.4s infinite ease;
 }
 
 .content-fade-enter-active,
 .content-fade-leave-active {
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
 .content-fade-enter-from,
@@ -108,21 +117,75 @@
   transform: translateY(-8px);
 }
 
+/* ==========================================
+   FORCE WINDOWS CHROME SCROLLBAR OVERRIDE 
+   ========================================== */
+
+/* 1. Force the root container rules */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/* 2. Absolute wipeout of the native Windows arrows */
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+/* 3. Re-draw the track container background */
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* 4. Draw the custom colored thumb bar */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+  background-color: #3b82f6 !important; /* HARDCODED BLUE FALLBACK FOR WINDOWS */
+  background-image: linear-gradient(
+    var(--sis-accent, #3b82f6),
+    var(--sis-accent, #3b82f6)
+  ) !important;
+  border-radius: 9999px !important;
+}
+
+/* 5. Hover rule safely separated */
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #60a5fa !important; /* HARDCODED LIGHT BLUE FALLBACK */
+  background-image: linear-gradient(
+    var(--sis-light, #60a5fa),
+    var(--sis-light, #60a5fa)
+  ) !important;
+}
+
 /* Keyboard focus indicator */
 *:focus-visible {
-  outline: 2px solid #2F7EC7;
+  outline: 2px solid #2f7ec7;
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
 
 /* Global Reveal Animations */
-.reveal, [data-reveal] {
+.reveal,
+[data-reveal] {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.reveal.active, [data-reveal].active {
+.reveal.active,
+[data-reveal].active {
   opacity: 1;
   transform: translateY(0);
 }

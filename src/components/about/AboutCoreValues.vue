@@ -82,7 +82,7 @@
           </p>
           <!-- Learn more link -->
           <div class="mt-auto">
-            <a href="#" class="inline-flex items-center gap-2 text-[#3e7fca] text-sm font-bold tracking-wide
+            <a href="#" @click.prevent class="inline-flex items-center gap-2 text-[#3e7fca] text-sm font-bold tracking-wide
                                hover:gap-3 hover:text-[#5a9fda] transition-all duration-200 active:scale-[0.97]">
               LEARN MORE
               <span class="material-symbols-outlined" style="font-size:17px;">arrow_forward</span>

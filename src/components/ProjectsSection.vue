@@ -185,7 +185,7 @@
       <!-- CTA -->
       <div class="mt-14 text-center">
         <p class="text-[#6b7280] mb-4 text-sm">Interested in working with SiS on your next industrial project?</p>
-        <a href="#contact"
+        <a @click.prevent="router.push({ name: 'contact' })" href="#"
            class="inline-flex items-center gap-2 bg-[#3e7fca] text-white font-bold px-8 py-4 rounded-xl
                   hover:bg-[#2d6bb5] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#3e7fca]/30
                   transition-all duration-200">
@@ -201,9 +201,11 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSiteStore } from '@/stores/useSiteStore'
+import { useRouter } from 'vue-router'
 import AnimatedCounter from '@/components/AnimatedCounter.vue'
 
 const siteStore = useSiteStore()
+const router = useRouter()
 const { sectors, projects, loaded } = storeToRefs(siteStore)
 const activeSector = ref('oil-gas')
 
@@ -230,24 +232,24 @@ const galleryCategories = [
 
 const galleryImages = [
   // SCADA group
-  { src: '../images/SCADA/SCADA-1-150x150.jpg', category: 'scada', label: 'SCADA Dashboard', alt: 'SCADA control screen' },
-  { src: '../images/SCADA/SCADA-2-150x150.jpg', category: 'scada', label: 'SCADA Monitoring', alt: 'SCADA monitoring display' },
-  { src: '../images/SCADA/SCADA-3-150x150.jpg', category: 'scada', label: 'SCADA Interface', alt: 'SCADA interface view' },
-  { src: '../images/SCADA/SCADA-4-150x150.jpg', category: 'scada', label: 'SCADA Control Room', alt: 'SCADA control room' },
-  { src: '../images/SCADA/SCADA-5-150x150.jpg', category: 'scada', label: 'Process Overview', alt: 'SCADA process overview' },
-  { src: '../images/SCADA/SCADA-6-150x150.jpg', category: 'scada', label: 'System Dashboard', alt: 'SCADA system dashboard' },
-  { src: '../images/SCADA/SCADA-7-150x150.jpg', category: 'scada', label: 'Data Visualization', alt: 'SCADA data visualization' },
-  { src: '../images/SCADA/SCADA-8-150x150.jpg', category: 'scada', label: 'SCADA Operations', alt: 'SCADA operations screen' },
+  { src: new URL('../images/SCADA/SCADA-1-150x150.jpg', import.meta.url).href, category: 'scada', label: 'SCADA Dashboard', alt: 'SCADA control screen' },
+  { src: new URL('../images/SCADA/SCADA-2-150x150.jpg', import.meta.url).href, category: 'scada', label: 'SCADA Monitoring', alt: 'SCADA monitoring display' },
+  { src: new URL('../images/SCADA/SCADA-3-150x150.jpg', import.meta.url).href, category: 'scada', label: 'SCADA Interface', alt: 'SCADA interface view' },
+  { src: new URL('../images/SCADA/SCADA-4-150x150.jpg', import.meta.url).href, category: 'scada', label: 'SCADA Control Room', alt: 'SCADA control room' },
+  { src: new URL('../images/SCADA/SCADA-5-150x150.jpg', import.meta.url).href, category: 'scada', label: 'Process Overview', alt: 'SCADA process overview' },
+  { src: new URL('../images/SCADA/SCADA-6-150x150.jpg', import.meta.url).href, category: 'scada', label: 'System Dashboard', alt: 'SCADA system dashboard' },
+  { src: new URL('../images/SCADA/SCADA-7-150x150.jpg', import.meta.url).href, category: 'scada', label: 'Data Visualization', alt: 'SCADA data visualization' },
+  { src: new URL('../images/SCADA/SCADA-8-150x150.jpg', import.meta.url).href, category: 'scada', label: 'SCADA Operations', alt: 'SCADA operations screen' },
   // Field & AR group
-  { src: '../images/AR/7-150x150.jpg', category: 'field', label: 'Field Installation', alt: 'Field installation work' },
-  { src: '../images/AR/6-150x150.jpg', category: 'field', label: 'On-Site Commissioning', alt: 'On-site commissioning' },
-  { src: '../images/AR/AR-2-150x150.jpg', category: 'field', label: 'AR-Assisted Validation', alt: 'Augmented reality validation' },
-  { src: '../images/AR/18-150x150.jpg', category: 'field', label: 'Field Equipment', alt: 'Field equipment setup' },
+  { src: new URL('../images/AR/7-150x150.jpg', import.meta.url).href, category: 'field', label: 'Field Installation', alt: 'Field installation work' },
+  { src: new URL('../images/AR/6-150x150.jpg', import.meta.url).href, category: 'field', label: 'On-Site Commissioning', alt: 'On-site commissioning' },
+  { src: new URL('../images/AR/AR-2-150x150.jpg', import.meta.url).href, category: 'field', label: 'AR-Assisted Validation', alt: 'Augmented reality validation' },
+  { src: new URL('../images/AR/18-150x150.jpg', import.meta.url).href, category: 'field', label: 'Field Equipment', alt: 'Field equipment setup' },
   // Panel Solutions group
-  { src: '../images/Panel/Panel-Soultions-4-1-150x150.jpg', category: 'panels', label: 'Control Panel Assembly', alt: 'Electrical control panel' },
-  { src: '../images/Panel/Panel-Soultions-5-1-150x150.jpg', category: 'panels', label: 'Panel Wiring', alt: 'Panel wiring and assembly' },
-  { src: '../images/Panel/Panel-Soultions-2-1-150x150.jpg', category: 'panels', label: 'Electrical Panel', alt: 'Power control panel' },
-  { src: '../images/Panel/Panel-Soultions-1-1-150x150.jpg', category: 'panels', label: 'Panel Integration', alt: 'Panel integration work' },
+  { src: new URL('../images/Panel/Panel-Soultions-4-1-150x150.jpg', import.meta.url).href, category: 'panels', label: 'Control Panel Assembly', alt: 'Electrical control panel' },
+  { src: new URL('../images/Panel/Panel-Soultions-5-1-150x150.jpg', import.meta.url).href, category: 'panels', label: 'Panel Wiring', alt: 'Panel wiring and assembly' },
+  { src: new URL('../images/Panel/Panel-Soultions-2-1-150x150.jpg', import.meta.url).href, category: 'panels', label: 'Electrical Panel', alt: 'Power control panel' },
+  { src: new URL('../images/Panel/Panel-Soultions-1-1-150x150.jpg', import.meta.url).href, category: 'panels', label: 'Panel Integration', alt: 'Panel integration work' },
 ]
 
 const activeGallery = ref('all')

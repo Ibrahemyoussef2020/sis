@@ -23,23 +23,27 @@
           class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-[#444655]"
         >
           <a
-            href="#hero"
-            class="hover:text-[#3e7fca] transition-colors duration-200"
+            @click.prevent="scrollToSection('hero', router, route)"
+            href="#"
+            class="hover:text-[#3e7fca] transition-colors duration-200 cursor-pointer"
             >Home</a
           >
           <a
-            href="#about"
-            class="hover:text-[#3e7fca] transition-colors duration-200"
+            @click.prevent="scrollToSection('about', router, route)"
+            href="#"
+            class="hover:text-[#3e7fca] transition-colors duration-200 cursor-pointer"
             >About</a
           >
           <a
-            href="#services"
-            class="hover:text-[#3e7fca] transition-colors duration-200"
+            @click.prevent="scrollToSection('services', router, route)"
+            href="#"
+            class="hover:text-[#3e7fca] transition-colors duration-200 cursor-pointer"
             >Services</a
           >
           <a
-            href="#contact"
-            class="hover:text-[#3e7fca] transition-colors duration-200"
+            @click.prevent="scrollToSection('contact', router, route)"
+            href="#"
+            class="hover:text-[#3e7fca] transition-colors duration-200 cursor-pointer"
             >Contact</a
           >
         </nav>
@@ -65,22 +69,16 @@
               />
             </svg>
           </a>
-          <a
-            href="#"
-            aria-label="Twitter/X"
-            class="w-8 h-8 rounded-full border border-[#dde1e7] flex items-center justify-center text-[#6b7280] hover:border-[#3e7fca] hover:text-[#3e7fca] transition-all duration-200"
-          >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.261 5.634L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
-          </a>
         </div>
       </div>
     </div>
   </footer>
 </template>
 
-<script setup></script>
-a
+<script setup>
+import { useRouter, useRoute } from 'vue-router'
+import { scrollToSection } from '@/utils/scrollTo.js'
+
+const router = useRouter()
+const route = useRoute()
+</script>

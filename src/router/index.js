@@ -1,14 +1,13 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
+
+const defaultTitle = "SiS - Superior Integrated Solutions";
 import MainLayout from "@/layouts/MainLayout.vue";
 import HomePage from "@/pages/HomePage.vue";
 import AboutPage from "@/pages/AboutPage.vue";
 // Services, Architecture and Methodology are sections on the home page now
-import RoadmapPage from "@/pages/RoadmapPage.vue";
 import ProjectsPage from "@/pages/ProjectsPage.vue";
-import SectorsPage from "@/pages/SectorsPage.vue";
 import CapabilitiesPage from "@/pages/CapabilitiesPage.vue";
 import TimelinePage from "@/pages/TimelinePage.vue";
-import PartnersPage from "@/pages/PartnersPage.vue";
 import ContactPage from "@/pages/ContactPage.vue";
 
 const routes = [
@@ -16,26 +15,24 @@ const routes = [
     path: "/",
     component: MainLayout,
     children: [
-      { path: "", name: "home", component: HomePage },
-      { path: "about", name: "about", component: AboutPage },
+      { path: "", name: "home", component: HomePage, meta: { title: defaultTitle } },
+      { path: "about", name: "about", component: AboutPage, meta: { title: "About Us | SiS" } },
       // removed separate routes for services/architecture/methodology
-      { path: "roadmap", name: "roadmap", component: RoadmapPage },
-      { path: "projects", name: "projects", component: ProjectsPage },
-      { path: "sectors", name: "sectors", component: SectorsPage },
+      { path: "projects", name: "projects", component: ProjectsPage, meta: { title: "Projects | SiS" } },
       {
         path: "capabilities",
         name: "capabilities",
         component: CapabilitiesPage,
+        meta: { title: "Capabilities | SiS" },
       },
-      { path: "timeline", name: "timeline", component: TimelinePage },
-      { path: "partners", name: "partners", component: PartnersPage },
-      { path: "contact", name: "contact", component: ContactPage },
+      { path: "timeline", name: "timeline", component: TimelinePage, meta: { title: "Timeline | SiS" } },
+      { path: "contact", name: "contact", component: ContactPage, meta: { title: "Contact Us | SiS" } },
     ],
   },
 ];
 
 export const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -46,4 +43,8 @@ export const router = createRouter({
     }
     return { top: 0 };
   },
+});
+
+router.afterEach((to) => {
+  document.title = to.meta?.title || defaultTitle;
 });

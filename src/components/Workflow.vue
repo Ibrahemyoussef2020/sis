@@ -559,9 +559,8 @@
       <!-- ── CTA ────────────────────────────────────────────────────── -->
       <div class="wf-cta-wrap" data-reveal>
         <a
-          href="#architecture"
+          @click.prevent="scrollToSection('architecture', router, route)" href="#"
           class="wf-cta"
-          @click.prevent="scrollToSection('architecture')"
         >
           Explore Architecture
           <svg
@@ -584,23 +583,14 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { scrollToSection } from "@/utils/scrollTo.js";
+
+const router = useRouter();
+const route = useRoute();
 
 const sectionRef = ref(null);
 const atmoRef = ref(null);
-
-function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  const headerOffset = 80; // adjust to your fixed navbar height, 0 if none
-  const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-  const offsetPosition = elementPosition - headerOffset;
-
-  window.scrollTo({
-    top: offsetPosition,
-    behavior: "smooth",
-  });
-}
 
 onMounted(() => {
   // Mouse-follow atmospheric glow

@@ -265,10 +265,10 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useSiteStore } from "@/stores/useSiteStore";
-import g1Final from "@/images/cards/g1-final.jpg";
-import g2 from "@/images/cards/g2.jpg";
-import g3 from "@/images/cards/g3.jpg";
-import cardSlider1 from "@/images/cards/slider-1-1.jpg";
+import g1Final from "@/images/cards/g1-final.webp";
+import g2 from "@/images/cards/g2.webp";
+import g3 from "@/images/cards/g3.webp";
+import cardSlider1 from "@/images/cards/slider-1-1.webp";
 
 const siteStore = useSiteStore();
 const { services, loaded } = storeToRefs(siteStore);

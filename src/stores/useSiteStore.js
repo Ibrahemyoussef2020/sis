@@ -29,8 +29,7 @@ export const useSiteStore = defineStore("site", {
     contact: null,
   }),
   actions: {
-    async loadAll() {
-      await new Promise((resolve) => setTimeout(resolve, 600));
+    loadAll() {
       this.hero = hero;
       this.about = about;
       this.services = services;

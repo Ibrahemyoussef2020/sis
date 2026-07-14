@@ -11,8 +11,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { useSiteStore } from "@/stores/useSiteStore";
 import HeroSection from "@/components/HeroSection.vue";
 import IntegrationSection from "@/components/IntegrationSection.vue";
 import ServicesSection from "@/components/ServicesSection.vue";
@@ -22,12 +20,4 @@ import Workflow from "../components/Workflow.vue";
 import PartnersSection from "@/components/PartnersSection.vue";
 import VideoSection from "@/components/VideoSection.vue";
 import ClientsSection from "@/components/ClientsSection.vue";
-
-const siteStore = useSiteStore();
-
-onMounted(() => {
-  if (!siteStore.loaded) {
-    siteStore.loadAll();
-  }
-});
 </script>

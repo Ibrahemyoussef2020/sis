@@ -77,7 +77,7 @@
             <p class="text-white/80 text-sm mb-6 leading-relaxed">
               Our engineering team is available 24/7 for critical infrastructure assistance.
             </p>
-            <a href="#" class="inline-flex items-center gap-2 text-white font-bold text-sm hover:gap-3 hover:text-white/90 transition-all duration-300 active:scale-[0.97]">
+            <a href="#" @click.prevent class="inline-flex items-center gap-2 text-white font-bold text-sm hover:gap-3 hover:text-white/90 transition-all duration-300 active:scale-[0.97]">
               OPEN SUPPORT TICKET
               <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
             </a>
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Right: Form -->
-        <form class="bg-white rounded-3xl p-10 lg:p-12 border border-[#e6e8ea] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] reveal reveal-fade-up" style="transition-delay: 0.2s;" @submit.prevent>
+        <form class="bg-white rounded-3xl p-10 lg:p-12 border border-[#e6e8ea] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] reveal reveal-fade-up" style="transition-delay: 0.2s;" @submit.prevent="handleSubmit">
           <div class="mb-10">
             <h3 class="text-3xl font-black text-[#191c1e] mb-3">Send us a message</h3>
             <p class="text-[#6b7280]">Fill out the form below and our team will get back to you within 24 hours.</p>
@@ -98,7 +98,7 @@
               <label class="block text-sm font-bold text-[#444655] mb-2 uppercase tracking-wide">Full Name</label>
               <div class="relative">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#9ca3af] group-focus-within:text-[#3e7fca] transition-colors">person</span>
-                <input type="text" class="w-full bg-[#f7f9fb] border border-[#e6e8ea] rounded-xl py-4 pl-12 pr-4 text-[#191c1e] placeholder-[#9ca3af] focus:outline-none focus:border-[#3e7fca] focus:ring-4 focus:ring-[#3e7fca]/10 transition-all duration-300" placeholder="John Doe" required />
+                <input v-model="form.name" type="text" class="w-full bg-[#f7f9fb] border border-[#e6e8ea] rounded-xl py-4 pl-12 pr-4 text-[#191c1e] placeholder-[#9ca3af] focus:outline-none focus:border-[#3e7fca] focus:ring-4 focus:ring-[#3e7fca]/10 transition-all duration-300" placeholder="John Doe" required />
               </div>
             </div>
 
@@ -107,19 +107,19 @@
               <label class="block text-sm font-bold text-[#444655] mb-2 uppercase tracking-wide">Company Email</label>
               <div class="relative">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#9ca3af] group-focus-within:text-[#3e7fca] transition-colors">business_center</span>
-                <input type="email" class="w-full bg-[#f7f9fb] border border-[#e6e8ea] rounded-xl py-4 pl-12 pr-4 text-[#191c1e] placeholder-[#9ca3af] focus:outline-none focus:border-[#3e7fca] focus:ring-4 focus:ring-[#3e7fca]/10 transition-all duration-300" placeholder="john@company.com" required />
+                <input v-model="form.email" type="email" class="w-full bg-[#f7f9fb] border border-[#e6e8ea] rounded-xl py-4 pl-12 pr-4 text-[#191c1e] placeholder-[#9ca3af] focus:outline-none focus:border-[#3e7fca] focus:ring-4 focus:ring-[#3e7fca]/10 transition-all duration-300" placeholder="john@company.com" required />
               </div>
             </div>
 
             <!-- Message -->
             <div class="group">
               <label class="block text-sm font-bold text-[#444655] mb-2 uppercase tracking-wide">Project Details</label>
-              <textarea rows="5" class="w-full bg-[#f7f9fb] border border-[#e6e8ea] rounded-xl p-4 text-[#191c1e] placeholder-[#9ca3af] focus:outline-none focus:border-[#3e7fca] focus:ring-4 focus:ring-[#3e7fca]/10 transition-all duration-300 resize-none" placeholder="Tell us about your requirements, timeline, and goals..." required></textarea>
+              <textarea v-model="form.message" rows="5" class="w-full bg-[#f7f9fb] border border-[#e6e8ea] rounded-xl p-4 text-[#191c1e] placeholder-[#9ca3af] focus:outline-none focus:border-[#3e7fca] focus:ring-4 focus:ring-[#3e7fca]/10 transition-all duration-300 resize-none" placeholder="Tell us about your requirements, timeline, and goals..." required></textarea>
             </div>
 
             <!-- Submit -->
-            <button type="submit" class="w-full bg-[#3e7fca] text-white font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-[#2c65a8] hover:-translate-y-1 hover:shadow-[0_15px_30px_-10px_rgba(62,127,202,0.4)] transition-all duration-300 active:scale-[0.98]">
-              <span>Send Message</span>
+            <button type="submit" :disabled="submitting" class="w-full bg-[#3e7fca] text-white font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-[#2c65a8] hover:-translate-y-1 hover:shadow-[0_15px_30px_-10px_rgba(62,127,202,0.4)] transition-all duration-300 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+              <span>{{ submitting ? 'Sending...' : 'Send Message' }}</span>
               <span class="material-symbols-outlined" style="font-size: 20px;">send</span>
             </button>
             <p class="text-center text-xs text-[#9ca3af] mt-4">
@@ -128,15 +128,39 @@
           </div>
         </form>
 
+        <ToastNotification
+          v-if="showToast"
+          title="Message Sent Successfully!"
+          message="Thank you for reaching out. Our team will get back to you within 24 hours."
+          @close="showToast = false"
+        />
+
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { ref, reactive } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSiteStore } from '@/stores/useSiteStore'
+import ToastNotification from '@/components/ToastNotification.vue'
 
 const siteStore = useSiteStore()
 const { contact } = storeToRefs(siteStore)
+
+const form = reactive({ name: '', email: '', message: '' })
+const submitting = ref(false)
+const showToast = ref(false)
+
+function handleSubmit() {
+  submitting.value = true
+  setTimeout(() => {
+    submitting.value = false
+    form.name = ''
+    form.email = ''
+    form.message = ''
+    showToast.value = true
+  }, 800)
+}
 </script>

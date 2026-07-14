@@ -2,7 +2,7 @@
   <section
     id="hero"
     class="relative w-full min-h-full text-white overflow-hidden"
-    style="margin-top: 0; padding-top: some courses"
+    style="margin-top: 0; padding-top: 0"
   >
     <!-- Background images with crossfade -->
     <div
@@ -55,18 +55,20 @@
           class="flex flex-wrap gap-4 justify-center pt-2 animate-fade-in-up"
           style="animation-delay: 0.4s"
         >
-          <a
-            href="#projects"
-            class="inline-flex items-center justify-center rounded-full bg-sis-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-sis-accent/50 transition-all duration-300 hover:bg-sis-light hover:shadow-sis-light/50 hover:scale-105"
-          >
-            Explore Our Work
-          </a>
-          <a
-            href="#contact"
-            class="inline-flex items-center justify-center rounded-full border-2 border-sis-light/50 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-sis-light transition-all duration-300 hover:bg-sis-light/10 hover:border-sis-light hover:scale-105"
-          >
-            Get In Touch
-          </a>
+            <a
+              @click.prevent="router.push({ name: 'projects' })"
+              href="#"
+              class="inline-flex items-center justify-center rounded-full bg-sis-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-sis-accent/50 transition-all duration-300 hover:bg-sis-light hover:shadow-sis-light/50 hover:scale-105"
+            >
+              Explore Our Work
+            </a>
+            <a
+              @click.prevent="router.push({ name: 'contact' })"
+              href="#"
+              class="inline-flex items-center justify-center rounded-full border-2 border-sis-light/50 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-sis-light transition-all duration-300 hover:bg-sis-light/10 hover:border-sis-light hover:scale-105"
+            >
+              Get In Touch
+            </a>
         </div>
 
         <div class="flex gap-2 pt-4">
@@ -91,12 +93,16 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useSiteStore } from "@/stores/useSiteStore";
-import slider1 from "@/images/slider-1-1.jpg";
-import factory from "@/images/factory.jpg";
-import controlling from "@/images/controlling.png";
-import controlling2 from "@/images/controlling-2.jpg";
+import { useRouter, useRoute } from "vue-router";
+import { scrollToSection } from "@/utils/scrollTo.js";
+import slider1 from "@/images/slider-1-1.webp";
+import factory from "@/images/factory.webp";
+import controlling from "@/images/controlling.webp";
+import controlling2 from "@/images/controlling-2.webp";
 
 const siteStore = useSiteStore();
+const router = useRouter();
+const route = useRoute();
 const { hero } = storeToRefs(siteStore);
 
 const heroImages = [slider1, factory, controlling, controlling2];

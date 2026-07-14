@@ -19,7 +19,7 @@
       <div class="mb-12 reveal reveal-fade-up">
         <div class="relative rounded-2xl overflow-hidden border border-[#e6e8ea] shadow-lg">
           <img
-            src="@/images/about-image.png"
+            src="@/images/about-image.webp"
             alt="Industrial automation and control systems"
             class="w-full h-auto object-cover"
             loading="lazy"

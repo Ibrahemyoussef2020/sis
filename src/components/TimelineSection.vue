@@ -6,33 +6,71 @@
         <h2 class="mt-3 text-2xl font-semibold sm:text-3xl" data-reveal>{{ timeline?.title }}</h2>
         <p class="mt-3 max-w-2xl text-sis-muted" data-reveal>{{ timeline?.subtitle }}</p>
       </div>
-      <div class="relative overflow-hidden rounded-[2rem] border border-sis-border bg-white p-6 shadow-sis">
-        <div class="hidden lg:block">
-          <div class="relative mx-auto max-w-6xl px-6 py-10">
-            <div class="absolute inset-x-0 top-1/2 h-1 bg-sis-panel"></div>
-            <div class="absolute inset-y-0 left-1/2 w-px bg-sis-border"></div>
-            <div class="relative flex gap-6 overflow-x-auto pb-6">
-              <article v-for="milestone in timeline?.milestones" :key="milestone.year" class="relative min-w-[280px] snap-start text-center" data-reveal>
-                <div class="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sis-accent text-sm font-semibold text-white shadow-lg ring-4 ring-sis-panel">
-                  <span class="animate-pulse">{{ milestone.year }}</span>
-                </div>
-                <div class="mt-6 rounded-[1.5rem] border border-sis-panel bg-sis-panel px-5 py-6 shadow-sm">
-                  <h3 class="text-lg font-semibold text-sis-text">{{ milestone.label }}</h3>
-                  <p class="mt-3 text-sm leading-6 text-sis-muted">{{ milestone.description }}</p>
-                </div>
-              </article>
+
+      <!-- Desktop: Vertical zigzag timeline -->
+      <div class="relative hidden lg:block">
+        <div class="absolute left-1/2 top-4 bottom-4 w-0.5 bg-sis-border -translate-x-1/2"></div>
+        <div class="space-y-16">
+          <div
+            v-for="(milestone, i) in timeline?.milestones"
+            :key="milestone.year"
+            class="relative flex items-start"
+          >
+            <!-- Card (left on even, right on odd) -->
+            <div
+              :class="i % 2 === 0 ? 'pr-10 text-right' : 'pl-10 order-3'"
+              class="w-[calc(50%-2.5rem)]"
+              data-reveal
+            >
+              <div
+                class="inline-block text-left rounded-2xl border border-sis-border bg-white p-6 shadow-sm"
+              >
+                <h3 class="text-lg font-semibold text-sis-text">{{ milestone.label }}</h3>
+                <p class="mt-3 text-sm leading-6 text-sis-muted">{{ milestone.description }}</p>
+              </div>
             </div>
+
+            <!-- Center dot -->
+            <div class="relative z-10 flex w-20 shrink-0 justify-center order-2" style="margin-top: 1.5rem;">
+              <div
+                class="flex h-14 min-w-[4.5rem] w-auto items-center justify-center rounded-full bg-sis-accent px-4 text-sm font-semibold text-white shadow-lg ring-4 ring-white whitespace-nowrap"
+              >
+                {{ milestone.year }}
+              </div>
+              <!-- Connector line -->
+              <div
+                class="absolute top-1/2 w-6 h-0.5 bg-sis-border -translate-y-1/2"
+                :class="i % 2 === 0 ? 'right-full' : 'left-full'"
+              ></div>
+            </div>
+
+            <!-- Empty spacer (opposite side) -->
+            <div
+              :class="i % 2 === 0 ? 'order-3' : 'order-1'"
+              class="w-[calc(50%-2.5rem)]"
+            ></div>
           </div>
         </div>
-        <div class="space-y-6 lg:hidden">
-          <article v-for="milestone in timeline?.milestones" :key="milestone.year" class="flex items-start gap-5 rounded-3xl border border-sis-border bg-sis-panel p-5" data-reveal>
-            <div class="flex h-14 w-14 items-center justify-center rounded-3xl bg-sis-primary text-white">{{ milestone.year }}</div>
-            <div>
-              <p class="font-semibold">{{ milestone.label }}</p>
-              <p class="mt-2 text-sm text-sis-muted">{{ milestone.description }}</p>
-            </div>
-          </article>
-        </div>
+      </div>
+
+      <!-- Mobile: simple stacked list -->
+      <div class="space-y-6 lg:hidden">
+        <article
+          v-for="milestone in timeline?.milestones"
+          :key="milestone.year"
+          class="flex items-start gap-5 rounded-3xl border border-sis-border bg-white p-5 shadow-sm"
+          data-reveal
+        >
+          <div
+            class="flex h-14 min-w-[4.5rem] w-auto shrink-0 items-center justify-center rounded-full bg-sis-accent px-4 text-sm font-semibold text-white whitespace-nowrap"
+          >
+            {{ milestone.year }}
+          </div>
+          <div>
+            <p class="font-semibold text-sis-text">{{ milestone.label }}</p>
+            <p class="mt-2 text-sm text-sis-muted">{{ milestone.description }}</p>
+          </div>
+        </article>
       </div>
     </div>
   </SectionWrapper>

@@ -1,17 +1,9 @@
 <template>
-  <TimelineSection />
+  <div class="pt-16">
+    <TimelineSection />
+  </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-import { useSiteStore } from '@/stores/useSiteStore'
-import TimelineSection from '@/components/TimelineSection.vue'
-
-const siteStore = useSiteStore()
-
-onMounted(() => {
-  if (!siteStore.loaded) {
-    siteStore.loadAll()
-  }
-})
+import TimelineSection from "@/components/TimelineSection.vue";
 </script>

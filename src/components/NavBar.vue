@@ -17,55 +17,64 @@
         />
       </router-link>
 
-      <!-- Wrapper for nav, search, and language selector -->
       <div class="hidden md:flex items-center flex-1 gap-8">
         <nav
           class="items-center gap-1 text-sm font-medium text-white/90 flex justify-center flex-1"
         >
           <router-link
-            v-for="item in navItems"
+            v-for="item in navWithRoute"
             :key="item.label"
-            :to="item.path ? item.path : { name: item.name }"
+            :to="{ name: item.route }"
             class="relative rounded-full px-4 py-2 transition-all duration-200 hover:text-sis-accent hover:bg-white/5 active:scale-[0.96]"
-            :class="
-              (item.name && $route.name === item.name) ||
-              ($route.path === '/' &&
-                item.path &&
-                $route.hash === item.path.replace('/#', ''))
-                ? 'text-sis-accent bg-white/5 font-semibold'
-                : ''
-            "
+            :class="$route.name === item.route ? 'text-sis-accent bg-white/5 font-semibold' : ''"
           >
             {{ item.label }}
           </router-link>
-        </nav>
+          <a
+            v-for="item in navWithAction"
+            :key="item.label"
+            href="#"
+            @click.prevent="item.action()"
+            class="relative rounded-full px-4 py-2 transition-all duration-200 hover:text-sis-accent hover:bg-white/5 active:scale-[0.96] cursor-pointer"
+          >
+            {{ item.label }}
+          </a>
 
-        <div class="items-center gap-3 flex flex-shrink-0">
-          <button
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 active:scale-[0.92]"
-            aria-label="Search"
+          <!-- More dropdown -->
+          <div
+            class="relative"
+            @mouseenter="dropdownOpen = true"
+            @mouseleave="dropdownOpen = false"
           >
-            <svg
-              class="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            <button
+              class="relative rounded-full px-4 py-2 transition-all duration-200 hover:text-sis-accent hover:bg-white/5 active:scale-[0.96] flex items-center gap-1"
+              :class="dropdownOpen || dropdownActive ? 'text-sis-accent bg-white/5 font-semibold' : ''"
             >
-              <circle cx="11" cy="11" r="8" />
-              <path d="M21 21l-4.35-4.35" />
-            </svg>
-          </button>
-          <button
-            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.24em] text-white transition-all duration-200 hover:bg-white/10 active:scale-[0.92]"
-          >
-            EN
-            <span class="text-[0.55rem]">▾</span>
-          </button>
-        </div>
+              More
+              <svg class="w-3.5 h-3.5 transition-transform duration-200" :class="dropdownOpen ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <transition name="dropdown-fade">
+              <div
+                v-if="dropdownOpen"
+                class="absolute top-full right-0 mt-2 w-44 rounded-xl bg-[#0b1a2e] border border-white/10 shadow-xl shadow-black/30 py-2 backdrop-blur-xl"
+              >
+                <router-link
+                  v-for="item in dropdownNav"
+                  :key="item.label"
+                  :to="{ name: item.route }"
+                  class="block px-4 py-2.5 text-sm text-white/80 hover:text-sis-accent hover:bg-white/5 transition-colors"
+                  :class="$route.name === item.route ? 'text-sis-accent font-semibold' : ''"
+                >
+                  {{ item.label }}
+                </router-link>
+              </div>
+            </transition>
+          </div>
+        </nav>
       </div>
+
       <button
         class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-white md:hidden transition-all duration-200 hover:bg-white/10 active:scale-[0.92] flex-shrink-0"
         @click="toggleMenu"
@@ -90,13 +99,14 @@
         v-if="menuOpen"
         class="border-t border-white/10 bg-[#061826]/95 px-4 py-6 text-white md:hidden"
       >
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-1">
           <router-link
-            v-for="item in navItems"
+            v-for="item in allNav"
             :key="item.label"
-            :to="item.path ? item.path : { name: item.name }"
+            :to="{ name: item.route }"
             @click="toggleMenu"
             class="rounded-3xl px-4 py-3 transition hover:bg-white/10 flex items-center gap-3"
+            :class="$route.name === item.route ? 'text-sis-accent bg-white/5 font-semibold' : ''"
           >
             {{ item.label }}
           </router-link>
@@ -107,35 +117,53 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-import { useRoute } from "vue-router";
+import { ref, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { scrollToSection } from "@/utils/scrollTo.js";
 
 const route = useRoute();
+const router = useRouter();
 const headerEl = ref(null);
-const navItems = [
-  { name: "home", label: "Home" },
-  { path: "/#services", label: "Solutions" },
-  { name: "about", label: "About Us" },
-  { name: "projects", label: "Our Work" },
-  { name: "contact", label: "Contact" },
+const menuOpen = ref(false);
+const dropdownOpen = ref(false);
+
+const mainNav = [
+  { label: "Home", route: "home" },
+  {
+    label: "Services",
+    action: () => scrollToSection("services", router, route),
+  },
+  { label: "About Us", route: "about" },
+  { label: "Projects", route: "projects" },
+  { label: "Contact", route: "contact" },
 ];
 
-const menuOpen = ref(false);
+const dropdownNav = [
+  { label: "Capabilities", route: "capabilities" },
+  { label: "Timeline", route: "timeline" },
+];
+
+const navWithRoute = computed(() => mainNav.filter((i) => i.route));
+const navWithAction = computed(() => mainNav.filter((i) => i.action));
+const allNav = [...navWithRoute.value, ...dropdownNav];
+
+const dropdownActive = computed(() =>
+  dropdownNav.some((i) => route.name === i.route)
+);
 
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };
-
-onMounted(() => {
-  // Header stays fixed at top - scroll behavior handled by page layout
-  // Ensure no scroll offset issues by maintaining fixed positioning
-});
-
-onUnmounted(() => {
-  // cleanup
-});
-
-function onScroll() {
-  // no-op scroll listener preserved for future style updates
-}
 </script>
+
+<style scoped>
+.dropdown-fade-enter-active,
+.dropdown-fade-leave-active {
+  transition: all 0.2s ease;
+}
+.dropdown-fade-enter-from,
+.dropdown-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+</style>
