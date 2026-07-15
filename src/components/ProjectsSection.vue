@@ -27,7 +27,7 @@
             class="rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200"
             :class="activeSector === sector.id
               ? 'bg-[#3e7fca] text-white shadow-md shadow-[#3e7fca]/30'
-              : 'bg-white text-[#444655] border border-[#dde1e7] hover:border-[#3e7fca] hover:text-[#3e7fca]'"
+              : 'bg-sis-panel text-[#444655] border border-[#dde1e7] hover:border-[#3e7fca] hover:text-[#3e7fca]'"
           >{{ sector.label }}</button>
         </div>
       </div>
@@ -35,7 +35,7 @@
       <!-- Stats bar -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14 stagger-container">
         <div v-for="(stat, index) in stats" :key="stat.label"
-             class="bg-white rounded-2xl border border-[#e6e8ea] px-6 py-5 flex flex-col gap-1 reveal reveal-fade-up"
+             class="bg-sis-panel rounded-2xl border border-[#e6e8ea] px-6 py-5 flex flex-col gap-1 reveal reveal-fade-up"
              :style="{ transitionDelay: `${0.1 + (index * 0.1)}s` }">
           <span class="text-3xl font-black text-[#3e7fca]"><AnimatedCounter :value="stat.value" :suffix="stat.suffix" /></span>
           <span class="text-xs font-semibold text-[#6b7280] uppercase tracking-wider">{{ stat.label }}</span>
@@ -49,7 +49,7 @@
             <article
               v-for="(project, i) in filteredProjects"
               :key="project.client"
-              class="group bg-white rounded-2xl border border-[#e6e8ea] p-7 flex flex-col gap-4 reveal reveal-fade-up
+              class="group bg-sis-panel rounded-2xl border border-[#e6e8ea] p-7 flex flex-col gap-4 reveal reveal-fade-up
                      hover:border-[#3e7fca]/50 hover:shadow-xl hover:shadow-[#3e7fca]/8
                      hover:-translate-y-1 transition-all duration-300"
               :style="{ transitionDelay: `${i * 0.1}s` }"
@@ -122,7 +122,7 @@
               class="rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200"
               :class="activeGallery === cat.id
                 ? 'bg-[#3e7fca] text-white shadow-md shadow-[#3e7fca]/30'
-                : 'bg-white text-[#444655] border border-[#dde1e7] hover:border-[#3e7fca] hover:text-[#3e7fca]'"
+                : 'bg-sis-panel text-[#444655] border border-[#dde1e7] hover:border-[#3e7fca] hover:text-[#3e7fca]'"
             >{{ cat.label }}</button>
           </div>
         </div>
@@ -131,7 +131,7 @@
           <div
             v-for="(img, i) in filteredGallery"
             :key="img.src"
-            class="relative aspect-square rounded-xl overflow-hidden cursor-pointer group border border-[#e6e8ea] bg-white"
+            class="relative aspect-square rounded-xl overflow-hidden cursor-pointer group border border-[#e6e8ea] bg-sis-panel"
             @click="openLightbox(i)"
           >
             <img :src="img.src" :alt="img.alt" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110" loading="lazy" />

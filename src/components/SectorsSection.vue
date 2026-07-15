@@ -7,7 +7,7 @@
       </div>
       <div class="grid gap-4 lg:grid-cols-2">
         <template v-if="loaded">
-          <article v-for="sector in sectors" :key="sector.id" class="rounded-[2rem] border border-sis-border bg-white p-4 shadow-sis">
+          <article v-for="sector in sectors" :key="sector.id" class="rounded-[2rem] border border-sis-border bg-sis-panel p-4 shadow-sis">
             <div class="flex items-center justify-between">
               <h3 class="text-xl font-semibold" :style="{ color: sector.color }">{{ sector.label }}</h3>
               <span class="rounded-full bg-sis-panel px-3 py-1 text-xs uppercase tracking-[0.2em] text-sis-muted">{{ sector.projects.length }} projects</span>

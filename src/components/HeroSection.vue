@@ -1,7 +1,7 @@
 <template>
   <section
     id="hero"
-    class="relative w-full min-h-full text-white overflow-hidden"
+    class="relative w-full min-h-screen text-white overflow-hidden"
     style="margin-top: 0; padding-top: 0"
   >
     <!-- Background images with crossfade -->
@@ -29,8 +29,9 @@
     ></div>
 
     <div
-      class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+      class="relative h-screen pt-[72px] flex items-center justify-center px-4 sm:px-6 lg:px-8"
     >
+      <!-- HERO TEXT -->
       <div
         class="flex flex-col items-center justify-center text-center space-y-8 max-w-4xl"
       >
@@ -55,20 +56,20 @@
           class="flex flex-wrap gap-4 justify-center pt-2 animate-fade-in-up"
           style="animation-delay: 0.4s"
         >
-            <a
-              @click.prevent="router.push({ name: 'projects' })"
-              href="#"
-              class="inline-flex items-center justify-center rounded-full bg-sis-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-sis-accent/50 transition-all duration-300 hover:bg-sis-light hover:shadow-sis-light/50 hover:scale-105"
-            >
-              Explore Our Work
-            </a>
-            <a
-              @click.prevent="router.push({ name: 'contact' })"
-              href="#"
-              class="inline-flex items-center justify-center rounded-full border-2 border-sis-light/50 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-sis-light transition-all duration-300 hover:bg-sis-light/10 hover:border-sis-light hover:scale-105"
-            >
-              Get In Touch
-            </a>
+          <a
+            @click.prevent="router.push({ name: 'projects' })"
+            href="#"
+            class="inline-flex items-center justify-center rounded-full bg-sis-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-sis-accent/50 transition-all duration-300 hover:bg-sis-light hover:shadow-sis-light/50 hover:scale-105"
+          >
+            Explore Our Work
+          </a>
+          <a
+            @click.prevent="router.push({ name: 'contact' })"
+            href="#"
+            class="inline-flex items-center justify-center rounded-full border-2 border-sis-light/50 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-sis-light transition-all duration-300 hover:bg-sis-light/10 hover:border-sis-light hover:scale-105"
+          >
+            Get In Touch
+          </a>
         </div>
 
         <div class="flex gap-2 pt-4">

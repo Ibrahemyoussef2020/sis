@@ -227,7 +227,7 @@
             />
             <text
               x="450"
-              y="64"
+              y="70"
               text-anchor="middle"
               fill="#c3c6d3"
               font-size="8"
@@ -238,7 +238,7 @@
             </text>
             <text
               x="450"
-              y="262"
+              y="258"
               text-anchor="middle"
               fill="#c3c6d3"
               font-size="8"
@@ -518,13 +518,13 @@
             />
             <text
               x="155"
-              y="238"
+              y="243"
               text-anchor="start"
               fill="#8d909c"
               font-size="8"
               font-family="Inter,sans-serif"
             >
-              ⟷ data exchange ⟷
+              data exchange
             </text>
 
             <!-- PC node -->
@@ -598,7 +598,7 @@
             />
             <text
               x="48"
-              y="307"
+              y="313"
               text-anchor="end"
               fill="#c3c6d3"
               font-size="8"
@@ -609,7 +609,7 @@
             </text>
             <text
               x="252"
-              y="307"
+              y="313"
               text-anchor="start"
               fill="#c3c6d3"
               font-size="8"
@@ -628,13 +628,13 @@
             />
             <text
               x="155"
-              y="376"
+              y="381"
               text-anchor="start"
               fill="#8d909c"
               font-size="8"
               font-family="Inter,sans-serif"
             >
-              ⟷ command flow ⟷
+              command flow
             </text>
 
             <!-- Factory node -->
@@ -727,7 +727,6 @@
               fill="url(#fade-t)"
               opacity="0.9"
             />
-
           </svg>
         </div>
 

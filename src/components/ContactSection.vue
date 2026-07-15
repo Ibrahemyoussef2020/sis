@@ -23,7 +23,7 @@
         <!-- Left: Contact Info -->
         <div class="flex flex-col gap-8 reveal reveal-fade-up" style="transition-delay: 0.1s;">
           
-          <div class="bg-white rounded-3xl p-8 border border-[#e6e8ea] shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="bg-sis-panel rounded-3xl p-8 border border-sis-border shadow-sm hover:shadow-md transition-shadow duration-300">
             <h3 class="text-2xl font-bold text-[#191c1e] mb-8">Contact Information</h3>
             
             <div class="space-y-8">
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Right: Form -->
-        <form class="bg-white rounded-3xl p-10 lg:p-12 border border-[#e6e8ea] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] reveal reveal-fade-up" style="transition-delay: 0.2s;" @submit.prevent="handleSubmit">
+        <form class="bg-sis-panel rounded-3xl p-10 lg:p-12 border border-sis-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] reveal reveal-fade-up" style="transition-delay: 0.2s;" @submit.prevent="handleSubmit">
           <div class="mb-10">
             <h3 class="text-3xl font-black text-[#191c1e] mb-3">Send us a message</h3>
             <p class="text-[#6b7280]">Fill out the form below and our team will get back to you within 24 hours.</p>

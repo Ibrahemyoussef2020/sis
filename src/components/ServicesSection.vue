@@ -524,7 +524,7 @@ function onTiltReset(e) {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 .glass-card .card-body {
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7), 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ── Ensure content sits above background ──────────────────────────── */
@@ -652,14 +652,14 @@ function onTiltReset(e) {
 }
 .card-subtitle-word {
   font-weight: 300;
-  color: #8d909c;
+  color: #afc6ff;
 }
 
 .card-body {
   font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   line-height: 1.5;
-  color: #8d909c;
+  color: #e8ebf5;
   max-width: 22rem;
   margin: 0;
 }

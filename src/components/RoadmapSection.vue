@@ -7,7 +7,7 @@
       </div>
       <div class="grid gap-8 lg:grid-cols-2">
         <template v-if="loaded">
-          <article v-for="phase in roadmap.phases" :key="phase.label" class="rounded-[2rem] border border-sis-border bg-white p-4 shadow-sis">
+          <article v-for="phase in roadmap.phases" :key="phase.label" class="rounded-[2rem] border border-sis-border bg-sis-panel p-4 shadow-sis">
             <h3 class="text-xl font-semibold text-sis-primary">{{ phase.label }}</h3>
             <div class="mt-5 space-y-4">
               <div v-for="step in phase.steps" :key="step.number" class="rounded-3xl bg-sis-panel p-4">

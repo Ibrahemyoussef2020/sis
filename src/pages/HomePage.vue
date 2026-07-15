@@ -1,6 +1,5 @@
 <template>
   <HeroSection />
-  <VideoSection />
   <IntegrationSection />
   <ServicesSection />
   <ArchitectureSection />
@@ -18,6 +17,5 @@ import ArchitectureSection from "@/components/ArchitectureSection.vue";
 import MethodologySection from "@/components/MethodologySection.vue";
 import Workflow from "../components/Workflow.vue";
 import PartnersSection from "@/components/PartnersSection.vue";
-import VideoSection from "@/components/VideoSection.vue";
 import ClientsSection from "@/components/ClientsSection.vue";
 </script>

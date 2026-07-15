@@ -23,7 +23,7 @@
               data-reveal
             >
               <div
-                class="inline-block text-left rounded-2xl border border-sis-border bg-white p-6 shadow-sm"
+                class="inline-block text-left rounded-2xl border border-sis-border bg-sis-panel p-6 shadow-sm"
               >
                 <h3 class="text-lg font-semibold text-sis-text">{{ milestone.label }}</h3>
                 <p class="mt-3 text-sm leading-6 text-sis-muted">{{ milestone.description }}</p>
@@ -58,7 +58,7 @@
         <article
           v-for="milestone in timeline?.milestones"
           :key="milestone.year"
-          class="flex items-start gap-5 rounded-3xl border border-sis-border bg-white p-5 shadow-sm"
+          class="flex items-start gap-5 rounded-3xl border border-sis-border bg-sis-panel p-5 shadow-sm"
           data-reveal
         >
           <div

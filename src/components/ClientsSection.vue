@@ -1,15 +1,13 @@
 <template>
-  <section class="clients-root">
-    <div class="circuit-bg" aria-hidden="true"></div>
-    <div class="orb orb-tl" aria-hidden="true"></div>
-    <div class="orb orb-br" aria-hidden="true"></div>
+  <section class="clients-root" ref="sectionRef">
+
+    <!-- Atmospheric glows (Methodology style) -->
+    <div class="clients-glow clients-glow--tr" aria-hidden="true"></div>
+    <div class="clients-glow clients-glow--bl" aria-hidden="true"></div>
 
     <div class="clients-inner">
       <div class="clients-header" data-reveal>
-        <div class="label-row">
-          <span class="label-line"></span>
-          <span class="label-text">Our Clientele</span>
-        </div>
+        <span class="clients-eyebrow">Our Clientele</span>
         <h2 class="clients-title">
           Trusted by <em class="title-accent">Industry Leaders</em>
         </h2>
@@ -50,6 +48,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import delta from "@/images/ourClints/delta.jpg";
 import emitsal from "@/images/ourClints/emitsal.jpg";
 import energeya from "@/images/ourClints/energeya.jpg";
@@ -75,60 +74,60 @@ const clients = [
   { name: "Tabreed", src: tabreed },
   { name: "Uniha", src: uniha },
 ];
+
+const sectionRef = ref(null)
+
+onMounted(() => {
+  if (!sectionRef.value) return
+  const items = [...sectionRef.value.querySelectorAll('[data-reveal]')]
+  items.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)' })
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return
+      items.forEach((el, i) => {
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
+          el.style.opacity = '1'
+          el.style.transform = 'translateY(0)'
+        }, i * 120)
+      })
+      observer.disconnect()
+    })
+  }, { threshold: 0.15 })
+
+  observer.observe(sectionRef.value)
+})
 </script>
 
 <style scoped>
+/* ── Root ──────────────────────────────────────────────────────────── */
 .clients-root {
   position: relative;
   overflow: hidden;
-  background: #0b1326;
+  background: #f7f9fb;
   padding: 6rem 1.5rem;
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Manrope', 'Inter', sans-serif;
+  color: #191c1e;
 }
 
-.circuit-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(90deg, rgba(137, 206, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(137, 206, 255, 0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.orb {
+/* atmospheric glows */
+.clients-glow {
   position: absolute;
   border-radius: 9999px;
   pointer-events: none;
-  z-index: 0;
 }
-.orb-tl {
-  width: 500px;
-  height: 500px;
-  top: -12rem;
-  left: -10rem;
-  background: rgba(175, 198, 255, 0.04);
-  filter: blur(120px);
-  animation: pulse-slow 6s ease-in-out infinite;
+.clients-glow--tr {
+  width: 24rem; height: 24rem;
+  top: -6rem; right: -6rem;
+  background: rgba(5, 93, 182, 0.06);
+  filter: blur(80px);
 }
-.orb-br {
-  width: 500px;
-  height: 500px;
-  bottom: -12rem;
-  right: -8rem;
-  background: rgba(137, 206, 255, 0.06);
-  filter: blur(130px);
-}
-
-@keyframes pulse-slow {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+.clients-glow--bl {
+  width: 16rem; height: 16rem;
+  bottom: -4rem; left: -4rem;
+  background: rgba(0, 32, 70, 0.05);
+  filter: blur(80px);
 }
 
 .clients-inner {
@@ -139,6 +138,7 @@ const clients = [
   margin: 0 auto;
 }
 
+/* ── Header ────────────────────────────────────────────────────────── */
 .clients-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -148,48 +148,36 @@ const clients = [
   gap: 1rem;
 }
 
-.label-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.25rem;
-}
-.label-line {
+.clients-eyebrow {
   display: block;
-  width: 3rem;
-  height: 1px;
-  background: #afc6ff;
-}
-.label-text {
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #afc6ff;
+  color: #055db6;
+  margin-bottom: 0.25rem;
 }
 
 .clients-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: #dae2fd;
+  color: #002046;
   margin: 0;
 }
 .title-accent {
   font-style: italic;
   font-weight: 700;
-  color: #afc6ff;
-  text-shadow: 0 0 30px rgba(175, 198, 255, 0.3);
+  color: #055db6;
 }
 
 .clients-desc {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: #8d909c;
+  color: #44474e;
   max-width: 36rem;
   margin: 0;
 }
@@ -239,20 +227,20 @@ const clients = [
   aspect-ratio: auto;
   object-fit: contain;
   border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(5, 93, 182, 0.1);
   padding: 1.25rem 2rem;
-  filter: brightness(0.85) contrast(1.1);
+  filter: brightness(0.95) contrast(1.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
 }
 
 .client-logo:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(175, 198, 255, 0.2);
-  box-shadow: 0 0 24px rgba(14, 165, 233, 0.1);
+  background: #ffffff;
+  border-color: rgba(5, 93, 182, 0.25);
+  box-shadow: 0 4px 20px rgba(5, 93, 182, 0.1);
   transform: scale(1.05);
-  filter: brightness(1.1) contrast(1.1);
+  filter: brightness(1.05) contrast(1.05);
 }
 
 .client-card {
@@ -267,14 +255,14 @@ const clients = [
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #c3c6d3;
+  color: #44474e;
   text-align: center;
   line-height: 1.3;
   white-space: nowrap;
   transition: color 0.3s ease;
 }
 .client-card:hover .client-name {
-  color: #dae2fd;
+  color: #002046;
 }
 
 @media (max-width: 768px) {
@@ -282,18 +270,14 @@ const clients = [
     padding: 4rem 1.5rem;
   }
 
-  .orb-tl {
-    width: 300px;
-    height: 300px;
-    top: -8rem;
-    left: -6rem;
+  .clients-glow--tr {
+    width: 300px; height: 300px;
+    top: -8rem; right: -6rem;
     filter: blur(80px);
   }
-  .orb-br {
-    width: 300px;
-    height: 300px;
-    bottom: -8rem;
-    right: -5rem;
+  .clients-glow--bl {
+    width: 300px; height: 300px;
+    bottom: -8rem; left: -5rem;
     filter: blur(80px);
   }
 
@@ -313,18 +297,14 @@ const clients = [
     padding: 3rem 1rem;
   }
 
-  .orb-tl {
-    width: 180px;
-    height: 180px;
-    top: -5rem;
-    left: -4rem;
+  .clients-glow--tr {
+    width: 180px; height: 180px;
+    top: -5rem; right: -4rem;
     filter: blur(50px);
   }
-  .orb-br {
-    width: 180px;
-    height: 180px;
-    bottom: -5rem;
-    right: -3rem;
+  .clients-glow--bl {
+    width: 180px; height: 180px;
+    bottom: -5rem; left: -3rem;
     filter: blur(50px);
   }
 

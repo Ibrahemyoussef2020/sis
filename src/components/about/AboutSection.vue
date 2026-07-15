@@ -22,7 +22,7 @@
         </div>
         <div class="grid gap-4">
           <template v-if="loaded">
-            <div v-for="pillar in about.pillars" :key="pillar.title" class="rounded-3xl border border-sis-border bg-white p-4 shadow-sis">
+            <div v-for="pillar in about.pillars" :key="pillar.title" class="rounded-3xl border border-sis-border bg-sis-panel p-4 shadow-sis">
               <h3 class="text-lg font-semibold text-sis-primary">{{ pillar.title }}</h3>
               <p class="mt-3 text-sm leading-6 text-sis-muted">{{ pillar.body }}</p>
             </div>

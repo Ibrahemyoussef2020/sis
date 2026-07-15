@@ -1,5 +1,5 @@
 <template>
-  <section class="py-24 bg-white relative overflow-hidden" id="why-it-ot">
+  <section class="py-24 bg-sis-panel relative overflow-hidden scroll-mt-[72px]" id="why-it-ot">
     <!-- Decorative background lines -->
     <div class="absolute inset-0 pointer-events-none opacity-[0.02]"
          style="background-image: linear-gradient(to right, #1b3a6b 1px, transparent 1px), linear-gradient(to bottom, #1b3a6b 1px, transparent 1px); background-size: 100px 100px;">
@@ -24,10 +24,10 @@
             The hardware and software that detects or causes a change through the direct monitoring and/or control of industrial equipment, assets, processes, and events.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">SCADA</span>
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">PLCs</span>
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">Sensors</span>
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">DCS</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">SCADA</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">PLCs</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">Sensors</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">DCS</span>
           </div>
         </div>
 
@@ -50,10 +50,10 @@
             The use of computers, storage, networking, and other physical devices to create, process, store, secure, and exchange all forms of electronic data.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">ERP</span>
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">Cloud</span>
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">Analytics</span>
-            <span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-on-surface-variant shadow-sm">MES</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">ERP</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">Cloud</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">Analytics</span>
+            <span class="px-3 py-1 bg-sis-panel rounded-full text-xs font-bold text-on-surface-variant shadow-sm">MES</span>
           </div>
         </div>
       </div>

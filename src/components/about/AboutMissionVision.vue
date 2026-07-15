@@ -32,7 +32,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
 
         <!-- Mission Card -->
-        <div class="reveal reveal-fade-up bg-white rounded-2xl border border-[#e6e8ea] shadow-md p-10 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+        <div class="reveal reveal-fade-up bg-sis-panel rounded-2xl border border-sis-border shadow-md p-10 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
           <div class="absolute top-0 right-0 w-56 h-56 bg-primary/5 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/10 transition-colors duration-300"></div>
 
           <!-- Icon -->
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Vision Card -->
-        <div id="mission-vision" class="reveal reveal-fade-up bg-white rounded-2xl border border-[#e6e8ea] shadow-md p-10 relative overflow-hidden group hover:shadow-xl transition-all duration-300" style="transition-delay: 0.12s">
+        <div id="mission-vision" class="reveal reveal-fade-up bg-sis-panel rounded-2xl border border-sis-border shadow-md p-10 relative overflow-hidden group hover:shadow-xl transition-all duration-300" style="transition-delay: 0.12s">
           <div class="absolute top-0 right-0 w-56 h-56 bg-secondary/5 rounded-full blur-3xl pointer-events-none group-hover:bg-secondary/10 transition-colors duration-300"></div>
 
           <!-- Icon -->

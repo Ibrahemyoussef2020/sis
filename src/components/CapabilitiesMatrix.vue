@@ -1,5 +1,5 @@
 <template>
-  <SectionWrapper wrapperClass="bg-white text-sis-text">
+  <SectionWrapper wrapperClass="bg-sis-panel text-sis-text">
     <div class="mx-auto max-w-7xl">
       <div class="mb-10">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent" data-reveal>Capabilities</p>
