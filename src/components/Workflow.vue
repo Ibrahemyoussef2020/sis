@@ -21,355 +21,715 @@
 
       <!-- ── Central visual ─────────────────────────────────────────── -->
       <div class="wf-visual" data-reveal>
-        <!-- SVG architectural diagram -->
-        <svg
-          class="wf-diagram"
-          viewBox="0 0 900 320"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="IT/OT Lifecycle Architecture Diagram"
-        >
-          <!-- Background grid -->
-          <defs>
-            <pattern
-              id="wf-grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
+        <div class="wf-diagram--horizontal">
+          <!-- SVG architectural diagram (desktop) -->
+          <svg
+            class="wf-diagram"
+            viewBox="0 0 900 320"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="IT/OT Lifecycle Architecture Diagram"
+          >
+            <!-- Background grid -->
+            <defs>
+              <pattern
+                id="wf-grid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 40 0 L 0 0 0 40"
+                  fill="none"
+                  stroke="rgba(137,206,255,0.06)"
+                  stroke-width="1"
+                />
+              </pattern>
+              <linearGradient id="wf-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#afc6ff" stop-opacity="0" />
+                <stop offset="30%" stop-color="#89ceff" stop-opacity="0.6" />
+                <stop offset="70%" stop-color="#89ceff" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#afc6ff" stop-opacity="0" />
+              </linearGradient>
+              <filter id="wf-glow">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <rect width="900" height="320" fill="url(#wf-grid)" />
+
+            <!-- Flow line -->
+            <line
+              x1="60"
+              y1="160"
+              x2="840"
+              y2="160"
+              stroke="url(#wf-flow)"
+              stroke-width="1.5"
+              stroke-dasharray="6 4"
+            />
+
+            <!-- MIND node -->
+            <circle
+              cx="90"
+              cy="160"
+              r="36"
+              fill="rgba(175,198,255,0.08)"
+              stroke="rgba(175,198,255,0.35)"
+              stroke-width="1.5"
+              filter="url(#wf-glow)"
+            />
+            <text
+              x="90"
+              y="155"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
             >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="rgba(137,206,255,0.06)"
-                stroke-width="1"
-              />
-            </pattern>
-            <linearGradient id="wf-flow" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#afc6ff" stop-opacity="0" />
-              <stop offset="30%" stop-color="#89ceff" stop-opacity="0.6" />
-              <stop offset="70%" stop-color="#89ceff" stop-opacity="0.6" />
-              <stop offset="100%" stop-color="#afc6ff" stop-opacity="0" />
-            </linearGradient>
-            <filter id="wf-glow">
-              <feGaussianBlur stdDeviation="2" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-          <rect width="900" height="320" fill="url(#wf-grid)" />
+              MIND
+            </text>
+            <text
+              x="90"
+              y="170"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Strategy
+            </text>
 
-          <!-- Flow line -->
-          <line
-            x1="60"
-            y1="160"
-            x2="840"
-            y2="160"
-            stroke="url(#wf-flow)"
-            stroke-width="1.5"
-            stroke-dasharray="6 4"
-          />
+            <!-- Arrow 1 -->
+            <path
+              d="M128 160 L146 160"
+              stroke="#89ceff"
+              stroke-width="1"
+              stroke-opacity="0.5"
+              marker-end="url(#wf-arrow)"
+            />
 
-          <!-- MIND node -->
-          <circle
-            cx="90"
-            cy="160"
-            r="36"
-            fill="rgba(175,198,255,0.08)"
-            stroke="rgba(175,198,255,0.35)"
-            stroke-width="1.5"
-            filter="url(#wf-glow)"
-          />
-          <text
-            x="90"
-            y="155"
-            text-anchor="middle"
-            fill="#afc6ff"
-            font-size="11"
-            font-family="Plus Jakarta Sans,Inter,sans-serif"
-            font-weight="700"
-          >
-            MIND
-          </text>
-          <text
-            x="90"
-            y="170"
-            text-anchor="middle"
-            fill="#89ceff"
-            font-size="9"
-            font-family="Inter,sans-serif"
-          >
-            Strategy
-          </text>
+            <!-- AI node -->
+            <circle
+              cx="225"
+              cy="160"
+              r="40"
+              fill="rgba(175,198,255,0.07)"
+              stroke="rgba(137,206,255,0.4)"
+              stroke-width="1.5"
+              filter="url(#wf-glow)"
+            />
+            <text
+              x="225"
+              y="155"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              AI
+            </text>
+            <text
+              x="225"
+              y="170"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Analytics
+            </text>
 
-          <!-- Arrow 1 -->
-          <path
-            d="M128 160 L146 160"
-            stroke="#89ceff"
-            stroke-width="1"
-            stroke-opacity="0.5"
-            marker-end="url(#wf-arrow)"
-          />
+            <!-- Connection rings -->
+            <circle
+              cx="225"
+              cy="160"
+              r="52"
+              fill="none"
+              stroke="rgba(137,206,255,0.08)"
+              stroke-width="1"
+              stroke-dasharray="3 5"
+            />
 
-          <!-- AI node -->
-          <circle
-            cx="225"
-            cy="160"
-            r="40"
-            fill="rgba(175,198,255,0.07)"
-            stroke="rgba(137,206,255,0.4)"
-            stroke-width="1.5"
-            filter="url(#wf-glow)"
-          />
-          <text
-            x="225"
-            y="155"
-            text-anchor="middle"
-            fill="#afc6ff"
-            font-size="11"
-            font-family="Plus Jakarta Sans,Inter,sans-serif"
-            font-weight="700"
-          >
-            AI
-          </text>
-          <text
-            x="225"
-            y="170"
-            text-anchor="middle"
-            fill="#89ceff"
-            font-size="9"
-            font-family="Inter,sans-serif"
-          >
-            Analytics
-          </text>
+            <!-- PC node -->
+            <circle
+              cx="450"
+              cy="160"
+              r="54"
+              fill="rgba(175,198,255,0.1)"
+              stroke="rgba(175,198,255,0.5)"
+              stroke-width="2"
+              filter="url(#wf-glow)"
+            />
+            <circle
+              cx="450"
+              cy="160"
+              r="64"
+              fill="none"
+              stroke="rgba(175,198,255,0.12)"
+              stroke-width="1"
+              stroke-dasharray="4 6"
+            />
+            <circle
+              cx="450"
+              cy="160"
+              r="74"
+              fill="none"
+              stroke="rgba(175,198,255,0.06)"
+              stroke-width="1"
+              stroke-dasharray="2 8"
+            />
+            <text
+              x="450"
+              y="155"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="13"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              PC
+            </text>
+            <text
+              x="450"
+              y="173"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="10"
+              font-family="Inter,sans-serif"
+            >
+              Orchestration
+            </text>
 
-          <!-- Connection rings -->
-          <circle
-            cx="225"
-            cy="160"
-            r="52"
+            <!-- Vertical data lines from PC -->
+            <line
+              x1="450"
+              y1="96"
+              x2="450"
+              y2="70"
+              stroke="rgba(137,206,255,0.25)"
+              stroke-width="1"
+              stroke-dasharray="3 3"
+            />
+            <line
+              x1="450"
+              y1="224"
+              x2="450"
+              y2="250"
+              stroke="rgba(137,206,255,0.25)"
+              stroke-width="1"
+              stroke-dasharray="3 3"
+            />
+            <text
+              x="450"
+              y="64"
+              text-anchor="middle"
+              fill="#c3c6d3"
+              font-size="8"
+              font-family="Inter,sans-serif"
+              opacity="0.7"
+            >
+              IT Layer
+            </text>
+            <text
+              x="450"
+              y="262"
+              text-anchor="middle"
+              fill="#c3c6d3"
+              font-size="8"
+              font-family="Inter,sans-serif"
+              opacity="0.7"
+            >
+              OT Layer
+            </text>
+
+            <!-- FACTORY node -->
+            <circle
+              cx="675"
+              cy="160"
+              r="40"
+              fill="rgba(175,198,255,0.07)"
+              stroke="rgba(137,206,255,0.4)"
+              stroke-width="1.5"
+              filter="url(#wf-glow)"
+            />
+            <circle
+              cx="675"
+              cy="160"
+              r="52"
+              fill="none"
+              stroke="rgba(137,206,255,0.08)"
+              stroke-width="1"
+              stroke-dasharray="3 5"
+            />
+            <text
+              x="675"
+              y="155"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              Factory
+            </text>
+            <text
+              x="675"
+              y="170"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Physical
+            </text>
+
+            <!-- HUMAN node -->
+            <circle
+              cx="810"
+              cy="160"
+              r="36"
+              fill="rgba(175,198,255,0.08)"
+              stroke="rgba(175,198,255,0.35)"
+              stroke-width="1.5"
+              filter="url(#wf-glow)"
+            />
+            <text
+              x="810"
+              y="155"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              Human
+            </text>
+            <text
+              x="810"
+              y="170"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Expert
+            </text>
+
+            <!-- Label: Bidirectional arrows -->
+            <text
+              x="337"
+              y="148"
+              text-anchor="middle"
+              fill="#8d909c"
+              font-size="8"
+              font-family="Inter,sans-serif"
+            >
+              ⟷ data exchange ⟷
+            </text>
+            <text
+              x="563"
+              y="148"
+              text-anchor="middle"
+              fill="#8d909c"
+              font-size="8"
+              font-family="Inter,sans-serif"
+            >
+              ⟷ command flow ⟷
+            </text>
+
+            <!-- Overlay gradient fade at sides -->
+            <rect
+              x="0"
+              y="0"
+              width="40"
+              height="320"
+              fill="url(#fade-l)"
+              opacity="0.9"
+            />
+            <rect
+              x="860"
+              y="0"
+              width="40"
+              height="320"
+              fill="url(#fade-r)"
+              opacity="0.9"
+            />
+            <defs>
+              <linearGradient id="fade-l" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0b1326" stop-opacity="1" />
+                <stop offset="100%" stop-color="#0b1326" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="fade-r" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0b1326" stop-opacity="0" />
+                <stop offset="100%" stop-color="#0b1326" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="wf-diagram--vertical">
+          <!-- SVG architectural diagram (mobile) -->
+          <svg
+            class="wf-diagram"
+            viewBox="0 0 300 600"
             fill="none"
-            stroke="rgba(137,206,255,0.08)"
-            stroke-width="1"
-            stroke-dasharray="3 5"
-          />
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="IT/OT Lifecycle Architecture Diagram"
+          >
+            <defs>
+              <pattern
+                id="wf-grid-v"
+                width="30"
+                height="30"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 30 0 L 0 0 0 30"
+                  fill="none"
+                  stroke="rgba(137,206,255,0.06)"
+                  stroke-width="1"
+                />
+              </pattern>
+              <linearGradient id="wf-flow-v" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#afc6ff" stop-opacity="0" />
+                <stop offset="30%" stop-color="#89ceff" stop-opacity="0.6" />
+                <stop offset="70%" stop-color="#89ceff" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#afc6ff" stop-opacity="0" />
+              </linearGradient>
+              <filter id="wf-glow-v">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <linearGradient id="fade-t" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0b1326" stop-opacity="1" />
+                <stop offset="100%" stop-color="#0b1326" stop-opacity="0" />
+              </linearGradient>
+            </defs>
 
-          <!-- PC node -->
-          <circle
-            cx="450"
-            cy="160"
-            r="54"
-            fill="rgba(175,198,255,0.1)"
-            stroke="rgba(175,198,255,0.5)"
-            stroke-width="2"
-            filter="url(#wf-glow)"
-          />
-          <circle
-            cx="450"
-            cy="160"
-            r="64"
-            fill="none"
-            stroke="rgba(175,198,255,0.12)"
-            stroke-width="1"
-            stroke-dasharray="4 6"
-          />
-          <circle
-            cx="450"
-            cy="160"
-            r="74"
-            fill="none"
-            stroke="rgba(175,198,255,0.06)"
-            stroke-width="1"
-            stroke-dasharray="2 8"
-          />
-          <text
-            x="450"
-            y="155"
-            text-anchor="middle"
-            fill="#afc6ff"
-            font-size="13"
-            font-family="Plus Jakarta Sans,Inter,sans-serif"
-            font-weight="700"
-          >
-            PC
-          </text>
-          <text
-            x="450"
-            y="173"
-            text-anchor="middle"
-            fill="#89ceff"
-            font-size="10"
-            font-family="Inter,sans-serif"
-          >
-            Orchestration
-          </text>
+            <rect width="300" height="600" fill="url(#wf-grid-v)" />
 
-          <!-- Vertical data lines from PC -->
-          <line
-            x1="450"
-            y1="96"
-            x2="450"
-            y2="70"
-            stroke="rgba(137,206,255,0.25)"
-            stroke-width="1"
-            stroke-dasharray="3 3"
-          />
-          <line
-            x1="450"
-            y1="224"
-            x2="450"
-            y2="250"
-            stroke="rgba(137,206,255,0.25)"
-            stroke-width="1"
-            stroke-dasharray="3 3"
-          />
-          <text
-            x="450"
-            y="64"
-            text-anchor="middle"
-            fill="#c3c6d3"
-            font-size="8"
-            font-family="Inter,sans-serif"
-            opacity="0.7"
-          >
-            IT Layer
-          </text>
-          <text
-            x="450"
-            y="262"
-            text-anchor="middle"
-            fill="#c3c6d3"
-            font-size="8"
-            font-family="Inter,sans-serif"
-            opacity="0.7"
-          >
-            OT Layer
-          </text>
+            <!-- Vertical flow line -->
+            <line
+              x1="150"
+              y1="105"
+              x2="150"
+              y2="515"
+              stroke="url(#wf-flow-v)"
+              stroke-width="1.5"
+              stroke-dasharray="6 4"
+            />
 
-          <!-- FACTORY node -->
-          <circle
-            cx="675"
-            cy="160"
-            r="40"
-            fill="rgba(175,198,255,0.07)"
-            stroke="rgba(137,206,255,0.4)"
-            stroke-width="1.5"
-            filter="url(#wf-glow)"
-          />
-          <circle
-            cx="675"
-            cy="160"
-            r="52"
-            fill="none"
-            stroke="rgba(137,206,255,0.08)"
-            stroke-width="1"
-            stroke-dasharray="3 5"
-          />
-          <text
-            x="675"
-            y="155"
-            text-anchor="middle"
-            fill="#afc6ff"
-            font-size="11"
-            font-family="Plus Jakarta Sans,Inter,sans-serif"
-            font-weight="700"
-          >
-            Factory
-          </text>
-          <text
-            x="675"
-            y="170"
-            text-anchor="middle"
-            fill="#89ceff"
-            font-size="9"
-            font-family="Inter,sans-serif"
-          >
-            Physical
-          </text>
+            <!-- MIND node -->
+            <circle
+              cx="150"
+              cy="75"
+              r="30"
+              fill="rgba(175,198,255,0.08)"
+              stroke="rgba(175,198,255,0.35)"
+              stroke-width="1.5"
+              filter="url(#wf-glow-v)"
+            />
+            <text
+              x="150"
+              y="70"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              MIND
+            </text>
+            <text
+              x="150"
+              y="85"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Strategy
+            </text>
 
-          <!-- HUMAN node -->
-          <circle
-            cx="810"
-            cy="160"
-            r="36"
-            fill="rgba(175,198,255,0.08)"
-            stroke="rgba(175,198,255,0.35)"
-            stroke-width="1.5"
-            filter="url(#wf-glow)"
-          />
-          <text
-            x="810"
-            y="155"
-            text-anchor="middle"
-            fill="#afc6ff"
-            font-size="11"
-            font-family="Plus Jakarta Sans,Inter,sans-serif"
-            font-weight="700"
-          >
-            Human
-          </text>
-          <text
-            x="810"
-            y="170"
-            text-anchor="middle"
-            fill="#89ceff"
-            font-size="9"
-            font-family="Inter,sans-serif"
-          >
-            Expert
-          </text>
+            <!-- Arrow 1 -->
+            <path
+              d="M150 105 L150 126"
+              stroke="#89ceff"
+              stroke-width="1"
+              stroke-opacity="0.5"
+            />
 
-          <!-- Label: Bidirectional arrows -->
-          <text
-            x="337"
-            y="148"
-            text-anchor="middle"
-            fill="#8d909c"
-            font-size="8"
-            font-family="Inter,sans-serif"
-          >
-            ⟷ data exchange ⟷
-          </text>
-          <text
-            x="563"
-            y="148"
-            text-anchor="middle"
-            fill="#8d909c"
-            font-size="8"
-            font-family="Inter,sans-serif"
-          >
-            ⟷ command flow ⟷
-          </text>
+            <!-- AI node -->
+            <circle
+              cx="150"
+              cy="185"
+              r="36"
+              fill="rgba(175,198,255,0.07)"
+              stroke="rgba(137,206,255,0.4)"
+              stroke-width="1.5"
+              filter="url(#wf-glow-v)"
+            />
+            <circle
+              cx="150"
+              cy="185"
+              r="48"
+              fill="none"
+              stroke="rgba(137,206,255,0.08)"
+              stroke-width="1"
+              stroke-dasharray="3 5"
+            />
+            <text
+              x="150"
+              y="180"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              AI
+            </text>
+            <text
+              x="150"
+              y="195"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Analytics
+            </text>
 
-          <!-- Overlay gradient fade at sides -->
-          <rect
-            x="0"
-            y="0"
-            width="40"
-            height="320"
-            fill="url(#fade-l)"
-            opacity="0.9"
-          />
-          <rect
-            x="860"
-            y="0"
-            width="40"
-            height="320"
-            fill="url(#fade-r)"
-            opacity="0.9"
-          />
-          <defs>
-            <linearGradient id="fade-l" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#0b1326" stop-opacity="1" />
-              <stop offset="100%" stop-color="#0b1326" stop-opacity="0" />
-            </linearGradient>
-            <linearGradient id="fade-r" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#0b1326" stop-opacity="0" />
-              <stop offset="100%" stop-color="#0b1326" stop-opacity="1" />
-            </linearGradient>
-          </defs>
-        </svg>
+            <!-- Arrow 2 -->
+            <path
+              d="M150 221 L150 248"
+              stroke="#89ceff"
+              stroke-width="1"
+              stroke-opacity="0.5"
+            />
+            <text
+              x="155"
+              y="238"
+              text-anchor="start"
+              fill="#8d909c"
+              font-size="8"
+              font-family="Inter,sans-serif"
+            >
+              ⟷ data exchange ⟷
+            </text>
+
+            <!-- PC node -->
+            <circle
+              cx="150"
+              cy="310"
+              r="48"
+              fill="rgba(175,198,255,0.1)"
+              stroke="rgba(175,198,255,0.5)"
+              stroke-width="2"
+              filter="url(#wf-glow-v)"
+            />
+            <circle
+              cx="150"
+              cy="310"
+              r="58"
+              fill="none"
+              stroke="rgba(175,198,255,0.12)"
+              stroke-width="1"
+              stroke-dasharray="4 6"
+            />
+            <circle
+              cx="150"
+              cy="310"
+              r="68"
+              fill="none"
+              stroke="rgba(175,198,255,0.06)"
+              stroke-width="1"
+              stroke-dasharray="2 8"
+            />
+            <text
+              x="150"
+              y="305"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="13"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              PC
+            </text>
+            <text
+              x="150"
+              y="322"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="10"
+              font-family="Inter,sans-serif"
+            >
+              Orchestration
+            </text>
+
+            <!-- IT/OT Layer labels -->
+            <line
+              x1="102"
+              y1="310"
+              x2="55"
+              y2="310"
+              stroke="rgba(137,206,255,0.25)"
+              stroke-width="1"
+              stroke-dasharray="3 3"
+            />
+            <line
+              x1="198"
+              y1="310"
+              x2="245"
+              y2="310"
+              stroke="rgba(137,206,255,0.25)"
+              stroke-width="1"
+              stroke-dasharray="3 3"
+            />
+            <text
+              x="48"
+              y="307"
+              text-anchor="end"
+              fill="#c3c6d3"
+              font-size="8"
+              font-family="Inter,sans-serif"
+              opacity="0.7"
+            >
+              IT Layer
+            </text>
+            <text
+              x="252"
+              y="307"
+              text-anchor="start"
+              fill="#c3c6d3"
+              font-size="8"
+              font-family="Inter,sans-serif"
+              opacity="0.7"
+            >
+              OT Layer
+            </text>
+
+            <!-- Arrow 3 -->
+            <path
+              d="M150 358 L150 385"
+              stroke="#89ceff"
+              stroke-width="1"
+              stroke-opacity="0.5"
+            />
+            <text
+              x="155"
+              y="376"
+              text-anchor="start"
+              fill="#8d909c"
+              font-size="8"
+              font-family="Inter,sans-serif"
+            >
+              ⟷ command flow ⟷
+            </text>
+
+            <!-- Factory node -->
+            <circle
+              cx="150"
+              cy="435"
+              r="36"
+              fill="rgba(175,198,255,0.07)"
+              stroke="rgba(137,206,255,0.4)"
+              stroke-width="1.5"
+              filter="url(#wf-glow-v)"
+            />
+            <circle
+              cx="150"
+              cy="435"
+              r="48"
+              fill="none"
+              stroke="rgba(137,206,255,0.08)"
+              stroke-width="1"
+              stroke-dasharray="3 5"
+            />
+            <text
+              x="150"
+              y="430"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              Factory
+            </text>
+            <text
+              x="150"
+              y="445"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Physical
+            </text>
+
+            <!-- Arrow 4 -->
+            <path
+              d="M150 471 L150 498"
+              stroke="#89ceff"
+              stroke-width="1"
+              stroke-opacity="0.5"
+            />
+
+            <!-- Human node -->
+            <circle
+              cx="150"
+              cy="545"
+              r="30"
+              fill="rgba(175,198,255,0.08)"
+              stroke="rgba(175,198,255,0.35)"
+              stroke-width="1.5"
+              filter="url(#wf-glow-v)"
+            />
+            <text
+              x="150"
+              y="540"
+              text-anchor="middle"
+              fill="#afc6ff"
+              font-size="11"
+              font-family="Plus Jakarta Sans,Inter,sans-serif"
+              font-weight="700"
+            >
+              Human
+            </text>
+            <text
+              x="150"
+              y="555"
+              text-anchor="middle"
+              fill="#89ceff"
+              font-size="9"
+              font-family="Inter,sans-serif"
+            >
+              Expert
+            </text>
+
+            <!-- Fade overlays -->
+            <rect
+              x="0"
+              y="0"
+              width="300"
+              height="24"
+              fill="url(#fade-t)"
+              opacity="0.9"
+            />
+
+          </svg>
+        </div>
 
         <!-- Glass tint overlays for depth -->
         <div class="wf-visual-overlay-t" aria-hidden="true"></div>
@@ -559,7 +919,8 @@
       <!-- ── CTA ────────────────────────────────────────────────────── -->
       <div class="wf-cta-wrap" data-reveal>
         <a
-          @click.prevent="scrollToSection('architecture', router, route)" href="#"
+          @click.prevent="scrollToSection('architecture', router, route)"
+          href="#"
           class="wf-cta"
         >
           Explore Architecture
@@ -750,6 +1111,24 @@ onMounted(() => {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.wf-diagram--vertical {
+  display: none;
+  padding-bottom: 25px;
+}
+
+@media (max-width: 640px) {
+  .wf-diagram--horizontal {
+    display: none;
+  }
+  .wf-diagram--vertical {
+    display: block;
+  }
+  .wf-visual-overlay-t,
+  .wf-visual-overlay-s {
+    display: none;
+  }
 }
 
 .wf-visual-overlay-t {
