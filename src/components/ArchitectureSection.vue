@@ -4,7 +4,7 @@
     <!-- Layer 1: Video background -->
     <video
       class="arc-video-bg"
-      src="/src/videos/increased-numbers.mp4"
+      :src="increasedNumbersVideo"
       autoplay
       muted
       loop
@@ -247,6 +247,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSiteStore } from '@/stores/useSiteStore'
+import increasedNumbersVideo from '@/videos/increased-numbers.mp4'
 
 const siteStore = useSiteStore()
 const { architecture, loaded } = storeToRefs(siteStore)
