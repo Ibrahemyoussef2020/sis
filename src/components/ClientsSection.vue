@@ -22,24 +22,26 @@
       <div class="marquee-container" data-reveal>
         <div class="marquee-track">
           <div class="marquee-group">
-            <img
-              v-for="(client, i) in clients"
-              :key="i"
-              :src="client.src"
-              :alt="client.name"
-              class="client-logo"
-              loading="lazy"
-            />
+            <div v-for="(client, i) in clients" :key="i" class="client-card">
+              <img
+                :src="client.src"
+                :alt="client.name"
+                class="client-logo"
+                loading="lazy"
+              />
+              <span class="client-name">{{ client.name }}</span>
+            </div>
           </div>
           <div class="marquee-group" aria-hidden="true">
-            <img
-              v-for="(client, i) in clients"
-              :key="'dup-' + i"
-              :src="client.src"
-              :alt="client.name"
-              class="client-logo"
-              loading="lazy"
-            />
+            <div v-for="(client, i) in clients" :key="'dup-' + i" class="client-card">
+              <img
+                :src="client.src"
+                :alt="client.name"
+                class="client-logo"
+                loading="lazy"
+              />
+              <span class="client-name">{{ client.name }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -132,6 +134,7 @@ const clients = [
 .clients-inner {
   position: relative;
   z-index: 1;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -194,6 +197,8 @@ const clients = [
 /* ── Marquee ──────────────────────────────────────────────────────── */
 .marquee-container {
   overflow: hidden;
+  width: 100%;
+  min-width: 0;
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -248,6 +253,94 @@ const clients = [
   box-shadow: 0 0 24px rgba(14, 165, 233, 0.1);
   transform: scale(1.05);
   filter: brightness(1.1) contrast(1.1);
+}
+
+.client-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.client-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #c3c6d3;
+  text-align: center;
+  line-height: 1.3;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+.client-card:hover .client-name {
+  color: #dae2fd;
+}
+
+@media (max-width: 768px) {
+  .clients-root {
+    padding: 4rem 1.5rem;
+  }
+
+  .orb-tl {
+    width: 300px;
+    height: 300px;
+    top: -8rem;
+    left: -6rem;
+    filter: blur(80px);
+  }
+  .orb-br {
+    width: 300px;
+    height: 300px;
+    bottom: -8rem;
+    right: -5rem;
+    filter: blur(80px);
+  }
+
+  .client-logo {
+    width: 10rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .marquee-track,
+  .marquee-group {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-root {
+    padding: 3rem 1rem;
+  }
+
+  .orb-tl {
+    width: 180px;
+    height: 180px;
+    top: -5rem;
+    left: -4rem;
+    filter: blur(50px);
+  }
+  .orb-br {
+    width: 180px;
+    height: 180px;
+    bottom: -5rem;
+    right: -3rem;
+    filter: blur(50px);
+  }
+
+  .client-logo {
+    width: 7rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .client-name {
+    font-size: 0.75rem;
+  }
+
+  .marquee-track,
+  .marquee-group {
+    gap: 1.5rem;
+  }
 }
 
 @keyframes marquee-scroll {

@@ -35,7 +35,7 @@
   }
 
   section:not(#hero) {
-    min-height: 100vh !important;
+    /* min-height: 100vh !important; */
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     padding-top: 2rem !important;
