@@ -18,79 +18,7 @@
         </p>
       </div>
 
-      <div class="grid gap-8 lg:grid-cols-3 items-stretch">
-        <div class="flex flex-col h-full">
-          <h3 class="text-xl font-semibold text-sis-primary" data-reveal>
-            Use Cases
-          </h3>
-          <p class="mt-3 text-sm text-sis-muted min-h-[2.75rem]" data-reveal>
-            Real projects where SiS delivered measurable industrial outcomes.
-          </p>
-          <div class="mt-6 space-y-4 flex-1">
-            <template v-if="loaded">
-              <article
-                v-for="proj in topProjects"
-                :key="proj.client"
-                class="rounded-xl border border-sis-border bg-sis-panel p-4 shadow-sis flex items-start gap-4"
-              >
-                <div
-                  class="flex h-12 w-12 items-center justify-center rounded-lg bg-sis-panel/60 text-sis-accent"
-                >
-                  <span
-                    v-if="iconFor(proj.sector) === 'oil'"
-                    class="material-symbols-outlined"
-                    style="font-size: 24px"
-                    >local_gas_station</span
-                  >
-                  <span
-                    v-else-if="iconFor(proj.sector) === 'water'"
-                    class="material-symbols-outlined"
-                    style="font-size: 24px"
-                    >water_drop</span
-                  >
-                  <span
-                    v-else-if="iconFor(proj.sector) === 'food'"
-                    class="material-symbols-outlined"
-                    style="font-size: 24px"
-                    >restaurant</span
-                  >
-                  <span
-                    v-else-if="iconFor(proj.sector) === 'cement'"
-                    class="material-symbols-outlined"
-                    style="font-size: 24px"
-                    >handyman</span
-                  >
-                  <span
-                    v-else-if="iconFor(proj.sector) === 'chemical'"
-                    class="material-symbols-outlined"
-                    style="font-size: 24px"
-                    >science</span
-                  >
-                  <span
-                    v-else
-                    class="material-symbols-outlined"
-                    style="font-size: 24px"
-                    >precision_manufacturing</span
-                  >
-                </div>
-                <div>
-                  <h4 class="font-semibold text-sis-text">
-                    {{ proj.client }} —
-                    <span class="text-sm text-sis-muted">{{
-                      proj.sector
-                    }}</span>
-                  </h4>
-                  <p class="mt-2 text-sm text-sis-muted">{{ proj.summary }}</p>
-                </div>
-              </article>
-            </template>
-            <template v-else>
-              <div class="h-20 rounded-xl skeleton"></div>
-              <div class="h-20 rounded-xl skeleton"></div>
-            </template>
-          </div>
-        </div>
-
+      <div class="grid gap-8 lg:grid-cols-2 items-stretch">
         <div class="flex flex-col h-full">
           <h3 class="text-xl font-semibold text-sis-primary" data-reveal>
             Sectors
@@ -216,7 +144,6 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useSiteStore } from "@/stores/useSiteStore";
 import { useRouter } from "vue-router";
@@ -224,23 +151,7 @@ import SectionWrapper from "@/components/SectionWrapper.vue";
 
 const siteStore = useSiteStore();
 const router = useRouter();
-const { projects, sectors, capabilities, loaded } = storeToRefs(siteStore);
+const { sectors, capabilities, loaded } = storeToRefs(siteStore);
 
 const videoId = "jhwNcujM9g0";
-
-const topProjects = computed(() => {
-  if (!projects.value) return [];
-  return projects.value.slice(0, 3);
-});
-
-function iconFor(sector) {
-  if (!sector) return "gear";
-  const s = sector.toLowerCase();
-  if (s.includes("oil") || s.includes("gas")) return "oil";
-  if (s.includes("water")) return "water";
-  if (s.includes("food") || s.includes("beverage")) return "food";
-  if (s.includes("cement") || s.includes("heavy")) return "cement";
-  if (s.includes("chemical")) return "chemical";
-  return "gear";
-}
 </script>
