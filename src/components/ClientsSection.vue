@@ -105,10 +105,10 @@ onMounted(() => {
 .clients-root {
   position: relative;
   overflow: hidden;
-  background: #f7f9fb;
+  background: #0a1120;
   padding: 6rem 1.5rem;
   font-family: 'Plus Jakarta Sans', 'Manrope', 'Inter', sans-serif;
-  color: #191c1e;
+  color: #eaf1fb;
 }
 
 /* atmospheric glows */
@@ -120,13 +120,13 @@ onMounted(() => {
 .clients-glow--tr {
   width: 24rem; height: 24rem;
   top: -6rem; right: -6rem;
-  background: rgba(5, 93, 182, 0.06);
+  background: rgba(55, 182, 255, 0.07);
   filter: blur(80px);
 }
 .clients-glow--bl {
   width: 16rem; height: 16rem;
   bottom: -4rem; left: -4rem;
-  background: rgba(0, 32, 70, 0.05);
+  background: rgba(94, 224, 196, 0.05);
   filter: blur(80px);
 }
 
@@ -154,7 +154,7 @@ onMounted(() => {
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #055db6;
+  color: #37b6ff;
   margin-bottom: 0.25rem;
 }
 
@@ -164,20 +164,20 @@ onMounted(() => {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: #002046;
+  color: #eaf1fb;
   margin: 0;
 }
 .title-accent {
   font-style: italic;
   font-weight: 700;
-  color: #055db6;
+  color: #5fe0c4;
 }
 
 .clients-desc {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: #44474e;
+  color: #a8b3cf;
   max-width: 36rem;
   margin: 0;
 }
@@ -205,9 +205,13 @@ onMounted(() => {
 
 .marquee-track {
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
   width: max-content;
   animation: marquee-scroll 50s linear infinite;
+  background: rgba(126, 165, 224, 0.06);
+  border: 1px solid rgba(126, 165, 224, 0.14);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .marquee-container:hover .marquee-track {
@@ -216,31 +220,22 @@ onMounted(() => {
 
 .marquee-group {
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
 }
 
 .client-logo {
   flex-shrink: 0;
-  width: 14rem;
+  width: 12rem;
   height: auto;
   aspect-ratio: auto;
   object-fit: contain;
-  border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(5, 93, 182, 0.1);
-  padding: 1.25rem 2rem;
-  filter: brightness(0.95) contrast(1.05);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+  filter: brightness(0.85);
+  transition: filter 0.4s ease;
 }
-
 .client-logo:hover {
-  background: #ffffff;
-  border-color: rgba(5, 93, 182, 0.25);
-  box-shadow: 0 4px 20px rgba(5, 93, 182, 0.1);
-  transform: scale(1.05);
-  filter: brightness(1.05) contrast(1.05);
+  filter: brightness(1.1);
 }
 
 .client-card {
@@ -255,14 +250,14 @@ onMounted(() => {
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #44474e;
+  color: #a8b3cf;
   text-align: center;
   line-height: 1.3;
   white-space: nowrap;
   transition: color 0.3s ease;
 }
 .client-card:hover .client-name {
-  color: #002046;
+  color: #eaf1fb;
 }
 
 @media (max-width: 768px) {
@@ -281,14 +276,15 @@ onMounted(() => {
     filter: blur(80px);
   }
 
-  .client-logo {
-    width: 10rem;
-    padding: 1rem 1.5rem;
+  .marquee-track {
+    padding: 0.5rem 1rem;
+    gap: 2rem;
   }
-
-  .marquee-track,
   .marquee-group {
-    gap: 2.5rem;
+    gap: 2rem;
+  }
+  .client-logo {
+    width: 9rem;
   }
 }
 
@@ -308,18 +304,18 @@ onMounted(() => {
     filter: blur(50px);
   }
 
-  .client-logo {
-    width: 7rem;
-    padding: 0.75rem 1rem;
+  .marquee-track {
+    padding: 0.4rem 0.75rem;
+    gap: 1.25rem;
   }
-
+  .marquee-group {
+    gap: 1.25rem;
+  }
+  .client-logo {
+    width: 6rem;
+  }
   .client-name {
     font-size: 0.75rem;
-  }
-
-  .marquee-track,
-  .marquee-group {
-    gap: 1.5rem;
   }
 }
 

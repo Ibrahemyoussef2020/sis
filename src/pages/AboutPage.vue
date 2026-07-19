@@ -1,6 +1,6 @@
 <template>
   <main
-    class="bg-background text-on-background font-body-lg text-body-lg overflow-x-hidden relative"
+    class="bg-[#070d1a] text-[#eaf1fb] overflow-x-hidden relative"
   >
     <!-- Global Decorative Background Elements -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">

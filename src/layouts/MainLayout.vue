@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen overflow-x-hidden bg-sis-panel text-sis-text">
+  <div class="min-h-screen overflow-x-hidden bg-[#070d1a] text-[#eaf1fb]">
     <NavBar />
-    <main >
+    <main>
       <router-view />
     </main>
     <FooterSection />

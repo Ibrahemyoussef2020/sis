@@ -212,11 +212,11 @@ onMounted(() => {
 .mth-root {
   /* min-height: 100vh; */
   position: relative;
-  background: #f7f9fb;
+  background: #0a1120;
   overflow: hidden;
   padding: 2rem 2rem;
   font-family: "Plus Jakarta Sans", "Manrope", "Inter", sans-serif;
-  color: #191c1e;
+  color: #eaf1fb;
 }
 
 /* atmospheric glows */
@@ -230,7 +230,7 @@ onMounted(() => {
   height: 24rem;
   top: -6rem;
   right: -6rem;
-  background: rgba(5, 93, 182, 0.06);
+  background: rgba(55, 182, 255, 0.07);
   filter: blur(80px);
 }
 .mth-glow--bl {
@@ -238,7 +238,7 @@ onMounted(() => {
   height: 16rem;
   bottom: -4rem;
   left: -4rem;
-  background: rgba(0, 32, 70, 0.05);
+  background: rgba(94, 224, 196, 0.05);
   filter: blur(80px);
 }
 
@@ -261,14 +261,14 @@ onMounted(() => {
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #055db6;
+  color: #37b6ff;
   margin-bottom: 0.75rem;
 }
 .mth-title {
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #002046;
+  color: #eaf1fb;
   margin: 0;
   max-width: 32rem;
   margin-inline: auto;
@@ -278,7 +278,7 @@ onMounted(() => {
   max-width: 38rem;
   font-size: 0.9375rem;
   line-height: 1.7;
-  color: #44474e;
+  color: #a8b3cf;
 }
 
 /* ── Layout ────────────────────────────────────────────────────────── */
@@ -300,10 +300,10 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(126, 165, 224, 0.05);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(5, 93, 182, 0.1);
+  border: 1px solid rgba(126, 165, 224, 0.12);
   border-radius: 1rem;
   padding: 1.25rem 0;
 }
@@ -326,12 +326,12 @@ onMounted(() => {
   border-radius: 0 0.5rem 0.5rem 0;
 }
 .mth-tab:hover:not(.mth-tab--active) {
-  background: rgba(5, 93, 182, 0.03);
+  background: rgba(55, 182, 255, 0.06);
   padding-left: 1.75rem;
 }
 .mth-tab--active {
-  background: rgba(5, 93, 182, 0.06);
-  border-left-color: #055db6;
+  background: rgba(55, 182, 255, 0.1);
+  border-left-color: #37b6ff;
   padding-left: 1.75rem;
 }
 
@@ -346,31 +346,31 @@ onMounted(() => {
   justify-content: center;
   font-size: 0.9rem;
   font-weight: 700;
-  background: #e0e3e5;
-  color: #002046;
+  background: rgba(126, 165, 224, 0.14);
+  color: #eaf1fb;
   transition:
     background 0.3s ease,
     color 0.3s ease;
 }
 .mth-badge--active {
-  background: #055db6;
-  color: #fff;
-  box-shadow: 0 3px 12px rgba(5, 93, 182, 0.35);
+  background: #37b6ff;
+  color: #00344d;
+  box-shadow: 0 3px 12px rgba(55, 182, 255, 0.35);
 }
 
 /* tab label */
 .mth-tab-label {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #44474e;
+  color: #a8b3cf;
   transition: color 0.3s ease;
   line-height: 1.35;
 }
 .mth-tab--active .mth-tab-label {
-  color: #002046;
+  color: #eaf1fb;
 }
 .mth-tab:hover:not(.mth-tab--active) .mth-tab-label {
-  color: #002046;
+  color: #eaf1fb;
 }
 
 /* ── Detail pane ───────────────────────────────────────────────────── */
@@ -380,10 +380,10 @@ onMounted(() => {
 .mth-pane {
   position: relative;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(126, 165, 224, 0.06);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(5, 93, 182, 0.14);
+  border: 1px solid rgba(126, 165, 224, 0.14);
   border-radius: 1rem;
   padding: 3rem;
   min-height: 20rem;
@@ -399,8 +399,8 @@ onMounted(() => {
   right: -1rem;
   width: 10rem;
   height: 10rem;
-  opacity: 0.04;
-  color: #002046;
+  opacity: 0.06;
+  color: #eaf1fb;
   pointer-events: none;
 }
 .mth-watermark svg {
@@ -414,7 +414,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.25rem;
-  color: #055db6;
+  color: #37b6ff;
 }
 .mth-phase-icon {
   width: 1.1rem;
@@ -432,7 +432,7 @@ onMounted(() => {
 .mth-pane-title {
   font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   font-weight: 700;
-  color: #002046;
+  color: #eaf1fb;
   margin: 0 0 1.25rem 0;
   letter-spacing: -0.01em;
   line-height: 1.3;
@@ -441,7 +441,7 @@ onMounted(() => {
 .mth-pane-body {
   font-size: 0.9375rem;
   line-height: 1.7;
-  color: #44474e;
+  color: #a8b3cf;
   max-width: 36rem;
   margin: 0 0 1.5rem 0;
 }
@@ -459,7 +459,7 @@ onMounted(() => {
   position: relative;
   font-size: 0.9375rem;
   line-height: 1.5;
-  color: #191c1e;
+  color: #c8d0e0;
   padding-left: 1.5rem;
   max-width: 36rem;
 }
@@ -470,9 +470,9 @@ onMounted(() => {
   top: 0.5rem;
   width: 6px;
   height: 6px;
-  background-color: #055db6;
+  background-color: #37b6ff;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(5, 93, 182, 0.4);
+  box-shadow: 0 0 8px rgba(55, 182, 255, 0.4);
 }
 
 /* ── Fade transition ───────────────────────────────────────────────── */
@@ -511,7 +511,7 @@ onMounted(() => {
   border-radius: 1rem;
 }
 .skeleton {
-  background: linear-gradient(90deg, #eceef0 0%, #e0e3e5 50%, #eceef0 100%);
+  background: linear-gradient(90deg, rgba(126,165,224,0.06) 0%, rgba(126,165,224,0.14) 50%, rgba(126,165,224,0.06) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.4s infinite ease;
 }

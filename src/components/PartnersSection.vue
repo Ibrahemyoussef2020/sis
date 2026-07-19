@@ -109,7 +109,7 @@ function onTiltReset(e) {
 .partners-root {
   position: relative;
   overflow: hidden;
-  background: #0b1326;
+  background: #0a1120;
   padding: 6rem 1.5rem;
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
 }
@@ -118,8 +118,8 @@ function onTiltReset(e) {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(90deg, rgba(137,206,255,0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(137,206,255,0.025) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(55,182,255,0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(55,182,255,0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 0;
@@ -136,7 +136,7 @@ function onTiltReset(e) {
   height: 600px;
   top: -15rem;
   left: -10rem;
-  background: rgba(175,198,255,0.04);
+  background: rgba(55,182,255,0.05);
   filter: blur(120px);
   animation: pulse-slow 6s ease-in-out infinite;
 }
@@ -145,7 +145,7 @@ function onTiltReset(e) {
   height: 500px;
   bottom: -12rem;
   right: -8rem;
-  background: rgba(137,206,255,0.06);
+  background: rgba(94,224,196,0.05);
   filter: blur(130px);
 }
 
@@ -180,7 +180,7 @@ function onTiltReset(e) {
   display: block;
   width: 3rem;
   height: 1px;
-  background: #afc6ff;
+  background: #37b6ff;
 }
 .label-text {
   font-family: 'Inter', sans-serif;
@@ -188,7 +188,7 @@ function onTiltReset(e) {
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #afc6ff;
+  color: #37b6ff;
 }
 
 .partners-title {
@@ -203,15 +203,15 @@ function onTiltReset(e) {
 .title-accent {
   font-style: italic;
   font-weight: 700;
-  color: #afc6ff;
-  text-shadow: 0 0 30px rgba(175,198,255,0.3);
+  color: #5fe0c4;
+  text-shadow: 0 0 30px rgba(94,224,196,0.3);
 }
 
 .partners-desc {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: #8d909c;
+  color: #a8b3cf;
   max-width: 36rem;
   margin: 0;
 }
@@ -233,7 +233,7 @@ function onTiltReset(e) {
   display: block;
   width: 1.5rem;
   height: 2px;
-  background: #89ceff;
+  background: #37b6ff;
   border-radius: 1px;
 }
 .group-title {
@@ -242,7 +242,7 @@ function onTiltReset(e) {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #89ceff;
+  color: #37b6ff;
   margin: 0;
 }
 
@@ -280,8 +280,8 @@ function onTiltReset(e) {
   gap: 0.75rem;
   padding: 1.5rem 1rem;
   border-radius: 1rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(126,165,224,0.04);
+  border: 1px solid rgba(126,165,224,0.12);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   cursor: default;
@@ -289,9 +289,9 @@ function onTiltReset(e) {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .partner-card:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(175,198,255,0.2);
-  box-shadow: 0 0 30px rgba(14,165,233,0.08);
+  background: rgba(126,165,224,0.08);
+  border-color: rgba(55,182,255,0.3);
+  box-shadow: 0 0 30px rgba(55,182,255,0.1);
 }
 
 .partner-accent {
@@ -314,16 +314,16 @@ function onTiltReset(e) {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(126,165,224,0.08);
+  border: 1px solid rgba(126,165,224,0.12);
   overflow: hidden;
   padding: 0.5rem;
   transition: all 0.3s ease;
 }
 .partner-card:hover .partner-logo-wrap {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.15);
-  box-shadow: 0 0 20px rgba(175,198,255,0.1);
+  background: rgba(126,165,224,0.14);
+  border-color: rgba(55,182,255,0.25);
+  box-shadow: 0 0 20px rgba(55,182,255,0.1);
 }
 
 .partner-logo {
@@ -362,13 +362,13 @@ function onTiltReset(e) {
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
-  color: #c3c6d3;
+  color: #a8b3cf;
   text-align: center;
   line-height: 1.3;
   transition: color 0.3s ease;
 }
 .partner-card:hover .partner-name {
-  color: #dae2fd;
+  color: #eaf1fb;
 }
 
 .skeleton-wrap {

@@ -942,7 +942,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { scrollToSection } from "@/utils/scrollTo.js";
 
@@ -951,15 +951,18 @@ const route = useRoute();
 
 const sectionRef = ref(null);
 const atmoRef = ref(null);
+let revealObserver;
+
+function handleMouseMove(e) {
+  if (!atmoRef.value) return;
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  atmoRef.value.style.transform = `translate(calc(-50% + ${(x - 0.5) * 60}px), ${(y - 0.5) * 60}px)`;
+}
 
 onMounted(() => {
   // Mouse-follow atmospheric glow
-  document.addEventListener("mousemove", (e) => {
-    if (!atmoRef.value) return;
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    atmoRef.value.style.transform = `translate(calc(-50% + ${(x - 0.5) * 60}px), ${(y - 0.5) * 60}px)`;
-  });
+  document.addEventListener("mousemove", handleMouseMove, { passive: true });
 
   // Staggered entrance observer
   if (!sectionRef.value) return;
@@ -969,7 +972,7 @@ onMounted(() => {
     el.style.transform = "translateY(28px)";
   });
 
-  const observer = new IntersectionObserver(
+  revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -980,13 +983,18 @@ onMounted(() => {
             el.style.transform = "translateY(0)";
           }, i * 90);
         });
-        observer.disconnect();
+        revealObserver.disconnect();
       });
     },
     { threshold: 0.12 },
   );
 
-  observer.observe(sectionRef.value);
+  revealObserver.observe(sectionRef.value);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("mousemove", handleMouseMove);
+  revealObserver?.disconnect();
 });
 </script>
 
@@ -1006,8 +1014,8 @@ onMounted(() => {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(90deg, rgba(137, 206, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(137, 206, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(55, 182, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(55, 182, 255, 0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 0;
@@ -1022,7 +1030,7 @@ onMounted(() => {
   height: 550px;
   background: radial-gradient(
     ellipse,
-    rgba(137, 206, 255, 0.07) 0%,
+    rgba(55, 182, 255, 0.07) 0%,
     transparent 70%
   );
   filter: blur(60px);
@@ -1061,7 +1069,7 @@ onMounted(() => {
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #89ceff;
+  color: #37b6ff;
 }
 .wf-title {
   font-family: "Plus Jakarta Sans", "Inter", sans-serif;
@@ -1075,8 +1083,8 @@ onMounted(() => {
 .wf-title-accent {
   font-style: italic;
   font-weight: 700;
-  color: #afc6ff;
-  text-shadow: 0 0 20px rgba(175, 198, 255, 0.4);
+  color: #5fe0c4;
+  text-shadow: 0 0 20px rgba(94, 224, 196, 0.4);
 }
 .wf-desc {
   max-width: 38rem;
@@ -1095,8 +1103,8 @@ onMounted(() => {
   margin: 0 auto 4rem;
   border-radius: 0.875rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(126, 165, 224, 0.12);
+  background: rgba(126, 165, 224, 0.03);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -1172,10 +1180,10 @@ onMounted(() => {
 
 /* ── Glass card ───────────────────────────────────────────────────── */
 .wf-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(126, 165, 224, 0.04);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(126, 165, 224, 0.12);
   border-radius: 0.875rem;
   padding: 1.5rem;
   display: flex;
@@ -1184,20 +1192,20 @@ onMounted(() => {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wf-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(175, 198, 255, 0.28);
-  box-shadow: 0 0 32px rgba(14, 165, 233, 0.1);
+  background: rgba(126, 165, 224, 0.08);
+  border-color: rgba(55, 182, 255, 0.3);
+  box-shadow: 0 0 32px rgba(55, 182, 255, 0.1);
   transform: translateY(-4px);
 }
 
 /* featured center card */
 .wf-card--featured {
-  border-color: rgba(175, 198, 255, 0.2);
-  background: rgba(175, 198, 255, 0.05);
+  border-color: rgba(55, 182, 255, 0.2);
+  background: rgba(55, 182, 255, 0.06);
 }
 .wf-card--featured:hover {
-  border-color: rgba(175, 198, 255, 0.45);
-  box-shadow: 0 0 40px rgba(175, 198, 255, 0.18);
+  border-color: rgba(55, 182, 255, 0.4);
+  box-shadow: 0 0 40px rgba(55, 182, 255, 0.18);
 }
 
 /* card top row */
@@ -1213,12 +1221,12 @@ onMounted(() => {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.5rem;
-  background: rgba(175, 198, 255, 0.1);
+  background: rgba(55, 182, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #afc6ff;
+  color: #37b6ff;
   transition:
     background 0.3s ease,
     color 0.3s ease;
@@ -1228,11 +1236,11 @@ onMounted(() => {
   height: 1.1rem;
 }
 .wf-card:hover .wf-icon {
-  background: #afc6ff;
-  color: #002d6d;
+  background: #37b6ff;
+  color: #00344d;
 }
 .wf-icon--featured {
-  background: rgba(175, 198, 255, 0.18);
+  background: rgba(55, 182, 255, 0.18);
 }
 
 /* stage label wrapper */
@@ -1257,8 +1265,8 @@ onMounted(() => {
     text-shadow 0.3s ease;
 }
 .wf-card:hover .wf-stage-num {
-  color: #89ceff;
-  text-shadow: 0 0 14px rgba(137, 206, 255, 0.6);
+  color: #37b6ff;
+  text-shadow: 0 0 14px rgba(55, 182, 255, 0.5);
 }
 
 /* card text */
@@ -1281,7 +1289,7 @@ onMounted(() => {
 /* card footer */
 .wf-card-footer {
   padding-top: 0.875rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(126, 165, 224, 0.1);
   margin-top: auto;
 }
 .wf-card-layer {
@@ -1289,7 +1297,7 @@ onMounted(() => {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #89ceff;
+  color: #37b6ff;
 }
 
 /* ── CTA ──────────────────────────────────────────────────────────── */
@@ -1303,7 +1311,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 2rem;
-  background: #89ceff;
+  background: #37b6ff;
   color: #00344d;
   font-family: "Plus Jakarta Sans", "Inter", sans-serif;
   font-size: 0.72rem;
@@ -1312,7 +1320,7 @@ onMounted(() => {
   text-transform: uppercase;
   border-radius: 0.5rem;
   text-decoration: none;
-  box-shadow: 0 0 18px rgba(137, 206, 255, 0.22);
+  box-shadow: 0 0 18px rgba(55, 182, 255, 0.22);
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -1320,8 +1328,8 @@ onMounted(() => {
 }
 .wf-cta:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(137, 206, 255, 0.4);
-  background: #afc6ff;
+  box-shadow: 0 0 30px rgba(55, 182, 255, 0.4);
+  background: #5fe0c4;
 }
 .wf-cta:active {
   transform: scale(0.97);

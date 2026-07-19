@@ -4,6 +4,21 @@ import { router } from './router/index.js'
 import App from './App.vue'
 import './index.css'
 
+function updateRuntimeMetadata() {
+	const pageUrl = new URL(window.location.pathname, window.location.origin).href
+	const imageUrl = new URL(`${import.meta.env.BASE_URL}SIS-Logo-solid.png`, window.location.origin).href
+
+	document.querySelectorAll('[data-runtime-url]').forEach((element) => {
+		const attribute = element.tagName === 'LINK' ? 'href' : 'content'
+		element.setAttribute(attribute, pageUrl)
+	})
+	document.querySelectorAll('[data-runtime-image]').forEach((element) => {
+		element.setAttribute('content', imageUrl)
+	})
+}
+
+updateRuntimeMetadata()
+
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)
@@ -51,6 +66,7 @@ function smoothScrollToHash(hash) {
 }
 
 router.afterEach((to) => {
+	updateRuntimeMetadata()
 	if (to.hash) {
 		// small delay to ensure element is rendered
 		setTimeout(() => smoothScrollToHash(to.hash), 30)

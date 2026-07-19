@@ -2,13 +2,12 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const defaultTitle = "SiS - Superior Integrated Solutions";
 import MainLayout from "@/layouts/MainLayout.vue";
-import HomePage from "@/pages/HomePage.vue";
-import AboutPage from "@/pages/AboutPage.vue";
-// Services, Architecture and Methodology are sections on the home page now
-import ProjectsPage from "@/pages/ProjectsPage.vue";
-import CapabilitiesPage from "@/pages/CapabilitiesPage.vue";
-import TimelinePage from "@/pages/TimelinePage.vue";
-import ContactPage from "@/pages/ContactPage.vue";
+
+const HomePage = () => import("@/pages/HomePage.vue");
+const AboutPage = () => import("@/pages/AboutPage.vue");
+const ProjectsPage = () => import("@/pages/ProjectsPage.vue");
+const TimelinePage = () => import("@/pages/TimelinePage.vue");
+const ContactPage = () => import("@/pages/ContactPage.vue");
 
 const routes = [
   {
@@ -19,12 +18,6 @@ const routes = [
       { path: "about", name: "about", component: AboutPage, meta: { title: "About Us | SiS" } },
       // removed separate routes for services/architecture/methodology
       { path: "projects", name: "projects", component: ProjectsPage, meta: { title: "Projects | SiS" } },
-      {
-        path: "capabilities",
-        name: "capabilities",
-        component: CapabilitiesPage,
-        meta: { title: "Capabilities | SiS" },
-      },
       { path: "timeline", name: "timeline", component: TimelinePage, meta: { title: "Timeline | SiS" } },
       { path: "contact", name: "contact", component: ContactPage, meta: { title: "Contact Us | SiS" } },
     ],
@@ -32,7 +25,7 @@ const routes = [
 ];
 
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

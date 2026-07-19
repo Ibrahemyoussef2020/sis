@@ -60,6 +60,7 @@
         <div class="flex items-center gap-3">
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://www.linkedin.com/company/superior-for-integrated-solutions/"
             aria-label="LinkedIn"
             class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:border-sis-accent hover:text-sis-accent transition-all duration-200"
@@ -72,6 +73,7 @@
           </a>
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://wa.me/201007568651"
             aria-label="WhatsApp"
             class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:border-sis-accent hover:text-sis-accent transition-all duration-200"
