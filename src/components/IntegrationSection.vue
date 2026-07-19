@@ -1,86 +1,92 @@
 <template>
-  <section id="integration" class="int-root">
-    <div class="int-bg-dots" aria-hidden="true"></div>
+  <section id="integration" class="relative overflow-hidden text-sis-text dark:text-dark-text" style="background: var(--bg-section-1); padding: 5rem 0;">
+    <div
+      class="pointer-events-none absolute inset-0"
+      style="background-image: radial-gradient(rgba(126,165,224,0.06) 1px, transparent 1px); background-size: 28px 28px;"
+      aria-hidden="true"
+    ></div>
 
-    <div class="int-inner">
-      <div class="int-header" data-reveal>
-        <div class="int-label-row">
-          <span class="int-label-line"></span>
-          <span class="int-label-text">Digital Integration</span>
+    <div class="relative z-10 mx-auto flex max-w-[1140px] flex-col gap-16 px-7">
+      <div class="max-w-[60ch]" data-reveal>
+        <div class="mb-4 inline-flex items-center gap-4">
+          <span class="block h-px w-12 bg-[#37b6ff]"></span>
+          <span class="font-sans text-xs font-semibold uppercase tracking-[0.28em] text-[#37b6ff]">Digital Integration</span>
         </div>
-        <h2 class="int-title">
+        <h2 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[clamp(1.75rem,3.3vw,2.5rem)] font-extrabold leading-tight -tracking-[0.025em] text-sis-text dark:text-dark-text">
           What Drives Our OT–IT Journey
         </h2>
-        <p class="int-desc">
+        <p class="mt-[14px] max-w-[56ch] text-[15px] leading-relaxed text-[rgba(167,184,212,0.9)] m-0">
           SiS bridges operational and information technology with precision,
           innovation, and reliable digital transformation for industrial clients.
         </p>
       </div>
 
-      <div class="int-grid">
-        <div class="int-col">
-          <h3 class="int-col-title" data-reveal>Sectors</h3>
-          <p class="int-col-desc" data-reveal>
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="flex flex-col">
+          <h3 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-xl font-bold text-sis-text dark:text-dark-text" data-reveal>Sectors</h3>
+          <p class="mt-2 text-sm text-[rgba(167,184,212,0.9)] m-0" data-reveal>
             Industries we serve with tailored OT–IT solutions.
           </p>
-          <div class="int-items">
+          <div class="mt-6 flex flex-1 flex-col gap-3">
             <template v-if="loaded">
               <div
                 v-for="s in sectors"
                 :key="s.id"
-                class="int-card"
+                class="flex cursor-default items-center gap-4 rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] p-[14px] transition-all duration-200 hover:-translate-y-0.5 hover:border-sis-accent/40 dark:hover:border-[rgba(126,165,224,0.3)]"
+                style="background: var(--bg-card-1)"
                 data-reveal
               >
-                <div class="int-card-body">
-                  <div class="int-card-label">{{ s.label }}</div>
-                  <div class="int-card-count">{{ s.projects.length }} projects</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-sm font-semibold text-sis-text dark:text-dark-text">{{ s.label }}</div>
+                  <div class="mt-0.5 text-[13px] text-[rgba(167,184,212,0.8)]">{{ s.projects.length }} projects</div>
                 </div>
                 <div
-                  class="int-card-dot"
+                  class="h-8 w-8 flex-shrink-0 rounded-full"
                   :style="{ background: s.color }"
                 ></div>
               </div>
             </template>
             <template v-else>
-              <div class="int-skel"></div>
-              <div class="int-skel"></div>
+              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
+              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
             </template>
           </div>
         </div>
 
-        <div class="int-col">
-          <h3 class="int-col-title" data-reveal>Capabilities</h3>
-          <p class="int-col-desc" data-reveal>
+        <div class="flex flex-col">
+          <h3 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-xl font-bold text-sis-text dark:text-dark-text" data-reveal>Capabilities</h3>
+          <p class="mt-2 text-sm text-[rgba(167,184,212,0.9)] m-0" data-reveal>
             Our core technical strengths and delivery pillars.
           </p>
-          <div class="int-items">
+          <div class="mt-6 flex flex-1 flex-col gap-3">
             <template v-if="loaded">
               <div
                 v-for="col in capabilities.columns"
                 :key="col"
-                class="int-pill"
+                class="cursor-default rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] p-[14px] text-sm font-medium text-sis-text dark:text-dark-text transition-all duration-200 hover:-translate-y-0.5 hover:border-sis-accent/40 dark:hover:border-[rgba(126,165,224,0.3)]"
+                style="background: var(--bg-card-1)"
                 data-reveal
               >
                 {{ col }}
               </div>
             </template>
             <template v-else>
-              <div class="int-skel"></div>
-              <div class="int-skel"></div>
+              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
+              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
             </template>
           </div>
         </div>
       </div>
 
-      <div class="int-video-band" data-reveal>
-        <div class="int-video-grid">
-          <div class="int-video-content">
-            <p class="int-video-eyebrow">See Us In Action</p>
-            <h3 class="int-video-title">
+      <div class="rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] p-8 md:p-10 lg:p-12" style="background: var(--bg-card-2)" data-reveal>
+        <div class="grid items-center gap-8 lg:grid-cols-2">
+          <div>
+            <p class="text-[13px] font-semibold uppercase tracking-[0.28em] text-[#37b6ff]">See Us In Action</p>
+            <h3 class="mt-2 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-sis-text dark:text-dark-text">
               Industrial Intelligence
-              <span class="int-video-accent">in Motion</span>
+              <em class="not-italic text-sis-accent dark:text-dark-accent-teal">in Motion</em>
             </h3>
-            <p class="int-video-desc">
+            <p class="mt-3 text-sm leading-relaxed text-[rgba(167,184,212,0.9)]">
               Watch how SiS bridges the gap between operational technology and
               information technology — delivering real results across the MENA
               region.
@@ -89,10 +95,11 @@
               :href="`https://www.youtube.com/watch?v=${videoId}`"
               target="_blank"
               rel="noopener noreferrer"
-              class="int-yt-btn"
+              class="mt-5 inline-flex items-center gap-[10px] rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] px-[22px] py-[11px] text-sm font-semibold text-sis-text dark:text-dark-text no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-sis-accent hover:text-sis-accent"
+              style="background: var(--bg-card-1)"
             >
               <svg
-                class="int-yt-icon"
+                class="h-5 w-5 flex-shrink-0 text-[#ff0033]"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -104,7 +111,7 @@
               Watch on YouTube
             </a>
           </div>
-          <div class="int-video-frame">
+          <div class="overflow-hidden rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14])" style="box-shadow: 0 20px 50px -20px rgba(0,0,0,0.7)">
             <video
               src="@/images/sis-showcase.mp4"
               title="SiS Industrial Automation in Action"
@@ -113,17 +120,17 @@
               muted
               controls
               playsinline
-              class="int-video-el"
+              class="block aspect-video w-full"
             ></video>
           </div>
         </div>
       </div>
 
-      <div class="int-cta-wrap" data-reveal>
+      <div class="text-center" data-reveal>
         <a
           @click.prevent="router.push({ name: 'projects' })"
           href="#"
-          class="int-cta"
+          class="inline-block cursor-pointer rounded-full bg-[#37b6ff] px-8 py-[14px] text-[15px] font-bold text-[#04121f] no-underline transition-all duration-200 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(55,182,255,0.4)] active:scale-[0.97]"
         >
           Explore Case Studies
         </a>
@@ -143,305 +150,3 @@ const { sectors, capabilities, loaded } = storeToRefs(siteStore);
 
 const videoId = "jhwNcujM9g0";
 </script>
-
-<style scoped>
-.int-root {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #0a1120, #070d1a);
-  padding: 5rem 0;
-  color: #eaf1fb;
-}
-
-.int-bg-dots {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(126, 165, 224, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-.int-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-
-/* ── Header ───────────────────────────────────────────────────────── */
-.int-header {
-  max-width: 60ch;
-}
-
-.int-label-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.int-label-line {
-  display: block;
-  width: 3rem;
-  height: 1px;
-  background: #37b6ff;
-}
-.int-label-text {
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #37b6ff;
-}
-
-.int-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: clamp(1.75rem, 3.3vw, 2.5rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: #eaf1fb;
-  margin: 0;
-}
-
-.int-desc {
-  margin: 14px 0 0;
-  font-size: 15px;
-  line-height: 1.7;
-  color: rgba(167, 184, 212, 0.9);
-  max-width: 56ch;
-}
-
-/* ── Two-column grid ──────────────────────────────────────────────── */
-.int-grid {
-  display: grid;
-  gap: 3rem;
-}
-@media (min-width: 1024px) {
-  .int-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-}
-
-.int-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.int-col-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #eaf1fb;
-  margin: 0;
-}
-
-.int-col-desc {
-  font-size: 14px;
-  color: rgba(167, 184, 212, 0.9);
-  margin: 8px 0 0;
-}
-
-.int-items {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-/* ── Sector cards ─────────────────────────────────────────────────── */
-.int-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  border-radius: 12px;
-  background: linear-gradient(180deg, #101b31, #0c1426);
-  padding: 14px;
-  transition: border-color 0.24s ease, transform 0.24s ease;
-  cursor: default;
-}
-.int-card:hover {
-  border-color: rgba(126, 165, 224, 0.3);
-  transform: translateY(-2px);
-}
-
-.int-card-body {
-  flex: 1;
-  min-width: 0;
-}
-
-.int-card-label {
-  font-weight: 600;
-  font-size: 14px;
-  color: #eaf1fb;
-}
-
-.int-card-count {
-  font-size: 13px;
-  color: rgba(167, 184, 212, 0.8);
-  margin-top: 2px;
-}
-
-.int-card-dot {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* ── Capability pills ──────────────────────────────────────────────── */
-.int-pill {
-  padding: 14px;
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  border-radius: 12px;
-  background: linear-gradient(180deg, #101b31, #0c1426);
-  font-size: 14px;
-  font-weight: 500;
-  color: #eaf1fb;
-  transition: border-color 0.24s ease, transform 0.24s ease;
-  cursor: default;
-}
-.int-pill:hover {
-  border-color: rgba(126, 165, 224, 0.3);
-  transform: translateY(-2px);
-}
-
-/* ── Video band ───────────────────────────────────────────────────── */
-.int-video-band {
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  border-radius: 14px;
-  background: linear-gradient(180deg, #0c1426, #070d1a);
-  padding: 2rem 1.5rem;
-}
-@media (min-width: 768px) {
-  .int-video-band {
-    padding: 3rem 2.5rem;
-  }
-}
-
-.int-video-grid {
-  display: grid;
-  gap: 2rem;
-  align-items: center;
-}
-@media (min-width: 1024px) {
-  .int-video-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.int-video-eyebrow {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #37b6ff;
-}
-
-.int-video-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  font-weight: 700;
-  color: #eaf1fb;
-  margin: 8px 0 0;
-}
-
-.int-video-accent {
-  font-style: italic;
-  color: #5fe0c4;
-}
-
-.int-video-desc {
-  margin-top: 12px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: rgba(167, 184, 212, 0.9);
-}
-
-.int-yt-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  padding: 11px 22px;
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  border-radius: 10px;
-  background: linear-gradient(180deg, #101b31, #0c1426);
-  font-size: 14px;
-  font-weight: 600;
-  color: #eaf1fb;
-  text-decoration: none;
-  transition: border-color 0.24s ease, color 0.24s ease, transform 0.24s ease;
-}
-.int-yt-btn:hover {
-  border-color: #37b6ff;
-  color: #37b6ff;
-  transform: translateY(-2px);
-}
-
-.int-yt-icon {
-  width: 20px;
-  height: 20px;
-  color: #ff0033;
-  flex-shrink: 0;
-}
-
-.int-video-frame {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
-}
-
-.int-video-el {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-
-/* ── Bottom CTA ───────────────────────────────────────────────────── */
-.int-cta-wrap {
-  text-align: center;
-}
-
-.int-cta {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 9999px;
-  background: #37b6ff;
-  color: #04121f;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: filter 0.24s ease, transform 0.24s ease, box-shadow 0.24s ease;
-  cursor: pointer;
-}
-.int-cta:hover {
-  filter: brightness(1.08);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px -8px rgba(55, 182, 255, 0.4);
-}
-.int-cta:active {
-  transform: scale(0.97);
-}
-
-/* ── Skeleton ─────────────────────────────────────────────────────── */
-.int-skel {
-  height: 52px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%);
-  background-size: 200% 100%;
-  animation: int-shimmer 1.4s infinite ease;
-}
-@keyframes int-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-</style>

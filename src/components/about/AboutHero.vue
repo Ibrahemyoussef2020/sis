@@ -1,7 +1,7 @@
 <template>
   <!-- Hero Section -->
   <section
-    class="relative min-h-screen pt-[72px] flex items-center justify-center overflow-hidden"
+    class="relative min-h-screen pt-[80px] flex items-center justify-center overflow-hidden"
   >
     <img
       alt="Industrial Automation Control Center"

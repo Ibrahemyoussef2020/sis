@@ -1,69 +1,79 @@
 <template>
-  <section class="partners-root" ref="sectionRef">
-    <div class="circuit-bg" aria-hidden="true"></div>
-    <div class="orb orb-tl" aria-hidden="true"></div>
-    <div class="orb orb-br" aria-hidden="true"></div>
+  <section ref="sectionRef" class="relative overflow-hidden bg-sis-panel dark:bg-dark-bg px-6 py-24 font-['Plus_Jakarta_Sans','Inter',sans-serif]">
+    <div
+      class="pointer-events-none absolute inset-0 z-0"
+      style="background-image: linear-gradient(90deg, rgba(55,182,255,0.025) 1px, transparent 1px), linear-gradient(0deg, rgba(55,182,255,0.025) 1px, transparent 1px); background-size: 60px 60px;"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute z-0 rounded-full blur-[120px] animate-pulse"
+      style="width: 600px; height: 600px; top: -15rem; left: -10rem; background: rgba(55,182,255,0.05);"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute z-0 rounded-full blur-[130px]"
+      style="width: 500px; height: 500px; bottom: -12rem; right: -8rem; background: rgba(94,224,196,0.05);"
+      aria-hidden="true"
+    ></div>
 
-    <div class="partners-inner">
-      <div class="partners-header" data-reveal>
-        <div class="label-row">
-          <span class="label-line"></span>
-          <span class="label-text">Trusted By Industry Leaders</span>
+    <div class="relative z-10 mx-auto max-w-[1200px]">
+      <div class="mb-16 flex flex-col items-center gap-4 text-center" data-reveal>
+        <div class="mb-1 inline-flex items-center gap-4">
+          <span class="block h-px w-12 bg-[#37b6ff]"></span>
+          <span class="font-sans text-xs font-semibold uppercase tracking-[0.28em] text-[#37b6ff]">Trusted By Industry Leaders</span>
         </div>
-        <h2 class="partners-title">
-          Our <em class="title-accent">Partners</em>
+        <h2 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[clamp(2.2rem,5vw,3.5rem)] font-bold leading-tight -tracking-[0.02em] text-sis-text dark:text-[#dae2fd]">
+          Our <em class="not-italic font-bold text-sis-accent dark:text-dark-accent-teal" style="text-shadow:0 0 30px rgba(94,224,196,0.3)">Partners</em>
         </h2>
-        <p class="partners-desc">
+        <p class="m-0 max-w-[36rem] font-sans text-base leading-relaxed text-sis-muted dark:text-dark-text-muted">
           Backed by the world's foremost industrial and technology innovators —
           delivering excellence through strategic alliance.
         </p>
       </div>
 
       <template v-if="loaded">
-        <!-- Technology Partners -->
-        <div class="partners-group" data-reveal>
-          <div class="group-header">
-            <span class="group-line"></span>
-            <h3 class="group-title">Technology Partners</h3>
+        <div class="mb-14 last:mb-0" data-reveal>
+          <div class="mb-6 flex items-center gap-4">
+            <span class="block h-[2px] w-6 rounded bg-[#37b6ff]"></span>
+            <h3 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-base font-semibold uppercase tracking-[0.15em] text-[#37b6ff]">Technology Partners</h3>
           </div>
-          <div class="partners-grid">
-            <div v-for="p in partners.technology" :key="p.name" class="partner-card" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
-              <div v-if="p.logo && !errored.has(p.name)" class="partner-logo-wrap">
-                <img :src="p.logo" :alt="p.name" class="partner-logo" loading="lazy" @error="onImgError(p.name)" />
+          <div class="grid grid-cols-2 gap-[14px] sm:grid-cols-3 lg:grid-cols-6">
+            <div v-for="p in partners.technology" :key="p.name" class="group relative flex cursor-default flex-col items-center gap-3 overflow-hidden rounded-2xl border border-[rgba(126,165,224,0.12)] p-6 backdrop-blur-[12px] transition-all duration-[400ms] hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_30px_rgba(55,182,255,0.1)]" style="background: rgba(126,165,224,0.04); transition-timing-function: cubic-bezier(0.4,0,0.2,1)" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
+              <div v-if="p.logo && !errored.has(p.name)" class="flex h-[4.5rem] w-[4.5rem] items-center justify-center overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.08)] p-2 transition-all duration-300 group-hover:border-[rgba(55,182,255,0.25)] group-hover:bg-[rgba(126,165,224,0.14)] group-hover:shadow-[0_0_20px_rgba(55,182,255,0.1)]">
+                <img :src="p.logo" :alt="p.name" class="h-full w-full object-contain transition-[filter] duration-300" style="filter: brightness(0.9) contrast(1.1)" loading="lazy" @error="onImgError(p.name)" />
               </div>
-              <div v-else class="partner-initial-wrap" :style="{ background: `${p.color}15`, borderColor: `${p.color}30` }">
-                <span class="partner-initial" :style="{ color: p.color }">{{ getInitials(p.name) }}</span>
+              <div v-else class="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-105" :style="{ background: `${p.color}15`, borderColor: `${p.color}30` }">
+                <span class="font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[1.4rem] font-extrabold tracking-[0.05em]" :style="{ color: p.color }">{{ getInitials(p.name) }}</span>
               </div>
-              <span class="partner-name">{{ p.name }}</span>
-              <div class="partner-accent" :style="{ background: `linear-gradient(90deg, ${p.color}, transparent)` }"></div>
+              <span class="text-center font-sans text-[0.78rem] font-medium leading-tight text-sis-muted dark:text-dark-text-muted transition-colors duration-300 group-hover:text-sis-text dark:group-hover:text-dark-text">{{ p.name }}</span>
+              <div class="absolute left-0 right-0 top-0 h-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-60" :style="{ background: `linear-gradient(90deg, ${p.color}, transparent)` }"></div>
             </div>
           </div>
         </div>
 
-        <!-- Ecosystem Partners -->
-        <div class="partners-group" data-reveal>
-          <div class="group-header">
-            <span class="group-line"></span>
-            <h3 class="group-title">Ecosystem Networks</h3>
+        <div class="mb-14 last:mb-0" data-reveal>
+          <div class="mb-6 flex items-center gap-4">
+            <span class="block h-[2px] w-6 rounded bg-[#37b6ff]"></span>
+            <h3 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-base font-semibold uppercase tracking-[0.15em] text-[#37b6ff]">Ecosystem Networks</h3>
           </div>
-          <div class="partners-grid ecosystem-grid">
-            <div v-for="p in partners.ecosystem" :key="p.name" class="partner-card" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
-              <div v-if="p.logo && !errored.has(p.name)" class="partner-logo-wrap">
-                <img :src="p.logo" :alt="p.name" class="partner-logo" loading="lazy" @error="onImgError(p.name)" />
+          <div class="grid grid-cols-2 gap-[14px] sm:grid-cols-2 lg:grid-cols-4">
+            <div v-for="p in partners.ecosystem" :key="p.name" class="group relative flex cursor-default flex-col items-center gap-3 overflow-hidden rounded-2xl border border-[rgba(126,165,224,0.12)] p-6 backdrop-blur-[12px] transition-all duration-[400ms] hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_30px_rgba(55,182,255,0.1)]" style="background: rgba(126,165,224,0.04); transition-timing-function: cubic-bezier(0.4,0,0.2,1)" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
+              <div v-if="p.logo && !errored.has(p.name)" class="flex h-[4.5rem] w-[4.5rem] items-center justify-center overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.08)] p-2 transition-all duration-300 group-hover:border-[rgba(55,182,255,0.25)] group-hover:bg-[rgba(126,165,224,0.14)] group-hover:shadow-[0_0_20px_rgba(55,182,255,0.1)]">
+                <img :src="p.logo" :alt="p.name" class="h-full w-full object-contain transition-[filter] duration-300" style="filter: brightness(0.9) contrast(1.1)" loading="lazy" @error="onImgError(p.name)" />
               </div>
-              <div v-else class="partner-initial-wrap" :style="{ background: `${p.color}15`, borderColor: `${p.color}30` }">
-                <span class="partner-initial" :style="{ color: p.color }">{{ getInitials(p.name) }}</span>
+              <div v-else class="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-105" :style="{ background: `${p.color}15`, borderColor: `${p.color}30` }">
+                <span class="font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[1.4rem] font-extrabold tracking-[0.05em]" :style="{ color: p.color }">{{ getInitials(p.name) }}</span>
               </div>
-              <span class="partner-name">{{ p.name }}</span>
-              <div class="partner-accent" :style="{ background: `linear-gradient(90deg, ${p.color}, transparent)` }"></div>
+              <span class="text-center font-sans text-[0.78rem] font-medium leading-tight text-sis-muted dark:text-dark-text-muted transition-colors duration-300 group-hover:text-sis-text dark:group-hover:text-dark-text">{{ p.name }}</span>
+              <div class="absolute left-0 right-0 top-0 h-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-60" :style="{ background: `linear-gradient(90deg, ${p.color}, transparent)` }"></div>
             </div>
           </div>
         </div>
       </template>
 
-      <div v-else class="skeleton-wrap">
-        <div class="skeleton-grid">
-          <div v-for="n in 6" :key="n" class="skeleton-card"></div>
+      <div v-else class="py-8">
+        <div class="grid grid-cols-3 gap-4">
+          <div v-for="n in 6" :key="n" class="h-32 animate-shimmer rounded-2xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #131b2e 0%, #1c2540 50%, #131b2e 100%)"></div>
         </div>
       </div>
     </div>
@@ -104,290 +114,3 @@ function onTiltReset(e) {
   e.currentTarget.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale3d(1,1,1)'
 }
 </script>
-
-<style scoped>
-.partners-root {
-  position: relative;
-  overflow: hidden;
-  background: #0a1120;
-  padding: 6rem 1.5rem;
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-}
-
-.circuit-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(90deg, rgba(55,182,255,0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(55,182,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.orb {
-  position: absolute;
-  border-radius: 9999px;
-  pointer-events: none;
-  z-index: 0;
-}
-.orb-tl {
-  width: 600px;
-  height: 600px;
-  top: -15rem;
-  left: -10rem;
-  background: rgba(55,182,255,0.05);
-  filter: blur(120px);
-  animation: pulse-slow 6s ease-in-out infinite;
-}
-.orb-br {
-  width: 500px;
-  height: 500px;
-  bottom: -12rem;
-  right: -8rem;
-  background: rgba(94,224,196,0.05);
-  filter: blur(130px);
-}
-
-@keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.partners-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.partners-header {
-  text-align: center;
-  margin-bottom: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.label-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.25rem;
-}
-.label-line {
-  display: block;
-  width: 3rem;
-  height: 1px;
-  background: #37b6ff;
-}
-.label-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #37b6ff;
-}
-
-.partners-title {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #dae2fd;
-  margin: 0;
-}
-.title-accent {
-  font-style: italic;
-  font-weight: 700;
-  color: #5fe0c4;
-  text-shadow: 0 0 30px rgba(94,224,196,0.3);
-}
-
-.partners-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #a8b3cf;
-  max-width: 36rem;
-  margin: 0;
-}
-
-.partners-group {
-  margin-bottom: 3.5rem;
-}
-.partners-group:last-child {
-  margin-bottom: 0;
-}
-
-.group-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.group-line {
-  display: block;
-  width: 1.5rem;
-  height: 2px;
-  background: #37b6ff;
-  border-radius: 1px;
-}
-.group-title {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #37b6ff;
-  margin: 0;
-}
-
-.partners-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.875rem;
-}
-.ecosystem-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (min-width: 640px) {
-  .partners-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .ecosystem-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 1024px) {
-  .partners-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-  .ecosystem-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.partner-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1.5rem 1rem;
-  border-radius: 1rem;
-  background: rgba(126,165,224,0.04);
-  border: 1px solid rgba(126,165,224,0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  cursor: default;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.partner-card:hover {
-  background: rgba(126,165,224,0.08);
-  border-color: rgba(55,182,255,0.3);
-  box-shadow: 0 0 30px rgba(55,182,255,0.1);
-}
-
-.partner-accent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.partner-card:hover .partner-accent {
-  opacity: 0.6;
-}
-
-.partner-logo-wrap {
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(126,165,224,0.08);
-  border: 1px solid rgba(126,165,224,0.12);
-  overflow: hidden;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
-}
-.partner-card:hover .partner-logo-wrap {
-  background: rgba(126,165,224,0.14);
-  border-color: rgba(55,182,255,0.25);
-  box-shadow: 0 0 20px rgba(55,182,255,0.1);
-}
-
-.partner-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(0.9) contrast(1.1);
-  transition: filter 0.3s ease;
-}
-.partner-card:hover .partner-logo {
-  filter: brightness(1.1) contrast(1.1);
-}
-
-.partner-initial-wrap {
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid;
-  transition: all 0.3s ease;
-}
-.partner-card:hover .partner-initial-wrap {
-  transform: scale(1.05);
-}
-
-.partner-initial {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-}
-
-.partner-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: #a8b3cf;
-  text-align: center;
-  line-height: 1.3;
-  transition: color 0.3s ease;
-}
-.partner-card:hover .partner-name {
-  color: #eaf1fb;
-}
-
-.skeleton-wrap {
-  padding: 2rem 0;
-}
-.skeleton-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.skeleton-card {
-  height: 8rem;
-  border-radius: 1rem;
-  background: linear-gradient(90deg, #131b2e 0%, #1c2540 50%, #131b2e 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite ease;
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-</style>

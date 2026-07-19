@@ -48,19 +48,3 @@ function close() {
 }
 </script>
 
-<style scoped>
-.toast-slide-enter-active {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.toast-slide-leave-active {
-  transition: all 0.3s ease;
-}
-.toast-slide-enter-from {
-  opacity: 0;
-  transform: translateX(100%) scale(0.95);
-}
-.toast-slide-leave-to {
-  opacity: 0;
-  transform: translateX(100%) scale(0.95);
-}
-</style>

@@ -4,8 +4,8 @@
   </defs></svg>
   <section
     ref="sectionRef"
-    class="relative border-y border-[rgba(126,165,224,0.14)] py-[92px]"
-    style="background: linear-gradient(180deg, #0a1120, #070d1a)"
+    class="relative border-y border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] py-[92px]"
+    style="background: var(--bg-section-1)"
   >
     <div class="mx-auto max-w-[1140px] px-7">
       <div class="mb-[46px] max-w-[64ch]">
@@ -16,11 +16,11 @@
           Operational intelligence
         </span>
         <h2
-          class="mt-4 text-[clamp(27px,3.5vw,42px)] font-extrabold leading-[1.1] -tracking-[0.025em] text-white text-balance"
+          class="mt-4 text-[clamp(27px,3.5vw,42px)] font-extrabold leading-[1.1] -tracking-[0.025em] text-sis-text dark:text-white text-balance"
         >
           We turn plant signals into decisions
         </h2>
-        <p class="mt-[14px] max-w-[56ch] text-[15px] text-[#aebfd8]">
+        <p class="mt-[14px] max-w-[56ch] text-[15px] text-sis-muted dark:text-[#aebfd8]">
           Every deployment ships with live dashboards — efficiency, availability and
           quality tracked continuously, with alarms the moment a metric drifts.
         </p>
@@ -29,42 +29,42 @@
       <div class="mb-[18px] grid grid-cols-1 gap-[18px] md:grid-cols-3">
         <!-- OEE Gauge -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-[rgba(126,165,224,0.14)] p-[22px]"
-          style="background: linear-gradient(180deg, #0e1728, #0a1120)"
+          class="flex flex-col items-center gap-2 rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          style="background: var(--bg-card-2)"
         >
           <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">OEE / Efficiency</span>
-          <svg class="gauge" width="180" height="150" viewBox="0 0 200 168">
+          <svg class="gauge text-sis-text dark:text-white" width="180" height="150" viewBox="0 0 200 168">
             <path d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="rgba(126,165,224,0.16)" stroke-width="9" stroke-linecap="round"/>
-            <path ref="gauge1Val" class="gauge-val" d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="url(#igGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
-            <g ref="gauge1Needle" class="gauge-needle">
-              <line x1="100" y1="100" x2="100" y2="34" stroke="#eaf1fb" stroke-width="2.5" stroke-linecap="round"/>
+            <path ref="gauge1Val" d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="url(#igGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283" style="stroke-dashoffset:283"/>
+            <g ref="gauge1Needle" style="transform-origin:100px 100px;transform:rotate(-90deg)">
+              <line x1="100" y1="100" x2="100" y2="34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
               <circle cx="100" cy="100" r="6" fill="#37b6ff"/>
             </g>
-            <text x="100" y="132" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace" font-weight="700" font-size="23" fill="#eaf1fb">86%</text>
+            <text x="100" y="132" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace" font-weight="700" font-size="23" fill="currentColor">86%</text>
           </svg>
         </div>
 
         <!-- Availability Gauge -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-[rgba(126,165,224,0.14)] p-[22px]"
-          style="background: linear-gradient(180deg, #0e1728, #0a1120)"
+          class="flex flex-col items-center gap-2 rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          style="background: var(--bg-card-2)"
         >
           <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">Availability</span>
-          <svg class="gauge" width="180" height="150" viewBox="0 0 200 168">
+          <svg class="gauge text-sis-text dark:text-white" width="180" height="150" viewBox="0 0 200 168">
             <path d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="rgba(126,165,224,0.16)" stroke-width="9" stroke-linecap="round"/>
-            <path ref="gauge2Val" class="gauge-val" d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="url(#igGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
-            <g ref="gauge2Needle" class="gauge-needle">
-              <line x1="100" y1="100" x2="100" y2="34" stroke="#eaf1fb" stroke-width="2.5" stroke-linecap="round"/>
+            <path ref="gauge2Val" d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="url(#igGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283" style="stroke-dashoffset:283"/>
+            <g ref="gauge2Needle" style="transform-origin:100px 100px;transform:rotate(-90deg)">
+              <line x1="100" y1="100" x2="100" y2="34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
               <circle cx="100" cy="100" r="6" fill="#37b6ff"/>
             </g>
-            <text x="100" y="132" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace" font-weight="700" font-size="23" fill="#eaf1fb">99.9%</text>
+            <text x="100" y="132" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace" font-weight="700" font-size="23" fill="currentColor">99.9%</text>
           </svg>
         </div>
 
         <!-- Throughput bars -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-[rgba(126,165,224,0.14)] p-[22px]"
-          style="background: linear-gradient(180deg, #0e1728, #0a1120)"
+          class="flex flex-col items-center gap-2 rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          style="background: var(--bg-card-2)"
         >
           <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">Throughput / min</span>
           <div ref="barGroup" class="flex items-end gap-[8px] h-[130px] pt-[10px]">
@@ -72,8 +72,12 @@
               v-for="n in 8"
               :key="n"
               ref="barRefs"
-              class="bar w-[14px] rounded-t-[4px]"
-              :class="[3, 6].includes(n) ? 'bar-teal' : 'bar-blue'"
+              class="w-[14px] rounded-t-[4px] h-[18px]"
+              :style="{
+                background: [3, 6].includes(n)
+                  ? 'linear-gradient(180deg, #5fe0c4, #2a9d86)'
+                  : 'linear-gradient(180deg, #37b6ff, #1d6fd0)'
+              }"
             ></i>
           </div>
         </div>
@@ -81,8 +85,8 @@
 
       <div
         ref="waveformWrap"
-        class="relative h-[130px] overflow-hidden rounded-[14px] border border-[rgba(126,165,224,0.14)]"
-        style="background: #0a1324"
+        class="relative h-[130px] overflow-hidden rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)]"
+        style="background: var(--bg-card-3)"
       >
         <span class="absolute left-4 top-3 z-[2] font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">Live plant telemetry</span>
         <div class="absolute inset-0" style="background-image: linear-gradient(rgba(126,165,224,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(126,165,224,0.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
@@ -195,25 +199,3 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped>
-.bar-blue {
-  background: linear-gradient(180deg, #37b6ff, #1d6fd0);
-}
-
-.bar-teal {
-  background: linear-gradient(180deg, #5fe0c4, #2a9d86);
-}
-
-.bar {
-  height: 18px;
-}
-
-.gauge-val {
-  stroke-dashoffset: 283;
-}
-
-.gauge-needle {
-  transform-origin: 100px 100px;
-  transform: rotate(-90deg);
-}
-</style>

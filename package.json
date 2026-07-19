@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^14.3.0",
     "gsap": "^3.12.2",
     "pinia": "^3.0.4",
+    "swiper": "^14.0.5",
     "vue": "^3.4.0",
     "vue-router": "^4.3.3"
   },

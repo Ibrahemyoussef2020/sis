@@ -1,17 +1,23 @@
 <template>
-  <section id="methodology" class="mth-root" ref="sectionRef">
-    <!-- Atmospheric glows -->
-    <div class="mth-glow mth-glow--tr" aria-hidden="true"></div>
-    <div class="mth-glow mth-glow--bl" aria-hidden="true"></div>
+  <section ref="sectionRef" class="relative overflow-hidden bg-sis-panel dark:bg-dark-bg px-8 py-8 font-['Plus_Jakarta_Sans','Manrope','Inter',sans-serif] text-sis-text dark:text-dark-text">
+    <div
+      class="pointer-events-none absolute rounded-full blur-[80px]"
+      style="width: 24rem; height: 24rem; top: -6rem; right: -6rem; background: rgba(55,182,255,0.07);"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute rounded-full blur-[80px]"
+      style="width: 16rem; height: 16rem; bottom: -4rem; left: -4rem; background: rgba(94,224,196,0.05);"
+      aria-hidden="true"
+    ></div>
 
-    <div class="mth-inner">
-      <!-- ── Header ───────────────────────────────────────────────── -->
-      <div class="mth-header" data-reveal>
-        <span class="mth-eyebrow">Methodology</span>
-        <h2 class="mth-title">
+    <div class="relative z-10 mx-auto max-w-[1280px]">
+      <div class="mb-14 text-center" data-reveal>
+        <span class="mb-3 block text-xs font-bold uppercase tracking-[0.3em] text-[#37b6ff]">Methodology</span>
+        <h2 class="mx-auto max-w-[32rem] m-0 text-[clamp(1.5rem,4vw,2rem)] font-bold -tracking-[0.02em] text-sis-text dark:text-dark-text">
           {{ methodology?.title ?? "Engagement Methodology" }}
         </h2>
-        <p class="mth-subtitle">
+        <p class="mx-auto mt-4 max-w-[38rem] text-[0.9375rem] leading-relaxed text-sis-muted dark:text-dark-text-muted">
           From first audit to continuous optimisation — our three-phase
           engagement model ensures every OT/IT integration is delivered with
           precision, backed by field-proven engineers, and built to evolve with
@@ -19,15 +25,15 @@
         </p>
       </div>
 
-      <!-- ── Interactive layout ───────────────────────────────────── -->
-      <div v-if="loaded" class="mth-layout" data-reveal>
-        <!-- Left: Tab list -->
-        <div class="mth-tabs" role="tablist" aria-label="Methodology stages">
+      <div v-if="loaded" class="grid grid-cols-1 gap-6 lg:grid-cols-[5fr_7fr] items-start" data-reveal>
+        <div class="flex flex-col gap-3 rounded-2xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.05)] p-0 backdrop-blur-[16px]" role="tablist" aria-label="Methodology stages">
           <button
             v-for="stage in methodology.stages"
             :key="stage.number"
-            class="mth-tab"
-            :class="{ 'mth-tab--active': activeStage === stage.number }"
+              class="flex items-center gap-5 rounded-r-lg border-l-4 border-transparent bg-none px-6 py-5 text-left transition-all duration-300"
+            :class="activeStage === stage.number
+              ? 'border-l-[#37b6ff] bg-[rgba(55,182,255,0.1)] pl-7'
+              : 'hover:bg-[rgba(55,182,255,0.06)] hover:pl-7'"
             role="tab"
             :aria-selected="activeStage === stage.number"
             :aria-controls="`mth-pane-${stage.number}`"
@@ -35,52 +41,37 @@
             @click="setStage(stage.number)"
           >
             <span
-              class="mth-badge"
-              :class="{ 'mth-badge--active': activeStage === stage.number }"
-              >{{ stage.number }}</span
-            >
-            <span class="mth-tab-label">{{ stage.title }}</span>
+              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold transition-all duration-300"
+              :class="activeStage === stage.number
+                ? 'bg-[#37b6ff] text-[#00344d] shadow-[0_3px_12px_rgba(55,182,255,0.35)]'
+                : 'bg-[rgba(126,165,224,0.14)] text-sis-text dark:text-dark-text'"
+            >{{ stage.number }}</span>
+            <span
+              class="text-[0.95rem] font-semibold leading-relaxed transition-colors duration-300"
+              :class="activeStage === stage.number ? 'text-sis-text dark:text-dark-text' : 'text-sis-muted dark:text-dark-text-muted hover:text-sis-text dark:hover:text-dark-text'"
+            >{{ stage.title }}</span>
           </button>
         </div>
 
-        <!-- Right: Detail pane -->
-        <div class="mth-detail">
+        <div class="min-h-[20rem]">
           <Transition name="mth-fade" mode="out-in">
             <div
               :key="activeStage"
-              class="mth-pane"
+              class="relative flex min-h-[20rem] flex-col justify-center overflow-hidden rounded-2xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.06)] p-12 backdrop-blur-[12px]"
               role="tabpanel"
               :id="`mth-pane-${activeStage}`"
               :aria-labelledby="`mth-tab-${activeStage}`"
             >
-              <!-- Ghost icon watermark -->
-              <div class="mth-watermark" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="0.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+              <div class="pointer-events-none absolute -right-4 -top-4 opacity-[0.06] text-dark-text" style="width: 10rem; height: 10rem;" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="h-full w-full">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" />
                   <path d="M2 17l10 5 10-5" />
                   <path d="M2 12l10 5 10-5" />
                 </svg>
               </div>
 
-              <!-- Phase label -->
-              <div class="mth-phase-row">
-                <svg
-                  class="mth-phase-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
+              <div class="mb-5 flex items-center gap-2 text-[#37b6ff]">
+                <svg class="h-[1.1rem] w-[1.1rem] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <template v-if="activeStage === 1">
                     <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
                     <polyline points="9 22 9 12 15 12 15 22" />
@@ -95,19 +86,18 @@
                     <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
                   </template>
                 </svg>
-                <span class="mth-phase-label">Phase 0{{ activeStage }}</span>
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#37b6ff]">Phase 0{{ activeStage }}</span>
               </div>
 
-              <!-- Content -->
-              <h3 class="mth-pane-title">{{ activeData.fullTitle }}</h3>
-              <p class="mth-pane-body">{{ activeData.intro }}</p>
-              <ul class="mth-pane-list">
+              <h3 class="m-0 mb-5 max-w-[36rem] text-[clamp(1.1rem,2.5vw,1.35rem)] font-bold leading-tight -tracking-[0.01em] text-sis-text dark:text-dark-text">{{ activeData.fullTitle }}</h3>
+              <p class="m-0 mb-6 max-w-[36rem] text-[0.9375rem] leading-relaxed text-sis-muted dark:text-dark-text-muted">{{ activeData.intro }}</p>
+              <ul class="m-0 flex list-none flex-col gap-4 p-0">
                 <li
                   v-for="bullet in activeData.bullets"
                   :key="bullet"
-                  class="mth-pane-item"
+                  class="relative max-w-[36rem] pl-6 text-[0.9375rem] leading-relaxed text-[#c8d0e0]"
                 >
-                  <span class="mth-bullet-dot" aria-hidden="true"></span>
+                  <span class="absolute left-0 top-2 h-[6px] w-[6px] rounded-full bg-[#37b6ff]" style="box-shadow: 0 0 8px rgba(55,182,255,0.4)" aria-hidden="true"></span>
                   {{ bullet }}
                 </li>
               </ul>
@@ -116,12 +106,11 @@
         </div>
       </div>
 
-      <!-- Skeleton -->
-      <div v-else class="mth-layout mth-skeleton">
-        <div class="mth-skel-tabs">
-          <div v-for="n in 3" :key="n" class="mth-skel-row skeleton"></div>
+      <div v-else class="grid grid-cols-1 gap-6 lg:grid-cols-[5fr_7fr] items-stretch">
+        <div class="flex flex-col gap-3 rounded-2xl overflow-hidden">
+          <div v-for="n in 3" :key="n" class="h-20 rounded-lg skeleton"></div>
         </div>
-        <div class="mth-skel-pane skeleton"></div>
+        <div class="h-80 rounded-2xl skeleton"></div>
       </div>
     </div>
   </section>
@@ -138,7 +127,6 @@ const { methodology, loaded } = storeToRefs(siteStore);
 const activeStage = ref(1);
 const sectionRef = ref(null);
 
-// Extended descriptions per stage (supplements what's in the data store)
 const stageDetails = {
   1: {
     fullTitle: "Strategic Architecture & Industrial Consulting",
@@ -206,321 +194,3 @@ onMounted(() => {
   observer.observe(sectionRef.value);
 });
 </script>
-
-<style scoped>
-/* ── Root ──────────────────────────────────────────────────────────── */
-.mth-root {
-  /* min-height: 100vh; */
-  position: relative;
-  background: #0a1120;
-  overflow: hidden;
-  padding: 2rem 2rem;
-  font-family: "Plus Jakarta Sans", "Manrope", "Inter", sans-serif;
-  color: #eaf1fb;
-}
-
-/* atmospheric glows */
-.mth-glow {
-  position: absolute;
-  border-radius: 9999px;
-  pointer-events: none;
-}
-.mth-glow--tr {
-  width: 24rem;
-  height: 24rem;
-  top: -6rem;
-  right: -6rem;
-  background: rgba(55, 182, 255, 0.07);
-  filter: blur(80px);
-}
-.mth-glow--bl {
-  width: 16rem;
-  height: 16rem;
-  bottom: -4rem;
-  left: -4rem;
-  background: rgba(94, 224, 196, 0.05);
-  filter: blur(80px);
-}
-
-/* ── Inner ─────────────────────────────────────────────────────────── */
-.mth-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-/* ── Header ────────────────────────────────────────────────────────── */
-.mth-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-.mth-eyebrow {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #37b6ff;
-  margin-bottom: 0.75rem;
-}
-.mth-title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #eaf1fb;
-  margin: 0;
-  max-width: 32rem;
-  margin-inline: auto;
-}
-.mth-subtitle {
-  margin: 1rem auto 0;
-  max-width: 38rem;
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: #a8b3cf;
-}
-
-/* ── Layout ────────────────────────────────────────────────────────── */
-.mth-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-@media (min-width: 1024px) {
-  .mth-layout {
-    grid-template-columns: 5fr 7fr;
-    gap: 1.5rem;
-  }
-}
-
-/* ── Tabs column ───────────────────────────────────────────────────── */
-.mth-tabs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  background: rgba(126, 165, 224, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(126, 165, 224, 0.12);
-  border-radius: 1rem;
-  padding: 1.25rem 0;
-}
-
-.mth-tab {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1.25rem 1.5rem;
-  background: none;
-  border: none;
-  border-left: 4px solid transparent;
-  cursor: pointer;
-  text-align: left;
-  font-family: inherit;
-  transition:
-    background 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-    border-color 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-    padding-left 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  border-radius: 0 0.5rem 0.5rem 0;
-}
-.mth-tab:hover:not(.mth-tab--active) {
-  background: rgba(55, 182, 255, 0.06);
-  padding-left: 1.75rem;
-}
-.mth-tab--active {
-  background: rgba(55, 182, 255, 0.1);
-  border-left-color: #37b6ff;
-  padding-left: 1.75rem;
-}
-
-/* badge */
-.mth-badge {
-  flex-shrink: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  font-weight: 700;
-  background: rgba(126, 165, 224, 0.14);
-  color: #eaf1fb;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
-.mth-badge--active {
-  background: #37b6ff;
-  color: #00344d;
-  box-shadow: 0 3px 12px rgba(55, 182, 255, 0.35);
-}
-
-/* tab label */
-.mth-tab-label {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #a8b3cf;
-  transition: color 0.3s ease;
-  line-height: 1.35;
-}
-.mth-tab--active .mth-tab-label {
-  color: #eaf1fb;
-}
-.mth-tab:hover:not(.mth-tab--active) .mth-tab-label {
-  color: #eaf1fb;
-}
-
-/* ── Detail pane ───────────────────────────────────────────────────── */
-.mth-detail {
-  min-height: 20rem;
-}
-.mth-pane {
-  position: relative;
-  overflow: hidden;
-  background: rgba(126, 165, 224, 0.06);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  border-radius: 1rem;
-  padding: 3rem;
-  min-height: 20rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* ghost watermark */
-.mth-watermark {
-  position: absolute;
-  top: -1rem;
-  right: -1rem;
-  width: 10rem;
-  height: 10rem;
-  opacity: 0.06;
-  color: #eaf1fb;
-  pointer-events: none;
-}
-.mth-watermark svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* phase row */
-.mth-phase-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  color: #37b6ff;
-}
-.mth-phase-icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex-shrink: 0;
-}
-.mth-phase-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-/* pane content */
-.mth-pane-title {
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-  font-weight: 700;
-  color: #eaf1fb;
-  margin: 0 0 1.25rem 0;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  max-width: 36rem;
-}
-.mth-pane-body {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: #a8b3cf;
-  max-width: 36rem;
-  margin: 0 0 1.5rem 0;
-}
-
-.mth-pane-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.mth-pane-item {
-  position: relative;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: #c8d0e0;
-  padding-left: 1.5rem;
-  max-width: 36rem;
-}
-
-.mth-bullet-dot {
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 6px;
-  height: 6px;
-  background-color: #37b6ff;
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(55, 182, 255, 0.4);
-}
-
-/* ── Fade transition ───────────────────────────────────────────────── */
-.mth-fade-enter-active,
-.mth-fade-leave-active {
-  transition:
-    opacity 0.35s ease,
-    transform 0.35s ease;
-}
-.mth-fade-enter-from {
-  opacity: 0;
-  transform: translateY(12px);
-}
-.mth-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-/* ── Skeleton ──────────────────────────────────────────────────────── */
-.mth-skeleton {
-  align-items: stretch;
-}
-.mth-skel-tabs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-.mth-skel-row {
-  height: 5rem;
-  border-radius: 0.5rem;
-}
-.mth-skel-pane {
-  height: 20rem;
-  border-radius: 1rem;
-}
-.skeleton {
-  background: linear-gradient(90deg, rgba(126,165,224,0.06) 0%, rgba(126,165,224,0.14) 50%, rgba(126,165,224,0.06) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite ease;
-}
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-</style>

@@ -1,30 +1,30 @@
 <template>
-  <section id="workflow" class="wf-root" ref="sectionRef">
+  <section id="workflow" ref="sectionRef" class="relative bg-sis-panel dark:bg-[#0b1326] overflow-hidden py-24 px-6 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-sis-text dark:text-[#dae2fd]">
     <!-- Atmospheric background glow -->
-    <div class="wf-atmo" ref="atmoRef" aria-hidden="true"></div>
+    <div ref="atmoRef" aria-hidden="true" class="absolute top-0 left-1/2 w-[900px] h-[550px] rounded-full pointer-events-none z-0 transition-transform duration-[600] ease-out -translate-x-1/2 blur-[60px]" style="background: radial-gradient(ellipse, rgba(55,182,255,0.07) 0%, transparent 70%);"></div>
 
     <!-- Circuit-line overlay -->
-    <div class="wf-circuit" aria-hidden="true"></div>
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none z-0" style="background-image: linear-gradient(90deg, rgba(55,182,255,0.025) 1px, transparent 1px), linear-gradient(0deg, rgba(55,182,255,0.025) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
-    <div class="wf-inner">
+    <div class="relative z-[1] max-w-[1200px] mx-auto">
       <!-- ── Header ─────────────────────────────────────────────────── -->
-      <div class="wf-header">
-        <span class="wf-eyebrow" data-reveal>System Architecture</span>
-        <h2 class="wf-title" data-reveal>
-          The IT/OT <em class="wf-title-accent">Lifecycle</em>
+      <div class="text-center mb-16 md:mb-24 flex flex-col items-center gap-4">
+        <span class="text-[0.72rem] font-semibold tracking-[0.3em] uppercase text-[#37b6ff]" data-reveal>System Architecture</span>
+        <h2 class="text-[clamp(2.2rem,5.5vw,3rem)] font-bold leading-[1.15] tracking-[-0.02em] text-sis-text dark:text-[#dae2fd] m-0" data-reveal>
+          The IT/OT <em class="italic font-bold text-[#5fe0c4]" style="text-shadow: 0 0 20px rgba(94,224,196,0.4);">Lifecycle</em>
         </h2>
-        <p class="wf-desc" data-reveal>
+        <p class="max-w-[38rem] text-base leading-[1.7] text-sis-muted dark:text-[#c3c6d3] m-0 font-['Inter',sans-serif]" data-reveal>
           Bridging the gap between cognitive strategy and physical execution
           through a seamless, integrated digital fabric.
         </p>
       </div>
 
       <!-- ── Central visual ─────────────────────────────────────────── -->
-      <div class="wf-visual" data-reveal>
-        <div class="wf-diagram--horizontal">
+      <div class="relative w-full max-w-[56rem] mx-auto mb-16 md:mb-20 rounded-[0.875rem] overflow-hidden border border-[rgba(126,165,224,0.12)] card-glass" data-reveal>
+        <div class="max-sm:hidden">
           <!-- SVG architectural diagram (desktop) -->
           <svg
-            class="wf-diagram"
+            class="block w-full h-auto"
             viewBox="0 0 900 320"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -41,15 +41,15 @@
                 <path
                   d="M 40 0 L 0 0 0 40"
                   fill="none"
-                  stroke="rgba(137,206,255,0.06)"
+                  stroke="var(--svg-grid)"
                   stroke-width="1"
                 />
               </pattern>
               <linearGradient id="wf-flow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#afc6ff" stop-opacity="0" />
-                <stop offset="30%" stop-color="#89ceff" stop-opacity="0.6" />
-                <stop offset="70%" stop-color="#89ceff" stop-opacity="0.6" />
-                <stop offset="100%" stop-color="#afc6ff" stop-opacity="0" />
+                <stop offset="0%" stop-color="var(--svg-text-primary)" stop-opacity="0" />
+                <stop offset="30%" stop-color="var(--svg-text-secondary)" stop-opacity="0.6" />
+                <stop offset="70%" stop-color="var(--svg-text-secondary)" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="var(--svg-text-primary)" stop-opacity="0" />
               </linearGradient>
               <filter id="wf-glow">
                 <feGaussianBlur stdDeviation="2" result="blur" />
@@ -77,8 +77,8 @@
               cx="90"
               cy="160"
               r="36"
-              fill="rgba(175,198,255,0.08)"
-              stroke="rgba(175,198,255,0.35)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow)"
             />
@@ -86,7 +86,7 @@
               x="90"
               y="155"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -97,7 +97,7 @@
               x="90"
               y="170"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -107,7 +107,7 @@
             <!-- Arrow 1 -->
             <path
               d="M128 160 L146 160"
-              stroke="#89ceff"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-opacity="0.5"
               marker-end="url(#wf-arrow)"
@@ -118,8 +118,8 @@
               cx="225"
               cy="160"
               r="40"
-              fill="rgba(175,198,255,0.07)"
-              stroke="rgba(137,206,255,0.4)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow)"
             />
@@ -127,7 +127,7 @@
               x="225"
               y="155"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -138,7 +138,7 @@
               x="225"
               y="170"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -151,7 +151,7 @@
               cy="160"
               r="52"
               fill="none"
-              stroke="rgba(137,206,255,0.08)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="3 5"
             />
@@ -161,8 +161,8 @@
               cx="450"
               cy="160"
               r="54"
-              fill="rgba(175,198,255,0.1)"
-              stroke="rgba(175,198,255,0.5)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="2"
               filter="url(#wf-glow)"
             />
@@ -171,7 +171,7 @@
               cy="160"
               r="64"
               fill="none"
-              stroke="rgba(175,198,255,0.12)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="4 6"
             />
@@ -180,7 +180,7 @@
               cy="160"
               r="74"
               fill="none"
-              stroke="rgba(175,198,255,0.06)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="2 8"
             />
@@ -188,7 +188,7 @@
               x="450"
               y="155"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="13"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -199,7 +199,7 @@
               x="450"
               y="173"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="10"
               font-family="Inter,sans-serif"
             >
@@ -212,7 +212,7 @@
               y1="96"
               x2="450"
               y2="70"
-              stroke="rgba(137,206,255,0.25)"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-dasharray="3 3"
             />
@@ -221,7 +221,7 @@
               y1="224"
               x2="450"
               y2="250"
-              stroke="rgba(137,206,255,0.25)"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-dasharray="3 3"
             />
@@ -229,7 +229,7 @@
               x="450"
               y="70"
               text-anchor="middle"
-              fill="#c3c6d3"
+              fill="var(--svg-text-label)"
               font-size="8"
               font-family="Inter,sans-serif"
               opacity="0.7"
@@ -240,7 +240,7 @@
               x="450"
               y="258"
               text-anchor="middle"
-              fill="#c3c6d3"
+              fill="var(--svg-text-label)"
               font-size="8"
               font-family="Inter,sans-serif"
               opacity="0.7"
@@ -253,8 +253,8 @@
               cx="675"
               cy="160"
               r="40"
-              fill="rgba(175,198,255,0.07)"
-              stroke="rgba(137,206,255,0.4)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow)"
             />
@@ -263,7 +263,7 @@
               cy="160"
               r="52"
               fill="none"
-              stroke="rgba(137,206,255,0.08)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="3 5"
             />
@@ -271,7 +271,7 @@
               x="675"
               y="155"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -282,7 +282,7 @@
               x="675"
               y="170"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -294,8 +294,8 @@
               cx="810"
               cy="160"
               r="36"
-              fill="rgba(175,198,255,0.08)"
-              stroke="rgba(175,198,255,0.35)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow)"
             />
@@ -303,7 +303,7 @@
               x="810"
               y="155"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -314,7 +314,7 @@
               x="810"
               y="170"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -326,7 +326,7 @@
               x="337"
               y="148"
               text-anchor="middle"
-              fill="#8d909c"
+              fill="var(--svg-text-annotation)"
               font-size="8"
               font-family="Inter,sans-serif"
             >
@@ -336,7 +336,7 @@
               x="563"
               y="148"
               text-anchor="middle"
-              fill="#8d909c"
+              fill="var(--svg-text-annotation)"
               font-size="8"
               font-family="Inter,sans-serif"
             >
@@ -362,21 +362,21 @@
             />
             <defs>
               <linearGradient id="fade-l" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#0b1326" stop-opacity="1" />
-                <stop offset="100%" stop-color="#0b1326" stop-opacity="0" />
+                <stop offset="0%" stop-color="var(--section-bg, #f4f7fa)" stop-opacity="1" />
+                <stop offset="100%" stop-color="var(--section-bg, #f4f7fa)" stop-opacity="0" />
               </linearGradient>
               <linearGradient id="fade-r" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#0b1326" stop-opacity="0" />
-                <stop offset="100%" stop-color="#0b1326" stop-opacity="1" />
+                <stop offset="0%" stop-color="var(--section-bg, #f4f7fa)" stop-opacity="0" />
+                <stop offset="100%" stop-color="var(--section-bg, #f4f7fa)" stop-opacity="1" />
               </linearGradient>
             </defs>
           </svg>
         </div>
 
-        <div class="wf-diagram--vertical">
+        <div class="hidden max-sm:block pb-[25px]">
           <!-- SVG architectural diagram (mobile) -->
           <svg
-            class="wf-diagram"
+            class="block w-full h-auto"
             viewBox="0 0 300 600"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -392,15 +392,15 @@
                 <path
                   d="M 30 0 L 0 0 0 30"
                   fill="none"
-                  stroke="rgba(137,206,255,0.06)"
+                  stroke="var(--svg-grid)"
                   stroke-width="1"
                 />
               </pattern>
               <linearGradient id="wf-flow-v" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#afc6ff" stop-opacity="0" />
-                <stop offset="30%" stop-color="#89ceff" stop-opacity="0.6" />
-                <stop offset="70%" stop-color="#89ceff" stop-opacity="0.6" />
-                <stop offset="100%" stop-color="#afc6ff" stop-opacity="0" />
+                <stop offset="0%" stop-color="var(--svg-text-primary)" stop-opacity="0" />
+                <stop offset="30%" stop-color="var(--svg-text-secondary)" stop-opacity="0.6" />
+                <stop offset="70%" stop-color="var(--svg-text-secondary)" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="var(--svg-text-primary)" stop-opacity="0" />
               </linearGradient>
               <filter id="wf-glow-v">
                 <feGaussianBlur stdDeviation="2" result="blur" />
@@ -410,8 +410,8 @@
                 </feMerge>
               </filter>
               <linearGradient id="fade-t" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0b1326" stop-opacity="1" />
-                <stop offset="100%" stop-color="#0b1326" stop-opacity="0" />
+                <stop offset="0%" stop-color="var(--section-bg, #f4f7fa)" stop-opacity="1" />
+                <stop offset="100%" stop-color="var(--section-bg, #f4f7fa)" stop-opacity="0" />
               </linearGradient>
             </defs>
 
@@ -433,8 +433,8 @@
               cx="150"
               cy="75"
               r="30"
-              fill="rgba(175,198,255,0.08)"
-              stroke="rgba(175,198,255,0.35)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow-v)"
             />
@@ -442,7 +442,7 @@
               x="150"
               y="70"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -453,7 +453,7 @@
               x="150"
               y="85"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -463,7 +463,7 @@
             <!-- Arrow 1 -->
             <path
               d="M150 105 L150 126"
-              stroke="#89ceff"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-opacity="0.5"
             />
@@ -473,8 +473,8 @@
               cx="150"
               cy="185"
               r="36"
-              fill="rgba(175,198,255,0.07)"
-              stroke="rgba(137,206,255,0.4)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow-v)"
             />
@@ -483,7 +483,7 @@
               cy="185"
               r="48"
               fill="none"
-              stroke="rgba(137,206,255,0.08)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="3 5"
             />
@@ -491,7 +491,7 @@
               x="150"
               y="180"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -502,7 +502,7 @@
               x="150"
               y="195"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -512,7 +512,7 @@
             <!-- Arrow 2 -->
             <path
               d="M150 221 L150 248"
-              stroke="#89ceff"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-opacity="0.5"
             />
@@ -520,7 +520,7 @@
               x="155"
               y="243"
               text-anchor="start"
-              fill="#8d909c"
+              fill="var(--svg-text-annotation)"
               font-size="8"
               font-family="Inter,sans-serif"
             >
@@ -532,8 +532,8 @@
               cx="150"
               cy="310"
               r="48"
-              fill="rgba(175,198,255,0.1)"
-              stroke="rgba(175,198,255,0.5)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="2"
               filter="url(#wf-glow-v)"
             />
@@ -542,7 +542,7 @@
               cy="310"
               r="58"
               fill="none"
-              stroke="rgba(175,198,255,0.12)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="4 6"
             />
@@ -551,7 +551,7 @@
               cy="310"
               r="68"
               fill="none"
-              stroke="rgba(175,198,255,0.06)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="2 8"
             />
@@ -559,7 +559,7 @@
               x="150"
               y="305"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="13"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -570,7 +570,7 @@
               x="150"
               y="322"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="10"
               font-family="Inter,sans-serif"
             >
@@ -583,7 +583,7 @@
               y1="310"
               x2="55"
               y2="310"
-              stroke="rgba(137,206,255,0.25)"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-dasharray="3 3"
             />
@@ -592,7 +592,7 @@
               y1="310"
               x2="245"
               y2="310"
-              stroke="rgba(137,206,255,0.25)"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-dasharray="3 3"
             />
@@ -600,7 +600,7 @@
               x="48"
               y="313"
               text-anchor="end"
-              fill="#c3c6d3"
+              fill="var(--svg-text-label)"
               font-size="8"
               font-family="Inter,sans-serif"
               opacity="0.7"
@@ -611,7 +611,7 @@
               x="252"
               y="313"
               text-anchor="start"
-              fill="#c3c6d3"
+              fill="var(--svg-text-label)"
               font-size="8"
               font-family="Inter,sans-serif"
               opacity="0.7"
@@ -622,7 +622,7 @@
             <!-- Arrow 3 -->
             <path
               d="M150 358 L150 385"
-              stroke="#89ceff"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-opacity="0.5"
             />
@@ -630,7 +630,7 @@
               x="155"
               y="381"
               text-anchor="start"
-              fill="#8d909c"
+              fill="var(--svg-text-annotation)"
               font-size="8"
               font-family="Inter,sans-serif"
             >
@@ -642,8 +642,8 @@
               cx="150"
               cy="435"
               r="36"
-              fill="rgba(175,198,255,0.07)"
-              stroke="rgba(137,206,255,0.4)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow-v)"
             />
@@ -652,7 +652,7 @@
               cy="435"
               r="48"
               fill="none"
-              stroke="rgba(137,206,255,0.08)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1"
               stroke-dasharray="3 5"
             />
@@ -660,7 +660,7 @@
               x="150"
               y="430"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -671,7 +671,7 @@
               x="150"
               y="445"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -681,7 +681,7 @@
             <!-- Arrow 4 -->
             <path
               d="M150 471 L150 498"
-              stroke="#89ceff"
+              stroke="var(--svg-flow)"
               stroke-width="1"
               stroke-opacity="0.5"
             />
@@ -691,8 +691,8 @@
               cx="150"
               cy="545"
               r="30"
-              fill="rgba(175,198,255,0.08)"
-              stroke="rgba(175,198,255,0.35)"
+              fill="var(--svg-node-fill)"
+              stroke="var(--svg-node-stroke)"
               stroke-width="1.5"
               filter="url(#wf-glow-v)"
             />
@@ -700,7 +700,7 @@
               x="150"
               y="540"
               text-anchor="middle"
-              fill="#afc6ff"
+              fill="var(--svg-text-primary)"
               font-size="11"
               font-family="Plus Jakarta Sans,Inter,sans-serif"
               font-weight="700"
@@ -711,7 +711,7 @@
               x="150"
               y="555"
               text-anchor="middle"
-              fill="#89ceff"
+              fill="var(--svg-text-secondary)"
               font-size="9"
               font-family="Inter,sans-serif"
             >
@@ -731,16 +731,16 @@
         </div>
 
         <!-- Glass tint overlays for depth -->
-        <div class="wf-visual-overlay-t" aria-hidden="true"></div>
-        <div class="wf-visual-overlay-s" aria-hidden="true"></div>
+        <div aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none max-sm:hidden" style="background: linear-gradient(to top, var(--section-bg, #f4f7fa) 0%, transparent 100%);"></div>
+        <div aria-hidden="true" class="absolute top-0 left-0 right-0 h-[20%] pointer-events-none max-sm:hidden" style="background: linear-gradient(to bottom, var(--section-bg, #f4f7fa) 0%, transparent 100%);"></div>
       </div>
 
       <!-- ── Stage cards ─────────────────────────────────────────────── -->
-      <div class="wf-stages">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <!-- Stage 1: Mind -->
-        <article class="wf-card" data-reveal>
-          <div class="wf-card-top">
-            <div class="wf-icon">
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
               <!-- brain/psychology icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -750,30 +750,31 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 aria-hidden="true"
+                class="w-[1.1rem] h-[1.1rem]"
               >
                 <path
                   d="M9.5 2A2.5 2.5 0 007 4.5v.5H6a3 3 0 00-3 3v.5A3.5 3.5 0 006.5 12H7v.5A2.5 2.5 0 009.5 15H10v2a2 2 0 004 0v-2h.5a2.5 2.5 0 002.5-2.5V12h.5A3.5 3.5 0 0021 8.5V8a3 3 0 00-3-3h-1v-.5A2.5 2.5 0 0014.5 2h-5z"
                 />
               </svg>
             </div>
-            <span class="wf-stage-label"
-              >STAGE <em class="wf-stage-num">01</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">01</em></span
             >
           </div>
-          <h3 class="wf-card-title">Mind</h3>
-          <p class="wf-card-body">
+          <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">Mind</h3>
+          <p class="text-[0.82rem] leading-[1.65] text-sis-muted dark:text-[#c3c6d3] m-0 flex-1 font-['Inter',sans-serif]">
             Strategic intent and high-level vision. Where corporate goals are
             translated into actionable digital roadmaps.
           </p>
-          <div class="wf-card-footer">
-            <span class="wf-card-layer">Strategic Layer</span>
+          <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Strategic Layer</span>
           </div>
         </article>
 
         <!-- Stage 2: AI -->
-        <article class="wf-card" data-reveal>
-          <div class="wf-card-top">
-            <div class="wf-icon">
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
               <!-- AI/neural icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -783,6 +784,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 aria-hidden="true"
+                class="w-[1.1rem] h-[1.1rem]"
               >
                 <circle cx="12" cy="12" r="3" />
                 <circle cx="4" cy="7" r="2" />
@@ -796,24 +798,24 @@
                 />
               </svg>
             </div>
-            <span class="wf-stage-label"
-              >STAGE <em class="wf-stage-num">02</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">02</em></span
             >
           </div>
-          <h3 class="wf-card-title">AI</h3>
-          <p class="wf-card-body">
+          <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">AI</h3>
+          <p class="text-[0.82rem] leading-[1.65] text-sis-muted dark:text-[#c3c6d3] m-0 flex-1 font-['Inter',sans-serif]">
             Intelligent processing and advanced analytics. Transforming raw data
             streams into predictive operational insights.
           </p>
-          <div class="wf-card-footer">
-            <span class="wf-card-layer">Analytic Layer</span>
+          <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Analytic Layer</span>
           </div>
         </article>
 
         <!-- Stage 3: PC (Orchestration) -->
-        <article class="wf-card wf-card--featured" data-reveal>
-          <div class="wf-card-top">
-            <div class="wf-icon wf-icon--featured">
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border bg-[rgba(55,182,255,0.06)] border-[rgba(55,182,255,0.2)] backdrop-blur-[12px] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-[rgba(55,182,255,0.4)] hover:shadow-[0_0_40px_rgba(55,182,255,0.18)] hover:-translate-y-1" data-reveal>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.18)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
               <!-- control panel icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -823,6 +825,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 aria-hidden="true"
+                class="w-[1.1rem] h-[1.1rem]"
               >
                 <rect x="2" y="3" width="20" height="14" rx="2" />
                 <path d="M8 21h8M12 17v4" />
@@ -832,24 +835,24 @@
                 <path d="M6 13h12" />
               </svg>
             </div>
-            <span class="wf-stage-label"
-              >STAGE <em class="wf-stage-num">03</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">03</em></span
             >
           </div>
-          <h3 class="wf-card-title">PC</h3>
-          <p class="wf-card-body">
+          <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">PC</h3>
+          <p class="text-[0.82rem] leading-[1.65] text-sis-muted dark:text-[#c3c6d3] m-0 flex-1 font-['Inter',sans-serif]">
             Digital orchestration and control interfaces. The mission control
             center for real-time monitoring and command.
           </p>
-          <div class="wf-card-footer">
-            <span class="wf-card-layer">Orchestration</span>
+          <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Orchestration</span>
           </div>
         </article>
 
         <!-- Stage 4: Factory -->
-        <article class="wf-card" data-reveal>
-          <div class="wf-card-top">
-            <div class="wf-icon">
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
               <!-- factory/manufacturing icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -859,29 +862,30 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 aria-hidden="true"
+                class="w-[1.1rem] h-[1.1rem]"
               >
                 <path d="M2 20h20M4 20V10l5-5v5l5-5v5l5-5v10" />
                 <rect x="9" y="14" width="6" height="6" rx="0.5" />
               </svg>
             </div>
-            <span class="wf-stage-label"
-              >STAGE <em class="wf-stage-num">04</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">04</em></span
             >
           </div>
-          <h3 class="wf-card-title">Factory</h3>
-          <p class="wf-card-body">
+          <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">Factory</h3>
+          <p class="text-[0.82rem] leading-[1.65] text-sis-muted dark:text-[#c3c6d3] m-0 flex-1 font-['Inter',sans-serif]">
             Physical production and OT integration. High-precision hardware
             executing digital commands on the shop floor.
           </p>
-          <div class="wf-card-footer">
-            <span class="wf-card-layer">Physical Layer</span>
+          <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Physical Layer</span>
           </div>
         </article>
 
         <!-- Stage 5: Human -->
-        <article class="wf-card" data-reveal>
-          <div class="wf-card-top">
-            <div class="wf-icon">
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
               <!-- people/groups icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -891,6 +895,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 aria-hidden="true"
+                class="w-[1.1rem] h-[1.1rem]"
               >
                 <circle cx="12" cy="7" r="4" />
                 <path d="M5.5 20a6.5 6.5 0 0113 0" />
@@ -900,31 +905,31 @@
                 <path d="M22.5 20a4 4 0 00-7-2.6" />
               </svg>
             </div>
-            <span class="wf-stage-label"
-              >STAGE <em class="wf-stage-num">05</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">05</em></span
             >
           </div>
-          <h3 class="wf-card-title">Human</h3>
-          <p class="wf-card-body">
+          <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">Human</h3>
+          <p class="text-[0.82rem] leading-[1.65] text-sis-muted dark:text-[#c3c6d3] m-0 flex-1 font-['Inter',sans-serif]">
             Empowered workforce and oversight. Experts leveraging systems to
             make critical decisions and drive safety.
           </p>
-          <div class="wf-card-footer">
-            <span class="wf-card-layer">Expert Layer</span>
+          <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Expert Layer</span>
           </div>
         </article>
       </div>
 
       <!-- ── CTA ────────────────────────────────────────────────────── -->
-      <div class="wf-cta-wrap" data-reveal>
+      <div class="mt-16 flex justify-center" data-reveal>
         <a
           @click.prevent="scrollToSection('architecture', router, route)"
           href="#"
-          class="wf-cta"
+          class="inline-flex items-center gap-2 px-8 py-3 bg-[#37b6ff] text-[#00344d] text-[0.72rem] font-bold tracking-[0.12em] uppercase rounded-lg no-underline shadow-[0_0_18px_rgba(55,182,255,0.22)] transition-all duration-[250] ease-in-out hover:scale-105 hover:shadow-[0_0_30px_rgba(55,182,255,0.4)] hover:bg-[#5fe0c4] active:scale-[0.97]"
         >
           Explore Architecture
           <svg
-            class="wf-cta-arrow"
+            class="w-4 h-4"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -997,345 +1002,3 @@ onBeforeUnmount(() => {
   revealObserver?.disconnect();
 });
 </script>
-
-<style scoped>
-/* ── Root ─────────────────────────────────────────────────────────── */
-.wf-root {
-  position: relative;
-  background: #0b1326;
-  overflow: hidden;
-  padding: 6rem 1.5rem;
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  color: #dae2fd;
-}
-
-/* circuit grid */
-.wf-circuit {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(90deg, rgba(55, 182, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(55, 182, 255, 0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* atmospheric orb */
-.wf-atmo {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 900px;
-  height: 550px;
-  background: radial-gradient(
-    ellipse,
-    rgba(55, 182, 255, 0.07) 0%,
-    transparent 70%
-  );
-  filter: blur(60px);
-  border-radius: 9999px;
-  transform: translateX(-50%);
-  pointer-events: none;
-  z-index: 0;
-  transition: transform 0.6s ease-out;
-}
-
-/* ── Inner ────────────────────────────────────────────────────────── */
-.wf-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ── Header ───────────────────────────────────────────────────────── */
-.wf-header {
-  text-align: center;
-  margin-bottom: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-@media (min-width: 768px) {
-  .wf-header {
-    margin-bottom: 6rem;
-  }
-}
-
-.wf-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #37b6ff;
-}
-.wf-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: clamp(2.2rem, 5.5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: #dae2fd;
-  margin: 0;
-}
-.wf-title-accent {
-  font-style: italic;
-  font-weight: 700;
-  color: #5fe0c4;
-  text-shadow: 0 0 20px rgba(94, 224, 196, 0.4);
-}
-.wf-desc {
-  max-width: 38rem;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #c3c6d3;
-  margin: 0;
-}
-
-/* ── Central visual ───────────────────────────────────────────────── */
-.wf-visual {
-  position: relative;
-  width: 100%;
-  max-width: 56rem;
-  margin: 0 auto 4rem;
-  border-radius: 0.875rem;
-  overflow: hidden;
-  border: 1px solid rgba(126, 165, 224, 0.12);
-  background: rgba(126, 165, 224, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-@media (min-width: 768px) {
-  .wf-visual {
-    margin-bottom: 5rem;
-  }
-}
-
-.wf-diagram {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.wf-diagram--vertical {
-  display: none;
-  padding-bottom: 25px;
-}
-
-@media (max-width: 640px) {
-  .wf-diagram--horizontal {
-    display: none;
-  }
-  .wf-diagram--vertical {
-    display: block;
-  }
-  .wf-visual-overlay-t,
-  .wf-visual-overlay-s {
-    display: none;
-  }
-}
-
-.wf-visual-overlay-t {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(to top, #0b1326 0%, transparent 100%);
-  pointer-events: none;
-}
-.wf-visual-overlay-s {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 20%;
-  background: linear-gradient(
-    to bottom,
-    rgba(11, 19, 38, 0.4) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-/* ── Stage cards grid ─────────────────────────────────────────────── */
-.wf-stages {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-@media (min-width: 640px) {
-  .wf-stages {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1024px) {
-  .wf-stages {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-/* ── Glass card ───────────────────────────────────────────────────── */
-.wf-card {
-  background: rgba(126, 165, 224, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(126, 165, 224, 0.12);
-  border-radius: 0.875rem;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.wf-card:hover {
-  background: rgba(126, 165, 224, 0.08);
-  border-color: rgba(55, 182, 255, 0.3);
-  box-shadow: 0 0 32px rgba(55, 182, 255, 0.1);
-  transform: translateY(-4px);
-}
-
-/* featured center card */
-.wf-card--featured {
-  border-color: rgba(55, 182, 255, 0.2);
-  background: rgba(55, 182, 255, 0.06);
-}
-.wf-card--featured:hover {
-  border-color: rgba(55, 182, 255, 0.4);
-  box-shadow: 0 0 40px rgba(55, 182, 255, 0.18);
-}
-
-/* card top row */
-.wf-card-top {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.25rem;
-}
-
-/* icon */
-.wf-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.5rem;
-  background: rgba(55, 182, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #37b6ff;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
-.wf-icon svg {
-  width: 1.1rem;
-  height: 1.1rem;
-}
-.wf-card:hover .wf-icon {
-  background: #37b6ff;
-  color: #00344d;
-}
-.wf-icon--featured {
-  background: rgba(55, 182, 255, 0.18);
-}
-
-/* stage label wrapper */
-.wf-stage-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #8d909c;
-  font-style: normal;
-}
-
-/* stage number — the part that lights up */
-.wf-stage-num {
-  font-style: normal;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: #8d909c;
-  transition:
-    color 0.3s ease,
-    text-shadow 0.3s ease;
-}
-.wf-card:hover .wf-stage-num {
-  color: #37b6ff;
-  text-shadow: 0 0 14px rgba(55, 182, 255, 0.5);
-}
-
-/* card text */
-.wf-card-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #dae2fd;
-  margin: 0;
-}
-.wf-card-body {
-  font-family: "Inter", sans-serif;
-  font-size: 0.82rem;
-  line-height: 1.65;
-  color: #c3c6d3;
-  margin: 0;
-  flex: 1;
-}
-
-/* card footer */
-.wf-card-footer {
-  padding-top: 0.875rem;
-  border-top: 1px solid rgba(126, 165, 224, 0.1);
-  margin-top: auto;
-}
-.wf-card-layer {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #37b6ff;
-}
-
-/* ── CTA ──────────────────────────────────────────────────────────── */
-.wf-cta-wrap {
-  margin-top: 4rem;
-  display: flex;
-  justify-content: center;
-}
-.wf-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 2rem;
-  background: #37b6ff;
-  color: #00344d;
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  box-shadow: 0 0 18px rgba(55, 182, 255, 0.22);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-.wf-cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(55, 182, 255, 0.4);
-  background: #5fe0c4;
-}
-.wf-cta:active {
-  transform: scale(0.97);
-}
-.wf-cta-arrow {
-  width: 1rem;
-  height: 1rem;
-}
-</style>

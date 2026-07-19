@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { navigating } from "@/stores/navigationState";
 
 const defaultTitle = "SiS - Superior Integrated Solutions";
 import MainLayout from "@/layouts/MainLayout.vue";
@@ -38,6 +39,9 @@ export const router = createRouter({
   },
 });
 
+router.beforeEach(() => { navigating.value = true })
+
 router.afterEach((to) => {
   document.title = to.meta?.title || defaultTitle;
+  navigating.value = false
 });

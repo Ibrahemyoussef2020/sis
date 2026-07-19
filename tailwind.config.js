@@ -2,6 +2,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 import forms from '@tailwindcss/forms'
 
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{vue,js}'],
   theme: {
     extend: {
@@ -80,19 +81,44 @@ export default {
         'outline-variant': '#c3c6d7',
         'on-secondary': '#ffffff',
         sis: {
-          primary: '#1B3A6B',
-          accent: '#2F7EC7',
-          light: '#4A9FD4',
-          panel: '#F4F7FA',
-          text: '#1A2332',
-          muted: '#6B7C93',
-          border: '#D1DCE8'
-        }
+          primary: 'var(--sis-primary, #1B3A6B)',
+          accent: 'var(--sis-accent, #2F7EC7)',
+          light: 'var(--sis-light, #4A9FD4)',
+          panel: 'var(--sis-panel, #F4F7FA)',
+          text: 'var(--sis-text, #1A2332)',
+          muted: 'var(--sis-muted, #6B7C93)',
+          border: 'var(--sis-border, #D1DCE8)',
+        },
+        dark: {
+          bg: 'var(--dark-bg, #0a1120)',
+          'bg-alt': 'var(--dark-bg-alt, #070d1a)',
+          'bg-deep': 'var(--dark-bg-deep, #0b1326)',
+          'bg-card': 'var(--dark-bg-card, #101b31)',
+          text: 'var(--dark-text, #eaf1fb)',
+          'text-muted': 'var(--dark-text-muted, #a8b3cf)',
+          'text-dim': 'var(--dark-text-dim, #c8d4ec)',
+          'accent-blue': 'var(--dark-accent-blue, #37b6ff)',
+          'accent-teal': 'var(--dark-accent-teal, #5fe0c4)',
+        },
       },
       boxShadow: {
         glow: '0 20px 60px rgba(27, 58, 107, 0.18)',
-      }
-    }
+        sis: '0 25px 60px rgba(27, 58, 107, 0.12)',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        blink: {
+          '50%': { opacity: '0.25' },
+        },
+      },
+      animation: {
+        shimmer: 'shimmer 1.4s infinite ease',
+        blink: 'blink 1s step-end infinite',
+      },
+    },
   },
   plugins: [forms],
 }

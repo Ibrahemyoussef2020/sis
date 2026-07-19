@@ -1,9 +1,9 @@
 <template>
-  <section id="architecture" class="arc-root">
+  <section id="architecture" class="relative overflow-x-hidden px-4 sm:px-8 py-8 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-sis-text dark:text-[#e8edf8]">
 
     <!-- Layer 1: Video background -->
     <video
-      class="arc-video-bg"
+      class="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none"
       :src="increasedNumbersVideo"
       autoplay
       muted
@@ -13,225 +13,222 @@
     ></video>
 
     <!-- Layer 2: Isolation overlay (semi-transparent) -->
-    <div class="arc-overlay" aria-hidden="true"></div>
+    <div class="absolute inset-0 z-[1] pointer-events-none" style="background: var(--overlay-bg);" aria-hidden="true"></div>
 
     <!-- Layer 0.5: Dot mesh (sits above video, below content) -->
-    <div class="arc-mesh" aria-hidden="true"></div>
+    <div class="absolute inset-0 pointer-events-none z-[2]" style="background-image: radial-gradient(circle at 1.5px 1.5px, var(--dot-mesh) 1px, transparent 0); background-size: 28px 28px;" aria-hidden="true"></div>
 
-    <div class="arc-inner">
-
-      
-      
+    <div class="relative z-[3] max-w-[1280px] mx-auto">
 
       <!-- ── Main grid: canvas 8 cols + sidebar 4 cols ──────────── -->
-      <div class="arc-grid">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 items-start">
 
         <!-- LEFT CANVAS -->
-        <div class="arc-canvas">
+        <div class="flex flex-col gap-6 min-w-0">
 
-          <header class="arc-header" data-reveal>
-        <h2 class="arc-title">{{ architecture?.title ?? 'Vendor-Agnostic Industrial Digital Architecture' }}</h2>
-        <p class="arc-subtitle">{{ architecture?.subtitle ?? 'Intelligent OT-IT Integration Strategy' }}</p>
-      </header>
+          <header class="mb-4" data-reveal>
+            <h2 class="text-[clamp(1.6rem,3.5vw,2rem)] font-bold tracking-[-0.02em] leading-[1.2] text-sis-text dark:text-[#e8edf8] m-0 mb-[0.4rem]">{{ architecture?.title ?? 'Vendor-Agnostic Industrial Digital Architecture' }}</h2>
+            <p class="text-base font-normal text-sis-muted dark:text-[#a8b3cf] m-0">{{ architecture?.subtitle ?? 'Intelligent OT-IT Integration Strategy' }}</p>
+          </header>
 
           <!-- Cloud Layer -->
-          <div v-if="loaded" class="glass-card layer-card" data-reveal>
-            <div class="layer-head">
+          <div v-if="loaded" class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] p-8" data-reveal>
+            <div class="flex items-start justify-between mb-6">
               <div>
-                <span class="layer-eyebrow">Cloud Layer</span>
-                <h3 class="layer-name">{{ architecture.cloudLayer.provider }}</h3>
+                <span class="block text-[0.7rem] font-bold tracking-[0.12em] uppercase text-sis-accent dark:text-[#147fbd] mb-[0.35rem]">Cloud Layer</span>
+                <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#153c63] m-0 tracking-[-0.01em]">{{ architecture.cloudLayer.provider }}</h3>
               </div>
-              <div class="layer-icon-wrap layer-icon-wrap--cloud">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <div class="w-10 h-10 rounded-[0.5rem] flex items-center justify-center shrink-0" style="background: rgba(20,127,189,0.1); color: #147fbd;">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
                 </svg>
               </div>
             </div>
-            <div class="chip-row">
+            <div class="flex flex-wrap gap-2">
               <span
                 v-for="step in architecture.cloudLayer.steps"
                 :key="step"
-                class="chip chip--blue"
+                class="inline-block px-[0.85rem] py-[0.4rem] rounded-[0.5rem] text-[0.8rem] font-medium cursor-default transition-all duration-200 whitespace-nowrap hover:-translate-y-[1px] bg-[rgba(20,127,189,0.12)] text-sis-accent dark:text-[#147fbd] border border-[rgba(20,127,189,0.2)] hover:bg-[rgba(20,127,189,0.18)]"
               >{{ step }}</span>
             </div>
           </div>
-          <div v-else class="glass-card layer-card skeleton-card" data-reveal></div>
+          <div v-else class="backdrop-blur-[20px] border border-[rgba(24,105,164,0.16)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] min-h-[8rem]" style="background: linear-gradient(90deg, rgba(12,25,55,0.4) 0%, rgba(20,40,80,0.6) 50%, rgba(12,25,55,0.4) 100%); background-size: 200% 100%;" data-reveal></div>
 
           <!-- Edge Layer -->
-          <div v-if="loaded" class="glass-card layer-card" data-reveal>
-            <div class="layer-head">
+          <div v-if="loaded" class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] p-8" data-reveal>
+            <div class="flex items-start justify-between mb-6">
               <div>
-                <span class="layer-eyebrow" style="opacity:.75">Edge Layer</span>
-                <h3 class="layer-name">Intelligence at Source</h3>
+                <span class="block text-[0.7rem] font-bold tracking-[0.12em] uppercase text-sis-accent dark:text-[#147fbd] mb-[0.35rem]" style="opacity:.75">Edge Layer</span>
+                <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#153c63] m-0 tracking-[-0.01em]">Intelligence at Source</h3>
               </div>
-              <div class="layer-icon-wrap layer-icon-wrap--edge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <div class="w-10 h-10 rounded-[0.5rem] flex items-center justify-center shrink-0" style="background: rgba(20,127,189,0.07); color: #147fbd;">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="2" y="8" width="8" height="8" rx="1"/><rect x="14" y="3" width="8" height="5" rx="1"/>
                   <rect x="14" y="11" width="8" height="5" rx="1"/><rect x="14" y="19" width="8" height="2" rx="1"/>
                   <path d="M10 12h4M10 6h4M10 20h4"/>
                 </svg>
               </div>
             </div>
-            <div class="chip-row">
+            <div class="flex flex-wrap gap-2">
               <span
                 v-for="item in architecture.edgeLayer"
                 :key="item"
-                class="chip chip--neutral"
+                class="inline-block px-[0.85rem] py-[0.4rem] rounded-[0.5rem] text-[0.8rem] font-medium cursor-default transition-all duration-200 whitespace-nowrap hover:-translate-y-[1px] bg-[rgba(126,165,224,0.08)] text-sis-muted dark:text-[#49687f] border border-[rgba(126,165,224,0.18)] hover:border-[#147fbd]"
               >{{ item }}</span>
             </div>
           </div>
-          <div v-else class="glass-card layer-card skeleton-card" data-reveal></div>
+          <div v-else class="backdrop-blur-[20px] border border-[rgba(24,105,164,0.16)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] min-h-[8rem]" style="background: linear-gradient(90deg, rgba(12,25,55,0.4) 0%, rgba(20,40,80,0.6) 50%, rgba(12,25,55,0.4) 100%); background-size: 200% 100%;" data-reveal></div>
 
           <!-- Field Layer -->
-          <div v-if="loaded" class="glass-card layer-card" data-reveal>
-            <div class="layer-head">
+          <div v-if="loaded" class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] p-8" data-reveal>
+            <div class="flex items-start justify-between mb-6">
               <div>
-                <span class="layer-eyebrow" style="opacity:.55">Field Layer</span>
-                <h3 class="layer-name">Physical Infrastructure</h3>
+                <span class="block text-[0.7rem] font-bold tracking-[0.12em] uppercase text-sis-accent dark:text-[#147fbd] mb-[0.35rem]" style="opacity:.55">Field Layer</span>
+                <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#153c63] m-0 tracking-[-0.01em]">Physical Infrastructure</h3>
               </div>
-              <div class="layer-icon-wrap layer-icon-wrap--field">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <div class="w-10 h-10 rounded-[0.5rem] flex items-center justify-center shrink-0" style="background: rgba(20,127,189,0.05); color: #147fbd;">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M2 20h20M4 20V10l4-4h8l4 4v10M9 20v-5h6v5M12 4v2"/>
                   <rect x="10" y="12" width="4" height="4" rx="0.5"/>
                 </svg>
               </div>
             </div>
-            <div class="field-grid">
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-[0.625rem]">
               <span
                 v-for="item in architecture.fieldLayer"
                 :key="item"
-                class="field-chip"
+                class="bg-[rgba(126,165,224,0.07)] text-sis-muted dark:text-[#49687f] border border-[rgba(126,165,224,0.15)] rounded-[0.5rem] px-3 py-[0.6rem] flex items-center justify-center text-center text-[0.73rem] font-medium leading-[1.35] transition-colors duration-200 cursor-default hover:border-[#147fbd] hover:bg-[rgba(126,165,224,0.12)]"
               >{{ item }}</span>
             </div>
           </div>
-          <div v-else class="glass-card layer-card skeleton-card" data-reveal></div>
+          <div v-else class="backdrop-blur-[20px] border border-[rgba(24,105,164,0.16)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] min-h-[8rem]" style="background: linear-gradient(90deg, rgba(12,25,55,0.4) 0%, rgba(20,40,80,0.6) 50%, rgba(12,25,55,0.4) 100%); background-size: 200% 100%;" data-reveal></div>
 
           <!-- Applications + Cybersecurity row -->
-          <div class="bottom-row" >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
             <!-- Applications -->
-            <div v-if="loaded" class="glass-card bottom-card" data-reveal>
-              <div class="bc-head">
-                <div class="bc-icon-wrap bc-icon--blue">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <div v-if="loaded" class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] p-7 flex flex-col gap-4" data-reveal>
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-[0.5rem] flex items-center justify-center shrink-0" style="background: rgba(20,127,189,0.1); color: #147fbd;">
+                  <svg class="w-[1.15rem] h-[1.15rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
                     <rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="bc-title">Applications</h3>
-                  <p class="bc-subtitle">Industrial software &amp; orchestration</p>
+                  <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#153c63] m-0">Applications</h3>
+                  <p class="text-[0.88rem] text-sis-muted dark:text-[#a8b3cf] m-0 mt-[0.15rem]">Industrial software &amp; orchestration</p>
                 </div>
               </div>
-              <p class="bc-body">Edge-to-cloud software solutions designed for high-availability industrial monitoring and real-time operational control.</p>
-              <div class="chip-row">
-                <span v-for="app in architecture.applications" :key="app" class="chip chip--primary">{{ app }}</span>
+              <p class="text-[0.8rem] leading-[1.6] text-sis-muted dark:text-[#a8b3cf] m-0">Edge-to-cloud software solutions designed for high-availability industrial monitoring and real-time operational control.</p>
+              <div class="flex flex-wrap gap-2">
+                <span v-for="app in architecture.applications" :key="app" class="inline-block px-[0.85rem] py-[0.4rem] rounded-[0.5rem] text-[0.8rem] font-medium cursor-default transition-all duration-200 whitespace-nowrap hover:-translate-y-[1px] bg-[rgba(20,127,189,0.08)] text-sis-text dark:text-[#153c63] border border-[rgba(20,127,189,0.18)] hover:bg-[rgba(20,127,189,0.14)]">{{ app }}</span>
               </div>
-              <div class="bc-footer">
-                <span class="bc-meta">Layer 4–5</span>
-                <button class="bc-link">View Docs →</button>
+              <div class="flex justify-between items-center pt-[0.9rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
+                <span class="text-[0.68rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf]">Layer 4–5</span>
+                <button class="bg-transparent border-none p-0 cursor-pointer text-[0.75rem] font-semibold text-sis-accent dark:text-[#147fbd] hover:opacity-70">View Docs →</button>
               </div>
             </div>
-            <div v-else class="glass-card bottom-card skeleton-card" data-reveal></div>
+            <div v-else class="backdrop-blur-[20px] border border-[rgba(24,105,164,0.16)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] min-h-[8rem]" style="background: linear-gradient(90deg, rgba(12,25,55,0.4) 0%, rgba(20,40,80,0.6) 50%, rgba(12,25,55,0.4) 100%); background-size: 200% 100%;" data-reveal></div>
 
             <!-- Cybersecurity -->
-            <div v-if="loaded" class="glass-card bottom-card" data-reveal>
-              <div class="bc-head">
-                <div class="bc-icon-wrap bc-icon--red">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <div v-if="loaded" class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] p-7 flex flex-col gap-4" data-reveal>
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-[0.5rem] flex items-center justify-center shrink-0" style="background: rgba(224,94,94,0.08); color: #e05e5e;">
+                  <svg class="w-[1.15rem] h-[1.15rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     <path d="M9 12l2 2 4-4"/>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="bc-title">Cybersecurity</h3>
-                  <p class="bc-subtitle">Defense-in-depth architecture</p>
+                  <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#153c63] m-0">Cybersecurity</h3>
+                  <p class="text-[0.88rem] text-sis-muted dark:text-[#a8b3cf] m-0 mt-[0.15rem]">Defense-in-depth architecture</p>
                 </div>
               </div>
-              <p class="bc-body">Zero-trust security frameworks integrated directly into the OT fabric to protect critical infrastructure from evolving threats.</p>
-              <div class="chip-row">
-                <span v-for="item in architecture.cybersecurity" :key="item" class="chip chip--primary">{{ item }}</span>
+              <p class="text-[0.8rem] leading-[1.6] text-sis-muted dark:text-[#a8b3cf] m-0">Zero-trust security frameworks integrated directly into the OT fabric to protect critical infrastructure from evolving threats.</p>
+              <div class="flex flex-wrap gap-2">
+                <span v-for="item in architecture.cybersecurity" :key="item" class="inline-block px-[0.85rem] py-[0.4rem] rounded-[0.5rem] text-[0.8rem] font-medium cursor-default transition-all duration-200 whitespace-nowrap hover:-translate-y-[1px] bg-[rgba(20,127,189,0.08)] text-sis-text dark:text-[#153c63] border border-[rgba(20,127,189,0.18)] hover:bg-[rgba(20,127,189,0.14)]">{{ item }}</span>
               </div>
-              <div class="bc-footer">
-                <span class="bc-meta">Cross-Cutting</span>
-                <button class="bc-link">Security Audit →</button>
+              <div class="flex justify-between items-center pt-[0.9rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
+                <span class="text-[0.68rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf]">Cross-Cutting</span>
+                <button class="bg-transparent border-none p-0 cursor-pointer text-[0.75rem] font-semibold text-sis-accent dark:text-[#147fbd] hover:opacity-70">Security Audit →</button>
               </div>
             </div>
-            <div v-else class="glass-card bottom-card skeleton-card" data-reveal></div>
+            <div v-else class="backdrop-blur-[20px] border border-[rgba(24,105,164,0.16)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] min-h-[8rem]" style="background: linear-gradient(90deg, rgba(12,25,55,0.4) 0%, rgba(20,40,80,0.6) 50%, rgba(12,25,55,0.4) 100%); background-size: 200% 100%;" data-reveal></div>
 
           </div>
 
           <!-- Integrated Intelligence banner -->
-          <div class="glass-card banner-card" data-reveal aria-hidden="true" >
-            <div class="banner-grid-bg"></div>
-            <div class="banner-content">
-              <h3 class="banner-title">Integrated Intelligence</h3>
-              <p class="banner-body">Seamlessly bridge the gap between physical assets and digital insights with our multi-tenant architecture.</p>
+          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] relative overflow-hidden min-h-[10rem] p-8 flex items-end" data-reveal aria-hidden="true">
+            <div class="absolute inset-0 z-0 pointer-events-none" style="background-image: linear-gradient(rgba(20,127,189,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(20,127,189,0.04) 1px, transparent 1px); background-size: 32px 32px;"></div>
+            <div class="relative z-[1]">
+              <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#153c63] m-0 mb-[0.4rem]">Integrated Intelligence</h3>
+              <p class="text-[0.85rem] text-sis-muted dark:text-[#a8b3cf] max-w-[36rem] m-0 leading-[1.55]">Seamlessly bridge the gap between physical assets and digital insights with our multi-tenant architecture.</p>
             </div>
           </div>
 
         </div>
 
         <!-- RIGHT SIDEBAR -->
-        <aside class="arc-sidebar">
+        <aside class="flex flex-col gap-6 max-w-full lg:sticky lg:top-8">
 
-              <!-- Partners card -->
-          <div class="glass-card sidebar-card" data-reveal>
-            <h4 class="sidebar-eyebrow">
-              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <!-- Partners card -->
+          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] p-6" data-reveal>
+            <h4 class="flex items-center gap-[0.4rem] text-[0.7rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf] m-0 mb-4">
+              <svg class="w-[0.85rem] h-[0.85rem] shrink-0 stroke-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M15 11l4.9-2.45a2 2 0 000-3.1L14 3a2 2 0 00-1.84 0L9 5M15 11l-6 3M15 11v9l-6-3V8l6 3zM9 5L4.1 7.45a2 2 0 000 3.1L9 13M9 5v3"/>
               </svg>
               Architecture Partners
             </h4>
-            <div class="partners-grid">
+            <div class="grid grid-cols-2 gap-2">
               <div
                 v-for="partner in architecture?.partners"
                 :key="partner"
-                class="partner-tile"
+                class="bg-[rgba(126,165,224,0.07)] border border-[rgba(24,105,164,0.16)] rounded-[0.5rem] px-2 py-[0.6rem] text-center text-[0.78rem] font-bold text-sis-muted dark:text-[#49687f] cursor-default break-words hover:bg-[rgba(126,165,224,0.12)] hover:border-[rgba(20,127,189,0.3)]"
               >{{ partner }}</div>
             </div>
           </div>
 
           <!-- Protocols card -->
-          <div class="glass-card sidebar-card" data-reveal>
-            <h4 class="sidebar-eyebrow">
-              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] rounded-[0.875rem] text-sis-muted dark:text-[#a8b3cf] p-6" data-reveal>
+            <h4 class="flex items-center gap-[0.4rem] text-[0.7rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf] m-0 mb-4">
+              <svg class="w-[0.85rem] h-[0.85rem] shrink-0 stroke-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
               </svg>
               Protocols &amp; Components
             </h4>
-            <div class="proto-chips">
+            <div class="flex flex-wrap gap-[0.4rem]">
               <button
                 v-for="p in architecture?.protocols"
                 :key="p"
-                class="proto-chip"
-                :class="{ 'proto-chip--active': activeChip === p }"
+                class="px-3 py-[0.35rem] rounded-full text-[0.75rem] font-medium cursor-pointer border border-[rgba(126,165,224,0.18)] bg-[rgba(126,165,224,0.06)] text-sis-muted dark:text-[#49687f] hover:bg-[rgba(20,127,189,0.1)] hover:border-[rgba(20,127,189,0.3)] active:scale-95 transition-all duration-200"
+                :class="[activeChip === p ? 'bg-[#147fbd] text-[#00344d] border-[#147fbd] shadow-[0_2px_8px_rgba(20,127,189,0.35)]' : '']"
                 @click="activeChip = p"
               >{{ p }}</button>
             </div>
           </div>
 
           <!-- Detail panel -->
-          <div class="detail-panel" data-reveal>
-            <div class="detail-glow" aria-hidden="true"></div>
-            <div class="detail-body">
-              <span class="detail-eyebrow">Detail View</span>
-              <h4 class="detail-title">
+          <div class="relative overflow-hidden bg-[rgba(20,127,189,0.06)] border border-[rgba(20,127,189,0.18)] rounded-[0.875rem] p-6 group" data-reveal>
+            <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full pointer-events-none transition-transform duration-700 group-hover:scale-150" style="background: rgba(20,127,189,0.1); filter: blur(2.5rem);" aria-hidden="true"></div>
+            <div class="relative z-[1]">
+              <span class="block text-[0.68rem] font-bold tracking-[0.12em] uppercase text-sis-accent dark:text-[#147fbd] mb-2">Detail View</span>
+              <h4 class="flex items-center gap-[0.4rem] text-base font-semibold text-sis-text dark:text-[#e8edf8] m-0 mb-3">
                 {{ activeChip }}
-                <svg class="detail-verified" viewBox="0 0 24 24" fill="#37b6ff" aria-hidden="true">
+                <svg class="w-[0.95rem] h-[0.95rem] shrink-0" viewBox="0 0 24 24" fill="#147fbd" aria-hidden="true">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </h4>
-              <p class="detail-desc">{{ activeChipDetail }}</p>
-              <hr class="detail-hr"/>
-              <div class="detail-meta">
-                <div class="detail-row">
-                  <span class="detail-label">Security Level</span>
-                  <span class="detail-value">Highest</span>
+              <p class="text-[0.8rem] leading-[1.6] text-sis-muted dark:text-[#a8b3cf] m-0">{{ activeChipDetail }}</p>
+              <hr class="border-0 border-t border-[rgba(20,127,189,0.12)] my-4"/>
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-center text-[0.75rem]">
+                  <span class="text-sis-muted dark:text-[#a8b3cf]">Security Level</span>
+                  <span class="font-bold text-sis-accent dark:text-[#147fbd]">Highest</span>
                 </div>
-                <div class="detail-row">
-                  <span class="detail-label">Latency</span>
-                  <span class="detail-value">&lt; 10ms</span>
+                <div class="flex justify-between items-center text-[0.75rem]">
+                  <span class="text-sis-muted dark:text-[#a8b3cf]">Latency</span>
+                  <span class="font-bold text-sis-accent dark:text-[#147fbd]">&lt; 10ms</span>
                 </div>
               </div>
             </div>
@@ -258,498 +255,3 @@ const activeChipDetail = computed(() => {
   return `Selected: ${activeChip.value}. This chip represents a flexible integration point in the OT/IT architecture. It facilitates secure, platform-independent information exchange across enterprise levels — from the sensor to the cloud.`
 })
 </script>
-
-<style scoped>
-/* ── Root ──────────────────────────────────────────────────────────── */
-.arc-root {
-  position: relative;
-  background: transparent;
-  overflow-x: hidden;
-  padding: 2rem 1rem;
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  color: #e8edf8;
-}
-@media (min-width: 640px) {
-  .arc-root { padding: 2rem 2rem; }
-}
-
-/* Layer 1 – video background */
-.arc-video-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Layer 2 – isolation overlay */
-.arc-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(8, 18, 40, 0.72);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* dot mesh */
-.arc-mesh {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.06) 1px, transparent 0);
-  background-size: 28px 28px;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* ── Inner container ───────────────────────────────────────────────── */
-.arc-inner {
-  position: relative;
-  z-index: 3;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-/* ── Header ────────────────────────────────────────────────────────── */
-.arc-header {
-  margin-bottom: 1rem;
-}
-.arc-title {
-  font-size: clamp(1.6rem, 3.5vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: #e8edf8;
-  margin: 0 0 0.4rem 0;
-}
-.arc-subtitle {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #a8b3cf;
-  margin: 0;
-}
-
-/* ── Layout grid ───────────────────────────────────────────────────── */
-.arc-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-  align-items: start;
-}
-@media (min-width: 1024px) {
-  .arc-grid {
-    grid-template-columns: 1fr 340px;
-  }
-}
-
-/* ── Canvas ────────────────────────────────────────────────────────── */
-.arc-canvas {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  min-width: 0;
-}
-
-/* ── Glass card base ───────────────────────────────────────────────── */
-.glass-card {
-  background: rgba(12, 25, 55, 0.55);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
-  border-radius: 0.875rem;
-  color: #a8b3cf;
-}
-
-/* ── Layer cards ───────────────────────────────────────────────────── */
-.layer-card {
-  padding: 2rem;
-}
-
-.layer-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.layer-eyebrow {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #37b6ff;
-  margin-bottom: 0.35rem;
-}
-
-.layer-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #eaf1fb;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-/* layer icon */
-.layer-icon-wrap {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.layer-icon-wrap svg { width: 1.25rem; height: 1.25rem; }
-.layer-icon-wrap--cloud { background: rgba(55,182,255,0.1); color: #37b6ff; }
-.layer-icon-wrap--edge  { background: rgba(55,182,255,0.07); color: #37b6ff; }
-.layer-icon-wrap--field { background: rgba(55,182,255,0.05); color: #37b6ff; }
-
-/* ── Chips ─────────────────────────────────────────────────────────── */
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.chip {
-  display: inline-block;
-  padding: 0.4rem 0.85rem;
-  border-radius: 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: default;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-.chip:hover { transform: translateY(-1px); }
-
-.chip--blue {
-  background: rgba(55,182,255,0.12);
-  color: #b8e2ff;
-  border: 1px solid rgba(55,182,255,0.2);
-}
-.chip--blue:hover { background: rgba(55,182,255,0.18); }
-
-.chip--neutral {
-  background: rgba(126,165,224,0.08);
-  color: #c8d4ec;
-  border: 1px solid rgba(126,165,224,0.18);
-}
-.chip--neutral:hover { border-color: #37b6ff; }
-
-.chip--primary {
-  background: rgba(55,182,255,0.08);
-  color: #eaf1fb;
-  border: 1px solid rgba(55,182,255,0.18);
-}
-.chip--primary:hover { background: rgba(55,182,255,0.14); }
-
-/* ── Field grid ────────────────────────────────────────────────────── */
-.field-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 0.625rem;
-}
-.field-chip {
-  background: rgba(126,165,224,0.07);
-  color: #c8d4ec;
-  border: 1px solid rgba(126,165,224,0.15);
-  border-radius: 0.5rem;
-  padding: 0.6rem 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 0.73rem;
-  font-weight: 500;
-  line-height: 1.35;
-  transition: border-color 0.2s ease, background 0.2s ease;
-  cursor: default;
-}
-.field-chip:hover { border-color: #37b6ff; background: rgba(126,165,224,0.12); }
-
-/* ── Bottom row ────────────────────────────────────────────────────── */
-.bottom-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-@media (min-width: 640px) {
-  .bottom-row { grid-template-columns: 1fr 1fr; }
-}
-
-.bottom-card {
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.bc-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-.bc-icon-wrap {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.bc-icon-wrap svg { width: 1.15rem; height: 1.15rem; }
-.bc-icon--blue { background: rgba(55,182,255,0.1); color: #37b6ff; }
-.bc-icon--red  { background: rgba(224,94,94,0.08); color: #e05e5e; }
-
-.bc-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #eaf1fb;
-  margin: 0; 
-} 
-.bc-subtitle {
-  font-size: 0.88rem;
-  color: #a8b3cf;
-  margin: 0.15rem 0 0 0;
-}
-.bc-body {
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: #a8b3cf;
-  margin: 0;
-}
-.bc-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 0.9rem;
-  border-top: 1px solid rgba(126,165,224,0.1);
-  margin-top: auto;
-}
-.bc-meta {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #a8b3cf;
-}
-.bc-link {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #37b6ff;
-  font-family: inherit;
-  transition: opacity 0.2s;
-}
-.bc-link:hover { opacity: 0.7; }
-
-/* ── Banner card ───────────────────────────────────────────────────── */
-.banner-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 10rem;
-  padding: 2rem;
-  display: flex;
-  align-items: flex-end;
-}
-.banner-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(55,182,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(55,182,255,0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-  z-index: 0;
-}
-.banner-content {
-  position: relative;
-  z-index: 1;
-}
-.banner-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #eaf1fb;
-  margin: 0 0 0.4rem 0;
-}
-.banner-body {
-  font-size: 0.85rem;
-  color: #a8b3cf;
-  max-width: 36rem;
-  margin: 0;
-  line-height: 1.55;
-}
-
-/* ── Skeleton ──────────────────────────────────────────────────────── */
-.skeleton-card {
-  min-height: 8rem;
-  background: linear-gradient(90deg, rgba(12,25,55,0.4) 0%, rgba(20,40,80,0.6) 50%, rgba(12,25,55,0.4) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite ease;
-}
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
-}
-
-/* ── Sidebar ───────────────────────────────────────────────────────── */
-.arc-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.arc-sidebar {
-  max-width: 100%;
-}
-@media (min-width: 1024px) {
-  .arc-sidebar { position: sticky; top: 2rem; }
-}
-
-.sidebar-card {
-  padding: 1.5rem;
-}
-.sidebar-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #a8b3cf;
-  margin: 0 0 1rem 0;
-}
-.sidebar-icon {
-  width: 0.85rem;
-  height: 0.85rem;
-  flex-shrink: 0;
-  stroke: currentColor;
-}
-
-/* protocol chips */
-.proto-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.proto-chip {
-  padding: 0.35rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  border: 1px solid rgba(126,165,224,0.18);
-  background: rgba(126,165,224,0.06);
-  color: #c8d4ec;
-  transition: all 0.2s ease;
-}
-.proto-chip:hover { background: rgba(55,182,255,0.1); border-color: rgba(55,182,255,0.3); }
-.proto-chip--active {
-  background: #37b6ff;
-  color: #00344d;
-  border-color: #37b6ff;
-  box-shadow: 0 2px 8px rgba(55,182,255,0.35);
-}
-.proto-chip:active { transform: scale(0.95); }
-
-/* partners */
-.partners-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-}
-.partner-tile {
-  background: rgba(126,165,224,0.07);
-  border: 1px solid rgba(126,165,224,0.14);
-  border-radius: 0.5rem;
-  padding: 0.6rem 0.5rem;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #c8d4ec;
-  cursor: default;
-  transition: background 0.2s ease, border-color 0.2s ease;
-  word-break: break-word;
-}
-.partner-tile:hover { background: rgba(126,165,224,0.12); border-color: rgba(55,182,255,0.3); }
-
-/* detail panel */
-.detail-panel {
-  position: relative;
-  overflow: hidden;
-  background: rgba(55,182,255,0.06);
-  border: 1px solid rgba(55,182,255,0.18); 
-  border-radius: 0.875rem;
-  padding: 1.5rem;
-}
-.detail-glow {
-  position: absolute;
-  top: -3rem;
-  right: -3rem;
-  width: 8rem;
-  height: 8rem;
-  background: rgba(55,182,255,0.1);
-  border-radius: 9999px;
-  filter: blur(2.5rem);
-  pointer-events: none;
-  transition: transform 0.7s ease;
-}
-.detail-panel:hover .detail-glow { transform: scale(1.5); }
-.detail-body { position: relative; z-index: 1; }
-
-.detail-eyebrow {
-  display: block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #37b6ff;
-  margin-bottom: 0.5rem;
-}
-.detail-title {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #eaf1fb;
-  margin: 0 0 0.75rem 0;
-}
-.detail-verified {
-  width: 0.95rem;
-  height: 0.95rem;
-  flex-shrink: 0;
-}
-.detail-desc {
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: #a8b3cf;
-  margin: 0;
-}
-.detail-hr {
-  border: none;
-  border-top: 1px solid rgba(55,182,255,0.12);
-  margin: 1rem 0;
-}
-.detail-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.detail-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem;
-}
-.detail-label { color: #a8b3cf; }
-.detail-value { font-weight: 700; color: #37b6ff; }
-</style>

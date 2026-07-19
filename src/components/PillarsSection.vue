@@ -1,27 +1,35 @@
 <template>
-  <section id="how-it-works" class="pillars-root">
-    <div class="pillars-inner">
-      <div class="section-header" data-reveal>
-        <div class="label-row">
-          <span class="label-line"></span>
-          <span class="label-text">How It Works</span>
+  <section
+    id="how-it-works"
+    class="relative overflow-hidden border-y border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] py-20 text-sis-text dark:text-dark-text"
+    style="background: var(--bg-section-2)"
+  >
+    <div class="mx-auto flex max-w-[1140px] flex-col gap-12 px-7">
+      <div class="max-w-[60ch]" data-reveal>
+        <div class="mb-4 inline-flex items-center gap-4">
+          <span class="block h-px w-12 bg-[#37b6ff]"></span>
+          <span class="font-sans text-xs font-semibold uppercase tracking-[0.28em] text-[#37b6ff]">How It Works</span>
         </div>
-        <h2 class="section-title">
-          From sensor to decision, <em class="title-amp">in real time</em>
+        <h2 class="m-0 font-['Plus_Jakarta_Sans',Inter,sans-serif] text-[clamp(1.75rem,3.3vw,2.5rem)] font-extrabold leading-tight -tracking-[0.025em] text-sis-text dark:text-[#eaf1fb]">
+          From sensor to decision,
+          <em class="not-italic font-normal text-[#37b6ff]">in real time</em>
         </h2>
       </div>
 
-      <div class="pillars-grid">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
         <article
           v-for="(pillar, i) in pillars"
           :key="pillar.step"
-          class="pillar-card"
+          class="flex flex-col rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[26px] transition-all duration-300 hover:-translate-y-[5px] hover:border-sis-accent/40 dark:hover:border-[rgba(126,165,224,0.3)]"
+          style="background: var(--bg-card-1)"
           data-reveal
         >
-          <div class="pillar-ic"><UiIcon :name="pillar.icon" /></div>
-          <span class="pillar-step">{{ pillar.step }}</span>
-          <h3 class="pillar-title">{{ pillar.title }}</h3>
-          <p class="pillar-body">{{ pillar.body }}</p>
+          <div class="mb-[18px] grid h-12 w-12 place-items-center rounded-xl border border-[rgba(126,165,224,0.3)] text-[#37b6ff] [&_svg]:h-[23px] [&_svg]:w-[23px]" style="background: linear-gradient(150deg, rgba(47,155,224,0.2), rgba(47,155,224,0.04))">
+            <UiIcon :name="pillar.icon" />
+          </div>
+          <span class="mb-[6px] block font-['Cascadia_Code',Consolas,monospace] text-[11px] text-[#5fe0c4]">{{ pillar.step }}</span>
+          <h3 class="m-0 mb-2 font-['Plus_Jakarta_Sans',Inter,sans-serif] text-lg font-bold -tracking-[0.01em] text-sis-text dark:text-[#eaf1fb]">{{ pillar.title }}</h3>
+          <p class="m-0 text-[13.5px] leading-relaxed text-sis-muted/90 dark:text-[rgba(167,184,212,0.9)]">{{ pillar.body }}</p>
         </article>
       </div>
     </div>
@@ -52,136 +60,3 @@ const pillars = [
   },
 ];
 </script>
-
-<style scoped>
-.pillars-root {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #070d1a, #0a1120);
-  border-top: 1px solid rgba(126, 165, 224, 0.14);
-  border-bottom: 1px solid rgba(126, 165, 224, 0.14);
-  padding: 5rem 0;
-  color: #eaf1fb;
-}
-
-.pillars-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-/* ── Section header ───────────────────────────────────────────────── */
-.section-header {
-  max-width: 60ch;
-}
-
-.label-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.label-line {
-  display: block;
-  width: 3rem;
-  height: 1px;
-  background: #37b6ff;
-}
-.label-text {
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #37b6ff;
-}
-
-.section-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: clamp(1.75rem, 3.3vw, 2.5rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: #eaf1fb;
-  margin: 0;
-}
-.title-amp {
-  font-style: italic;
-  font-weight: 400;
-  color: #37b6ff;
-}
-
-/* ── Pillars grid ─────────────────────────────────────────────────── */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-@media (min-width: 768px) {
-  .pillars-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ── Pillar card ──────────────────────────────────────────────────── */
-.pillar-card {
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  border-radius: 14px;
-  background: linear-gradient(180deg, #101b31, #0c1426);
-  padding: 26px;
-  transition:
-    transform 0.24s ease,
-    border-color 0.24s ease;
-}
-.pillar-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(126, 165, 224, 0.3);
-}
-
-.pillar-ic {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 18px;
-  background: linear-gradient(
-    150deg,
-    rgba(47, 155, 224, 0.2),
-    rgba(47, 155, 224, 0.04)
-  );
-  border: 1px solid rgba(126, 165, 224, 0.3);
-  color: #37b6ff;
-}
-.pillar-ic :deep(svg) {
-  width: 23px;
-  height: 23px;
-}
-
-.pillar-step {
-  display: block;
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 11px;
-  color: #5fe0c4;
-  margin-bottom: 6px;
-}
-
-.pillar-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin: 0 0 8px;
-  color: #eaf1fb;
-}
-
-.pillar-body {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(167, 184, 212, 0.9);
-  margin: 0;
-}
-</style>

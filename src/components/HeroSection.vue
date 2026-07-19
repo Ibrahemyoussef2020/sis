@@ -1,8 +1,7 @@
 <template>
   <section
     id="hero"
-    class="relative w-full overflow-hidden text-white"
-    style="background-color: #070d1a"
+    class="relative w-full overflow-hidden text-sis-text dark:text-white bg-sis-panel dark:bg-[#070d1a]"
   >
     <!-- Background grid pattern with radial mask -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
@@ -53,7 +52,7 @@
       ></div>
     </div>
 
-    <div class="relative z-10 mx-auto max-w-[1140px] px-7 pt-[103px] pb-[84px]">
+    <div class="relative z-10 mx-auto flex w-full max-w-[1140px] min-h-dvh flex-col justify-center px-7 pt-[82px] pb-[72px]">
       <div
         class="grid grid-cols-1 items-center gap-[46px] lg:grid-cols-[1.02fr_0.98fr]"
       >
@@ -83,7 +82,7 @@
             technology
           </h1>
           <p
-            class="mt-[22px] max-w-[50ch] text-[15.5px] leading-[1.72] text-[#aebfd8]"
+            class="mt-[22px] max-w-[50ch] text-[15.5px] leading-[1.72] text-sis-muted/90 dark:text-[rgba(167,184,212,0.9)]"
           >
             Field-proven OT engineering fused with modern IT — SCADA upgrades,
             IIoT and secure digital transformation, engineered and commissioned
@@ -109,13 +108,13 @@
             </button>
             <button
               @click="router.push({ name: 'contact' })"
-              class="inline-flex items-center gap-[9px] rounded-full border border-[rgba(126,165,224,0.3)] bg-[rgba(126,165,224,0.04)] px-[26px] py-[14px] text-[14px] font-bold text-white transition-all duration-200 hover:border-[#37b6ff] hover:text-[#37b6ff]"
+              class="inline-flex items-center gap-[9px] rounded-full border border-sis-border/40 dark:border-[rgba(126,165,224,0.3)] bg-sis-accent/5 dark:bg-[rgba(126,165,224,0.04)] px-[26px] py-[14px] text-[14px] font-bold text-sis-text dark:text-white transition-all duration-200 hover:border-sis-accent hover:text-sis-accent"
             >
               Get in touch
             </button>
           </div>
           <div
-            class="mt-9 flex items-center gap-3 font-mono text-[12.5px] text-[#7688a6]"
+            class="mt-9 flex items-center gap-3 font-mono text-[12.5px] text-sis-muted dark:text-[#7688a6]"
           >
             <span
               class="inline-block h-[6px] w-[6px] rounded-full bg-[#5fe0c4] shadow-[0_0_8px_#5fe0c4]"
@@ -126,7 +125,7 @@
 
         <!-- Right column: OT-IT control mesh -->
         <div
-          class="relative aspect-[16/12] overflow-hidden rounded-[20px] border border-[rgba(126,165,224,0.3)] shadow-[0_46px_90px_-42px_#000,inset_0_1px_0_rgba(255,255,255,0.05)]"
+          class="relative aspect-[16/12] overflow-hidden rounded-[20px] border border-sis-border/50 dark:border-[rgba(126,165,224,0.3)] shadow-[0_46px_90px_-42px_#000,inset_0_1px_0_rgba(255,255,255,0.05)]"
         >
           <!-- Background image -->
           <div class="absolute inset-0">
@@ -585,10 +584,3 @@ const { hero } = storeToRefs(siteStore);
 const factoryImg = factory;
 </script>
 
-<style scoped>
-@keyframes blink {
-  50% {
-    opacity: 0.25;
-  }
-}
-</style>

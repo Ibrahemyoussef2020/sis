@@ -1,32 +1,40 @@
 <template>
-  <section id="services" class="services-root">
-    <div class="services-inner">
-      <div class="section-header" data-reveal>
-        <div class="label-row">
-          <span class="label-line"></span>
-          <span class="label-text">Services &amp; Capabilities</span>
+  <section
+    id="services"
+    class="relative overflow-hidden py-20 text-sis-text dark:text-dark-text"
+    style="background: var(--bg-section-1)"
+  >
+    <div class="mx-auto flex max-w-[1140px] flex-col gap-12 px-7 lg:flex-row lg:items-center lg:gap-16">
+      <div class="flex-[0_0_35%]" data-reveal>
+        <div class="mb-4 inline-flex items-center gap-4">
+          <span class="block h-px w-12 bg-sis-accent"></span>
+          <span class="font-sans text-xs font-semibold uppercase tracking-[0.28em] text-sis-accent">Services &amp; Capabilities</span>
         </div>
-        <h2 class="section-title">
-          One platform, <em class="title-amp">every</em> industrial capability
+        <h2 class="m-0 max-w-[42rem] font-['Plus_Jakarta_Sans',Inter,sans-serif] text-[clamp(2rem,5.2vw,4.25rem)] font-bold leading-tight -tracking-[0.02em] text-sis-text dark:text-[#eaf1fb]">
+          One platform, <em class="not-italic font-normal text-sis-accent">every</em> industrial capability
         </h2>
       </div>
 
-      <div v-if="loaded" class="sol-grid">
+      <div v-if="loaded" class="flex-1 grid grid-cols-1 gap-[14px] sm:grid-cols-2 lg:grid-cols-3">
         <article
           v-for="(card, i) in cards"
           :key="card.tag"
-          class="scard"
+          class="group relative overflow-hidden rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px] transition-all duration-300 hover:-translate-y-[5px] hover:border-sis-accent/40 dark:hover:border-[rgba(126,165,224,0.3)]"
+          style="background: var(--bg-card-1)"
           data-reveal
         >
-          <span class="scard-tag">{{ card.tag }}</span>
-          <div class="scard-ic"><UiIcon :name="card.icon" /></div>
-          <h3 class="scard-title">{{ card.title }}</h3>
-          <p class="scard-body">{{ card.body }}</p>
+          <div class="absolute top-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-sis-accent to-[#5fe0c4] transition-transform duration-300 group-hover:scale-x-100"></div>
+          <span class="absolute right-5 top-5 font-['Cascadia_Code',Consolas,monospace] text-[10px] text-sis-muted/40 dark:text-[rgba(126,165,224,0.4)]">{{ card.tag }}</span>
+          <div class="mb-4 grid h-11 w-11 place-items-center rounded-[11px] border border-sis-accent/30 dark:border-[rgba(126,165,224,0.3)] text-sis-accent [&_svg]:h-[22px] [&_svg]:w-[22px]" style="background: rgba(47,155,224,0.1)">
+            <UiIcon :name="card.icon" />
+          </div>
+          <h3 class="m-0 mb-[7px] font-['Plus_Jakarta_Sans',Inter,sans-serif] text-base font-bold -tracking-[0.01em] text-sis-text dark:text-[#eaf1fb]">{{ card.title }}</h3>
+          <p class="m-0 text-[13px] leading-relaxed text-sis-muted/90 dark:text-[rgba(167,184,212,0.9)]">{{ card.body }}</p>
         </article>
       </div>
 
-      <div v-else class="sol-grid skeleton-grid">
-        <div v-for="n in 6" :key="n" class="skeleton-card"></div>
+      <div v-else class="grid gap-[14px] grid-cols-[repeat(auto-fill,minmax(260px,1fr))] flex-1">
+        <div v-for="n in 6" :key="n" class="h-[180px] animate-shimmer rounded-[14px] bg-[length:200%_100%]" style="background: linear-gradient(90deg, #e0e4ea 0%, #d0d5de 50%, #e0e4ea 100%)"></div>
       </div>
     </div>
   </section>
@@ -81,179 +89,3 @@ onMounted(() => {
   setTimeout(() => { loaded.value = true; }, 100);
 });
 </script>
-
-<style scoped>
-.services-root {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #0a1120, #070d1a);
-  padding: 5rem 0;
-  color: #eaf1fb;
-}
-
-.services-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-@media (min-width: 1024px) {
-  .services-inner {
-    flex-direction: row;
-    align-items: center;
-    gap: 4rem;
-  }
-}
-
-/* ── Section header ───────────────────────────────────────────────── */
-.section-header {
-  flex: 0 0 35%;
-}
-
-.label-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.label-line {
-  display: block;
-  width: 3rem;
-  height: 1px;
-  background: #37b6ff;
-}
-.label-text {
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #37b6ff;
-}
-
-.section-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: clamp(2rem, 5.2vw, 4.25rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #eaf1fb;
-  max-width: 42rem;
-  margin: 0;
-}
-.title-amp {
-  font-style: italic;
-  font-weight: 400;
-  color: #37b6ff;
-}
-
-/* ── Solutions grid ───────────────────────────────────────────────── */
-.sol-grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-@media (min-width: 640px) {
-  .sol-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1024px) {
-  .sol-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-/* ── Card ──────────────────────────────────────────────────────────── */
-.scard {
-  position: relative;
-  border: 1px solid rgba(126, 165, 224, 0.14);
-  border-radius: 14px;
-  background: linear-gradient(180deg, #101b31, #0c1426);
-  padding: 22px;
-  overflow: hidden;
-  transition: transform 0.24s ease, border-color 0.24s ease;
-  cursor: default;
-}
-.scard::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 2px;
-  width: 100%;
-  transform: scaleX(0);
-  transform-origin: left;
-  background: linear-gradient(90deg, #37b6ff, #5fe0c4);
-  transition: transform 0.35s ease;
-}
-.scard:hover {
-  transform: translateY(-5px);
-  border-color: rgba(126, 165, 224, 0.3);
-}
-.scard:hover::after {
-  transform: scaleX(1);
-}
-
-.scard-tag {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 10px;
-  color: rgba(126, 165, 224, 0.4);
-}
-
-.scard-ic {
-  width: 44px;
-  height: 44px;
-  border-radius: 11px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 16px;
-  background: rgba(47, 155, 224, 0.1);
-  border: 1px solid rgba(126, 165, 224, 0.3);
-  color: #37b6ff;
-}
-.scard-ic :deep(svg) {
-  width: 22px;
-  height: 22px;
-}
-
-.scard-title {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  font-size: 16.5px;
-  font-weight: 700;
-  margin: 0 0 7px;
-  letter-spacing: -0.01em;
-  color: #eaf1fb;
-}
-
-.scard-body {
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(167, 184, 212, 0.9);
-  margin: 0;
-}
-
-/* ── Skeleton ─────────────────────────────────────────────────────── */
-.skeleton-grid {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-}
-.skeleton-card {
-  height: 180px;
-  border-radius: 14px;
-  background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite ease;
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-</style>

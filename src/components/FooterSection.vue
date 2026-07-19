@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#0b1326] border-t border-white/10">
+  <footer class="bg-sis-panel dark:bg-[#0b1326] border-t border-sis-border dark:border-white/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
       <!-- Top row: brand + nav links -->
       <div
@@ -8,11 +8,16 @@
         <!-- Brand -->
         <div>
           <img
+            src="../images/SIS-Logo-solid.png"
+            alt="SiS Logo"
+            class="h-10 w-auto mb-3 dark:hidden"
+          />
+          <img
             src="../images/SIS-Logo-white.png"
             alt="SiS Logo"
-            class="h-10 w-auto mb-3"
+            class="h-10 w-auto mb-3 hidden dark:block"
           />
-          <p class="mt-2 max-w-sm text-sm text-white/60 leading-relaxed">
+          <p class="mt-2 max-w-sm text-sm text-sis-muted dark:text-white/60 leading-relaxed">
             Bridging OT and IT across the MENA region with industrial automation
             and IIoT excellence.
           </p>
@@ -20,7 +25,7 @@
 
         <!-- Nav links -->
         <nav
-          class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-white/80"
+          class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-sis-text/80 dark:text-white/80"
         >
           <a
             v-if="route.name !== 'home'"
@@ -52,9 +57,9 @@
 
       <!-- Divider -->
       <div
-        class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+        class="border-t border-sis-border dark:border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
       >
-        <span class="text-xs text-white/40"
+        <span class="text-xs text-sis-muted/60 dark:text-white/40"
           >© 2026 Superior Integrated Solutions. All rights reserved.</span
         >
         <div class="flex items-center gap-3">
@@ -63,7 +68,7 @@
             rel="noopener noreferrer"
             href="https://www.linkedin.com/company/superior-for-integrated-solutions/"
             aria-label="LinkedIn"
-            class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:border-sis-accent hover:text-sis-accent transition-all duration-200"
+            class="w-8 h-8 rounded-full border border-sis-border dark:border-white/10 flex items-center justify-center text-sis-muted dark:text-white/60 hover:border-sis-accent hover:text-sis-accent transition-all duration-200"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -76,7 +81,7 @@
             rel="noopener noreferrer"
             href="https://wa.me/201007568651"
             aria-label="WhatsApp"
-            class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:border-sis-accent hover:text-sis-accent transition-all duration-200"
+            class="w-8 h-8 rounded-full border border-sis-border dark:border-white/10 flex items-center justify-center text-sis-muted dark:text-white/60 hover:border-sis-accent hover:text-sis-accent transition-all duration-200"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path

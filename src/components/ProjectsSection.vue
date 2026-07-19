@@ -233,11 +233,3 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped>
-.fade-tab-enter-active, .fade-tab-leave-active { transition: all 0.35s ease; }
-.fade-tab-enter-from { opacity: 0; transform: translateY(10px); }
-.fade-tab-leave-to { opacity: 0; transform: translateY(-10px); }
-.lightbox-fade-enter-active, .lightbox-fade-leave-active { transition: opacity 0.3s ease; }
-.lightbox-fade-enter-from, .lightbox-fade-leave-to { opacity: 0; }
-@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-</style>

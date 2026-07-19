@@ -7,6 +7,60 @@
   --sis-text: #1a2332;
   --sis-muted: #6b7c93;
   --sis-border: #d1dce8;
+
+  --dark-bg: #0a1120;
+  --dark-bg-alt: #070d1a;
+  --dark-bg-deep: #0b1326;
+  --dark-bg-card: #101b31;
+  --dark-text: #eaf1fb;
+  --dark-text-muted: #a8b3cf;
+  --dark-text-dim: #c8d4ec;
+  --dark-accent-blue: #37b6ff;
+  --dark-accent-teal: #5fe0c4;
+
+  --bg-section-1: linear-gradient(180deg, #f4f7fa, #e8edf5);
+  --bg-section-2: linear-gradient(180deg, #e8edf5, #f4f7fa);
+  --bg-card-1: linear-gradient(180deg, #ffffff, #f4f7fa);
+  --bg-card-2: linear-gradient(180deg, #f4f7fa, #e8edf5);
+  --bg-card-3: linear-gradient(180deg, #eaedf4, #e0e4ee);
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --bg-glass-card: rgba(255, 255, 255, 0.5);
+  --border-glass: #d1dce8;
+  --section-bg: #f4f7fa;
+  --overlay-bg: rgba(244, 247, 250, 0.78);
+  --dot-mesh: rgba(0, 0, 0, 0.06);
+
+  --svg-text-primary: #1a2332;
+  --svg-text-secondary: #4a6a8a;
+  --svg-text-label: #6b7c93;
+  --svg-text-annotation: #8d909c;
+  --svg-node-fill: rgba(47, 126, 199, 0.15);
+  --svg-node-stroke: rgba(47, 126, 199, 0.5);
+  --svg-grid: rgba(47, 126, 199, 0.12);
+  --svg-flow: rgba(47, 126, 199, 0.4);
+}
+
+:root.dark {
+  --bg-section-1: linear-gradient(180deg, #0a1120, #070d1a);
+  --bg-section-2: linear-gradient(180deg, #070d1a, #0a1120);
+  --bg-card-1: linear-gradient(180deg, #101b31, #0c1426);
+  --bg-card-2: linear-gradient(180deg, #0e1728, #0a1120);
+  --bg-card-3: linear-gradient(180deg, #070d1a, #0b1326);
+  --bg-glass: rgba(12, 25, 55, 0.55);
+  --bg-glass-card: rgba(12, 25, 55, 0.4);
+  --border-glass: rgba(126, 165, 224, 0.14);
+  --section-bg: #0b1326;
+  --overlay-bg: rgba(8, 18, 40, 0.72);
+  --dot-mesh: rgba(255, 255, 255, 0.06);
+
+  --svg-text-primary: #afc6ff;
+  --svg-text-secondary: #89ceff;
+  --svg-text-label: #c3c6d3;
+  --svg-text-annotation: #8d909c;
+  --svg-node-fill: rgba(175,198,255,0.08);
+  --svg-node-stroke: rgba(175,198,255,0.35);
+  --svg-grid: rgba(137,206,255,0.06);
+  --svg-flow: rgba(137,206,255,0.25);
 }
 
 @tailwind base;
@@ -35,7 +89,6 @@
   }
 
   section:not(#hero) {
-    /* min-height: 100vh !important; */
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     padding-top: 2rem !important;
@@ -46,41 +99,13 @@
   }
 }
 
-@layer utilities {
-  .text-sis-primary {
-    color: var(--sis-primary);
-  }
-
-  .bg-sis-primary {
-    background-color: var(--sis-primary);
-  }
-
-  .bg-sis-accent {
-    background-color: var(--sis-accent);
-  }
-
-  .bg-sis-light {
-    background-color: var(--sis-light);
-  }
-
-  .border-sis-border {
-    border-color: var(--sis-border);
-  }
-
-  .text-sis-muted {
-    color: var(--sis-muted);
-  }
-
-  .shadow-sis {
-    box-shadow: 0 25px 60px rgba(27, 58, 107, 0.12);
-  }
-
-  /* Custom gradient utility */
-  .bg-black-lean-gradient {
-    --tw-gradient-stops:
-      #0b1326, rgb(0 74 198 / 87%) var(--tw-gradient-via-position),
-      #000000 var(--tw-gradient-to-position);
-  }
+@keyframes sweep-x {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes sweep-y {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 @keyframes shimmer {
@@ -121,7 +146,6 @@
    FORCE WINDOWS CHROME SCROLLBAR OVERRIDE 
    ========================================== */
 
-/* 1. Force the root container rules */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
 *::-webkit-scrollbar {
@@ -129,7 +153,6 @@ body::-webkit-scrollbar,
   height: 8px !important;
 }
 
-/* 2. Absolute wipeout of the native Windows arrows */
 html::-webkit-scrollbar-button,
 body::-webkit-scrollbar-button,
 *::-webkit-scrollbar-button {
@@ -139,18 +162,16 @@ body::-webkit-scrollbar-button,
   background: transparent !important;
 }
 
-/* 3. Re-draw the track container background */
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 *::-webkit-scrollbar-track {
   background: transparent !important;
 }
 
-/* 4. Draw the custom colored thumb bar */
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb {
-  background-color: #3b82f6 !important; /* HARDCODED BLUE FALLBACK FOR WINDOWS */
+  background-color: #3b82f6 !important;
   background-image: linear-gradient(
     var(--sis-accent, #3b82f6),
     var(--sis-accent, #3b82f6)
@@ -158,22 +179,87 @@ body::-webkit-scrollbar-thumb,
   border-radius: 9999px !important;
 }
 
-/* 5. Hover rule safely separated */
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover,
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #60a5fa !important; /* HARDCODED LIGHT BLUE FALLBACK */
+  background-color: #60a5fa !important;
   background-image: linear-gradient(
     var(--sis-light, #60a5fa),
     var(--sis-light, #60a5fa)
   ) !important;
 }
 
-/* Keyboard focus indicator */
 *:focus-visible {
   outline: 2px solid #2f7ec7;
   outline-offset: 2px;
   border-radius: 0.25rem;
+}
+
+/* ── Vue Transitions ─────────────────────────────────────────────────── */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+}
+
+.mth-fade-enter-active,
+.mth-fade-leave-active {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.mth-fade-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.mth-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.fade-tab-enter-active,
+.fade-tab-leave-active {
+  transition: all 0.35s ease;
+}
+.fade-tab-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.fade-tab-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.lightbox-fade-enter-active,
+.lightbox-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.lightbox-fade-enter-from,
+.lightbox-fade-leave-to {
+  opacity: 0;
+}
+
+/* ── Vue Transition – Toast ──────────────────────────────────────────── */
+.toast-slide-enter-active {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast-slide-leave-active {
+  transition: all 0.3s ease;
+}
+.toast-slide-enter-from,
+.toast-slide-leave-to {
+  opacity: 0;
+  transform: translateX(100%) scale(0.95);
+}
+
+/* ── Glass card utility ──────────────────────────────────────────── */
+.card-glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.card-glass-border {
+  border: 1px solid var(--border-glass, rgba(126, 165, 224, 0.14));
 }
 
 /* Global Reveal Animations */
