@@ -4,7 +4,7 @@
     <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--bg-accent-5)] dark:bg-[var(--accent-blue)]/5 rounded-full blur-3xl pointer-events-none transform -translate-x-1/2 translate-y-1/2"></div>
 
     <div class="max-w-7xl mx-auto relative z-10">
-      <div class="text-center mb-6 mt-20 reveal reveal-fade-up">
+      <div class="text-center mb-6 reveal reveal-fade-up">
         <span class="inline-block text-xs font-bold tracking-[0.2em] uppercase text-sis-accent dark:text-[var(--accent-blue)] mb-3">Get in Touch</span>
         <h2 class="text-xl md:text-xl font-black text-sis-text dark:text-[#eaf1fb] leading-tight mb-4">
           Ready to transform your <span class="text-sis-accent dark:text-[var(--accent-blue)]">operations?</span>

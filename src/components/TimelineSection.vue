@@ -1,5 +1,5 @@
 <template>
-  <section class="relative border-y border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] py-24 px-6 overflow-hidden" style="background: var(--bg-section-1)">
+  <section class="relative border-y border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] pt-10 pb-24 px-6 overflow-hidden" style="background: var(--bg-section-1)">
     <div class="mx-auto max-w-7xl">
       <div class="mb-10">
         <p class="text-sm uppercase tracking-[0.3em] text-sis-accent dark:text-[var(--accent-blue)]" data-reveal>Timeline</p>

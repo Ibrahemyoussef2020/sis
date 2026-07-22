@@ -1,6 +1,6 @@
 <template>
-  <section class="relative border-y border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] py-12 px-6 overflow-hidden" style="background: var(--bg-section-2)">
-    <div class="max-w-7xl mx-auto relative z-10 mt-16">
+  <section class="relative border-y border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] py-24 px-6 overflow-hidden" style="background: var(--bg-section-2)">
+    <div class="max-w-7xl mx-auto relative z-10 ">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
         <div class="max-w-xl reveal reveal-fade-up">
           <span class="inline-block text-xs font-bold tracking-[0.2em] uppercase text-sis-accent dark:text-[var(--accent-blue)] mb-3">Our Portfolio</span>
