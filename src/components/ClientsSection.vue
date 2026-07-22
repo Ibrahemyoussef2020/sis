@@ -2,18 +2,18 @@
   <section class="relative overflow-hidden bg-sis-panel dark:bg-dark-bg px-6 py-24 font-['Plus_Jakarta_Sans','Manrope','Inter',sans-serif] text-sis-text dark:text-dark-text">
     <div
       class="pointer-events-none absolute rounded-full blur-[80px]"
-      :class="'w-96 h-96 -top-24 -right-24 bg-[rgba(55,182,255,0.07)] max-md:w-[300px] max-md:h-[300px] max-md:-top-32 max-md:-right-24 max-[480px]:w-[180px] max-[480px]:h-[180px] max-[480px]:-top-20 max-[480px]:-right-16'"
+      :class="'w-96 h-96 -top-24 -right-24 bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.07)] max-md:w-[300px] max-md:h-[300px] max-md:-top-32 max-md:-right-24 max-[480px]:w-[180px] max-[480px]:h-[180px] max-[480px]:-top-20 max-[480px]:-right-16'"
       aria-hidden="true"
     ></div>
     <div
       class="pointer-events-none absolute rounded-full blur-[80px]"
-      :class="'w-64 h-64 -bottom-16 -left-16 bg-[rgba(94,224,196,0.05)] max-md:w-[300px] max-md:h-[300px] max-md:-bottom-32 max-md:-left-20 max-[480px]:w-[180px] max-[480px]:h-[180px] max-[480px]:-bottom-20 max-[480px]:-left-12'"
+      :class="'w-64 h-64 -bottom-16 -left-16 bg-[rgba(var(--accent-teal-r), var(--accent-teal-g), var(--accent-teal-b),0.05)] max-md:w-[300px] max-md:h-[300px] max-md:-bottom-32 max-md:-left-20 max-[480px]:w-[180px] max-[480px]:h-[180px] max-[480px]:-bottom-20 max-[480px]:-left-12'"
       aria-hidden="true"
     ></div>
 
     <div class="relative z-10 mx-auto w-full max-w-[1200px]">
       <div class="mb-16 flex flex-col items-center gap-4 text-center" data-reveal>
-        <span class="mb-1 block text-[0.7rem] font-bold uppercase tracking-[0.3em] text-[#37b6ff]">Our Clientele</span>
+        <span class="mb-1 block text-[0.7rem] font-bold uppercase tracking-[0.3em] text-[var(--accent-blue)]">Our Clientele</span>
         <h2 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[clamp(2.2rem,5vw,3.5rem)] font-bold leading-tight -tracking-[0.02em] text-sis-text dark:text-[#eaf1fb]">
           Trusted by <em class="not-italic font-bold text-sis-accent dark:text-dark-accent-teal">Industry Leaders</em>
         </h2>

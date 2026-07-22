@@ -1,7 +1,7 @@
 <template>
   <div class="relative" ref="dropdownRef">
     <button
-      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/80 transition-all duration-200 hover:bg-white/10 hover:text-white active:scale-[0.92]"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-30)] dark:border-white/10 text-sis-muted dark:text-white/80 transition-all duration-200 hover:bg-sis-panel dark:hover:bg-white/10 hover:text-sis-text dark:hover:text-white active:scale-[0.92]"
       @click="open = !open"
       aria-label="Toggle theme"
     >
@@ -12,13 +12,13 @@
     <Transition name="content-fade">
       <div
         v-if="open"
-        class="absolute right-0 top-full mt-2 w-44 rounded-xl border border-white/10 bg-[#0a1120]/95 text-white backdrop-blur-xl shadow-glow py-1.5"
+        class="absolute right-0 top-full mt-2 w-44 rounded-xl border border-[var(--border-30)] dark:border-white/10 bg-white dark:bg-[#0a1120]/95 text-sis-text dark:text-white backdrop-blur-xl shadow-lg dark:shadow-glow py-1.5"
       >
         <button
           v-for="opt in options"
           :key="opt.value"
-          class="flex w-full items-center gap-3 px-4 py-2.5 text-sm transition-colors duration-200 hover:bg-white/5"
-          :class="theme === opt.value ? 'text-sis-accent' : 'text-white/80'"
+          class="flex w-full items-center gap-3 px-4 py-2.5 text-sm transition-colors duration-200 hover:bg-sis-panel dark:hover:bg-white/5"
+          :class="theme === opt.value ? 'text-sis-accent' : 'text-sis-muted dark:text-white/80'"
           @click="select(opt.value)"
         >
           <span class="material-symbols-outlined text-base">{{ opt.icon }}</span>

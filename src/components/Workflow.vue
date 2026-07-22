@@ -1,17 +1,17 @@
 <template>
   <section id="workflow" ref="sectionRef" class="relative bg-sis-panel dark:bg-[#0b1326] overflow-hidden py-24 px-6 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-sis-text dark:text-[#dae2fd]">
     <!-- Atmospheric background glow -->
-    <div ref="atmoRef" aria-hidden="true" class="absolute top-0 left-1/2 w-[900px] h-[550px] rounded-full pointer-events-none z-0 transition-transform duration-[600] ease-out -translate-x-1/2 blur-[60px]" style="background: radial-gradient(ellipse, rgba(55,182,255,0.07) 0%, transparent 70%);"></div>
+    <div ref="atmoRef" aria-hidden="true" class="absolute top-0 left-1/2 w-[900px] h-[550px] rounded-full pointer-events-none z-0 transition-transform duration-[600] ease-out -translate-x-1/2 blur-[60px]" style="background: radial-gradient(ellipse, rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.07) 0%, transparent 70%);"></div>
 
     <!-- Circuit-line overlay -->
-    <div aria-hidden="true" class="absolute inset-0 pointer-events-none z-0" style="background-image: linear-gradient(90deg, rgba(55,182,255,0.025) 1px, transparent 1px), linear-gradient(0deg, rgba(55,182,255,0.025) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none z-0" style="background-image: linear-gradient(90deg, rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.025) 1px, transparent 1px), linear-gradient(0deg, rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.025) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
     <div class="relative z-[1] max-w-[1200px] mx-auto">
       <!-- ── Header ─────────────────────────────────────────────────── -->
       <div class="text-center mb-16 md:mb-24 flex flex-col items-center gap-4">
-        <span class="text-[0.72rem] font-semibold tracking-[0.3em] uppercase text-[#37b6ff]" data-reveal>System Architecture</span>
+        <span class="text-[0.72rem] font-semibold tracking-[0.3em] uppercase text-[var(--accent-blue)]" data-reveal>System Architecture</span>
         <h2 class="text-[clamp(2.2rem,5.5vw,3rem)] font-bold leading-[1.15] tracking-[-0.02em] text-sis-text dark:text-[#dae2fd] m-0" data-reveal>
-          The IT/OT <em class="italic font-bold text-[#5fe0c4]" style="text-shadow: 0 0 20px rgba(94,224,196,0.4);">Lifecycle</em>
+          The IT/OT <em class="italic font-bold text-[var(--accent-teal)]" style="text-shadow: 0 0 20px rgba(var(--accent-teal-r), var(--accent-teal-g), var(--accent-teal-b),0.4);">Lifecycle</em>
         </h2>
         <p class="max-w-[38rem] text-base leading-[1.7] text-sis-muted dark:text-[#c3c6d3] m-0 font-['Inter',sans-serif]" data-reveal>
           Bridging the gap between cognitive strategy and physical execution
@@ -738,9 +738,9 @@
       <!-- ── Stage cards ─────────────────────────────────────────────── -->
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <!-- Stage 1: Mind -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
-            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- brain/psychology icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -757,8 +757,8 @@
                 />
               </svg>
             </div>
-            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
-              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">01</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[var(--text-muted-70)] dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-[var(--text-muted-70)] dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[var(--accent-blue)] group-hover:drop-shadow-[0_0_14px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.5)]">01</em></span
             >
           </div>
           <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">Mind</h3>
@@ -767,14 +767,14 @@
             translated into actionable digital roadmaps.
           </p>
           <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
-            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Strategic Layer</span>
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[var(--accent-blue)]">Strategic Layer</span>
           </div>
         </article>
 
         <!-- Stage 2: AI -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
-            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- AI/neural icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -798,8 +798,8 @@
                 />
               </svg>
             </div>
-            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
-              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">02</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[var(--text-muted-70)] dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-[var(--text-muted-70)] dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[var(--accent-blue)] group-hover:drop-shadow-[0_0_14px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.5)]">02</em></span
             >
           </div>
           <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">AI</h3>
@@ -808,14 +808,14 @@
             streams into predictive operational insights.
           </p>
           <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
-            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Analytic Layer</span>
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[var(--accent-blue)]">Analytic Layer</span>
           </div>
         </article>
 
         <!-- Stage 3: PC (Orchestration) -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border bg-[rgba(55,182,255,0.06)] border-[rgba(55,182,255,0.2)] backdrop-blur-[12px] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-[rgba(55,182,255,0.4)] hover:shadow-[0_0_40px_rgba(55,182,255,0.18)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.06)] border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.2)] backdrop-blur-[12px] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.4)] hover:shadow-[0_0_40px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.18)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
-            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.18)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.18)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- control panel icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -835,8 +835,8 @@
                 <path d="M6 13h12" />
               </svg>
             </div>
-            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
-              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">03</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[var(--text-muted-70)] dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-[var(--text-muted-70)] dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[var(--accent-blue)] group-hover:drop-shadow-[0_0_14px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.5)]">03</em></span
             >
           </div>
           <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">PC</h3>
@@ -845,14 +845,14 @@
             center for real-time monitoring and command.
           </p>
           <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
-            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Orchestration</span>
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[var(--accent-blue)]">Orchestration</span>
           </div>
         </article>
 
         <!-- Stage 4: Factory -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
-            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- factory/manufacturing icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -868,8 +868,8 @@
                 <rect x="9" y="14" width="6" height="6" rx="0.5" />
               </svg>
             </div>
-            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
-              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">04</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[var(--text-muted-70)] dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-[var(--text-muted-70)] dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[var(--accent-blue)] group-hover:drop-shadow-[0_0_14px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.5)]">04</em></span
             >
           </div>
           <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">Factory</h3>
@@ -878,14 +878,14 @@
             executing digital commands on the shop floor.
           </p>
           <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
-            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Physical Layer</span>
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[var(--accent-blue)]">Physical Layer</span>
           </div>
         </article>
 
         <!-- Stage 5: Human -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(55,182,255,0.3)] hover:shadow-[0_0_32px_rgba(55,182,255,0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
-            <div class="w-10 h-10 rounded-lg bg-[rgba(55,182,255,0.1)] flex items-center justify-center shrink-0 text-[#37b6ff] transition-colors duration-300 ease-in-out group-hover:bg-[#37b6ff] group-hover:text-[#00344d]">
+            <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- people/groups icon -->
               <svg
                 viewBox="0 0 24 24"
@@ -905,8 +905,8 @@
                 <path d="M22.5 20a4 4 0 00-7-2.6" />
               </svg>
             </div>
-            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-sis-muted/70 dark:text-[#8d909c] not-italic"
-              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-sis-muted/70 dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[#37b6ff] group-hover:drop-shadow-[0_0_14px_rgba(55,182,255,0.5)]">05</em></span
+            <span class="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[var(--text-muted-70)] dark:text-[#8d909c] not-italic"
+              >STAGE <em class="not-italic text-base font-extrabold tracking-[0.06em] text-[var(--text-muted-70)] dark:text-[#8d909c] transition-[color,filter] duration-300 ease-in-out group-hover:text-[var(--accent-blue)] group-hover:drop-shadow-[0_0_14px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.5)]">05</em></span
             >
           </div>
           <h3 class="text-[1.1rem] font-semibold text-sis-text dark:text-[#dae2fd] m-0">Human</h3>
@@ -915,7 +915,7 @@
             make critical decisions and drive safety.
           </p>
           <div class="pt-[0.875rem] border-t border-[rgba(126,165,224,0.1)] mt-auto">
-            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[#37b6ff]">Expert Layer</span>
+            <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-[var(--accent-blue)]">Expert Layer</span>
           </div>
         </article>
       </div>
@@ -925,7 +925,7 @@
         <a
           @click.prevent="scrollToSection('architecture', router, route)"
           href="#"
-          class="inline-flex items-center gap-2 px-8 py-3 bg-[#37b6ff] text-[#00344d] text-[0.72rem] font-bold tracking-[0.12em] uppercase rounded-lg no-underline shadow-[0_0_18px_rgba(55,182,255,0.22)] transition-all duration-[250] ease-in-out hover:scale-105 hover:shadow-[0_0_30px_rgba(55,182,255,0.4)] hover:bg-[#5fe0c4] active:scale-[0.97]"
+          class="inline-flex items-center gap-2 px-8 py-3 bg-[var(--accent-blue)] text-[#00344d] text-[0.72rem] font-bold tracking-[0.12em] uppercase rounded-lg no-underline shadow-[0_0_18px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.22)] transition-all duration-[250] ease-in-out hover:scale-105 hover:shadow-[0_0_30px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.4)] hover:bg-[var(--accent-teal)] active:scale-[0.97]"
         >
           Explore Architecture
           <svg

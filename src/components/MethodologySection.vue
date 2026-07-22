@@ -2,18 +2,18 @@
   <section ref="sectionRef" class="relative overflow-hidden bg-sis-panel dark:bg-dark-bg px-8 py-8 font-['Plus_Jakarta_Sans','Manrope','Inter',sans-serif] text-sis-text dark:text-dark-text">
     <div
       class="pointer-events-none absolute rounded-full blur-[80px]"
-      style="width: 24rem; height: 24rem; top: -6rem; right: -6rem; background: rgba(55,182,255,0.07);"
+      style="width: 24rem; height: 24rem; top: -6rem; right: -6rem; background: rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.07);"
       aria-hidden="true"
     ></div>
     <div
       class="pointer-events-none absolute rounded-full blur-[80px]"
-      style="width: 16rem; height: 16rem; bottom: -4rem; left: -4rem; background: rgba(94,224,196,0.05);"
+      style="width: 16rem; height: 16rem; bottom: -4rem; left: -4rem; background: rgba(var(--accent-teal-r), var(--accent-teal-g), var(--accent-teal-b),0.05);"
       aria-hidden="true"
     ></div>
 
     <div class="relative z-10 mx-auto max-w-[1280px]">
       <div class="mb-14 text-center" data-reveal>
-        <span class="mb-3 block text-xs font-bold uppercase tracking-[0.3em] text-[#37b6ff]">Methodology</span>
+        <span class="mb-3 block text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent-blue)]">Methodology</span>
         <h2 class="mx-auto max-w-[32rem] m-0 text-[clamp(1.5rem,4vw,2rem)] font-bold -tracking-[0.02em] text-sis-text dark:text-dark-text">
           {{ methodology?.title ?? "Engagement Methodology" }}
         </h2>
@@ -32,8 +32,8 @@
             :key="stage.number"
               class="flex items-center gap-5 rounded-r-lg border-l-4 border-transparent bg-none px-6 py-5 text-left transition-all duration-300"
             :class="activeStage === stage.number
-              ? 'border-l-[#37b6ff] bg-[rgba(55,182,255,0.1)] pl-7'
-              : 'hover:bg-[rgba(55,182,255,0.06)] hover:pl-7'"
+              ? 'border-l-[var(--accent-blue)] bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] pl-7'
+              : 'hover:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.06)] hover:pl-7'"
             role="tab"
             :aria-selected="activeStage === stage.number"
             :aria-controls="`mth-pane-${stage.number}`"
@@ -43,7 +43,7 @@
             <span
               class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold transition-all duration-300"
               :class="activeStage === stage.number
-                ? 'bg-[#37b6ff] text-[#00344d] shadow-[0_3px_12px_rgba(55,182,255,0.35)]'
+                ? 'bg-[var(--accent-blue)] text-[#00344d] shadow-[0_3px_12px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.35)]'
                 : 'bg-[rgba(126,165,224,0.14)] text-sis-text dark:text-dark-text'"
             >{{ stage.number }}</span>
             <span
@@ -70,7 +70,7 @@
                 </svg>
               </div>
 
-              <div class="mb-5 flex items-center gap-2 text-[#37b6ff]">
+              <div class="mb-5 flex items-center gap-2 text-[var(--accent-blue)]">
                 <svg class="h-[1.1rem] w-[1.1rem] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <template v-if="activeStage === 1">
                     <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
@@ -86,7 +86,7 @@
                     <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
                   </template>
                 </svg>
-                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#37b6ff]">Phase 0{{ activeStage }}</span>
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-blue)]">Phase 0{{ activeStage }}</span>
               </div>
 
               <h3 class="m-0 mb-5 max-w-[36rem] text-[clamp(1.1rem,2.5vw,1.35rem)] font-bold leading-tight -tracking-[0.01em] text-sis-text dark:text-dark-text">{{ activeData.fullTitle }}</h3>
@@ -95,9 +95,9 @@
                 <li
                   v-for="bullet in activeData.bullets"
                   :key="bullet"
-                  class="relative max-w-[36rem] pl-6 text-[0.9375rem] leading-relaxed text-[#c8d0e0]"
+                  class="relative max-w-[36rem] pl-6 text-[0.9375rem] leading-relaxed text-sis-muted dark:text-[#c8d0e0]"
                 >
-                  <span class="absolute left-0 top-2 h-[6px] w-[6px] rounded-full bg-[#37b6ff]" style="box-shadow: 0 0 8px rgba(55,182,255,0.4)" aria-hidden="true"></span>
+                  <span class="absolute left-0 top-2 h-[6px] w-[6px] rounded-full bg-[var(--accent-blue)]" style="box-shadow: 0 0 8px rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.4)" aria-hidden="true"></span>
                   {{ bullet }}
                 </li>
               </ul>

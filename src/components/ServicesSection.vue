@@ -19,17 +19,17 @@
         <article
           v-for="(card, i) in cards"
           :key="card.tag"
-          class="group relative overflow-hidden rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px] transition-all duration-300 hover:-translate-y-[5px] hover:border-sis-accent/40 dark:hover:border-[rgba(126,165,224,0.3)]"
+          class="group relative overflow-hidden rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px] transition-all duration-300 hover:-translate-y-[5px] hover:border-[var(--bg-accent-40)] dark:hover:border-[rgba(126,165,224,0.3)]"
           style="background: var(--bg-card-1)"
           data-reveal
         >
-          <div class="absolute top-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-sis-accent to-[#5fe0c4] transition-transform duration-300 group-hover:scale-x-100"></div>
-          <span class="absolute right-5 top-5 font-['Cascadia_Code',Consolas,monospace] text-[10px] text-sis-muted/40 dark:text-[rgba(126,165,224,0.4)]">{{ card.tag }}</span>
-          <div class="mb-4 grid h-11 w-11 place-items-center rounded-[11px] border border-sis-accent/30 dark:border-[rgba(126,165,224,0.3)] text-sis-accent [&_svg]:h-[22px] [&_svg]:w-[22px]" style="background: rgba(47,155,224,0.1)">
+          <div class="absolute top-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-sis-accent to-[var(--accent-teal)] transition-transform duration-300 group-hover:scale-x-100"></div>
+          <span class="absolute right-5 top-5 font-['Cascadia_Code',Consolas,monospace] text-[10px] text-[var(--text-muted-40)] dark:text-[rgba(126,165,224,0.4)]">{{ card.tag }}</span>
+          <div class="mb-4 grid h-11 w-11 place-items-center rounded-[11px] border border-[var(--bg-accent-30)] dark:border-[rgba(126,165,224,0.3)] text-sis-accent [&_svg]:h-[22px] [&_svg]:w-[22px]" style="background: rgba(47,155,224,0.1)">
             <UiIcon :name="card.icon" />
           </div>
           <h3 class="m-0 mb-[7px] font-['Plus_Jakarta_Sans',Inter,sans-serif] text-base font-bold -tracking-[0.01em] text-sis-text dark:text-[#eaf1fb]">{{ card.title }}</h3>
-          <p class="m-0 text-[13px] leading-relaxed text-sis-muted/90 dark:text-[rgba(167,184,212,0.9)]">{{ card.body }}</p>
+          <p class="m-0 text-[13px] leading-relaxed text-[var(--text-muted-90)] dark:text-[rgba(167,184,212,0.9)]">{{ card.body }}</p>
         </article>
       </div>
 

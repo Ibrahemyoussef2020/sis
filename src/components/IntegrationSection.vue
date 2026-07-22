@@ -9,13 +9,13 @@
     <div class="relative z-10 mx-auto flex max-w-[1140px] flex-col gap-16 px-7">
       <div class="max-w-[60ch]" data-reveal>
         <div class="mb-4 inline-flex items-center gap-4">
-          <span class="block h-px w-12 bg-[#37b6ff]"></span>
-          <span class="font-sans text-xs font-semibold uppercase tracking-[0.28em] text-[#37b6ff]">Digital Integration</span>
+          <span class="block h-px w-12 bg-[var(--accent-blue)]"></span>
+          <span class="font-sans text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent-blue)]">Digital Integration</span>
         </div>
         <h2 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[clamp(1.75rem,3.3vw,2.5rem)] font-extrabold leading-tight -tracking-[0.025em] text-sis-text dark:text-dark-text">
           What Drives Our OT–IT Journey
         </h2>
-        <p class="mt-[14px] max-w-[56ch] text-[15px] leading-relaxed text-[rgba(167,184,212,0.9)] m-0">
+        <p class="mt-[14px] max-w-[56ch] text-[15px] leading-relaxed text-[var(--text-muted-90)] dark:text-[rgba(167,184,212,0.9)] m-0">
           SiS bridges operational and information technology with precision,
           innovation, and reliable digital transformation for industrial clients.
         </p>
@@ -24,7 +24,7 @@
       <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="flex flex-col">
           <h3 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-xl font-bold text-sis-text dark:text-dark-text" data-reveal>Sectors</h3>
-          <p class="mt-2 text-sm text-[rgba(167,184,212,0.9)] m-0" data-reveal>
+          <p class="mt-2 text-sm text-[var(--text-muted-90)] dark:text-[rgba(167,184,212,0.9)] m-0" data-reveal>
             Industries we serve with tailored OT–IT solutions.
           </p>
           <div class="mt-6 flex flex-1 flex-col gap-3">
@@ -32,13 +32,13 @@
               <div
                 v-for="s in sectors"
                 :key="s.id"
-                class="flex cursor-default items-center gap-4 rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] p-[14px] transition-all duration-200 hover:-translate-y-0.5 hover:border-sis-accent/40 dark:hover:border-[rgba(126,165,224,0.3)]"
+                class="flex cursor-default items-center gap-4 rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-[14px] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--bg-accent-40)] dark:hover:border-[rgba(126,165,224,0.3)]"
                 style="background: var(--bg-card-1)"
                 data-reveal
               >
                 <div class="min-w-0 flex-1">
                   <div class="text-sm font-semibold text-sis-text dark:text-dark-text">{{ s.label }}</div>
-                  <div class="mt-0.5 text-[13px] text-[rgba(167,184,212,0.8)]">{{ s.projects.length }} projects</div>
+                  <div class="mt-0.5 text-[13px] text-[var(--text-muted-80)] dark:text-[rgba(167,184,212,0.8)]">{{ s.projects.length }} projects</div>
                 </div>
                 <div
                   class="h-8 w-8 flex-shrink-0 rounded-full"
@@ -55,7 +55,7 @@
 
         <div class="flex flex-col">
           <h3 class="m-0 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-xl font-bold text-sis-text dark:text-dark-text" data-reveal>Capabilities</h3>
-          <p class="mt-2 text-sm text-[rgba(167,184,212,0.9)] m-0" data-reveal>
+          <p class="mt-2 text-sm text-[var(--text-muted-90)] dark:text-[rgba(167,184,212,0.9)] m-0" data-reveal>
             Our core technical strengths and delivery pillars.
           </p>
           <div class="mt-6 flex flex-1 flex-col gap-3">
@@ -63,7 +63,7 @@
               <div
                 v-for="col in capabilities.columns"
                 :key="col"
-                class="cursor-default rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] p-[14px] text-sm font-medium text-sis-text dark:text-dark-text transition-all duration-200 hover:-translate-y-0.5 hover:border-sis-accent/40 dark:hover:border-[rgba(126,165,224,0.3)]"
+                class="cursor-default rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-[14px] text-sm font-medium text-sis-text dark:text-dark-text transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--bg-accent-40)] dark:hover:border-[rgba(126,165,224,0.3)]"
                 style="background: var(--bg-card-1)"
                 data-reveal
               >
@@ -78,15 +78,15 @@
         </div>
       </div>
 
-      <div class="rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] p-8 md:p-10 lg:p-12" style="background: var(--bg-card-2)" data-reveal>
+      <div class="rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-8 md:p-10 lg:p-12" style="background: var(--bg-card-2)" data-reveal>
         <div class="grid items-center gap-8 lg:grid-cols-2">
           <div>
-            <p class="text-[13px] font-semibold uppercase tracking-[0.28em] text-[#37b6ff]">See Us In Action</p>
+            <p class="text-[13px] font-semibold uppercase tracking-[0.28em] text-[var(--accent-blue)]">See Us In Action</p>
             <h3 class="mt-2 font-['Plus_Jakarta_Sans','Inter',sans-serif] text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-sis-text dark:text-dark-text">
               Industrial Intelligence
               <em class="not-italic text-sis-accent dark:text-dark-accent-teal">in Motion</em>
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-[rgba(167,184,212,0.9)]">
+            <p class="mt-3 text-sm leading-relaxed text-[var(--text-muted-90)] dark:text-[rgba(167,184,212,0.9)]">
               Watch how SiS bridges the gap between operational technology and
               information technology — delivering real results across the MENA
               region.
@@ -95,7 +95,7 @@
               :href="`https://www.youtube.com/watch?v=${videoId}`"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-5 inline-flex items-center gap-[10px] rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] px-[22px] py-[11px] text-sm font-semibold text-sis-text dark:text-dark-text no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-sis-accent hover:text-sis-accent"
+              class="mt-5 inline-flex items-center gap-[10px] rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] px-[22px] py-[11px] text-sm font-semibold text-sis-text dark:text-dark-text no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-sis-accent hover:text-sis-accent"
               style="background: var(--bg-card-1)"
             >
               <svg
@@ -111,7 +111,7 @@
               Watch on YouTube
             </a>
           </div>
-          <div class="overflow-hidden rounded-xl border border-sis-border/30 dark:border-[rgba(126,165,224,0.14])" style="box-shadow: 0 20px 50px -20px rgba(0,0,0,0.7)">
+          <div class="overflow-hidden rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14])" style="box-shadow: 0 20px 50px -20px rgba(0,0,0,0.7)">
             <video
               src="@/images/sis-showcase.mp4"
               title="SiS Industrial Automation in Action"
@@ -130,7 +130,7 @@
         <a
           @click.prevent="router.push({ name: 'projects' })"
           href="#"
-          class="inline-block cursor-pointer rounded-full bg-[#37b6ff] px-8 py-[14px] text-[15px] font-bold text-[#04121f] no-underline transition-all duration-200 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(55,182,255,0.4)] active:scale-[0.97]"
+          class="inline-block cursor-pointer rounded-full bg-[var(--accent-blue)] px-8 py-[14px] text-[15px] font-bold text-[#04121f] no-underline transition-all duration-200 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.4)] active:scale-[0.97]"
         >
           Explore Case Studies
         </a>

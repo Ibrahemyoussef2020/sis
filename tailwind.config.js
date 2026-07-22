@@ -102,8 +102,8 @@ export default {
         },
       },
       boxShadow: {
-        glow: '0 20px 60px rgba(27, 58, 107, 0.18)',
-        sis: '0 25px 60px rgba(27, 58, 107, 0.12)',
+        glow: '0 20px 60px rgba(0, 0, 0, 0.05)',
+        sis: '0 25px 60px rgba(0, 0, 0, 0.04)',
       },
       keyframes: {
         shimmer: {

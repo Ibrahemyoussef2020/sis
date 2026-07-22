@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     // Domain-agnostic by default. Override for a sub-path deployment.
-    base: env.VITE_BASE_PATH || 'http://sis.local/lvue/dist/',
+    base: env.VITE_BASE_PATH || '/',
     plugins: [vue()],
     resolve: {
       alias: {

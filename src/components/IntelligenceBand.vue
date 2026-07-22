@@ -1,18 +1,18 @@
 <template>
   <svg width="0" height="0" style="position: absolute"><defs>
-    <linearGradient id="igGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#37b6ff"/><stop offset="1" stop-color="#5fe0c4"/></linearGradient>
+    <linearGradient id="igGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent-blue)"/><stop offset="1" stop-color="var(--accent-teal)"/></linearGradient>
   </defs></svg>
   <section
     ref="sectionRef"
-    class="relative border-y border-sis-border/30 dark:border-[rgba(126,165,224,0.14)] py-[92px]"
+    class="relative border-y border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] py-[92px]"
     style="background: var(--bg-section-1)"
   >
     <div class="mx-auto max-w-[1140px] px-7">
       <div class="mb-[46px] max-w-[64ch]">
         <span
-          class="inline-flex items-center gap-[11px] font-mono text-[12px] font-semibold uppercase tracking-[0.26em] text-[#37b6ff]"
+          class="inline-flex items-center gap-[11px] font-mono text-[12px] font-semibold uppercase tracking-[0.26em] text-[var(--accent-blue)]"
         >
-          <span class="block h-px w-6 bg-gradient-to-r from-[#37b6ff] to-transparent"></span>
+          <span class="block h-px w-6 bg-gradient-to-r from-[var(--accent-blue)] to-transparent"></span>
           Operational intelligence
         </span>
         <h2
@@ -29,16 +29,16 @@
       <div class="mb-[18px] grid grid-cols-1 gap-[18px] md:grid-cols-3">
         <!-- OEE Gauge -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          class="flex flex-col items-center gap-2 rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
           style="background: var(--bg-card-2)"
         >
-          <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">OEE / Efficiency</span>
+          <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">OEE / Efficiency</span>
           <svg class="gauge text-sis-text dark:text-white" width="180" height="150" viewBox="0 0 200 168">
             <path d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="rgba(126,165,224,0.16)" stroke-width="9" stroke-linecap="round"/>
             <path ref="gauge1Val" d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="url(#igGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283" style="stroke-dashoffset:283"/>
             <g ref="gauge1Needle" style="transform-origin:100px 100px;transform:rotate(-90deg)">
               <line x1="100" y1="100" x2="100" y2="34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="100" cy="100" r="6" fill="#37b6ff"/>
+              <circle cx="100" cy="100" r="6" fill="var(--accent-blue)"/>
             </g>
             <text x="100" y="132" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace" font-weight="700" font-size="23" fill="currentColor">86%</text>
           </svg>
@@ -46,16 +46,16 @@
 
         <!-- Availability Gauge -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          class="flex flex-col items-center gap-2 rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
           style="background: var(--bg-card-2)"
         >
-          <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">Availability</span>
+          <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">Availability</span>
           <svg class="gauge text-sis-text dark:text-white" width="180" height="150" viewBox="0 0 200 168">
             <path d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="rgba(126,165,224,0.16)" stroke-width="9" stroke-linecap="round"/>
             <path ref="gauge2Val" d="M20 150 A90 90 0 1 1 180 150" fill="none" stroke="url(#igGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283" style="stroke-dashoffset:283"/>
             <g ref="gauge2Needle" style="transform-origin:100px 100px;transform:rotate(-90deg)">
               <line x1="100" y1="100" x2="100" y2="34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="100" cy="100" r="6" fill="#37b6ff"/>
+              <circle cx="100" cy="100" r="6" fill="var(--accent-blue)"/>
             </g>
             <text x="100" y="132" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace" font-weight="700" font-size="23" fill="currentColor">99.9%</text>
           </svg>
@@ -63,10 +63,10 @@
 
         <!-- Throughput bars -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          class="flex flex-col items-center gap-2 rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
           style="background: var(--bg-card-2)"
         >
-          <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">Throughput / min</span>
+          <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">Throughput / min</span>
           <div ref="barGroup" class="flex items-end gap-[8px] h-[130px] pt-[10px]">
             <i
               v-for="n in 8"
@@ -75,8 +75,8 @@
               class="w-[14px] rounded-t-[4px] h-[18px]"
               :style="{
                 background: [3, 6].includes(n)
-                  ? 'linear-gradient(180deg, #5fe0c4, #2a9d86)'
-                  : 'linear-gradient(180deg, #37b6ff, #1d6fd0)'
+                  ? 'linear-gradient(180deg, var(--accent-teal), #2a9d86)'
+                  : 'linear-gradient(180deg, var(--accent-blue), #1d6fd0)'
               }"
             ></i>
           </div>
@@ -85,10 +85,10 @@
 
       <div
         ref="waveformWrap"
-        class="relative h-[130px] overflow-hidden rounded-[14px] border border-sis-border/40 dark:border-[rgba(126,165,224,0.14)]"
+        class="relative h-[130px] overflow-hidden rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)]"
         style="background: var(--bg-card-3)"
       >
-        <span class="absolute left-4 top-3 z-[2] font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#7688a6]">Live plant telemetry</span>
+        <span class="absolute left-4 top-3 z-[2] font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">Live plant telemetry</span>
         <div class="absolute inset-0" style="background-image: linear-gradient(rgba(126,165,224,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(126,165,224,0.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
         <canvas ref="oscCanvas" class="relative z-[1] block h-full w-full" width="1100" height="130"></canvas>
       </div>
@@ -160,14 +160,23 @@ onMounted(() => {
   let t = 0;
   const reduce = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
 
+  function getCSSVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
   function drawWave() {
     ctx.clearRect(0, 0, w, h);
+    const accentBlue = getCSSVar('--accent-blue');
+    const accentTeal = getCSSVar('--accent-teal');
+    const accentBlueR = getCSSVar('--accent-blue-r');
+    const accentBlueG = getCSSVar('--accent-blue-g');
+    const accentBlueB = getCSSVar('--accent-blue-b');
     const grad = ctx.createLinearGradient(0, 0, w, 0);
-    grad.addColorStop(0, "#37b6ff");
-    grad.addColorStop(1, "#5fe0c4");
+    grad.addColorStop(0, accentBlue);
+    grad.addColorStop(1, accentTeal);
     ctx.strokeStyle = grad;
     ctx.lineWidth = 2.6;
-    ctx.shadowColor = "rgba(55,182,255,0.6)";
+    ctx.shadowColor = `rgba(${accentBlueR}, ${accentBlueG}, ${accentBlueB}, 0.6)`;
     ctx.shadowBlur = 8;
     ctx.beginPath();
     for (let i = 0; i <= w; i += 4) {
