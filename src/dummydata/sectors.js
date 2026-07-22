@@ -10,7 +10,8 @@ export default [
     { client: "UNIHA Water Technology", location: "Al Arish, Egypt", scope: "Full automation of 5-stage RO water treatment process over architectural ethernet." }
   ]},
   { id: "chemical", label: "Chemical Industries", color: "#4A9FD4", projects: [
-    { client: "Gas Cool & Emisal", location: "Fayoum, Egypt", scope: "Advanced automation solutions for process optimisation within chemical manufacturing plants, including centralised SCADA fire alarm systems." }
+    { client: "Gas Cool", location: "Fayoum, Egypt", scope: "Advanced automation solutions designed for process optimisation within chemical manufacturing plants." },
+    { client: "Emisal", location: "Fayoum, Egypt", scope: "Centralised SCADA fire alarm system with WinCC SCADA and Siemens PLC, plus high-pressure steam and chemical valve control." }
   ]},
   { id: "food-beverage", label: "Food, Beverage & FMCG", color: "#1B3A6B", projects: [
     { client: "Henkel", location: "6th of October, Egypt", scope: "SCADA upgrade, process automation for chemical mixing, Siemens TIA thermal control, chemical dosing, and AR-assisted live system validation." },

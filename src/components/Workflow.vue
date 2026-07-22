@@ -923,7 +923,7 @@
       <!-- ── CTA ────────────────────────────────────────────────────── -->
       <div class="mt-16 flex justify-center" data-reveal>
         <a
-          @click.prevent="scrollToSection('architecture', router, route)"
+          @click.prevent="router.push({ name: 'architecture' })"
           href="#"
           class="inline-flex items-center gap-2 px-8 py-3 bg-[var(--accent-blue)] text-[#00344d] text-[0.72rem] font-bold tracking-[0.12em] uppercase rounded-lg no-underline shadow-[0_0_18px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.22)] transition-all duration-[250] ease-in-out hover:scale-105 hover:shadow-[0_0_30px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.4)] hover:bg-[var(--accent-teal)] active:scale-[0.97]"
         >

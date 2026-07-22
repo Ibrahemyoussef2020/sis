@@ -6,7 +6,7 @@ export default {
       steps: [
         { number: 1, title: "Assessment", description: "Evaluate existing processes and culture while identifying gaps that have negative monetary impacts." },
         { number: 2, title: "Select Use Cases", description: "Propose digitised solutions and ROI based on expected outcomes from selected use cases." },
-        { number: 3, title: "Design & Planning", description: "Map current/future-data architecture and budget from previous and future-state digital architectures." }
+        { number: 3, title: "Design & Planning", description: "Map current- and future-state data architecture based on the proposed use cases and available budget." }
       ]
     },
     {

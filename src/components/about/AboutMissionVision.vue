@@ -24,14 +24,8 @@
             <span class="material-symbols-outlined" style="font-size: 26px;">flag</span>
           </div>
           <span class="text-xs font-semibold tracking-widest uppercase text-sis-accent dark:text-[var(--accent-blue)]/60 mb-2 block">Our Mission</span>
-          <h3 class="text-2xl font-bold text-sis-text dark:text-[#eaf1fb] mb-4 leading-tight">Empowering Industrial Enterprises</h3>
-          <p class="text-sis-muted dark:text-[#aebfd8] text-base leading-relaxed mb-7">To empower industrial enterprises by architecting seamless, secure, and scalable connections between the physical shop floor and the digital enterprise. We transform raw operational data into actionable strategic intelligence.</p>
-          <ul class="space-y-3">
-            <li v-for="item in missionItems" :key="item" class="flex items-center gap-3 text-sis-text dark:text-[#eaf1fb]">
-              <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--bg-accent-10)] dark:bg-[var(--accent-blue)]/10 flex items-center justify-center"><span class="material-symbols-outlined text-sis-accent dark:text-[var(--accent-blue)]" style="font-size: 14px;">check</span></span>
-              <span class="text-sm font-medium">{{ item }}</span>
-            </li>
-          </ul>
+          <h3 class="text-2xl font-bold text-sis-text dark:text-[#eaf1fb] mb-4 leading-tight">Our Mission</h3>
+          <p class="text-sis-muted dark:text-[#aebfd8] text-base leading-relaxed">To bridge Operational Technology (OT) and Information Technology (IT) through real-time data-driven decision-making.</p>
         </div>
 
         <div id="mission-vision" class="reveal reveal-fade-up rounded-2xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] shadow-md p-10 relative overflow-hidden group hover:shadow-xl transition-all duration-300" style="background: var(--bg-card-1); transition-delay: 0.12s">
@@ -40,14 +34,8 @@
             <span class="material-symbols-outlined" style="font-size: 26px;">visibility</span>
           </div>
           <span class="text-xs font-semibold tracking-widest uppercase text-[var(--accent-teal)]/60 mb-2 block">Our Vision</span>
-          <h3 class="text-2xl font-bold text-sis-text dark:text-[#eaf1fb] mb-4 leading-tight">Leading the MENA Region</h3>
-          <p class="text-sis-muted dark:text-[#aebfd8] text-base leading-relaxed mb-7">To be the undisputed leader in IT-OT convergence across the MENA region, setting the global standard for how modern industries interact with, process, and leverage operational data for a sustainable future.</p>
-          <ul class="space-y-3">
-            <li v-for="item in visionItems" :key="item" class="flex items-center gap-3 text-sis-text dark:text-[#eaf1fb]">
-              <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--accent-teal)]/10 flex items-center justify-center"><span class="material-symbols-outlined text-[var(--accent-teal)]" style="font-size: 14px;">check</span></span>
-              <span class="text-sm font-medium">{{ item }}</span>
-            </li>
-          </ul>
+          <h3 class="text-2xl font-bold text-sis-text dark:text-[#eaf1fb] mb-4 leading-tight">Our Vision</h3>
+          <p class="text-sis-muted dark:text-[#aebfd8] text-base leading-relaxed">To establish a future standard of predictive maintenance and complete process optimization across the region's heaviest industries.</p>
         </div>
       </div>
 
@@ -63,15 +51,4 @@
 </template>
 
 <script setup>
-const missionItems = [
-  'Eliminate data silos across operations',
-  'Ensure critical system uptime',
-  'Drive measurable operational excellence',
-]
-
-const visionItems = [
-  'Pioneer intelligent automation',
-  'Cultivate regional technical mastery',
-  'Lead the transition to Industry 5.0',
-]
 </script>

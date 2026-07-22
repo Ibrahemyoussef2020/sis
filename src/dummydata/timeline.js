@@ -6,7 +6,7 @@ export default {
       year: "2020",
       label: "Founding Year",
       description:
-        "Focused on initial technical foundations earned through initial technical foundations.",
+        "Focused on initial technical foundations.",
     },
     {
       year: "2021",

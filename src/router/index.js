@@ -8,6 +8,7 @@ const HomePage = () => import("@/pages/HomePage.vue");
 const AboutPage = () => import("@/pages/AboutPage.vue");
 const ProjectsPage = () => import("@/pages/ProjectsPage.vue");
 const TimelinePage = () => import("@/pages/TimelinePage.vue");
+const ArchitecturePage = () => import("@/pages/ArchitecturePage.vue");
 const ContactPage = () => import("@/pages/ContactPage.vue");
 
 const routes = [
@@ -20,6 +21,7 @@ const routes = [
       // removed separate routes for services/architecture/methodology
       { path: "projects", name: "projects", component: ProjectsPage, meta: { title: "Projects | SiS" } },
       { path: "timeline", name: "timeline", component: TimelinePage, meta: { title: "Timeline | SiS" } },
+      { path: "architecture", name: "architecture", component: ArchitecturePage, meta: { title: "Architecture | SiS" } },
       { path: "contact", name: "contact", component: ContactPage, meta: { title: "Contact Us | SiS" } },
     ],
   },

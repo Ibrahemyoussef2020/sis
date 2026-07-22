@@ -22,46 +22,19 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-container">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 stagger-container">
 
-        <div class="reveal reveal-fade-up group rounded-2xl p-8 transition-all duration-300 cursor-pointer backdrop-blur-sm"
-             :style="{ background: isDark ? '' : 'var(--bg-card-1)', border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid var(--border-glass)' }"
+        <div v-for="(sector, i) in sectors" :key="sector.title"
+             class="reveal reveal-fade-up group rounded-2xl p-8 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+             :style="{ background: isDark ? '' : 'var(--bg-card-1)', border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid var(--border-glass)', transitionDelay: `${i * 0.1}s` }"
              :class="isDark ? 'bg-white/5 hover:bg-[#0d6efd] border-white/10 hover:border-[#0d6efd]' : 'hover:shadow-xl border-[var(--border-30)]'">
           <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-8 transition-colors duration-300"
                :class="isDark ? 'bg-white/10 group-hover:bg-white/20' : 'bg-[var(--bg-accent-10)] group-hover:bg-[var(--bg-accent-20)]'">
-            <span class="material-symbols-outlined" :class="isDark ? 'text-white' : 'text-sis-accent'" style="font-size: 22px;">factory</span>
+            <span class="material-symbols-outlined" :class="isDark ? 'text-white' : 'text-sis-accent'" style="font-size: 22px;">{{ sector.icon }}</span>
           </div>
-          <h3 class="text-2xl font-bold text-sis-text dark:text-white mb-4">Smart Manufacturing</h3>
+          <h3 class="text-2xl font-bold text-sis-text dark:text-white mb-4">{{ sector.title }}</h3>
           <p class="text-sis-muted dark:text-[#a1a1aa] group-hover:text-white/90 leading-relaxed text-sm transition-colors duration-300">
-            Implementing predictive maintenance, real-time OEE tracking, and automated quality control for modern production lines.
-          </p>
-        </div>
-
-        <!-- Energy & Utilities -->
-        <div class="reveal reveal-fade-up group rounded-2xl p-8 transition-all duration-300 cursor-pointer backdrop-blur-sm"
-             style="background: var(--bg-card-1); border: 1px solid var(--border-glass); transition-delay: 0.1s"
-             :class="isDark ? 'bg-white/5 hover:bg-[#0d6efd] border-white/10 hover:border-[#0d6efd]' : 'hover:shadow-xl'">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-8 transition-colors duration-300"
-               :class="isDark ? 'bg-white/10 group-hover:bg-white/20' : 'bg-[var(--bg-accent-10)] group-hover:bg-[var(--bg-accent-20)]'">
-            <span class="material-symbols-outlined" :class="isDark ? 'text-white' : 'text-sis-accent'" style="font-size: 22px;">bolt</span>
-          </div>
-          <h3 class="text-2xl font-bold text-sis-text dark:text-white mb-4">Energy &amp; Utilities</h3>
-          <p class="text-sis-muted dark:text-[#a1a1aa] group-hover:text-white/90 leading-relaxed text-sm transition-colors duration-300">
-            Optimizing grid performance, monitoring remote assets, and ensuring rigorous cybersecurity standards for critical infrastructure.
-          </p>
-        </div>
-
-        <!-- Logistics & Supply Chain -->
-        <div class="reveal reveal-fade-up group rounded-2xl p-8 transition-all duration-300 cursor-pointer backdrop-blur-sm"
-             style="background: var(--bg-card-1); border: 1px solid var(--border-glass); transition-delay: 0.2s"
-             :class="isDark ? 'bg-white/5 hover:bg-[#0d6efd] border-white/10 hover:border-[#0d6efd]' : 'hover:shadow-xl'">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-8 transition-colors duration-300"
-               :class="isDark ? 'bg-white/10 group-hover:bg-white/20' : 'bg-[var(--bg-accent-10)] group-hover:bg-[var(--bg-accent-20)]'">
-            <span class="material-symbols-outlined" :class="isDark ? 'text-white' : 'text-sis-accent'" style="font-size: 22px;">local_shipping</span>
-          </div>
-          <h3 class="text-2xl font-bold text-sis-text dark:text-white mb-4">Logistics &amp; Supply Chain</h3>
-          <p class="text-sis-muted dark:text-[#a1a1aa] group-hover:text-white/90 leading-relaxed text-sm transition-colors duration-300">
-            End-to-end material tracking, automated warehouse integration, and fleet telematics for transparent operations.
+            {{ sector.description }}
           </p>
         </div>
 
@@ -76,6 +49,14 @@ import { ref, onMounted, onBeforeUnmount, inject } from 'vue'
 const starsCanvas = ref(null)
 let animationId = null
 const isDark = inject('isDark', ref(false))
+
+const sectors = [
+  { title: 'Oil & Gas', icon: 'local_gas_station', description: 'Deployment of Well Head Wireless HART Transmitters, SCADA integration, and Well Heads Safety System Upgrades for upstream oil and gas operations.' },
+  { title: 'Chemical Industries', icon: 'science', description: 'Advanced automation solutions for process optimisation within chemical manufacturing plants, including centralised SCADA systems.' },
+  { title: 'Heavy Industries', icon: 'handyman', description: 'Industrial automation and support services for large-scale cement manufacturing and metal foundry operations.' },
+  { title: 'Water & Waste Water', icon: 'water_drop', description: 'PLC and SCADA commissioning, network cybersecurity hardening, and full treatment process automation for water infrastructure.' },
+  { title: 'Food, Beverage & FMCG', icon: 'restaurant', description: 'SCADA upgrades, ERP integration, AR-assisted validation, and specialised automation for food production and chemical mixing.' },
+]
 
 onMounted(() => {
   const canvas = starsCanvas.value

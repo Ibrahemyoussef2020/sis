@@ -22,6 +22,19 @@
       <path d="M4.9 4.9a10 10 0 0 0 0 14.2M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4M19.1 4.9a10 10 0 0 1 0 14.2" />
     </template>
     <path v-else-if="name === 'pulse'" d="M3 12h4l3 8 4-16 3 8h4" />
+    <template v-else-if="name === 'robot-arm'">
+      <path d="M5 20h14M12 20V8M8 8h8l4 4H4z" />
+      <circle cx="12" cy="5" r="2" />
+    </template>
+    <template v-else-if="name === 'cpu'">
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <rect x="8" y="8" width="8" height="8" rx="1" />
+      <path d="M2 12h2M20 12h2M12 2v2M12 20v2" />
+    </template>
+    <template v-else-if="name === 'settings'">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 1v2M12 21v2M1 12h2M21 12h2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+    </template>
     <path v-else d="M12 20V10M18 20V4M6 20v-4" />
   </svg>
 </template>

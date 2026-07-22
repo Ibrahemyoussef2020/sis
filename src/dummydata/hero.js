@@ -6,7 +6,7 @@ export default {
   stats: [
     { value: 5, suffix: "+", label: "Years of Excellence" },
     { value: 12, suffix: "+", label: "Industrial Projects" },
-    { value: 6, suffix: "", label: "Sectors Served" },
-    { value: 20, suffix: "+", label: "Technology Partners" }
+    { value: 5, suffix: "", label: "Sectors Served" },
+    { value: 10, suffix: "+", label: "Technology Partners" }
   ]
 }

@@ -119,7 +119,7 @@
             <span
               class="inline-block h-[6px] w-[6px] rounded-full bg-[var(--accent-teal)] shadow-[0_0_8px_var(--accent-teal)]"
             ></span>
-            Operational since 2019 &middot; 12+ industrial deployments live
+            Operational since 2020 &middot; 12+ industrial deployments live
           </div>
         </div>
 

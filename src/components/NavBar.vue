@@ -113,6 +113,7 @@ const mainNav = [
   { label: "Home", route: "home" },
   { label: "About Us", route: "about" },
   { label: "Projects", route: "projects" },
+  { label: "Architecture", route: "architecture" },
   { label: "Timeline", route: "timeline" },
   { label: "Contact", route: "contact" },
 ];

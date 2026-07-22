@@ -28,10 +28,8 @@
             Industries we serve with tailored OT–IT solutions.
           </p>
           <div class="mt-6 flex flex-1 flex-col gap-3">
-            <template v-if="loaded">
-              <div
-                v-for="s in sectors"
-                :key="s.id"
+            <template v-for="(s, i) in (loaded ? sectors : placeholderSectors)" :key="s?.id ?? i">
+              <div v-if="loaded"
                 class="flex cursor-default items-center gap-4 rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-[14px] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--bg-accent-40)] dark:hover:border-[rgba(126,165,224,0.3)]"
                 style="background: var(--bg-card-1)"
                 data-reveal
@@ -45,10 +43,7 @@
                   :style="{ background: s.color }"
                 ></div>
               </div>
-            </template>
-            <template v-else>
-              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
-              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
+              <Skeleton v-else class="h-[52px] rounded-xl" />
             </template>
           </div>
         </div>
@@ -59,20 +54,15 @@
             Our core technical strengths and delivery pillars.
           </p>
           <div class="mt-6 flex flex-1 flex-col gap-3">
-            <template v-if="loaded">
-              <div
-                v-for="col in capabilities.columns"
-                :key="col"
+            <template v-for="(col, i) in (loaded ? capabilities.columns : placeholderCapabilities)" :key="col ?? i">
+              <div v-if="loaded"
                 class="cursor-default rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-[14px] text-sm font-medium text-sis-text dark:text-dark-text transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--bg-accent-40)] dark:hover:border-[rgba(126,165,224,0.3)]"
                 style="background: var(--bg-card-1)"
                 data-reveal
               >
                 {{ col }}
               </div>
-            </template>
-            <template v-else>
-              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
-              <div class="h-[52px] animate-shimmer rounded-xl bg-[length:200%_100%]" style="background: linear-gradient(90deg, #101b31 0%, #1c2540 50%, #101b31 100%)"></div>
+              <Skeleton v-else class="h-[52px] rounded-xl" />
             </template>
           </div>
         </div>
@@ -143,10 +133,14 @@
 import { storeToRefs } from "pinia";
 import { useSiteStore } from "@/stores/useSiteStore";
 import { useRouter } from "vue-router";
+import Skeleton from "@/components/Skeleton.vue";
 
 const siteStore = useSiteStore();
 const router = useRouter();
 const { sectors, capabilities, loaded } = storeToRefs(siteStore);
 
 const videoId = "jhwNcujM9g0";
+
+const placeholderSectors = Array.from({ length: 5 });
+const placeholderCapabilities = Array.from({ length: 5 });
 </script>

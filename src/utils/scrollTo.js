@@ -1,4 +1,4 @@
-const homeSections = new Set(['hero', 'services', 'architecture'])
+const homeSections = new Set(['hero', 'services'])
 
 const routeMap = {
   about: 'about',
@@ -6,6 +6,7 @@ const routeMap = {
   projects: 'projects',
   capabilities: 'capabilities',
   timeline: 'timeline',
+  architecture: 'architecture',
 }
 
 export function scrollToSection(id, router, route) {

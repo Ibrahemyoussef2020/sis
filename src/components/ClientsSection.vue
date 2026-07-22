@@ -74,7 +74,7 @@ import uniha from "@/images/ourClints/uniha.jpg";
 
 const clients = [
   { name: "Delta", src: delta },
-  { name: "Emitsal", src: emitsal },
+  { name: "Emisal", src: emitsal },
   { name: "Energeya", src: energeya },
   { name: "GCF", src: gcf },
   { name: "Giza Systems", src: gizaSystems },

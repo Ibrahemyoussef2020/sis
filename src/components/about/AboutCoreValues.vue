@@ -20,11 +20,11 @@
         </h2>
 
         <p class="text-sis-muted dark:text-[#8b9ab0] text-lg max-w-xl mx-auto">
-          The unshakeable pillars that define every project at Superior Integrated Solutions.
+          Delivering excellence through a team of highly skilled engineers, blending deep industrial legacy with modern data science.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-container">
         <div v-for="(card, i) in cards" :key="card.title"
              class="reveal reveal-fade-up group relative rounded-2xl p-7 flex flex-col cursor-default transition-all duration-400"
              :style="{ backdropFilter: 'blur(12px)', transitionDelay: `${i * 0.08}s`, background: card.featured ? 'var(--bg-card-2)' : 'var(--bg-card-1)', border: card.featured ? '1px solid var(--border-glass)' : '1px solid var(--border-glass)' }"
@@ -57,34 +57,26 @@
 const cards = [
   {
     number: '01',
-    category: 'Engineering',
+    category: 'Principle',
     icon: 'verified_user',
-    title: 'Technical Rigor',
-    description: 'We apply disciplined engineering principles and rigorous standards to deliver safe, reliable, and high-performance solutions.',
+    title: 'Precision',
+    description: 'Execution of highly complex industrial automation and data science with exactitude.',
     link: false,
   },
   {
     number: '02',
-    category: 'Regional',
-    icon: 'language',
-    title: 'MENA Focus',
-    description: 'Deep regional expertise and local presence enable us to understand unique challenges and deliver relevant, lasting impact.',
-    link: true,
-  },
-  {
-    number: '03',
-    category: 'Partnership',
-    icon: 'gps_fixed',
-    title: 'Customer-Centric',
-    description: 'We build lasting partnerships through transparency, responsiveness, and a relentless focus on our customers\' success.',
+    category: 'Principle',
+    icon: 'tips_and_updates',
+    title: 'Innovation',
+    description: 'Pioneering custom software and IIoT approaches to solve legacy challenges.',
     link: false,
   },
   {
-    number: '04',
-    category: 'Future',
-    icon: 'eco',
-    title: 'Sustainable Innovation',
-    description: 'We embrace innovation responsibly to create sustainable solutions that protect resources and enable future generations.',
+    number: '03',
+    category: 'Principle',
+    icon: 'verified',
+    title: 'Reliability',
+    description: 'Successfully implementing and sustaining large-scale solutions for critical regional industries.',
     link: false,
   },
 ]

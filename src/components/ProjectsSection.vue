@@ -39,12 +39,10 @@
         </div>
       </div>
 
-      <template v-if="loaded">
-        <transition name="fade-tab" mode="out-in">
-          <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3" :key="activeSector">
-            <article
-              v-for="(project, i) in filteredProjects"
-              :key="project.client"
+      <transition name="fade-tab" mode="out-in">
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3" :key="activeSector">
+          <template v-for="(project, i) in displayProjects" :key="project?.client ?? i">
+            <article v-if="loaded"
               class="group rounded-2xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-7 flex flex-col gap-4 reveal reveal-fade-up hover:border-[var(--bg-accent-50)] dark:hover:border-[var(--border-blue-50)] hover:shadow-xl hover:shadow-[var(--shadow-accent-8)] dark:hover:shadow-[var(--shadow-blue-8)] hover:-translate-y-1 transition-all duration-300"
               style="background: var(--bg-card-2)"
               :style="{ transitionDelay: `${i * 0.1}s` }"
@@ -67,13 +65,30 @@
                 <span v-for="tag in project.tags || []" :key="tag" class="text-xs bg-[var(--bg-panel-60)] dark:bg-[rgba(126,165,224,0.06)] text-sis-muted dark:text-[#7688a6] px-2.5 py-1 rounded-md font-medium">{{ tag }}</span>
               </div>
             </article>
-          </div>
-        </transition>
-      </template>
-
-      <div v-else class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        <div v-for="n in 6" :key="n" class="h-52 rounded-2xl skeleton"></div>
-      </div>
+            <div v-else class="rounded-2xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-7 flex flex-col gap-4"
+              style="background: var(--bg-card-2)"
+            >
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <Skeleton class="h-5 w-20 rounded-full" />
+                <Skeleton class="h-5 w-24" />
+              </div>
+              <div class="flex items-center gap-4">
+                <Skeleton class="h-12 w-12 rounded-xl flex-shrink-0" />
+                <Skeleton class="h-6 w-40" />
+              </div>
+              <div class="flex-1 space-y-2">
+                <Skeleton class="h-4 w-full" />
+                <Skeleton class="h-4 w-4/5" />
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2 border-t border-[var(--border-20)] dark:border-[rgba(126,165,224,0.08)]">
+                <Skeleton class="h-5 w-16 rounded-md" />
+                <Skeleton class="h-5 w-20 rounded-md" />
+                <Skeleton class="h-5 w-14 rounded-md" />
+              </div>
+            </div>
+          </template>
+        </div>
+      </transition>
 
       <div v-if="loaded && filteredProjects.length === 0" class="text-center py-20">
         <span class="material-symbols-outlined text-5xl text-[var(--text-border-40)] dark:text-[rgba(126,165,224,0.2)] block mb-4">search_off</span>
@@ -146,11 +161,17 @@ import { storeToRefs } from "pinia";
 import { useSiteStore } from "@/stores/useSiteStore";
 import { useRouter } from "vue-router";
 import AnimatedCounter from "@/components/AnimatedCounter.vue";
+import Skeleton from "@/components/Skeleton.vue";
 
 const siteStore = useSiteStore();
 const router = useRouter();
 const { sectors, projects, loaded } = storeToRefs(siteStore);
 const activeSector = ref("oil-gas");
+
+const displayProjects = computed(() => {
+  if (!loaded.value) return Array.from({ length: 6 });
+  return filteredProjects.value;
+});
 
 function iconForSector(label) {
   if (!label) return "precision_manufacturing";
@@ -172,7 +193,7 @@ const filteredProjects = computed(() => {
 const stats = [
   { value: 12, suffix: "+", label: "Projects Delivered" },
   { value: 5, suffix: "", label: "Industry Sectors" },
-  { value: 7, suffix: "+", label: "Countries" },
+  { value: 4, suffix: "+", label: "Countries" },
   { value: 100, suffix: "%", label: "On-Site Commissioning" },
 ];
 

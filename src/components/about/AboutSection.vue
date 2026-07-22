@@ -9,30 +9,20 @@
       </div>
       <div class="grid gap-8 lg:grid-cols-[1.35fr_0.85fr]">
         <div class="space-y-5">
-          <template v-if="loaded">
-            <p v-for="(paragraph, index) in about.paragraphs" :key="index" class="leading-relaxed text-sis-muted" data-reveal>
+          <template v-for="(paragraph, index) in (loaded ? about.paragraphs : placeholderText)" :key="index">
+            <p v-if="loaded" class="leading-relaxed text-sis-muted" data-reveal>
               {{ paragraph }}
             </p>
+            <Skeleton v-else class="h-5 rounded-full" :class="skeletonWidths[index % skeletonWidths.length]" />
           </template>
-          <div v-else class="space-y-4">
-            <div class="h-5 w-5/6 rounded-full skeleton"></div>
-            <div class="h-5 w-full rounded-full skeleton"></div>
-            <div class="h-5 w-4/5 rounded-full skeleton"></div>
-          </div>
         </div>
         <div class="grid gap-4">
-          <template v-if="loaded">
-            <div v-for="pillar in about.pillars" :key="pillar.title" class="rounded-3xl border border-sis-border bg-sis-panel p-4 shadow-sis">
+          <template v-for="(pillar, i) in (loaded ? about.pillars : [1,2,3])" :key="pillar?.title ?? i">
+            <div v-if="loaded" class="rounded-3xl border border-sis-border bg-sis-panel p-4 shadow-sis">
               <h3 class="text-lg font-semibold text-sis-primary">{{ pillar.title }}</h3>
               <p class="mt-3 text-sm leading-6 text-sis-muted">{{ pillar.body }}</p>
             </div>
-          </template>
-          <template v-else>
-            <div class="space-y-4">
-              <div class="h-24 rounded-3xl skeleton"></div>
-              <div class="h-24 rounded-3xl skeleton"></div>
-              <div class="h-24 rounded-3xl skeleton"></div>
-            </div>
+            <Skeleton v-else class="h-24 rounded-3xl" />
           </template>
         </div>
       </div>
@@ -44,7 +34,11 @@
 import { storeToRefs } from 'pinia'
 import { useSiteStore } from '@/stores/useSiteStore'
 import SectionWrapper from '@/components/SectionWrapper.vue'
+import Skeleton from '@/components/Skeleton.vue'
 
 const siteStore = useSiteStore()
 const { about, loaded } = storeToRefs(siteStore)
+
+const placeholderText = Array.from({ length: 3 })
+const skeletonWidths = ['w-5/6', 'w-full', 'w-4/5']
 </script>
