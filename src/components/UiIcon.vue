@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" :width="size" :height="size">
     <template v-if="name === 'monitor'">
       <rect x="2" y="3" width="20" height="14" rx="2" />
       <path d="M8 21h8M12 17v4M6 8h.01M9 8h6" />
@@ -35,6 +35,28 @@
       <circle cx="12" cy="12" r="3" />
       <path d="M12 1v2M12 21v2M1 12h2M21 12h2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
     </template>
+    <template v-else-if="name === 'arrow'">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </template>
+    <template v-else-if="name === 'water'">
+      <path d="M12 2S5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13Z" />
+      <path d="M9 16c.7 1.3 1.7 2 3 2" />
+    </template>
+    <template v-else-if="name === 'factory'">
+      <path d="M3 21V10l7 4v-4l7 4V6h4v15Z" />
+      <path d="M7 18h2M13 18h2M18 18h2" />
+    </template>
+    <template v-else-if="name === 'science'">
+      <path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3" />
+      <path d="M7.5 16h9" />
+    </template>
+    <template v-else-if="name === 'oil'">
+      <path d="M7 22h10M9 22l1-12h4l1 12M8 10h8M10 6h4M12 2v4M5 8l5 2M19 8l-5 2" />
+    </template>
+    <template v-else-if="name === 'engineering'">
+      <path d="m14.7 6.3 3-3a4 4 0 0 1-5 5l-6.4 6.4a2 2 0 1 0 3 3l6.4-6.4a4 4 0 0 1 5-5l-3 3" />
+      <path d="m5 4 3 3" />
+    </template>
     <path v-else d="M12 20V10M18 20V4M6 20v-4" />
   </svg>
 </template>
@@ -44,6 +66,10 @@ defineProps({
   name: {
     type: String,
     required: true,
+  },
+  size: {
+    type: [Number, String],
+    default: 20,
   },
 })
 </script>

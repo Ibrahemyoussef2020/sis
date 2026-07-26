@@ -1,16 +1,23 @@
 <template>
   <HeroSection />
-  <LazyLoadSection :loader="() => import('@/components/PillarsSection.vue')" skeleton-class="min-h-[24rem] rounded-none" />
-  <LazyLoadSection :loader="() => import('@/components/IntegrationSection.vue')" skeleton-class="min-h-[36rem]" />
-  <LazyLoadSection :loader="() => import('@/components/ServicesSection.vue')" skeleton-class="min-h-[28rem]" />
-  <LazyLoadSection :loader="() => import('@/components/IntelligenceBand.vue')" skeleton-class="min-h-[32rem]" />
-  <LazyLoadSection :loader="() => import('@/components/Workflow.vue')" skeleton-class="min-h-[48rem]" />
-  <LazyLoadSection :loader="() => import('@/components/MethodologySection.vue')" skeleton-class="min-h-[36rem]" />
-  <LazyLoadSection :loader="() => import('@/components/PartnersSection.vue')" skeleton-class="min-h-[36rem]" />
-  <LazyLoadSection :loader="() => import('@/components/ClientsSection.vue')" skeleton-class="min-h-[28rem]" />
+  <PillarsSection />
+  <IntegrationSection />
+  <ServicesSection />
+  <IntelligenceBand />
+  <Workflow />
+  <MethodologySection />
+  <PartnersSection />
+  <ClientsSection />
 </template>
 
 <script setup>
 import HeroSection from "@/components/HeroSection.vue";
-import LazyLoadSection from "@/components/LazyLoadSection.vue";
+import PillarsSection from "@/components/PillarsSection.vue";
+import IntegrationSection from "@/components/IntegrationSection.vue";
+import ServicesSection from "@/components/ServicesSection.vue";
+import IntelligenceBand from "@/components/IntelligenceBand.vue";
+import Workflow from "@/components/Workflow.vue";
+import MethodologySection from "@/components/MethodologySection.vue";
+import PartnersSection from "@/components/PartnersSection.vue";
+import ClientsSection from "@/components/ClientsSection.vue";
 </script>
