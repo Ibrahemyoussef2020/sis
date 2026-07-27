@@ -3,7 +3,7 @@
     <transition name="toast-slide">
       <div
         v-if="visible"
-        class="fixed top-6 right-6 z-[99999] flex items-center gap-4 bg-white dark:bg-[#101b31] rounded-2xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] p-5 pr-4 max-w-md"
+        class="fixed top-6 right-6 z-[99999] flex items-center gap-4 bg-white dark:bg-[#101b31] rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] p-5 pr-4 max-w-md"
       >
         <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center flex-shrink-0">
           <span class="material-symbols-outlined" style="font-size: 22px;">check</span>

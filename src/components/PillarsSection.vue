@@ -20,7 +20,7 @@
         <article
           v-for="(pillar, i) in pillars"
           :key="pillar.step"
-          class="flex flex-col rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[26px] transition-all duration-300 hover:-translate-y-[5px] hover:border-[var(--bg-accent-40)] dark:hover:border-[rgba(126,165,224,0.3)]"
+          class="flex flex-col rounded-xl border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[26px] transition-all duration-300 hover:-translate-y-[5px] hover:border-[var(--bg-accent-40)] dark:hover:border-[rgba(126,165,224,0.3)]"
           style="background: var(--bg-card-1)"
           data-reveal
         >

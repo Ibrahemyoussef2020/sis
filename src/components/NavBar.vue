@@ -20,6 +20,10 @@
           alt="SiS Logo"
           class="h-8 w-auto sm:h-9 hidden dark:block"
         />
+        <span class="hidden md:grid gap-px min-w-0">
+          <strong class="text-[0.79rem] font-[800] leading-tight text-sis-text dark:text-white truncate">Superior Integrated Solutions</strong>
+          <small class="text-[0.58rem] font-[650] tracking-[0.045em] uppercase text-sis-muted dark:text-[#aebfd8] truncate">Industrial Automation & Digital Integration</small>
+        </span>
       </router-link>
 
       <div class="hidden md:flex items-center flex-1 gap-8">
@@ -55,19 +59,15 @@
       <button
         class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-sis-border dark:border-white/10 text-sis-text dark:text-white md:hidden transition-all duration-200 hover:bg-[var(--bg-accent-10)] dark:hover:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.12)] active:scale-[0.92] flex-shrink-0"
         @click="toggleMenu"
+        :aria-expanded="menuOpen"
         aria-label="Menu"
       >
-        <svg
-          class="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M3 12h18M3 6h18M3 18h18" />
-        </svg>
+        <UiIcon
+          name="chevron-down"
+          :size="24"
+          class="transition-transform duration-200"
+          :class="menuOpen ? 'rotate-180' : ''"
+        />
       </button>
     </div>
 
@@ -82,7 +82,7 @@
             :key="item.label"
             :to="{ name: item.route }"
             @click="toggleMenu"
-            class="rounded-3xl px-4 py-3 transition hover:bg-[var(--bg-accent-10)] dark:hover:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.12)] flex items-center gap-3"
+            class="rounded-xl px-4 py-3 transition hover:bg-[var(--bg-accent-10)] dark:hover:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.12)] flex items-center gap-3"
             :class="
               $route.name === item.route
                 ? 'text-sis-accent bg-[var(--bg-accent-10)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.12)] dark:text-[var(--accent-blue)] font-semibold'
@@ -102,6 +102,7 @@ import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { scrollToSection } from "@/utils/scrollTo.js";
 import ThemeToggle from "@/components/ThemeToggle.vue";
+import UiIcon from "@/components/UiIcon.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -114,7 +115,6 @@ const mainNav = [
   { label: "About Us", route: "about" },
   { label: "Projects", route: "projects" },
   { label: "Architecture", route: "architecture" },
-  { label: "Timeline", route: "timeline" },
   { label: "Contact", route: "contact" },
 ];
 

@@ -1,36 +1,7 @@
-export default {
-  title: "A Trajectory of Growth",
-  subtitle: "Revolutionizing Industrial Automation",
-  milestones: [
-    {
-      year: "2020",
-      label: "Founding Year",
-      description:
-        "Focused on initial technical foundations.",
-    },
-    {
-      year: "2021",
-      label: "Growth & Validation",
-      description:
-        "Dedicated to refining the Minimum Viable Product (MVP) and establishing market fit.",
-    },
-    {
-      year: "22–23",
-      label: "Establishing Market Presence",
-      description:
-        "Driven by international expansion and the acquisition of major contracts.",
-    },
-    {
-      year: "2024",
-      label: "Scaling Operations",
-      description:
-        "Characterized by significant team expansion and aggressive revenue growth.",
-    },
-    {
-      year: "2025",
-      label: "Maturity & Future Vision",
-      description:
-        "Achieving leadership in emerging technologies and continuous industrial innovation.",
-    },
-  ],
-};
+export default [
+  { year: '2020', title: 'Foundation', text: 'Industrial engineering foundations and initial operations.' },
+  { year: '2021', title: 'Validation', text: 'Refined the offer and established market fit.' },
+  { year: '22–23', title: 'Regional presence', text: 'International expansion and larger contracts.' },
+  { year: '2024', title: 'Scaling', text: 'Team expansion and broader delivery capacity.' },
+  { year: '2025+', title: 'Industrial intelligence', text: 'Emerging technology and continuous innovation.' },
+]

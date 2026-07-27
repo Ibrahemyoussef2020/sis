@@ -30,7 +30,7 @@
         <div
           v-for="(stat, index) in stats"
           :key="stat.label"
-          class="rounded-2xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] px-6 py-5 flex flex-col gap-1 reveal reveal-fade-up"
+          class="rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] px-6 py-5 flex flex-col gap-1 reveal reveal-fade-up"
           style="background: var(--bg-card-2)"
           :style="{ transitionDelay: `${0.1 + index * 0.1}s` }"
         >
@@ -43,7 +43,7 @@
         <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3" :key="activeSector">
           <template v-for="(project, i) in displayProjects" :key="project?.client ?? i">
             <article v-if="loaded"
-              class="group rounded-2xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-7 flex flex-col gap-4 reveal reveal-fade-up hover:border-[var(--bg-accent-50)] dark:hover:border-[var(--border-blue-50)] hover:shadow-xl hover:shadow-[var(--shadow-accent-8)] dark:hover:shadow-[var(--shadow-blue-8)] hover:-translate-y-1 transition-all duration-300"
+              class="group rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-7 flex flex-col gap-4 reveal reveal-fade-up hover:border-[var(--bg-accent-50)] dark:hover:border-[var(--border-blue-50)] hover:shadow-xl hover:shadow-[var(--shadow-accent-8)] dark:hover:shadow-[var(--shadow-blue-8)] hover:-translate-y-1 transition-all duration-300"
               style="background: var(--bg-card-2)"
               :style="{ transitionDelay: `${i * 0.1}s` }"
             >
@@ -65,7 +65,7 @@
                 <span v-for="tag in project.tags || []" :key="tag" class="text-xs bg-[var(--bg-panel-60)] dark:bg-[rgba(126,165,224,0.06)] text-sis-muted dark:text-[#7688a6] px-2.5 py-1 rounded-md font-medium">{{ tag }}</span>
               </div>
             </article>
-            <div v-else class="rounded-2xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-7 flex flex-col gap-4"
+            <div v-else class="rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] p-7 flex flex-col gap-4"
               style="background: var(--bg-card-2)"
             >
               <div class="flex items-center justify-between gap-2 flex-wrap">

@@ -13,7 +13,7 @@
       </div>
 
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
-        <div class="lg:w-2/5 p-10 rounded-3xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] reveal reveal-slide-in hover:border-[var(--bg-accent-30)] dark:hover:border-[var(--accent-blue)]/30 transition-colors"
+        <div class="lg:w-2/5 p-10 rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] reveal reveal-slide-in hover:border-[var(--bg-accent-30)] dark:hover:border-[var(--accent-blue)]/30 transition-colors"
              style="background: var(--bg-card-2)">
           <div class="w-14 h-14 bg-[var(--bg-accent-10)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] text-sis-accent dark:text-[var(--accent-blue)] rounded-xl flex items-center justify-center mb-6">
             <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
@@ -35,7 +35,7 @@
           <div class="w-1 bg-gradient-to-b lg:bg-gradient-to-r lg:w-full lg:h-1 from-[var(--accent-teal)] via-sis-accent to-sis-accent dark:from-[var(--accent-teal)] dark:via-[var(--accent-blue)] dark:to-[var(--accent-blue)] h-24 lg:-mx-4 opacity-50"></div>
         </div>
 
-        <div class="lg:w-2/5 p-10 rounded-3xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] reveal reveal-slide-in hover:border-[var(--bg-accent-30)] dark:hover:border-[var(--accent-blue)]/30 transition-colors"
+        <div class="lg:w-2/5 p-10 rounded-xl border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] reveal reveal-slide-in hover:border-[var(--bg-accent-30)] dark:hover:border-[var(--accent-blue)]/30 transition-colors"
              style="background: var(--bg-card-2); transition-delay: 0.2s">
           <div class="w-14 h-14 bg-[var(--bg-accent-10)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] text-sis-accent dark:text-[var(--accent-blue)] rounded-xl flex items-center justify-center mb-6">
             <span class="material-symbols-outlined text-3xl">cloud</span>

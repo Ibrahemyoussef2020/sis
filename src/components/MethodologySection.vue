@@ -26,7 +26,7 @@
       </div>
 
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-[5fr_7fr] items-start" data-reveal>
-        <div class="flex flex-col gap-3 rounded-2xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.05)] p-0 backdrop-blur-[16px]" role="tablist" aria-label="Methodology stages">
+        <div class="flex flex-col gap-3 rounded-xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.05)] p-0 backdrop-blur-[16px]" role="tablist" aria-label="Methodology stages">
           <template v-for="(stage, i) in (loaded ? methodology.stages : [1,2,3])" :key="stage?.number ?? i">
             <button v-if="loaded"
               class="flex items-center gap-5 rounded-r-lg border-l-4 border-transparent bg-none px-6 py-5 text-left transition-all duration-300"
@@ -59,7 +59,7 @@
             <Transition name="mth-fade" mode="out-in">
               <div
                 :key="activeStage"
-                class="relative flex min-h-[20rem] flex-col justify-center overflow-hidden rounded-2xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.06)] p-12 backdrop-blur-[12px]"
+                class="relative flex min-h-[20rem] flex-col justify-center overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.06)] p-12 backdrop-blur-[12px]"
                 role="tabpanel"
                 :id="`mth-pane-${activeStage}`"
                 :aria-labelledby="`mth-tab-${activeStage}`"
@@ -106,7 +106,7 @@
               </div>
             </Transition>
           </template>
-          <div v-else class="relative flex min-h-[20rem] flex-col justify-center overflow-hidden rounded-2xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.06)] p-12 backdrop-blur-[12px]">
+          <div v-else class="relative flex min-h-[20rem] flex-col justify-center overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.06)] p-12 backdrop-blur-[12px]">
             <Skeleton class="mb-5 h-5 w-1/4" />
             <Skeleton class="mb-4 h-6 w-3/4" />
             <Skeleton class="mb-2 h-4 w-full" />

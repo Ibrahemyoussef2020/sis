@@ -25,7 +25,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 stagger-container">
 
         <div v-for="(sector, i) in sectors" :key="sector.title"
-             class="reveal reveal-fade-up group rounded-2xl p-8 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+             class="reveal reveal-fade-up group rounded-xl p-8 transition-all duration-300 cursor-pointer backdrop-blur-sm"
              :style="{ background: isDark ? '' : 'var(--bg-card-1)', border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid var(--border-glass)', transitionDelay: `${i * 0.1}s` }"
              :class="isDark ? 'bg-white/5 hover:bg-[#0d6efd] border-white/10 hover:border-[#0d6efd]' : 'hover:shadow-xl border-[var(--border-30)]'">
           <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-8 transition-colors duration-300"
@@ -33,7 +33,7 @@
             <span class="material-symbols-outlined" :class="isDark ? 'text-white' : 'text-sis-accent'" style="font-size: 22px;">{{ sector.icon }}</span>
           </div>
           <h3 class="text-2xl font-bold text-sis-text dark:text-white mb-4">{{ sector.title }}</h3>
-          <p class="text-sis-muted dark:text-[#a1a1aa] group-hover:text-white/90 leading-relaxed text-sm transition-colors duration-300">
+          <p class="text-sis-muted dark:text-[#a1a1aa] group-hover:text-sis-text dark:group-hover:text-white/90 leading-relaxed text-sm transition-colors duration-300">
             {{ sector.description }}
           </p>
         </div>

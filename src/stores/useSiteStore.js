@@ -8,7 +8,6 @@ import roadmap from "@/dummydata/roadmap";
 import projects from "@/dummydata/projects";
 import sectors from "@/dummydata/sectors";
 import capabilities from "@/dummydata/capabilities";
-import timeline from "@/dummydata/timeline";
 import partners from "@/dummydata/partners";
 import contact from "@/dummydata/contact";
 import industries from "@/dummydata/industries";
@@ -25,7 +24,6 @@ export const useSiteStore = defineStore("site", {
     projects: null,
     sectors: null,
     capabilities: null,
-    timeline: null,
     partners: null,
     contact: null,
     industries: null,
@@ -41,7 +39,6 @@ export const useSiteStore = defineStore("site", {
       this.projects = projects;
       this.sectors = sectors;
       this.capabilities = capabilities;
-      this.timeline = timeline;
       this.partners = partners;
       this.contact = contact;
       this.industries = industries;

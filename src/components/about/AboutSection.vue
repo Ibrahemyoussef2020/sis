@@ -18,11 +18,11 @@
         </div>
         <div class="grid gap-4">
           <template v-for="(pillar, i) in (loaded ? about.pillars : [1,2,3])" :key="pillar?.title ?? i">
-            <div v-if="loaded" class="rounded-3xl border border-sis-border bg-sis-panel p-4 shadow-sis">
+            <div v-if="loaded" class="rounded-xl border border-sis-border bg-sis-panel p-4 shadow-sis">
               <h3 class="text-lg font-semibold text-sis-primary">{{ pillar.title }}</h3>
               <p class="mt-3 text-sm leading-6 text-sis-muted">{{ pillar.body }}</p>
             </div>
-            <Skeleton v-else class="h-24 rounded-3xl" />
+            <Skeleton v-else class="h-24 rounded-xl" />
           </template>
         </div>
       </div>

@@ -1,12 +1,13 @@
 <template>
   <div class="relative" ref="dropdownRef">
     <button
-      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-30)] dark:border-white/10 text-sis-muted dark:text-white/80 transition-all duration-200 hover:bg-sis-panel dark:hover:bg-white/10 hover:text-sis-text dark:hover:text-white active:scale-[0.92]"
+      class="inline-flex h-10 items-center gap-0.5 px-2.5 rounded-lg border border-[var(--border-30)] dark:border-white/10 text-sis-muted dark:text-white/80 transition-all duration-200 hover:bg-sis-panel dark:hover:bg-white/10 hover:text-sis-text dark:hover:text-white active:scale-[0.92]"
       @click="open = !open"
       aria-label="Toggle theme"
     >
       <span v-if="resolvedTheme === 'light'" class="material-symbols-outlined text-lg">light_mode</span>
       <span v-else class="material-symbols-outlined text-lg">dark_mode</span>
+      <span class="material-symbols-outlined text-sm transition-transform duration-200" :class="open ? 'rotate-180' : ''">expand_more</span>
     </button>
 
     <Transition name="content-fade">

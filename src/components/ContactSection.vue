@@ -16,11 +16,11 @@
 
       <div class="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start">
         <div class="flex flex-col gap-8 reveal reveal-fade-up" style="transition-delay: 0.1s;">
-          <div class="rounded-3xl p-8 border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] hover:shadow-md transition-shadow duration-300" style="background: var(--bg-card-2)">
+          <div class="rounded-xl p-8 border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] hover:shadow-md transition-shadow duration-300" style="background: var(--bg-card-2)">
             <h3 class="text-2xl font-bold text-sis-text dark:text-[#eaf1fb] mb-8">Contact Information</h3>
             <div class="space-y-8">
               <div class="flex items-start gap-5">
-                <div class="w-14 h-14 rounded-2xl bg-[var(--bg-accent-8)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.08)] text-sis-accent dark:text-[var(--accent-blue)] flex items-center justify-center flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-[var(--bg-accent-8)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.08)] text-sis-accent dark:text-[var(--accent-blue)] flex items-center justify-center flex-shrink-0">
                   <span class="material-symbols-outlined" style="font-size: 26px;">language</span>
                 </div>
                 <div>
@@ -29,7 +29,7 @@
                 </div>
               </div>
               <div class="flex items-start gap-5">
-                <div class="w-14 h-14 rounded-2xl bg-[var(--bg-accent-8)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.08)] text-sis-accent dark:text-[var(--accent-blue)] flex items-center justify-center flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-[var(--bg-accent-8)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.08)] text-sis-accent dark:text-[var(--accent-blue)] flex items-center justify-center flex-shrink-0">
                   <span class="material-symbols-outlined" style="font-size: 26px;">mail</span>
                 </div>
                 <div>
@@ -38,7 +38,7 @@
                 </div>
               </div>
               <div class="flex items-start gap-5">
-                <div class="w-14 h-14 rounded-2xl bg-[var(--bg-accent-8)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.08)] text-sis-accent dark:text-[var(--accent-blue)] flex items-center justify-center flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-[var(--bg-accent-8)] dark:bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.08)] text-sis-accent dark:text-[var(--accent-blue)] flex items-center justify-center flex-shrink-0">
                   <span class="material-symbols-outlined" style="font-size: 26px;">call</span>
                 </div>
                 <div>
@@ -51,7 +51,7 @@
             </div>
           </div>
 
-          <div class="rounded-3xl p-8 text-white relative overflow-hidden shadow-lg" style="background: linear-gradient(135deg, #1a3a5c, #0e1e34)">
+          <div class="rounded-xl p-8 text-white relative overflow-hidden shadow-lg" style="background: linear-gradient(135deg, #1a3a5c, #0e1e34)">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl transform translate-x-8 -translate-y-8 pointer-events-none"></div>
             <h4 class="text-xl font-bold mb-2">Need Technical Support?</h4>
             <p class="text-white/60 text-sm mb-6 leading-relaxed">Our engineering team is available 24/7 for critical infrastructure assistance.</p>
@@ -62,7 +62,7 @@
           </div>
         </div>
 
-        <form class="rounded-3xl p-10 lg:p-12 border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] reveal reveal-fade-up" style="background: var(--bg-card-2); transition-delay: 0.2s;" @submit.prevent="handleSubmit">
+        <form class="rounded-xl p-10 lg:p-12 border border-[var(--border-30)] dark:border-[rgba(126,165,224,0.14)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] reveal reveal-fade-up" style="background: var(--bg-card-2); transition-delay: 0.2s;" @submit.prevent="handleSubmit">
           <div class="mb-10">
             <h3 class="text-3xl font-black text-sis-text dark:text-[#eaf1fb] mb-3">Send us a message</h3>
             <p class="text-sis-muted dark:text-[#aebfd8]">Fill out the form below and our team will get back to you within 24 hours.</p>

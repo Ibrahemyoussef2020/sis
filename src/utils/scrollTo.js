@@ -5,7 +5,6 @@ const routeMap = {
   contact: 'contact',
   projects: 'projects',
   capabilities: 'capabilities',
-  timeline: 'timeline',
   architecture: 'architecture',
 }
 

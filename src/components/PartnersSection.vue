@@ -38,7 +38,7 @@
         </div>
         <div class="grid grid-cols-2 gap-[14px] sm:grid-cols-3 lg:grid-cols-6">
           <template v-for="(p, i) in (loaded ? partners.technology : placeholderTech)" :key="p?.name ?? i">
-            <div v-if="loaded" class="group relative flex cursor-default flex-col items-center gap-3 overflow-hidden rounded-2xl border border-[rgba(126,165,224,0.12)] p-6 backdrop-blur-[12px] transition-all duration-[400ms] hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)]" style="background: rgba(126,165,224,0.04); transition-timing-function: cubic-bezier(0.4,0,0.2,1)" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
+            <div v-if="loaded" class="group relative flex cursor-default flex-col items-center gap-3 overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] p-6 backdrop-blur-[12px] transition-all duration-[400ms] hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)]" style="background: rgba(126,165,224,0.04); transition-timing-function: cubic-bezier(0.4,0,0.2,1)" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
               <div v-if="p.logo && !errored.has(p.name)" class="flex h-[4.5rem] w-[4.5rem] items-center justify-center overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.08)] p-2 transition-all duration-300 group-hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.25)] group-hover:bg-[rgba(126,165,224,0.14)] group-hover:shadow-[0_0_20px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)]">
                 <img :src="p.logo" :alt="p.name" class="h-full w-full object-contain transition-[filter] duration-300" style="filter: brightness(0.9) contrast(1.1)" loading="lazy" @error="onImgError(p.name)" />
               </div>
@@ -48,7 +48,7 @@
               <span class="text-center font-sans text-[0.78rem] font-medium leading-tight text-sis-muted dark:text-dark-text-muted transition-colors duration-300 group-hover:text-sis-text dark:group-hover:text-dark-text">{{ p.name }}</span>
               <div class="absolute left-0 right-0 top-0 h-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-60" :style="{ background: `linear-gradient(90deg, ${p.color}, transparent)` }"></div>
             </div>
-            <div v-else class="flex flex-col items-center gap-3 rounded-2xl border border-[rgba(126,165,224,0.12)] p-6" style="background: rgba(126,165,224,0.04);">
+            <div v-else class="flex flex-col items-center gap-3 rounded-xl border border-[rgba(126,165,224,0.12)] p-6" style="background: rgba(126,165,224,0.04);">
               <Skeleton class="h-[4.5rem] w-[4.5rem] rounded-xl" />
               <Skeleton class="h-4 w-20" />
             </div>
@@ -63,7 +63,7 @@
         </div>
         <div class="grid grid-cols-2 gap-[14px] sm:grid-cols-2 lg:grid-cols-4">
           <template v-for="(p, i) in (loaded ? partners.ecosystem : placeholderEcosystem)" :key="p?.name ?? i">
-            <div v-if="loaded" class="group relative flex cursor-default flex-col items-center gap-3 overflow-hidden rounded-2xl border border-[rgba(126,165,224,0.12)] p-6 backdrop-blur-[12px] transition-all duration-[400ms] hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)]" style="background: rgba(126,165,224,0.04); transition-timing-function: cubic-bezier(0.4,0,0.2,1)" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
+            <div v-if="loaded" class="group relative flex cursor-default flex-col items-center gap-3 overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] p-6 backdrop-blur-[12px] transition-all duration-[400ms] hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)]" style="background: rgba(126,165,224,0.04); transition-timing-function: cubic-bezier(0.4,0,0.2,1)" @mousemove="onTilt($event)" @mouseleave="onTiltReset($event)">
               <div v-if="p.logo && !errored.has(p.name)" class="flex h-[4.5rem] w-[4.5rem] items-center justify-center overflow-hidden rounded-xl border border-[rgba(126,165,224,0.12)] bg-[rgba(126,165,224,0.08)] p-2 transition-all duration-300 group-hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.25)] group-hover:bg-[rgba(126,165,224,0.14)] group-hover:shadow-[0_0_20px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)]">
                 <img :src="p.logo" :alt="p.name" class="h-full w-full object-contain transition-[filter] duration-300" style="filter: brightness(0.9) contrast(1.1)" loading="lazy" @error="onImgError(p.name)" />
               </div>
@@ -73,7 +73,7 @@
               <span class="text-center font-sans text-[0.78rem] font-medium leading-tight text-sis-muted dark:text-dark-text-muted transition-colors duration-300 group-hover:text-sis-text dark:group-hover:text-dark-text">{{ p.name }}</span>
               <div class="absolute left-0 right-0 top-0 h-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-60" :style="{ background: `linear-gradient(90deg, ${p.color}, transparent)` }"></div>
             </div>
-            <div v-else class="flex flex-col items-center gap-3 rounded-2xl border border-[rgba(126,165,224,0.12)] p-6" style="background: rgba(126,165,224,0.04);">
+            <div v-else class="flex flex-col items-center gap-3 rounded-xl border border-[rgba(126,165,224,0.12)] p-6" style="background: rgba(126,165,224,0.04);">
               <Skeleton class="h-[4.5rem] w-[4.5rem] rounded-xl" />
               <Skeleton class="h-4 w-20" />
             </div>

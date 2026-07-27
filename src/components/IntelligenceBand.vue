@@ -29,7 +29,7 @@
       <div class="mb-[18px] grid grid-cols-1 gap-[18px] md:grid-cols-3">
         <!-- OEE Gauge -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          class="flex flex-col items-center gap-2 rounded-xl border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
           style="background: var(--bg-card-2)"
         >
           <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">OEE / Efficiency</span>
@@ -46,7 +46,7 @@
 
         <!-- Availability Gauge -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          class="flex flex-col items-center gap-2 rounded-xl border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
           style="background: var(--bg-card-2)"
         >
           <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">Availability</span>
@@ -63,7 +63,7 @@
 
         <!-- Throughput bars -->
         <div
-          class="flex flex-col items-center gap-2 rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
+          class="flex flex-col items-center gap-2 rounded-xl border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)] p-[22px]"
           style="background: var(--bg-card-2)"
         >
           <span class="self-start font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">Throughput / min</span>
@@ -85,7 +85,7 @@
 
       <div
         ref="waveformWrap"
-        class="relative h-[130px] overflow-hidden rounded-[14px] border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)]"
+        class="relative h-[130px] overflow-hidden rounded-xl border border-[var(--border-40)] dark:border-[rgba(126,165,224,0.14)]"
         style="background: var(--bg-card-3)"
       >
         <span class="absolute left-4 top-3 z-[2] font-mono text-[10.5px] uppercase tracking-[0.14em] text-sis-muted dark:text-[#7688a6]">Live plant telemetry</span>

@@ -29,7 +29,7 @@
         </div>
 
         <!-- Right: Image (hidden on mobile, visible on lg+) -->
-        <div class="hidden lg:block reveal reveal-fade-up rounded-2xl overflow-hidden border border-[var(--border-30)] dark:border-white/10 shadow-xl" style="transition-delay: 0.15s">
+        <div class="hidden lg:block reveal reveal-fade-up rounded-xl overflow-hidden border border-[var(--border-30)] dark:border-white/10 shadow-xl" style="transition-delay: 0.15s">
           <img
             alt="Industrial Automation Control Center"
             class="w-full h-auto object-cover block"

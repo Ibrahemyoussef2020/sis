@@ -39,7 +39,7 @@
           class="client-carousel"
         >
           <SwiperSlide v-for="(client, i) in clients" :key="i" class="!w-auto">
-            <div class="flex flex-col items-center gap-3 rounded-2xl py-2">
+            <div class="flex flex-col items-center gap-3 rounded-xl py-2">
               <img
                 :src="client.src"
                 :alt="client.name"

@@ -125,7 +125,7 @@
 
         <!-- Right column: OT-IT control mesh -->
         <div
-          class="relative aspect-[16/12] overflow-hidden rounded-[20px] border border-[var(--border-50)] dark:border-[rgba(126,165,224,0.3)] shadow-[0_46px_90px_-42px_#000,inset_0_1px_0_rgba(255,255,255,0.05)]"
+          class="relative aspect-[16/12] overflow-hidden rounded-xl border border-[var(--border-50)] dark:border-[rgba(126,165,224,0.3)] shadow-[0_46px_90px_-42px_#000,inset_0_1px_0_rgba(255,255,255,0.05)]"
         >
           <!-- Background image -->
           <div class="absolute inset-0">

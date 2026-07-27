@@ -20,7 +20,7 @@
       </div>
 
       <!-- ── Central visual ─────────────────────────────────────────── -->
-      <div class="relative w-full max-w-[56rem] mx-auto mb-16 md:mb-20 rounded-[0.875rem] overflow-hidden border border-[rgba(126,165,224,0.12)] card-glass" data-reveal>
+      <div class="relative w-full max-w-[56rem] mx-auto mb-16 md:mb-20 rounded-xl overflow-hidden border border-[rgba(126,165,224,0.12)] card-glass" data-reveal>
         <div class="max-sm:hidden">
           <!-- SVG architectural diagram (desktop) -->
           <svg
@@ -738,7 +738,7 @@
       <!-- ── Stage cards ─────────────────────────────────────────────── -->
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <!-- Stage 1: Mind -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-xl border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
             <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- brain/psychology icon -->
@@ -772,7 +772,7 @@
         </article>
 
         <!-- Stage 2: AI -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-xl border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
             <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- AI/neural icon -->
@@ -813,7 +813,7 @@
         </article>
 
         <!-- Stage 3: PC (Orchestration) -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.06)] border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.2)] backdrop-blur-[12px] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.4)] hover:shadow-[0_0_40px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.18)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-xl border bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.06)] border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.2)] backdrop-blur-[12px] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.4)] hover:shadow-[0_0_40px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.18)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
             <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.18)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- control panel icon -->
@@ -850,7 +850,7 @@
         </article>
 
         <!-- Stage 4: Factory -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-xl border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
             <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- factory/manufacturing icon -->
@@ -883,7 +883,7 @@
         </article>
 
         <!-- Stage 5: Human -->
-        <article class="group p-6 flex flex-col gap-3 rounded-[0.875rem] border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
+        <article class="group p-6 flex flex-col gap-3 rounded-xl border card-glass-border dark:border-[rgba(126,165,224,0.12)] transition-all duration-[400] ease-in-out hover:bg-[rgba(126,165,224,0.08)] hover:border-sis-accent dark:hover:border-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.3)] hover:shadow-[0_0_32px_rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] hover:-translate-y-1" data-reveal>
           <div class="flex items-center gap-3 mb-1">
             <div class="w-10 h-10 rounded-lg bg-[rgba(var(--accent-blue-r), var(--accent-blue-g), var(--accent-blue-b),0.1)] flex items-center justify-center shrink-0 text-[var(--accent-blue)] transition-colors duration-300 ease-in-out group-hover:bg-[var(--accent-blue)] group-hover:text-[#00344d]">
               <!-- people/groups icon -->

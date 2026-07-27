@@ -38,6 +38,9 @@
     <template v-else-if="name === 'arrow'">
       <path d="M5 12h14M13 6l6 6-6 6" />
     </template>
+    <template v-else-if="name === 'chevron-down'">
+      <path d="M6 9l6 6 6-6" />
+    </template>
     <template v-else-if="name === 'water'">
       <path d="M12 2S5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13Z" />
       <path d="M9 16c.7 1.3 1.7 2 3 2" />

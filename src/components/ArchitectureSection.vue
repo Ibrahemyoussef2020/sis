@@ -30,7 +30,7 @@
       <div class="flex flex-col gap-8">
 
         <!-- ===================== DIAGRAM CARD (fully HTML/CSS, no SVG art) ===================== -->
-        <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-[0.875rem] p-4 sm:p-6 lg:p-8" data-reveal>
+        <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-xl p-4 sm:p-6 lg:p-8" data-reveal>
 
           <div class="lg:flex lg:gap-5">
 
@@ -178,7 +178,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Protocols card -->
-          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-[0.875rem] p-6" data-reveal>
+          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-xl p-6" data-reveal>
             <h4 class="flex items-center gap-2 text-[0.68rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf] m-0 mb-4">
               <svg class="w-[0.85rem] h-[0.85rem] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
@@ -199,7 +199,7 @@
           </div>
 
           <!-- Detail panel -->
-          <div class="relative overflow-hidden rounded-[0.875rem] p-6 border" data-reveal :class="activeChip ? 'bg-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.06)] border-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.18)]' : 'card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)]'">
+          <div class="relative overflow-hidden rounded-xl p-6 border" data-reveal :class="activeChip ? 'bg-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.06)] border-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.18)]' : 'card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)]'">
             <div v-if="activeChip" class="absolute -top-12 -right-12 w-32 h-32 rounded-full pointer-events-none" style="background: rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.08); filter: blur(2.5rem);" aria-hidden="true"></div>
             <div class="relative z-[1]">
               <span class="block text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[var(--accent-blue)] mb-2">Detail View</span>
@@ -225,7 +225,7 @@
           </div>
 
           <!-- Partners -->
-          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-[0.875rem] p-6" data-reveal>
+          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-xl p-6" data-reveal>
             <h4 class="flex items-center gap-2 text-[0.68rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf] m-0 mb-4">
               <svg class="w-[0.85rem] h-[0.85rem] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M15 11l4.9-2.45a2 2 0 000-3.1L14 3a2 2 0 00-1.84 0L9 5M15 11l-6 3M15 11v9l-6-3V8l6 3zM9 5L4.1 7.45a2 2 0 000 3.1L9 13M9 5v3"/>
@@ -236,7 +236,7 @@
               <div
                 v-for="partner in architecture?.partners"
                 :key="partner"
-                class="border rounded-[0.5rem] px-2 py-[0.55rem] text-center text-[0.72rem] font-bold text-sis-muted dark:text-[#a8b3cf] break-words transition-all duration-200"
+                class="border rounded-md px-2 py-[0.55rem] text-center text-[0.72rem] font-bold text-sis-muted dark:text-[#a8b3cf] break-words transition-all duration-200"
                 :class="activePartner === partner
                   ? 'border-[var(--accent-blue)] bg-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.1)] text-[var(--accent-blue)]'
                   : 'border-[rgba(126,165,224,0.16)] bg-[rgba(126,165,224,0.05)] hover:bg-[rgba(126,165,224,0.1)] hover:border-[rgba(126,165,224,0.3)] cursor-default'"

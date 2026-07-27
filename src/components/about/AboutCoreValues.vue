@@ -26,7 +26,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-container">
         <div v-for="(card, i) in cards" :key="card.title"
-             class="reveal reveal-fade-up group relative rounded-2xl p-7 flex flex-col cursor-default transition-all duration-400"
+             class="reveal reveal-fade-up group relative rounded-xl p-7 flex flex-col cursor-default transition-all duration-400"
              :style="{ backdropFilter: 'blur(12px)', transitionDelay: `${i * 0.08}s`, background: card.featured ? 'var(--bg-card-2)' : 'var(--bg-card-1)', border: card.featured ? '1px solid var(--border-glass)' : '1px solid var(--border-glass)' }"
              :class="card.featured ? 'hover:shadow-xl' : 'hover:shadow-lg'">
           <div class="text-[11px] font-bold tracking-[0.15em] uppercase text-sis-muted dark:text-[#4a6080] mb-6">

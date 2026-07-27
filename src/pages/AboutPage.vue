@@ -16,6 +16,7 @@
     <AboutHero />
     <AboutMissionVision />
     <AboutDomains />
+    <TimelineSection />
     <AboutITOT />
     <AboutCoreValues />
   </main>
@@ -27,4 +28,5 @@ import AboutMissionVision from "@/components/about/AboutMissionVision.vue";
 import AboutITOT from "@/components/about/AboutITOT.vue";
 import AboutDomains from "@/components/about/AboutDomains.vue";
 import AboutCoreValues from "@/components/about/AboutCoreValues.vue";
+import TimelineSection from "@/components/TimelineSection.vue";
 </script>
