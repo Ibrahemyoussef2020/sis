@@ -60,6 +60,10 @@
       <path d="m14.7 6.3 3-3a4 4 0 0 1-5 5l-6.4 6.4a2 2 0 1 0 3 3l6.4-6.4a4 4 0 0 1 5-5l-3 3" />
       <path d="m5 4 3 3" />
     </template>
+    <template v-else-if="name === 'shield'">
+      <path d="M12 2l9 5v6c0 5.55-4.78 10.49-9 11-4.22-.51-9-5.45-9-11V7l9-5z" />
+      <path d="M9 12l2 2 4-4" />
+    </template>
     <path v-else d="M12 20V10M18 20V4M6 20v-4" />
   </svg>
 </template>

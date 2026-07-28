@@ -24,7 +24,7 @@
       </div>
 
       <div
-        class="clients-marquee w-full min-w-0 overflow-hidden rounded-xl border border-[rgba(126,165,224,0.14)] bg-[rgba(126,165,224,0.06)] px-6 py-2 max-md:px-4 max-[480px]:px-3"
+        class="clients-marquee relative w-full min-w-0 overflow-hidden rounded-xl border border-[rgba(126,165,224,0.14)] bg-[rgba(126,165,224,0.06)] px-6 py-2 max-md:px-4 max-[480px]:px-3"
         data-reveal
       >
         <Swiper
@@ -46,20 +46,29 @@
                 class="h-auto rounded-xl w-48 max-md:w-36 max-[480px]:w-24"
                 style="filter: brightness(0.85)"
                 loading="lazy"
+                @load="carouselReady = true"
               />
               <span class="whitespace-nowrap text-center font-sans text-sm font-medium leading-tight text-sis-muted dark:text-dark-text-muted max-[480px]:text-xs">{{ client.name }}</span>
             </div>
           </SwiperSlide>
         </Swiper>
+        <div
+          v-show="!carouselReady"
+          class="absolute inset-0 z-10 flex items-center gap-12 bg-[rgba(126,165,224,0.06)] px-6 py-2 max-md:px-4 max-[480px]:px-3"
+        >
+          <Skeleton v-for="i in 5" :key="i" class="h-20 w-48 rounded-xl flex-shrink-0 max-md:w-36 max-[480px]:w-24" />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
+import Skeleton from '@/components/Skeleton.vue'
 import delta from "@/images/ourClints/delta.jpg";
 import emitsal from "@/images/ourClints/emitsal.jpg";
 import energeya from "@/images/ourClints/energeya.jpg";
@@ -85,4 +94,6 @@ const clients = [
   { name: "Tabreed", src: tabreed },
   { name: "Uniha", src: uniha },
 ];
+
+const carouselReady = ref(false)
 </script>

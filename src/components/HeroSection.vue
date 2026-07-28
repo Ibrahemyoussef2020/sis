@@ -134,7 +134,9 @@
               alt=""
               class="h-full w-full object-cover"
               style="filter: saturate(0.9) brightness(0.66)"
+              @load="factoryLoaded = true"
             />
+            <Skeleton v-show="!factoryLoaded" class="absolute inset-0 h-full w-full" />
           </div>
           <!-- Veil overlay -->
           <div
@@ -571,16 +573,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useSiteStore } from "@/stores/useSiteStore";
 import { useRouter } from "vue-router";
 import factory from "@/images/factory.webp";
+import Skeleton from "@/components/Skeleton.vue";
 
 const siteStore = useSiteStore();
 const router = useRouter();
 const { hero } = storeToRefs(siteStore);
 
 const factoryImg = factory;
+const factoryLoaded = ref(false);
 </script>
 

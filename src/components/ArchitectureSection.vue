@@ -176,74 +176,25 @@
         </div>
         <!-- ===================== END DIAGRAM CARD ===================== -->
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Protocols card -->
-          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-xl p-6" data-reveal>
-            <h4 class="flex items-center gap-2 text-[0.68rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf] m-0 mb-4">
-              <svg class="w-[0.85rem] h-[0.85rem] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
-              </svg>
-              Protocols &amp; Components
-            </h4>
-            <div class="flex flex-wrap gap-[0.4rem]">
-              <button
-                v-for="p in architecture?.protocols"
-                :key="p"
-                class="px-3 py-[0.35rem] rounded-full text-[0.72rem] font-medium cursor-pointer border transition-all duration-200"
-                :class="activeChip === p
-                  ? 'bg-[var(--accent-blue)] text-[#04121f] dark:text-[#04121f] border-[var(--accent-blue)] shadow-[0_2px_10px_rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.35)]'
-                  : 'border-[rgba(126,165,224,0.18)] bg-[rgba(126,165,224,0.06)] text-sis-muted dark:text-[#a8b3cf] hover:bg-[rgba(126,165,224,0.12)] hover:border-[rgba(126,165,224,0.3)]'"
-                @click="activeChip = p"
-              >{{ p }}</button>
-            </div>
+        <!-- Protocol strip -->
+        <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-xl p-5 flex items-center gap-6 flex-wrap" data-reveal>
+          <span class="text-[0.72rem] font-semibold tracking-[0.28em] uppercase text-[var(--accent-blue)] shrink-0">Industrial protocols</span>
+          <div class="flex flex-wrap gap-2">
+            <i v-for="p in architecture?.protocols" :key="p" class="not-italic px-3 py-1 rounded-full text-[0.72rem] font-medium border border-[rgba(126,165,224,0.18)] bg-[rgba(126,165,224,0.06)] text-sis-muted dark:text-[#a8b3cf]">{{ p }}</i>
           </div>
+        </div>
 
-          <!-- Detail panel -->
-          <div class="relative overflow-hidden rounded-xl p-6 border" data-reveal :class="activeChip ? 'bg-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.06)] border-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.18)]' : 'card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)]'">
-            <div v-if="activeChip" class="absolute -top-12 -right-12 w-32 h-32 rounded-full pointer-events-none" style="background: rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.08); filter: blur(2.5rem);" aria-hidden="true"></div>
-            <div class="relative z-[1]">
-              <span class="block text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[var(--accent-blue)] mb-2">Detail View</span>
-              <h4 class="flex items-center gap-2 text-sm font-semibold text-sis-text dark:text-[#dae2fd] m-0 mb-2">
-                {{ activeChip }}
-                <svg class="w-[0.85rem] h-[0.85rem] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--accent-teal);">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </h4>
-              <p class="text-[0.78rem] leading-[1.6] text-sis-muted dark:text-[#a8b3cf] m-0">{{ activeChipDetail }}</p>
-              <hr class="border-0 border-t border-[rgba(126,165,224,0.1)] my-3"/>
-              <div class="flex flex-col gap-1.5">
-                <div class="flex justify-between items-center text-[0.7rem]">
-                  <span class="text-sis-muted dark:text-[#a8b3cf]">Security Level</span>
-                  <span class="font-bold text-[var(--accent-blue)]">Highest</span>
-                </div>
-                <div class="flex justify-between items-center text-[0.7rem]">
-                  <span class="text-sis-muted dark:text-[#a8b3cf]">Latency</span>
-                  <span class="font-bold text-[var(--accent-blue)]">&lt; 10ms</span>
-                </div>
-              </div>
-            </div>
+        <!-- Security foundation -->
+        <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-xl p-6 flex items-start gap-5" data-reveal>
+          <div class="w-12 h-12 rounded-xl bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] flex items-center justify-center shrink-0 mt-0.5">
+            <UiIcon name="shield" :size="25" />
           </div>
-
-          <!-- Partners -->
-          <div class="card-glass card-glass-border dark:border-[rgba(126,165,224,0.14)] rounded-xl p-6" data-reveal>
-            <h4 class="flex items-center gap-2 text-[0.68rem] font-bold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf] m-0 mb-4">
-              <svg class="w-[0.85rem] h-[0.85rem] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M15 11l4.9-2.45a2 2 0 000-3.1L14 3a2 2 0 00-1.84 0L9 5M15 11l-6 3M15 11v9l-6-3V8l6 3zM9 5L4.1 7.45a2 2 0 000 3.1L9 13M9 5v3"/>
-              </svg>
-              Architecture Partners
-            </h4>
-            <div class="grid grid-cols-2 gap-2">
-              <div
-                v-for="partner in architecture?.partners"
-                :key="partner"
-                class="border rounded-md px-2 py-[0.55rem] text-center text-[0.72rem] font-bold text-sis-muted dark:text-[#a8b3cf] break-words transition-all duration-200"
-                :class="activePartner === partner
-                  ? 'border-[var(--accent-blue)] bg-[rgba(var(--accent-blue-r),var(--accent-blue-g),var(--accent-blue-b),0.1)] text-[var(--accent-blue)]'
-                  : 'border-[rgba(126,165,224,0.16)] bg-[rgba(126,165,224,0.05)] hover:bg-[rgba(126,165,224,0.1)] hover:border-[rgba(126,165,224,0.3)] cursor-default'"
-                @mouseenter="activePartner = partner"
-                @mouseleave="activePartner = ''"
-              >{{ partner }}</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <small class="text-[0.68rem] font-semibold tracking-[0.1em] uppercase text-sis-muted dark:text-[#a8b3cf]">Designed into every layer</small>
+              <strong class="text-sm font-bold text-sis-text dark:text-[#dae2fd]">Segmentation &middot; Access control &middot; Encryption &middot; Monitoring</strong>
             </div>
+            <p class="mt-2 text-[0.82rem] leading-relaxed text-sis-muted dark:text-[#a8b3cf]">Operational resilience is an architectural requirement, not an afterthought.</p>
           </div>
         </div>
       </div>
@@ -252,19 +203,12 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSiteStore } from '@/stores/useSiteStore'
 import Skeleton from '@/components/Skeleton.vue'
 import increasedNumbersVideo from '@/videos/increased-numbers.mp4'
+import UiIcon from '@/components/UiIcon.vue'
 
 const siteStore = useSiteStore()
 const { architecture, loaded } = storeToRefs(siteStore)
-const activeChip = ref('OPC UA')
-const activePartner = ref('')
-
-const activeChipDetail = computed(() => {
-  if (!architecture.value) return 'Select a protocol to see more detail.'
-  return `Selected: ${activeChip.value}. This protocol facilitates secure, platform-independent information exchange across enterprise levels — from the sensor to the cloud.`
-})
 </script>
